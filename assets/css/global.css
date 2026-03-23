@@ -1,0 +1,266 @@
+/* ============================================================
+   NiO PICTURES — GLOBAL DESIGN SYSTEM
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&family=Cinzel:wght@400;500&display=swap');
+
+/* ── CSS Variables ─────────────────────────────────────────── */
+:root {
+  /* Core palette */
+  --black:        #161412;
+  --surface:      #262320;
+  --surface-2:    #302C29;
+  --gold:         #C5A572;
+  --gold-dark:    #8B6A35;
+  --gold-glow:    rgba(197, 165, 114, 0.12);
+  --violet:       #9B7FD4;
+  --violet-subtle:rgba(155, 127, 212, 0.08);
+  --cream:        #F0E8D8;
+  --muted:        #A89880;
+  --muted-dark:   #6B5F52;
+  --border:       rgba(197, 165, 114, 0.15);
+  --border-light: rgba(197, 165, 114, 0.08);
+
+  /* Typography */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+  --font-accent:  'Cinzel', Georgia, serif;
+
+  /* Spacing */
+  --section-pad:  clamp(5rem, 10vw, 8rem);
+  --container:    1200px;
+  --gutter:       clamp(1.25rem, 5vw, 2.5rem);
+
+  /* Transitions */
+  --ease:         cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out:     cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast:     180ms;
+  --dur-base:     320ms;
+  --dur-slow:     600ms;
+}
+
+/* ── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--black);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol { list-style: none; }
+
+button, input, textarea, select {
+  font: inherit;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+/* ── Container ─────────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ── Typography Scale ──────────────────────────────────────── */
+.display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+
+.display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 300;
+  line-height: 1.12;
+}
+
+.display-md {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.eyebrow {
+  font-family: var(--font-accent);
+  font-size: clamp(0.65rem, 1.2vw, 0.75rem);
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.body-lg {
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.body-sm {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ── Gold Accent Line ──────────────────────────────────────── */
+.gold-line {
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+  margin: 1.25rem 0;
+}
+
+.gold-line.center { margin: 1.25rem auto; }
+
+/* ── Buttons ───────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-accent);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.9rem 2rem;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all var(--dur-base) var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity var(--dur-fast) var(--ease);
+}
+
+.btn:hover::before { opacity: 0.06; }
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+}
+
+.btn-primary:hover {
+  background: var(--cream);
+  border-color: var(--cream);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--cream);
+  border-color: rgba(240, 232, 216, 0.35);
+}
+
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.btn-gold-outline {
+  background: transparent;
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+.btn-gold-outline:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
+.btn-arrow::after {
+  content: '→';
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.btn-arrow:hover::after { transform: translateX(4px); }
+
+/* ── Section Layout ────────────────────────────────────────── */
+.section { padding: var(--section-pad) 0; }
+.section-sm { padding: calc(var(--section-pad) * 0.6) 0; }
+
+.section-header {
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.section-header.center { text-align: center; }
+
+/* ── Divider ───────────────────────────────────────────────── */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── LCP / CLS: prevent layout shift on fonts ──────────────── */
+/* font-display handled via Google Fonts &display=swap param   */
+
+/* ── Aspect ratio containers prevent CLS ──────────────────── */
+.hero {
+  /* Reserve full viewport height immediately — prevents CLS   */
+  contain: layout style;
+}
+
+/* ── Image loading skeleton prevents CLS ──────────────────── */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  /* Reserve space before load to eliminate CLS               */
+  background-color: var(--surface);
+}
+
+img[loading="lazy"] {
+  transition: opacity var(--dur-slow) var(--ease);
+}
+
+/* ── Selection ─────────────────────────────────────────────── */
+::selection {
+  background: var(--gold);
+  color: var(--black);
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 3px; }
