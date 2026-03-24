@@ -112,6 +112,8 @@
   if (bookForm) {
     bookForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      // Honeypot check
+      if (bookForm.querySelector('#website') && bookForm.querySelector('#website').value) return;
       window.location.href = 'https://niopictures.pixieset.com/booking/';
     });
   }
@@ -121,6 +123,8 @@
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      // Honeypot check — bots fill hidden field, humans don't
+      if (contactForm.querySelector('#website') && contactForm.querySelector('#website').value) return;
       const btn = contactForm.querySelector('[type="submit"]');
       const original = btn.innerHTML;
       btn.innerHTML = 'Message Sent ✓';
