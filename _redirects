@@ -1,4 +1,2 @@
 # NiO Pictures — Cloudflare Pages Redirects
-
-# 404 custom page
-/*    /404.html    404
+# Note: 404.html is served automatically by Cloudflare Pages — no rule needed
