@@ -1,8 +1,4 @@
 # NiO Pictures — Cloudflare Pages Redirects
 
-# Clean URL rewrites (optional — if you move to extensionless URLs)
-# /events         /event-photography-katy-tx.html    200
-# /family         /family-photography-katy-tx.html   200
-
-# 404 fallback
-/*              /index.html     404
+# 404 custom page
+/*    /404.html    404

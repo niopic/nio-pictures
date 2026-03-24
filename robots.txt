@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nio-pictures.com/sitemap.xml
+Sitemap: https://niopictures.com/sitemap.xml
