@@ -107,14 +107,71 @@
     });
   }
 
+  /* ── Formspree submission helper ───────────────────────────── */
+  const FORMSPREE = 'https://formspree.io/f/xjgpbyeb';
+
+  async function submitToFormspree(form, btn, successMsg, onSuccess) {
+    // Honeypot check — bots fill hidden field, humans don't
+    const trap = form.querySelector('#website');
+    if (trap && trap.value) return;
+
+    // Basic client-side validation
+    const required = form.querySelectorAll('[required]');
+    let valid = true;
+    required.forEach(field => {
+      if (!field.value.trim()) {
+        field.style.borderColor = 'var(--gold)';
+        valid = false;
+      } else {
+        field.style.borderColor = '';
+      }
+    });
+    if (!valid) return;
+
+    const original = btn.innerHTML;
+    btn.innerHTML = 'Sending…';
+    btn.disabled = true;
+
+    try {
+      const data = new FormData(form);
+      const res = await fetch(FORMSPREE, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        btn.innerHTML = successMsg;
+        form.reset();
+        if (onSuccess) setTimeout(onSuccess, 1200);
+        setTimeout(() => {
+          btn.innerHTML = original;
+          btn.disabled = false;
+        }, 4000);
+      } else {
+        btn.innerHTML = 'Something went wrong — try again';
+        btn.disabled = false;
+        setTimeout(() => { btn.innerHTML = original; }, 3000);
+      }
+    } catch (err) {
+      btn.innerHTML = 'Network error — please try again';
+      btn.disabled = false;
+      setTimeout(() => { btn.innerHTML = original; }, 3000);
+    }
+  }
+
   /* ── Book form submission ────────────────────────────────── */
   const bookForm = document.querySelector('#book-form');
   if (bookForm) {
     bookForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      // Honeypot check
-      if (bookForm.querySelector('#website') && bookForm.querySelector('#website').value) return;
-      window.location.href = 'https://niopictures.pixieset.com/booking/';
+      const btn = bookForm.querySelector('[type="submit"]');
+      submitToFormspree(
+        bookForm,
+        btn,
+        'Request Sent ✓',
+        () => { window.open('https://niopictures.pixieset.com/booking/', '_blank'); }
+      );
     });
   }
 
@@ -123,17 +180,8 @@
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      // Honeypot check — bots fill hidden field, humans don't
-      if (contactForm.querySelector('#website') && contactForm.querySelector('#website').value) return;
       const btn = contactForm.querySelector('[type="submit"]');
-      const original = btn.innerHTML;
-      btn.innerHTML = 'Message Sent ✓';
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.innerHTML = original;
-        btn.disabled = false;
-        contactForm.reset();
-      }, 3500);
+      submitToFormspree(contactForm, btn, 'Message Sent ✓');
     });
   }
 
