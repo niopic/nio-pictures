@@ -1,0 +1,127 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const title = "Richmond Photographer | Events \u0026 Family Portraits | NiO Pictures";
+const description = "NiO Pictures serves Richmond, TX — professional event photographer and family portrait photographer. Cinematic coverage for events, celebrations, and heirloom portraits. Based in Katy TX.";
+const canonical = "https://niopictures.com/richmond-tx-photographer.html";
+const ogImage = "https://niopictures.com/assets/images/og-home.webp";
+const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@context\": \"https://schema.org\",\n    \"@type\": [\"LocalBusiness\", \"ProfessionalService\"],\n    \"@id\": \"https://niopictures.com/#business\",\n    \"name\": \"NiO Pictures\",\n    \"description\": \"Professional event and family photographer serving Richmond, Texas and the greater Houston area. Based in Katy TX.\",\n    \"url\": \"https://niopictures.com\",\n    \"telephone\": \"+12814093585\",\n    \"email\": \"niopictureskaty@gmail.com\",\n    \"address\": {\n      \"@type\": \"PostalAddress\",\n      \"addressLocality\": \"Katy\",\n      \"addressRegion\": \"TX\",\n      \"postalCode\": \"77449\",\n      \"addressCountry\": \"US\"\n    },\n    \"areaServed\": [\n      {\"@type\": \"City\", \"name\": \"Katy\"},\n      {\"@type\": \"City\", \"name\": \"Cypress\"},\n      {\"@type\": \"City\", \"name\": \"Richmond\"},\n      {\"@type\": \"City\", \"name\": \"Houston\"},\n      {\"@type\": \"City\", \"name\": \"Sugar Land\"}\n    ],\n    \"aggregateRating\": {\n      \"@type\": \"AggregateRating\",\n      \"ratingValue\": \"5\",\n      \"reviewCount\": \"7\",\n      \"bestRating\": \"5\"\n    },\n    \"sameAs\": [\n      \"https://www.instagram.com/nio_pictures\",\n      \"https://www.facebook.com/profile.php?id=61580596898855\"\n    ]\n  }\n  \u003c/script\u003e\n\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"BreadcrumbList\",\n    \"itemListElement\": [\n      {\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://niopictures.com/\"},\n      {\"@type\":\"ListItem\",\"position\":2,\"name\":\"Richmond Photographer\",\"item\":\"https://niopictures.com/richmond-tx-photographer.html\"}\n    ]\n  }\n  \u003c/script\u003e";
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage}>
+  <Fragment slot="head" set:html={extraHead} />
+<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top .2s;" onfocus="this.style.top='1rem'" onblur="this.style.top='-40px'">Skip to main content</a>
+
+  <nav class="nav">
+    <a href="/index.html" class="nav-logo">Ni<span>O</span> Pictures</a>
+    <div class="nav-links">
+      <a href="/event-photography-katy-tx.html">Events</a>
+      <a href="/family-photography-katy-tx.html">Family</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/portfolio.html">Portfolio</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">Book Now</a>
+    <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="nav-mobile">
+    <a href="/event-photography-katy-tx.html">Events</a>
+    <a href="/family-photography-katy-tx.html">Family</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/portfolio.html">Portfolio</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" style="color:var(--gold);margin-top:1rem;">Book a Session →</a>
+  </div>
+
+  <div style="padding: calc(var(--section-pad) + 4rem) 0 var(--section-pad); border-bottom: 1px solid var(--border-light);">
+    <div class="container">
+      <div class="reveal">
+        <p class="eyebrow" style="margin-bottom:1rem;">Serving Richmond, Texas</p>
+        <div class="gold-line gold-line-animate"></div>
+        <h1 class="display-xl" style="max-width:700px; margin-bottom:1.25rem;">
+          Richmond<br><em style="font-style:italic; color:var(--gold);">Photographer</em>
+        </h1>
+        <p class="body-lg" style="max-width:580px; margin-bottom:2.5rem;">
+          NiO Pictures is based in Katy, TX and regularly serves Richmond and the surrounding Fort Bend County area. Whether you need professional event coverage or timeless family portraits, Palanivel brings the same cinematic eye and genuine care to every session.
+        </p>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+          <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-arrow">Book a Session</a>
+          <a href="/contact.html" class="btn btn-outline">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header center reveal">
+        <p class="eyebrow">Photography in Richmond TX</p>
+        <div class="gold-line center gold-line-animate"></div>
+        <h2 class="display-md">Services Available in Richmond</h2>
+      </div>
+      <div class="features-grid reveal reveal-delay-1">
+        <div class="feature-card">
+          <div class="feature-icon">◈</div>
+          <h3 class="feature-title">Event Photography</h3>
+          <p class="body-sm">Corporate events, private parties, cultural celebrations, and milestone gatherings in Richmond TX. Candid, cinematic, professionally delivered.</p>
+          <a href="/event-photography-katy-tx.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-accent);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-top:1.25rem;">Event Photography →</a>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">◇</div>
+          <h3 class="feature-title">Family Photography</h3>
+          <p class="body-sm">Heirloom family portraits and lifestyle sessions for Richmond families. Natural, unscripted, and available as wall art, prints, and keepsake albums.</p>
+          <a href="/family-photography-katy-tx.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-accent);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-top:1.25rem;">Family Photography →</a>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">◉</div>
+          <h3 class="feature-title">Weekends & Weeknights</h3>
+          <p class="body-sm">Sessions available on weekends and weeknight evenings throughout Richmond and the greater Houston area — no need to take time off work.</p>
+          <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-accent);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-top:1.25rem;">Check Availability →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--surface); border-top:1px solid var(--border-light); border-bottom:1px solid var(--border-light);">
+    <div class="container" style="max-width:800px;">
+      <div class="section-header center reveal">
+        <p class="eyebrow">Why NiO Pictures</p>
+        <div class="gold-line center gold-line-animate"></div>
+        <h2 class="display-md">A Photographer Who Knows the Area</h2>
+      </div>
+      <p class="body-lg" style="text-align:center; max-width:620px; margin:0 auto 2rem;" class="reveal">
+        NiO Pictures serves Richmond and the surrounding communities as part of a regular schedule across the Houston metro. Palanivel knows the best locations, the right light, and how to make any family or event look their best — whether it's a golden-hour outdoor session or a corporate event in a ballroom.
+      </p>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;" class="reveal">
+        <a href="/katy-tx-photographer.html" class="btn btn-gold-outline btn-arrow">Katy TX (Home Base)</a>
+        <a href="/cypress-tx-photographer.html" class="btn btn-outline">Cypress TX</a>
+        <a href="/portfolio.html" class="btn btn-gold-outline btn-arrow">View Portfolio</a>
+        <a href="/about.html" class="btn btn-outline">About Palanivel</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner reveal">
+    <div class="container">
+      <p class="eyebrow" style="margin-bottom:1.25rem;">Richmond TX Photography</p>
+      <h2 class="display-md" style="margin-bottom:1rem; max-width:520px; margin-left:auto; margin-right:auto;">
+        Book Your Session<br><em style="font-style:italic; color:var(--gold);">in Richmond</em>
+      </h2>
+      <p class="body-lg" style="max-width:420px; margin:0 auto 2.5rem;">Events and family sessions available throughout Richmond, Katy, Houston, and surrounding areas.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-arrow">Book Now</a>
+        <a href="/contact.html" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  
+</BaseLayout>
+
+
+
+
+
+

@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const title = "Page Not Found | NiO Pictures";
+const description = "The page you\u0027re looking for doesn\u0027t exist. Return to NiO Pictures — event and family photographer in Katy, TX.";
+const canonical = "https://niopictures.com/404.html";
+const ogImage = "https://niopictures.com/assets/images/og-home.webp";
+const extraHead = "";
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage}>
+  <Fragment slot="head" set:html={extraHead} />
+<nav class="nav">
+    <a href="/index.html" class="nav-logo">Ni<span>O</span> Pictures</a>
+    <div class="nav-links">
+      <a href="/event-photography-katy-tx.html">Events</a>
+      <a href="/family-photography-katy-tx.html">Family</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/portfolio.html">Portfolio</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">Book Now</a>
+    <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="nav-mobile">
+    <a href="/event-photography-katy-tx.html">Events</a>
+    <a href="/family-photography-katy-tx.html">Family</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/portfolio.html">Portfolio</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" style="color:var(--gold);margin-top:1rem;">Book a Session →</a>
+  </div>
+
+  <main id="main-content">
+  <section style="min-height:80svh; display:flex; align-items:center; justify-content:center; text-align:center; padding: var(--section-pad) var(--gutter);">
+    <div>
+      <p style="font-family:var(--font-display);font-size:clamp(5rem,20vw,12rem);font-weight:300;color:var(--surface-2);line-height:1;margin-bottom:0;user-select:none;">404</p>
+      <p class="eyebrow" style="margin-bottom:1.25rem; margin-top:-1rem;">Page Not Found</p>
+      <div class="gold-line" style="margin:0 auto 1.5rem;"></div>
+      <h1 class="display-md" style="max-width:480px; margin:0 auto 1.25rem;">
+        This Frame is Empty
+      </h1>
+      <p class="body-lg" style="max-width:400px; margin:0 auto 2.5rem;">
+        The page you're looking for doesn't exist — but there are plenty of great images waiting for you.
+      </p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="/index.html" class="btn btn-primary btn-arrow">Back to Home</a>
+        <a href="/portfolio.html" class="btn btn-outline">View Portfolio</a>
+        <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-gold-outline">Book a Session</a>
+      </div>
+
+      <div style="margin-top:4rem; display:flex; gap:2rem; justify-content:center; flex-wrap:wrap;">
+        <a href="/event-photography-katy-tx.html" style="font-family:var(--font-accent);font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);transition:color .2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">Event Photography</a>
+        <a href="/family-photography-katy-tx.html" style="font-family:var(--font-accent);font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);transition:color .2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">Family Photography</a>
+        <a href="/blog.html" style="font-family:var(--font-accent);font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);transition:color .2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">Blog</a>
+        <a href="/contact.html" style="font-family:var(--font-accent);font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);transition:color .2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">Contact</a>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  
+</BaseLayout>

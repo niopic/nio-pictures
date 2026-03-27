@@ -1,0 +1,335 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+import aboutPortrait from "../assets/images/about-portrait.webp";
+import aboutMain from "../assets/images/about-main.webp";
+import eventsPanel from "../assets/images/events-panel.webp";
+import familyPanel from "../assets/images/family-panel.webp";
+import eventsHero from "../assets/images/events-hero.webp";
+import familyHero from "../assets/images/family-hero.webp";
+---
+
+<BaseLayout
+  title="NiO Pictures | Event & Family Photographer in Katy TX | Houston Area"
+  description="NiO Pictures - professional event and family photographer in Katy TX. Corporate events, Indian celebrations, heirloom family portraits. Serving Katy first, then Cypress, Houston, Sugar Land and Richmond. Book online."
+  canonical="https://niopictures.com/"
+  ogImage="https://niopictures.com/assets/images/og-home.webp"
+>
+  <fragment slot="head">
+    <link rel="preload" as="image" href="/assets/images/hero-home.webp" fetchpriority="high" />
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "ImageObject",
+        "name": "NiO Pictures home hero image",
+        "description": "Cinematic event and family photography in Katy, Texas by NiO Pictures.",
+        "contentUrl": "https://niopictures.com/assets/images/hero-home.webp",
+        "url": "https://niopictures.com/assets/images/hero-home.webp",
+        "creditText": "NiO Pictures",
+        "creator": {
+          "@type": "Person",
+          "name": "Palanivel"
+        },
+        "license": "https://niopictures.com/terms.html",
+        "acquireLicensePage": "https://niopictures.com/contact.html"
+      }
+    </script>
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": ["LocalBusiness", "ProfessionalService"],
+        "@id": "https://niopictures.com/#business",
+        "name": "NiO Pictures",
+        "description": "Cinematic event and family photography in Katy, Texas. Corporate events, Indian cultural celebrations, heirloom family portraits. Serving Katy first, then Cypress, Houston, Sugar Land, and Richmond TX.",
+        "url": "https://niopictures.com",
+        "telephone": "+12814093585",
+        "email": "niopictureskaty@gmail.com",
+        "founder": {"@type": "Person", "name": "Palanivel"},
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Katy",
+          "addressRegion": "TX",
+          "postalCode": "77449",
+          "addressCountry": "US"
+        },
+        "geo": {"@type": "GeoCoordinates", "latitude": "29.7858", "longitude": "-95.8245"},
+        "areaServed": [
+          {"@type": "City", "name": "Katy", "sameAs": "https://en.wikipedia.org/wiki/Katy,_Texas"},
+          {"@type": "City", "name": "Cypress"},
+          {"@type": "City", "name": "Houston", "sameAs": "https://en.wikipedia.org/wiki/Houston"},
+          {"@type": "City", "name": "Sugar Land", "sameAs": "https://en.wikipedia.org/wiki/Sugar_Land,_Texas"},
+          {"@type": "City", "name": "Richmond", "sameAs": "https://en.wikipedia.org/wiki/Richmond,_Texas"}
+        ],
+        "priceRange": "$$",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5",
+          "reviewCount": "7",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "openingHoursSpecification": [
+          {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday", "Sunday"], "opens": "09:00", "closes": "19:00"},
+          {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "18:00", "closes": "21:00"}
+        ],
+        "image": "https://niopictures.com/assets/images/og-home.webp",
+        "sameAs": [
+          "https://www.instagram.com/nio_pictures",
+          "https://www.facebook.com/profile.php?id=61580596898855"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Photography Services",
+          "itemListElement": [
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Event Photography", "url": "https://niopictures.com/event-photography-katy-tx.html"}},
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Family Photography", "url": "https://niopictures.com/family-photography-katy-tx.html"}}
+          ]
+        }
+      }
+    </script>
+  </fragment>
+
+  <a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top .2s;" onfocus="this.style.top='1rem'" onblur="this.style.top='-40px'">Skip to main content</a>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-logo" aria-label="NiO Pictures Home">
+      Ni<span>O</span> Pictures
+    </a>
+
+    <div class="nav-links">
+      <a href="/event-photography-katy-tx.html">Events</a>
+      <a href="/family-photography-katy-tx.html">Family</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/portfolio.html">Portfolio</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+
+    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">Book Now</a>
+
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav-mobile" role="dialog" aria-label="Mobile navigation">
+    <a href="/event-photography-katy-tx.html">Events</a>
+    <a href="/family-photography-katy-tx.html">Family</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/portfolio.html">Portfolio</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" style="color:var(--gold);margin-top:1rem;">Book a Session</a>
+  </div>
+
+  <main id="main-content">
+    <section class="hero" aria-label="Hero">
+      <div class="hero-bg" style="background-image: url('/assets/images/hero-home.webp'); background-color: #1e1a17;" data-fetchpriority="high"></div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <p class="eyebrow">Katy, Texas &nbsp;·&nbsp; Cypress &nbsp;·&nbsp; Houston &nbsp;·&nbsp; Sugar Land &nbsp;·&nbsp; Richmond</p>
+        <h1 class="hero-title">
+          Cinematic <em>Event</em> &amp;<br />Family Photography
+        </h1>
+        <p class="hero-subtitle">
+          Corporate events, private celebrations, and timeless family portraits - crafted with intention, told with soul.
+        </p>
+        <p class="body-sm" style="max-width: 620px; margin: 0.75rem auto 0; color: var(--cream);">
+          NiO Pictures is a Katy, TX photographer focused on event photography and family photography across Katy first, then Cypress, Houston, Sugar Land, and Richmond.
+        </p>
+        <div class="hero-actions">
+          <a href="/katy-tx-photographer.html" class="btn btn-primary btn-arrow">Katy Photography Hub</a>
+          <a href="/cypress-tx-photographer.html" class="btn btn-gold-outline btn-arrow">Cypress Sessions</a>
+          <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Book a Session</a>
+        </div>
+      </div>
+
+      <div class="hero-scroll" role="button" aria-label="Scroll down" tabindex="0">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <div style="background: var(--surface); border-bottom: 1px solid var(--border-light); padding: 0.9rem 0; text-align: center;">
+      <div class="container" style="display:flex; align-items:center; justify-content:center; gap: 2rem; flex-wrap: wrap;">
+        <span class="location-badge"><span>✦</span> Katy, TX</span>
+        <span class="location-badge"><span>✦</span> Cypress</span>
+        <span class="location-badge"><span>✦</span> Houston</span>
+        <span class="location-badge"><span>✦</span> Sugar Land</span>
+        <span class="location-badge"><span>✦</span> Richmond, TX</span>
+      </div>
+      <address style="display:none;" itemscope itemtype="https://schema.org/LocalBusiness">
+        <span itemprop="name">NiO Pictures</span>
+        <span itemprop="addressLocality">Katy</span>,
+        <span itemprop="addressRegion">TX</span>
+        <a href="tel:+12814093585" itemprop="telephone">281-409-3585</a>
+        <a href="mailto:niopictureskaty@gmail.com" itemprop="email">niopictureskaty@gmail.com</a>
+      </address>
+    </div>
+
+    <div class="service-split" role="region" aria-label="Photography services">
+      <a href="/event-photography-katy-tx.html" class="service-panel" aria-label="Event Photography">
+        <div class="service-panel-bg" style="background-image: url('/assets/images/events-panel.webp'); background-color: #1a1816;"></div>
+        <div class="service-panel-overlay"></div>
+        <div class="service-panel-content">
+          <p class="eyebrow">Corporate · Private · Candid</p>
+          <h2 class="service-panel-title">Event<br />Photography</h2>
+          <p class="service-panel-desc">From boardroom milestones to birthday celebrations - every moment captured with cinematic precision.</p>
+          <span class="btn btn-gold-outline btn-arrow" style="pointer-events:none;">Explore Events</span>
+        </div>
+      </a>
+
+      <a href="/family-photography-katy-tx.html" class="service-panel" aria-label="Family & Heirloom Photography">
+        <div class="service-panel-bg" style="background-image: url('/assets/images/family-panel.webp'); background-color: #1c1915;"></div>
+        <div class="service-panel-overlay"></div>
+        <div class="service-panel-content">
+          <p class="eyebrow">Portraits · Lifestyle · Legacy</p>
+          <h2 class="service-panel-title">Family<br />Heirloom</h2>
+          <p class="service-panel-desc">Images you'll pass down - emotional, authentic, and crafted to last generations.</p>
+          <span class="btn btn-gold-outline btn-arrow" style="pointer-events:none;">Explore Family</span>
+        </div>
+      </a>
+    </div>
+
+    <section class="section" aria-label="About NiO Pictures">
+      <div class="container">
+        <div class="about-split">
+          <div class="about-image-wrap reveal">
+            <Image src={aboutPortrait} alt="NiO Pictures photographer in Katy, TX" loading="lazy" width={560} height={700} style="background: var(--surface);" />
+          </div>
+
+          <div class="reveal reveal-delay-2">
+            <p class="eyebrow">The Photographer</p>
+            <div class="gold-line gold-line-animate"></div>
+            <h2 class="display-md" style="margin-bottom: 1.5rem;">Stories Worth<br /><em style="font-style:italic; color:var(--gold);">Keeping Forever</em></h2>
+            <p class="body-lg" style="margin-bottom: 1.25rem;">
+              Palanivel is an event and portrait photographer based in Katy, Texas - and a software engineer who found his truest calling behind a camera.
+            </p>
+            <p class="body-lg" style="margin-bottom: 2.5rem;">
+              As a family man with two children, he understands what's at stake when you ask someone to photograph your people and your moments. No stiff poses, no forced smiles - just genuine, unscripted images that feel like memory rather than record.
+            </p>
+
+            <div class="stats-row" style="margin-bottom: 2.5rem;">
+              <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Sessions Delivered</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">Since 2017</div>
+                <div class="stat-label">Experience</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Cities Served</div>
+              </div>
+            </div>
+
+            <a href="/about.html" class="btn btn-gold-outline btn-arrow">Our Story</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background: var(--surface); border-top: 1px solid var(--border-light);" aria-label="Featured photography work">
+      <div class="container">
+        <div class="section-header center reveal">
+          <p class="eyebrow">Selected Work</p>
+          <div class="gold-line center gold-line-animate"></div>
+          <h2 class="display-md">A Glimpse of the Gallery</h2>
+        </div>
+
+        <div class="featured-grid reveal reveal-delay-1">
+          <div class="grid-item">
+            <Image src={eventsPanel} alt="Corporate event photography in Houston TX" loading="lazy" width={800} height={600} style="background:var(--surface-2)" />
+          </div>
+          <div class="grid-item">
+            <Image src={familyPanel} alt="Family portrait photography in Katy TX" loading="lazy" width={400} height={533} style="background:var(--surface-2)" />
+          </div>
+          <div class="grid-item">
+            <Image src={eventsHero} alt="Private event photography in Sugar Land TX" loading="lazy" width={400} height={533} style="background:var(--surface-2)" />
+          </div>
+          <div class="grid-item">
+            <Image src={aboutMain} alt="Heirloom family photography session in Katy TX" loading="lazy" width={400} height={533} style="background:var(--surface-2)" />
+          </div>
+          <div class="grid-item">
+            <Image src={familyHero} alt="Lifestyle family session in Houston TX" loading="lazy" width={400} height={533} style="background:var(--surface-2)" />
+          </div>
+          <div class="grid-item">
+            <Image src={aboutPortrait} alt="Candid portrait storytelling in Richmond TX" loading="lazy" width={800} height={600} style="background:var(--surface-2)" />
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-top: 3rem;" class="reveal">
+          <a href="https://niopictures.pixieset.com/" target="_blank" rel="noopener noreferrer" class="btn btn-gold-outline btn-arrow">View Full Gallery</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Client testimonials">
+      <div class="container">
+        <div class="section-header center reveal">
+          <p class="eyebrow">What Clients Say</p>
+          <div class="gold-line center gold-line-animate"></div>
+          <h2 class="display-md">Stories from Our Clients</h2>
+        </div>
+
+        <div class="testimonials-track">
+          <article class="testimonial-card reveal reveal-delay-1">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"NiO Pictures captured our corporate gala beautifully. Every image tells the story of the evening - professional, warm, and absolutely stunning."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">MR</div>
+              <div>
+                <div class="testimonial-name">Michelle R.</div>
+                <div class="testimonial-role">Marketing Director, Houston</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card reveal reveal-delay-2">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Our family portraits are breathtaking. The photographer made us feel completely at ease - the images look like something out of a magazine."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">JL</div>
+              <div>
+                <div class="testimonial-name">Jennifer L.</div>
+                <div class="testimonial-role">Family Session, Katy TX</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card reveal reveal-delay-3">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"We hired NiO for our anniversary party in Sugar Land. The candid shots were incredible - felt like having a friend with a camera who really knew what they were doing."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">DT</div>
+              <div>
+                <div class="testimonial-name">David T.</div>
+                <div class="testimonial-role">Private Event, Sugar Land</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-banner reveal" aria-label="Book a session">
+      <div class="container">
+        <p class="eyebrow" style="margin-bottom: 1.25rem;">Ready to Begin?</p>
+        <h2 class="display-md" style="margin-bottom: 1rem; max-width: 560px; margin-left: auto; margin-right: auto;">
+          Let's Create Something<br /><em style="font-style:italic; color:var(--gold);">Unforgettable</em>
+        </h2>
+        <p class="body-lg" style="max-width: 420px; margin: 0 auto 2.5rem;">
+          Sessions available in Katy, Houston, Sugar Land, and Richmond, TX.
+        </p>
+        <div style="display:flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-arrow">Book a Session</a>
+          <a href="/contact.html" class="btn btn-outline">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+

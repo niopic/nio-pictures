@@ -1,0 +1,179 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import aboutMain from "../assets/images/about-main.webp";
+const title = "Portfolio | Event \u0026 Family Photography Gallery | NiO Pictures Katy TX";
+const description = "Browse NiO Pictures\u0027 photography portfolio. Cinematic events and heirloom family portraits from Katy, Houston, Sugar Land \u0026 Richmond TX.";
+const canonical = "https://niopictures.com/portfolio.html";
+const ogImage = "https://niopictures.com/assets/images/og-home.webp";
+const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"BreadcrumbList\",\n    \"itemListElement\": [\n        {\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://niopictures.com/\"},\n        {\"@type\":\"ListItem\",\"position\":2,\"name\":\"Portfolio\",\"item\":\"https://niopictures.com/portfolio.html\"}\n    ]\n  }\n  \u003c/script\u003e";
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage}>
+  <Fragment slot="head" set:html={extraHead} />
+<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top .2s;" onfocus="this.style.top='1rem'" onblur="this.style.top='-40px'">Skip to main content</a>
+
+  <nav class="nav">
+    <a href="/" class="nav-logo">Ni<span>O</span> Pictures</a>
+    <div class="nav-links">
+      <a href="/event-photography-katy-tx.html">Events</a>
+      <a href="/family-photography-katy-tx.html">Family</a>
+      <a href="/portfolio.html" class="active">Portfolio</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">Book Now</a>
+    <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="nav-mobile">
+    <a href="/event-photography-katy-tx.html">Events</a>
+    <a href="/family-photography-katy-tx.html">Family</a>
+    <a href="/blog.html">Blog</a>
+      <a href="/portfolio.html">Portfolio</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" style="color:var(--gold);margin-top:1rem;">Book a Session →</a>
+  </div>
+
+  <!-- ── Header ─────────────────────────────────────────────── -->
+  <div style="padding: calc(var(--section-pad) + 4rem) 0 var(--section-pad);">
+    <div class="container">
+      <div class="reveal">
+        <p class="eyebrow" style="margin-bottom: 1rem;">The Work</p>
+        <div class="gold-line gold-line-animate"></div>
+        <h1 class="display-xl" style="max-width: 600px; margin-bottom: 1.5rem;">
+          Portfolio
+        </h1>
+        <p class="body-lg" style="max-width: 520px;">
+          A curated selection of event and family photography from Katy, Houston, Sugar Land, and Richmond, TX.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Portfolio Grid ─────────────────────────────────────── -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+
+      <!-- Filter -->
+      <div class="filter-tabs reveal">
+        <button class="filter-tab active" data-filter="all">All Work</button>
+        <button class="filter-tab" data-filter="events">Events</button>
+        <button class="filter-tab" data-filter="family">Family</button>
+      </div>
+
+      <!-- Grid -->
+      <div class="portfolio-grid">
+
+        <!-- Events -->
+        <div class="portfolio-item reveal" data-category="events">
+          <Image src={aboutMain} alt="Corporate gala event photography Houston TX" loading="lazy" class="portfolio-item-img" width={600} height={450} />
+          <div class="portfolio-item-info">
+            <p class="portfolio-item-category">Corporate Event</p>
+            <p class="portfolio-item-title">Annual Corporate Gala</p>
+            <a href="https://niopictures.pixieset.com/" target="_blank" rel="noopener noreferrer" class="btn btn-gold-outline" style="padding: 0.6rem 1.25rem; font-size: 0.6rem;">View Full Gallery</a>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal reveal-delay-1" data-category="family">
+          <Image src={aboutMain} alt="Heirloom family portrait session Katy TX" loading="lazy" class="portfolio-item-img" width={600} height={450} />
+          <div class="portfolio-item-info">
+            <p class="portfolio-item-category">Family Portraits</p>
+            <p class="portfolio-item-title">The Martinez Family</p>
+            <a href="https://niopictures.pixieset.com/" target="_blank" rel="noopener noreferrer" class="btn btn-gold-outline" style="padding: 0.6rem 1.25rem; font-size: 0.6rem;">View Full Gallery</a>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal reveal-delay-2" data-category="events">
+          <Image src={aboutMain} alt="Birthday celebration photography Sugar Land" loading="lazy" class="portfolio-item-img" width={600} height={450} />
+          <div class="portfolio-item-info">
+            <p class="portfolio-item-category">Private Event</p>
+            <p class="portfolio-item-title">50th Birthday Celebration</p>
+            <a href="https://niopictures.pixieset.com/" target="_blank" rel="noopener noreferrer" class="btn btn-gold-outline" style="padding: 0.6rem 1.25rem; font-size: 0.6rem;">View Full Gallery</a>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal" data-category="family">
+          <Image src={aboutMain} alt="Lifestyle family photography Houston TX" loading="lazy" class="portfolio-item-img" width={600} height={450} />
+          <div class="portfolio-item-info">
+            <p class="portfolio-item-category">Lifestyle Session</p>
+            <p class="portfolio-item-title">The Johnson Family</p>
+            <a href="https://niopictures.pixieset.com/" target="_blank" rel="noopener noreferrer" class="btn btn-gold-outline" style="padding: 0.6rem 1.25rem; font-size: 0.6rem;">View Full Gallery</a>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal reveal-delay-1" data-category="events">
+          <Image src={aboutMain} alt="Product launch event photography Houston" loading="lazy" class="portfolio-item-img" width={600} height={450} />
+          <div class="portfolio-item-info">
+            <p class="portfolio-item-category">Corporate Event</p>
+            <p class="portfolio-item-title">Product Launch</p>
+            <a href="https://niopictures.pixieset.com/" target="_blank" rel="noopener noreferrer" class="btn btn-gold-outline" style="padding: 0.6rem 1.25rem; font-size: 0.6rem;">View Full Gallery</a>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal reveal-delay-2" data-category="family">
+          <Image src={aboutMain} alt="Anniversary photography Katy TX" loading="lazy" class="portfolio-item-img" width={600} height={450} />
+          <div class="portfolio-item-info">
+            <p class="portfolio-item-category">Milestone</p>
+            <p class="portfolio-item-title">25th Anniversary Session</p>
+            <a href="https://niopictures.pixieset.com/" target="_blank" rel="noopener noreferrer" class="btn btn-gold-outline" style="padding: 0.6rem 1.25rem; font-size: 0.6rem;">View Full Gallery</a>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal" data-category="events">
+          <Image src={aboutMain} alt="Housewarming party photography Richmond TX" loading="lazy" class="portfolio-item-img" width={600} height={450} />
+          <div class="portfolio-item-info">
+            <p class="portfolio-item-category">Private Event</p>
+            <p class="portfolio-item-title">Housewarming Party</p>
+            <a href="https://niopictures.pixieset.com/" target="_blank" rel="noopener noreferrer" class="btn btn-gold-outline" style="padding: 0.6rem 1.25rem; font-size: 0.6rem;">View Full Gallery</a>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal reveal-delay-1" data-category="family">
+          <Image src={aboutMain} alt="Outdoor family session Sugar Land TX" loading="lazy" class="portfolio-item-img" width={600} height={450} />
+          <div class="portfolio-item-info">
+            <p class="portfolio-item-category">Outdoor Session</p>
+            <p class="portfolio-item-title">The Williams Family</p>
+            <a href="https://niopictures.pixieset.com/" target="_blank" rel="noopener noreferrer" class="btn btn-gold-outline" style="padding: 0.6rem 1.25rem; font-size: 0.6rem;">View Full Gallery</a>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal reveal-delay-2" data-category="events">
+          <Image src={aboutMain} alt="Networking event photography Katy TX" loading="lazy" class="portfolio-item-img" width={600} height={450} />
+          <div class="portfolio-item-info">
+            <p class="portfolio-item-category">Corporate Event</p>
+            <p class="portfolio-item-title">Executive Networking Event</p>
+            <a href="https://niopictures.pixieset.com/" target="_blank" rel="noopener noreferrer" class="btn btn-gold-outline" style="padding: 0.6rem 1.25rem; font-size: 0.6rem;">View Full Gallery</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- View full gallery CTA -->
+      <div style="text-align:center; margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--border-light);" class="reveal">
+        <p class="eyebrow" style="margin-bottom: 1rem;">See More</p>
+        <h2 class="display-md" style="margin-bottom: 1.25rem;">Explore the Full Gallery</h2>
+        <p class="body-lg" style="max-width:400px; margin: 0 auto 2rem;">All client galleries are hosted on our secure Pixieset gallery.</p>
+        <a href="https://niopictures.pixieset.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-arrow">Open Full Gallery</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ────────────────────────────────────────────────── -->
+  <section class="cta-banner reveal">
+    <div class="container">
+      <p class="eyebrow" style="margin-bottom:1.25rem;">Ready?</p>
+      <h2 class="display-md" style="margin-bottom:1rem; max-width:480px; margin-left:auto; margin-right:auto;">
+        Your Images Could Be<br><em style="font-style:italic; color:var(--gold);">Next in the Gallery</em>
+      </h2>
+      <p class="body-lg" style="max-width:380px; margin:0 auto 2.5rem;">Book a session in Katy, Houston, Sugar Land, or Richmond, TX.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-arrow">Book a Session</a>
+        <a href="/contact.html" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  
+</BaseLayout>

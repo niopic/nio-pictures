@@ -1,0 +1,167 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const title = "Your Family Photography Journey with NiO Pictures | Katy TX";
+const description = "From easy online booking to beautiful keepsakes — a complete walkthrough of what to expect from your family photography experience with NiO Pictures in Katy TX. Albums, wall art, prints, and digital downloads.";
+const canonical = "https://niopictures.com/blog/family-photography-journey.html";
+const ogImage = "https://niopictures.com/assets/images/blog-journey.webp";
+const extraHead = "\u003clink rel=\"preload\" as=\"image\" href=\"/assets/images/blog-journey.webp\" fetchpriority=\"high\"\u003e\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"BlogPosting\",\n    \"headline\": \"Your Family Photography Journey with NiO Pictures\",\n    \"description\": \"From easy online booking to beautiful keepsakes — what to expect from your family portrait session with NiO Pictures in Katy TX. Albums, wall art, prints and digital gallery delivery.\",\n    \"image\": \"https://niopictures.com/assets/images/blog-journey.webp\",\n    \"datePublished\": \"2026-02-11\",\n    \"dateModified\": \"2026-02-11\",\n    \"author\": {\"@type\": \"Person\", \"name\": \"Palanivel\", \"url\": \"https://niopictures.com/about.html\"},\n    \"publisher\": {\"@id\": \"https://niopictures.com/#business\"},\n    \"url\": \"https://niopictures.com/blog/family-photography-journey.html\",\n    \"keywords\": [\"family photography Katy TX\", \"family portrait session process\", \"photography booking process\", \"heirloom family portraits\", \"photo albums Katy TX\"],\n    \"mainEntityOfPage\": {\"@type\": \"WebPage\", \"@id\": \"https://niopictures.com/blog/family-photography-journey.html\"}\n  }\n  \u003c/script\u003e \u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"BreadcrumbList\",\n    \"itemListElement\": [\n      {\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://niopictures.com/\"},\n      {\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://niopictures.com/blog.html\"},\n      {\"@type\":\"ListItem\",\"position\":3,\"name\":\"Your Family Photography Journey\",\"item\":\"https://niopictures.com/blog/family-photography-journey.html\"}\n    ]\n  }\n  \u003c/script\u003e";
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage}>
+  <Fragment slot="head" set:html={extraHead} />
+<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top .2s;" onfocus="this.style.top='1rem'" onblur="this.style.top='-40px'">Skip to main content</a>
+
+  <nav class="nav">
+    <a href="/index.html" class="nav-logo">Ni<span>O</span> Pictures</a>
+    <div class="nav-links">
+      <a href="/event-photography-katy-tx.html">Events</a>
+      <a href="/family-photography-katy-tx.html">Family</a>
+      <a href="/portfolio.html">Portfolio</a>
+      <a href="/blog.html" class="active">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">Book Now</a>
+    <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="nav-mobile">
+    <a href="/event-photography-katy-tx.html">Events</a>
+    <a href="/family-photography-katy-tx.html">Family</a>
+    <a href="/portfolio.html">Portfolio</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" style="color:var(--gold);margin-top:1rem;">Book a Session →</a>
+  </div>
+
+  <!-- ── Post Header ─────────────────────────────────────────── -->
+  <div class="post-hero">
+    <nav class="post-breadcrumb" aria-label="Breadcrumb">
+      <a href="/index.html">Home</a>
+      <span class="post-breadcrumb-sep">›</span>
+      <a href="/blog.html">Blog</a>
+      <span class="post-breadcrumb-sep">›</span>
+      <span>Your Family Photography Journey</span>
+    </nav>
+    <span class="post-tag">Process · Family Photography · Katy TX</span>
+    <h1 class="post-title">Your Family Photography<br>Journey with NiO Pictures</h1>
+    <div class="post-meta">
+      <span>Palanivel</span>
+      <span class="blog-meta-dot" style="width:3px;height:3px;border-radius:50%;background:var(--muted-dark);"></span>
+      <span>February 11, 2026</span>
+      <span class="blog-meta-dot" style="width:3px;height:3px;border-radius:50%;background:var(--muted-dark);"></span>
+      <span>5 min read</span>
+    </div>
+  </div>
+
+  <!-- ── Hero Image Placeholder ─────────────────────────────── -->
+  <div style="max-width:900px; margin:0 auto; padding:0 var(--gutter);">
+    <div class="post-img">
+      <div class="post-img-placeholder">
+        <svg class="img-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Hero image — add blog-journey.webp to assets/images/</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Post Body ───────────────────────────────────────────── -->
+  <article class="post-body">
+
+    <p>At NiO Pictures, every family photography experience is designed to feel calm, meaningful, and completely handled — from the moment you reach out to the day you hang your favourite image on the wall. Here's exactly what to expect at every step.</p>
+
+    <div class="post-pullquote">
+      <p>We handle the details so you can focus on enjoying moments with the people you love.</p>
+    </div>
+
+    <ol>
+      <li>
+        <div>
+          <strong>Easy Booking</strong><br>
+          Start with a quick online inquiry or book directly through our booking page. Choose your preferred date and session type — family portraits, lifestyle session, or milestone. You'll receive a confirmation and a welcome note with all session details, including your session fee and what to expect.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Prep Guidelines</strong><br>
+          Once booked, I'll send you a full preparation guide covering outfit coordination, styling advice, tips for keeping kids calm and engaged, and location guidance. We'll make sure you arrive feeling ready and relaxed — not rushing. You can also <a href="/blog/how-to-prepare-family-portrait-session.html" style="color:var(--gold);">read the full prep guide here</a>.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Calm, Guided Photoshoot</strong><br>
+          On session day, I'll guide you through natural poses and genuine interactions that capture real family moments — not stiff, forced ones. I build in gentle pauses and let things breathe. I always shoot more than the minimum included in your package, so you have plenty of beautiful options to choose from when your gallery arrives.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Image Selection</strong><br>
+          Within your delivery window, you'll receive access to your full private online gallery. Take your time, view the images at your own pace, and favourite the number included in your package. Want more? You can add extra images at $20 per image — no pressure, entirely your choice.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Professional Editing &amp; Final Delivery</strong><br>
+          Your selected images are professionally retouched — colour-corrected, polished, and consistent in style across the full set. High-resolution digital files are delivered via your private Pixieset gallery, ready to download and share with family.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Albums, Prints &amp; Wall Art</strong><br>
+          This is the heart of heirloom photography. Digital files are beautiful — but a print on your wall or a keepsake album in your hands is something else entirely. Through your Pixieset gallery, you can order premium framed prints, large-format wall art, and handcrafted 10×10 keepsake albums. These are the products built to last — the ones you'll pass down. Browse and order directly from your private gallery at <a href="https://niopictures.pixieset.com/" target="_blank" rel="noopener noreferrer" style="color:var(--gold);">niopictures.pixieset.com</a>.
+        </div>
+      </li>
+    </ol>
+
+    <!-- Image placeholder mid-post -->
+    <div class="post-img">
+      <div class="post-img-placeholder">
+        <svg class="img-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Session photo — add to assets/images/blog-journey-2.webp</span>
+      </div>
+      <p class="post-img-caption">A moment from a recent family session in Katy, TX</p>
+    </div>
+
+    <h2>Albums &amp; Wall Art — Why They Matter</h2>
+    <p>When I started NiO Pictures, I made a decision early on: digitals are a starting point, not the destination. The families who treasure their portraits most are almost always the ones who printed them — who put them on walls, gave them as gifts, or built albums their children will one day find on a shelf.</p>
+    <p>Your Pixieset gallery makes ordering simple. Select the images you love most, choose your product — framed print, gallery wrap, or album — and we handle the rest. Every product is printed and bound to archival standards, designed to look beautiful for decades.</p>
+
+    <div class="post-pullquote">
+      <p>A print on your wall is not decoration. It's a daily reminder of who your family is right now — and who they were, years from now when you look back.</p>
+    </div>
+
+    <h2>Referrals — Spread the Love</h2>
+    <p>If your experience was everything you hoped for, the kindest thing you can do is share it. Tell a friend, post a photo, leave a Google review. Word of mouth is how NiO Pictures has grown — and it means the world. Every referral helps another family find their photographer.</p>
+
+    <h2>Your Experience Matters</h2>
+    <p>Every step of this process — from your first inquiry to the moment your album arrives — is designed to feel easy, clear, and genuinely meaningful. You shouldn't have to chase anyone, decode confusing pricing, or wonder what's happening next. I keep everything transparent and personal because that's how I'd want to be treated.</p>
+    <p>If you have questions at any point — before, during, or after your session — <a href="/contact.html" style="color:var(--gold);">I'm always easy to reach</a>.</p>
+
+    <div class="post-divider"></div>
+
+    <div class="post-cta">
+      <h3>Ready to Start Your Journey?</h3>
+      <p>Family portrait sessions available in Katy, Houston, Sugar Land, Cypress & Richmond TX — weekends and weeknights.</p>
+      <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-arrow">Book Your Session</a>
+      <a href="/family-photography-katy-tx.html" class="btn btn-outline" style="margin-left:0.5rem;">Family Photography</a>
+    </div>
+
+  </article>
+
+  <!-- ── Related Posts ───────────────────────────────────────── -->
+  <div class="related-posts">
+    <p class="eyebrow">Read Next</p>
+    <div class="related-grid">
+      <a href="/blog/how-to-prepare-family-portrait-session.html" class="related-card">
+        <p class="related-tag">Tips & Guides</p>
+        <p class="related-title">How to Prepare for Your Katy Family Portrait Session</p>
+      </a>
+      <a href="/blog/blue-hour-holiday-portraits.html" class="related-card">
+        <p class="related-tag">Family · Holiday</p>
+        <p class="related-title">Blue Hour Front-Yard Holiday Portraits</p>
+      </a>
+    </div>
+  </div>
+
+  
+</BaseLayout>
