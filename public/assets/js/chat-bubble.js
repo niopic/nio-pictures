@@ -17,11 +17,15 @@
   const openPopup = () => {
     clearTimeout(hideTimer);
     popup.classList.add('open');
+    popup.setAttribute('aria-hidden', 'false');
+    btn.setAttribute('aria-expanded', 'true');
     open = true;
   };
 
   const closePopup = () => {
     popup.classList.remove('open');
+    popup.setAttribute('aria-hidden', 'true');
+    btn.setAttribute('aria-expanded', 'false');
     open = false;
   };
 
