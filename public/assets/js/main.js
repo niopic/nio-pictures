@@ -8,26 +8,25 @@
   /* ── Sticky Nav ──────────────────────────────────────────── */
   const nav = document.querySelector('.nav');
   if (nav) {
-    let isScrolled = window.scrollY > 60;
-    let ticking = false;
+    const setScrolled = (next) => nav.classList.toggle('scrolled', next);
 
-    nav.classList.toggle('scrolled', isScrolled);
+    if ('IntersectionObserver' in window) {
+      const navThreshold = document.createElement('div');
+      navThreshold.setAttribute('aria-hidden', 'true');
+      navThreshold.style.cssText = 'position:absolute;top:60px;left:0;width:1px;height:1px;pointer-events:none;opacity:0;';
+      document.body.prepend(navThreshold);
 
-    const updateNavState = () => {
-      ticking = false;
-      const nextScrolled = window.scrollY > 60;
-      if (nextScrolled !== isScrolled) {
-        isScrolled = nextScrolled;
-        nav.classList.toggle('scrolled', isScrolled);
-      }
-    };
+      const navObserver = new IntersectionObserver(([entry]) => {
+        setScrolled(!entry.isIntersecting);
+      });
 
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(updateNavState);
-      }
-    }, { passive: true });
+      navObserver.observe(navThreshold);
+    } else {
+      setScrolled(window.scrollY > 60);
+      window.addEventListener('scroll', () => {
+        setScrolled(window.scrollY > 60);
+      }, { passive: true });
+    }
   }
 
   /* ── Mobile Nav ──────────────────────────────────────────── */
