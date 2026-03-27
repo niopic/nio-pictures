@@ -104,7 +104,6 @@ const businessSchema = {
 
     <link rel="stylesheet" href="/assets/css/global.css" />
     <link rel="stylesheet" href="/assets/css/components.css" />
-    <link rel="stylesheet" href="/assets/css/animations.css" />
     {extraStyles.map((href) => <link rel="stylesheet" href={href} />)}
 
     <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
@@ -117,7 +116,16 @@ const businessSchema = {
       window.dataLayer = window.dataLayer || [];
       function gtag() { dataLayer.push(arguments); }
       window.addEventListener("load", () => {
+        let analyticsLoaded = false;
+        const interactionEvents = ["pointerdown", "keydown", "submit"];
+
         const loadAnalytics = () => {
+          if (analyticsLoaded) return;
+          analyticsLoaded = true;
+          interactionEvents.forEach((eventName) => {
+            window.removeEventListener(eventName, loadAnalytics, true);
+          });
+
           const script = document.createElement("script");
           script.src = "https://www.googletagmanager.com/gtag/js?id=G-1VZ3GPSWGH";
           script.async = true;
@@ -126,11 +134,9 @@ const businessSchema = {
           gtag("config", "G-1VZ3GPSWGH");
         };
 
-        if ("requestIdleCallback" in window) {
-          window.requestIdleCallback(loadAnalytics, { timeout: 2500 });
-        } else {
-          window.setTimeout(loadAnalytics, 1500);
-        }
+        interactionEvents.forEach((eventName) => {
+          window.addEventListener(eventName, loadAnalytics, { once: true, capture: true, passive: true });
+        });
       }, { once: true });
     </script>
   </head>
@@ -216,10 +222,30 @@ const businessSchema = {
     <script src="/assets/js/main.js" defer></script>
     <script is:inline>
       window.addEventListener("load", () => {
-        const chatScript = document.createElement("script");
-        chatScript.src = "https://chat.niopictures.com/widget.js";
-        chatScript.defer = true;
-        document.body.appendChild(chatScript);
+        let chatLoaded = false;
+        const interactionEvents = ["pointerdown", "keydown"];
+        const shouldLoadChat = window.location.pathname === "/contact.html" || window.location.pathname === "/book.html";
+
+        if (!shouldLoadChat) {
+          return;
+        }
+
+        const loadChat = () => {
+          if (chatLoaded) return;
+          chatLoaded = true;
+          interactionEvents.forEach((eventName) => {
+            window.removeEventListener(eventName, loadChat, true);
+          });
+
+          const chatScript = document.createElement("script");
+          chatScript.src = "https://chat.niopictures.com/widget.js";
+          chatScript.defer = true;
+          document.body.appendChild(chatScript);
+        };
+
+        interactionEvents.forEach((eventName) => {
+          window.addEventListener(eventName, loadChat, { once: true, capture: true, passive: true });
+        });
       }, { once: true });
     </script>
   </body>

@@ -8,11 +8,26 @@
   /* ── Sticky Nav ──────────────────────────────────────────── */
   const nav = document.querySelector('.nav');
   if (nav) {
-    const onScroll = () => {
-      nav.classList.toggle('scrolled', window.scrollY > 60);
+    let isScrolled = window.scrollY > 60;
+    let ticking = false;
+
+    nav.classList.toggle('scrolled', isScrolled);
+
+    const updateNavState = () => {
+      ticking = false;
+      const nextScrolled = window.scrollY > 60;
+      if (nextScrolled !== isScrolled) {
+        isScrolled = nextScrolled;
+        nav.classList.toggle('scrolled', isScrolled);
+      }
     };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(updateNavState);
+      }
+    }, { passive: true });
   }
 
   /* ── Mobile Nav ──────────────────────────────────────────── */
