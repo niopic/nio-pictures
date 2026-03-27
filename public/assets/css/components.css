@@ -561,18 +561,31 @@
 .portfolio-item,
 .portfolio-card {
   position: relative;
-  overflow: hidden;
   border: 1px solid var(--border-light);
   border-radius: 2px;
   cursor: pointer;
   background: var(--surface);
-  transition: border-color var(--dur-base) var(--ease), transform var(--dur-base) var(--ease);
+  transition: border-color var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease);
 }
 
 .portfolio-item:hover,
 .portfolio-card:hover {
   border-color: var(--border);
-  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+.portfolio-item-media {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+
+.portfolio-item-media picture,
+.portfolio-item-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .portfolio-item-img,
@@ -582,10 +595,14 @@
   object-fit: cover;
   display: block;
   transition: transform var(--dur-slow) var(--ease);
+  transform: translateZ(0) scale(1);
+  transform-origin: center center;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .portfolio-item:hover .portfolio-item-img,
-.portfolio-card:hover .portfolio-card-img { transform: scale(1.05); }
+.portfolio-card:hover .portfolio-card-img { transform: translateZ(0) scale(1.04); }
 
 .portfolio-item-info {
   padding: 1.35rem;
