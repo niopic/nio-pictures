@@ -9,7 +9,7 @@ const ogImage = "https://niopictures.com/assets/images/og-home.webp";
 const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Blog\",\n    \"name\": \"NiO Pictures Blog\",\n    \"description\": \"Photography tips, session guides, and behind-the-lens stories from Palanivel at NiO Pictures in Katy, TX.\",\n    \"url\": \"https://niopictures.com/blog.html\",\n    \"publisher\": { \"@id\": \"https://niopictures.com/#business\" }\n  }\n  \u003c/script\u003e";
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage}>
+<BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage} extraStyles={["/assets/css/blog.css"]}>
   <Fragment slot="head" set:html={extraHead} />
 <a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top .2s;" onfocus="this.style.top='1rem'" onblur="this.style.top='-40px'">Skip to main content</a>
 
