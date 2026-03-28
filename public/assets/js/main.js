@@ -25,6 +25,14 @@
   // ensureHomeLink(document.querySelector('.nav-links'));
   // ensureHomeLink(document.querySelector('.nav-mobile'));
 
+  const runWhenIdle = (callback) => {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(callback, { timeout: 1200 });
+      return;
+    }
+    setTimeout(callback, 0);
+  };
+
   /* ── Sticky Nav ──────────────────────────────────────────── */
   const nav = document.querySelector('.nav');
   if (nav) {
@@ -84,59 +92,61 @@
     }
   });
 
-  /* ── Scroll Reveal ───────────────────────────────────────── */
-  const reveals = document.querySelectorAll('.reveal');
-  if (reveals.length) {
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-    );
-    reveals.forEach(el => revealObserver.observe(el));
-  }
+  runWhenIdle(() => {
+    /* ── Scroll Reveal ───────────────────────────────────────── */
+    const reveals = document.querySelectorAll('.reveal');
+    if (reveals.length) {
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      );
+      reveals.forEach(el => revealObserver.observe(el));
+    }
 
-  /* ── Gold Line Animate ───────────────────────────────────── */
-  document.querySelectorAll('.gold-line-animate').forEach(el => {
-    const obs = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        el.classList.add('visible');
-        obs.unobserve(el);
-      }
-    }, { threshold: 0.5 });
-    obs.observe(el);
-  });
-
-  /* ── Smooth scroll for anchor links ─────────────────────── */
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const id = a.getAttribute('href').slice(1);
-      const target = document.getElementById(id);
-      if (target) {
-        e.preventDefault();
-        const offset = 80;
-        const top = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
+    /* ── Gold Line Animate ───────────────────────────────────── */
+    document.querySelectorAll('.gold-line-animate').forEach(el => {
+      const obs = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add('visible');
+          obs.unobserve(el);
+        }
+      }, { threshold: 0.5 });
+      obs.observe(el);
     });
-  });
 
-  /* ── Scroll indicator ────────────────────────────────────── */
-  const heroScroll = document.querySelector('.hero-scroll');
-  if (heroScroll) {
-    heroScroll.addEventListener('click', () => {
-      const next = document.querySelector('.hero + *') ||
-                   document.querySelector('section:nth-of-type(2)');
-      if (next) {
-        next.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+    /* ── Smooth scroll for anchor links ─────────────────────── */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href').slice(1);
+        const target = document.getElementById(id);
+        if (target) {
+          e.preventDefault();
+          const offset = 80;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
     });
-  }
+
+    /* ── Scroll indicator ────────────────────────────────────── */
+    const heroScroll = document.querySelector('.hero-scroll');
+    if (heroScroll) {
+      heroScroll.addEventListener('click', () => {
+        const next = document.querySelector('.hero + *') ||
+                    document.querySelector('section:nth-of-type(2)');
+        if (next) {
+          next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    }
+  });
 
   /* ── Formspree submission helper ───────────────────────────── */
   const FORMSPREE = 'https://formspree.io/f/xjgpbyeb';
@@ -216,61 +226,63 @@
     });
   }
 
-  /* ── Portfolio filter ────────────────────────────────────── */
-  const filterBtns = document.querySelectorAll('[data-filter]');
-  const portfolioItems = document.querySelectorAll('[data-category]');
-  const blogItems = document.querySelectorAll('[data-cat]');
+  runWhenIdle(() => {
+    /* ── Portfolio filter ────────────────────────────────────── */
+    const filterBtns = document.querySelectorAll('[data-filter]');
+    const portfolioItems = document.querySelectorAll('[data-category]');
+    const blogItems = document.querySelectorAll('[data-cat]');
 
-  if (filterBtns.length) {
-    const items = blogItems.length ? blogItems : portfolioItems;
+    if (filterBtns.length) {
+      const items = blogItems.length ? blogItems : portfolioItems;
 
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const filter = btn.dataset.filter;
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const filter = btn.dataset.filter;
 
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
 
-        items.forEach(item => {
-          const categories = item.dataset.cat || item.dataset.category || '';
-          const show = filter === 'all' || categories.includes(filter);
-          
-          // Set display first to avoid forced reflow with animations
-          item.style.display = show ? '' : 'none';
-          
-          if (show) {
-            item.style.opacity = '0';
-            item.style.transform = 'scale(0.97)';
-            setTimeout(() => {
-              requestAnimationFrame(() => {
-                item.style.opacity = '1';
-                item.style.transform = 'scale(1)';
-              });
-            }, 200);
-          }
+          items.forEach(item => {
+            const categories = item.dataset.cat || item.dataset.category || '';
+            const show = filter === 'all' || categories.includes(filter);
+
+            // Set display first to avoid forced reflow with animations
+            item.style.display = show ? '' : 'none';
+
+            if (show) {
+              item.style.opacity = '0';
+              item.style.transform = 'scale(0.97)';
+              setTimeout(() => {
+                requestAnimationFrame(() => {
+                  item.style.opacity = '1';
+                  item.style.transform = 'scale(1)';
+                });
+              }, 200);
+            }
+          });
         });
       });
-    });
-  }
+    }
 
-  /* ── Lazy image loading enhancement ─────────────────────── */
-  if ('IntersectionObserver' in window) {
-    const imgObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const img = entry.target;
-            if (img.dataset.src) {
-              img.src = img.dataset.src;
-              img.removeAttribute('data-src');
+    /* ── Lazy image loading enhancement ─────────────────────── */
+    if ('IntersectionObserver' in window) {
+      const imgObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              if (img.dataset.src) {
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+              }
+              imgObserver.unobserve(img);
             }
-            imgObserver.unobserve(img);
-          }
-        });
-      },
-      { rootMargin: '200px 0px' }
-    );
-    document.querySelectorAll('img[data-src]').forEach(img => imgObserver.observe(img));
-  }
+          });
+        },
+        { rootMargin: '200px 0px' }
+      );
+      document.querySelectorAll('img[data-src]').forEach(img => imgObserver.observe(img));
+    }
+  });
 
 })();
