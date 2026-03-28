@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: all var(--dur-base) var(--ease);
+  transition: padding var(--dur-base) var(--ease);
 }
 
 .nav::before {
@@ -22,7 +22,7 @@
   inset: 0;
   background: transparent;
   border-bottom: 1px solid transparent;
-  transition: all var(--dur-base) var(--ease);
+  transition: background var(--dur-base) var(--ease), border-color var(--dur-base) var(--ease);
   pointer-events: none;
 }
 
@@ -65,6 +65,7 @@
   color: var(--muted);
   transition: color var(--dur-fast) var(--ease);
   position: relative;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .nav-links a::after {
@@ -81,7 +82,18 @@
 .nav-links a:hover { color: var(--cream); }
 .nav-links a:hover::after { width: 100%; }
 .nav-links a.active { color: var(--gold); }
-.nav-links a.active::after { width: 100%; }
+.nav-links a.active::after {
+  width: 100%;
+  transition: none;
+}
+
+/* ── Prevent reveal flash on nav/hero chrome elements ───── */
+.nav .reveal,
+.page-hero .reveal,
+header .reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
 
 .nav-cta {
   position: relative;
@@ -142,6 +154,7 @@
   font-weight: 300;
   color: var(--cream);
   transition: color var(--dur-fast) var(--ease);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .nav-mobile a:hover { color: var(--gold); }
@@ -1205,6 +1218,19 @@ select.form-control option { background: var(--surface); color: var(--cream); }
   .portfolio-gallery-cta-links {
     gap: 0.85rem;
   }
+
+  .family-layout-grid,
+  .family-image-grid,
+  .contact-layout-grid,
+  .booking-layout-grid,
+  .location-layout-grid,
+  .location-stats-grid { grid-template-columns: 1fr !important; }
+
+  .display-xl { font-size: clamp(2.2rem, 8vw, 2.8rem); }
+  .display-lg { font-size: clamp(1.8rem, 6vw, 2.2rem); }
+  .display-md { font-size: clamp(1.4rem, 4.5vw, 1.8rem); }
+
+  .section { padding: clamp(2.5rem, 8vw, 4rem) 0; }
 }
 
 @media (max-width: 480px) {
@@ -1213,4 +1239,9 @@ select.form-control option { background: var(--surface); color: var(--cream); }
   .hero-actions { flex-direction: column; align-items: center; }
   .process-steps { grid-template-columns: 1fr; }
   .chat-bubble { bottom: 1.25rem; right: 1.25rem; }
+
+  .section { padding: 2rem 0; }
+  .display-xl { font-size: 2rem; }
+  .display-lg { font-size: 1.6rem; }
+  .display-md { font-size: 1.35rem; }
 }

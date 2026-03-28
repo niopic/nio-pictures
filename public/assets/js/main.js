@@ -5,6 +5,26 @@
 (function () {
   'use strict';
 
+  const normalizePath = (path) => {
+    const stripped = (path || '').replace(/\/$/, '') || '/';
+    return stripped === '/index.html' ? '/' : stripped;
+  };
+
+  const ensureHomeLink = (container) => {
+    if (!container) return;
+    const hasHome = container.querySelector('a[href="/"], a[href="/index.html"]');
+    if (hasHome) return;
+    if (normalizePath(window.location.pathname) === '/') return;
+
+    const homeLink = document.createElement('a');
+    homeLink.href = '/';
+    homeLink.textContent = 'Home';
+    container.prepend(homeLink);
+  };
+
+  ensureHomeLink(document.querySelector('.nav-links'));
+  ensureHomeLink(document.querySelector('.nav-mobile'));
+
   /* ── Sticky Nav ──────────────────────────────────────────── */
   const nav = document.querySelector('.nav');
   if (nav) {
@@ -50,10 +70,14 @@
   }
 
   /* ── Active Nav Link ─────────────────────────────────────── */
-  const currentPath = window.location.pathname.replace(/\/$/, '');
+  const currentPath = normalizePath(window.location.pathname);
   document.querySelectorAll('.nav-links a, .nav-mobile a').forEach(a => {
-    const href = a.getAttribute('href').replace(/\/$/, '');
-    if (href === currentPath || (href === '' && currentPath === '')) {
+    a.classList.remove('active');
+    const rawHref = a.getAttribute('href') || '';
+    if (!rawHref || /^(https?:|mailto:|tel:|#)/i.test(rawHref)) return;
+
+    const href = normalizePath(rawHref);
+    if (href === currentPath) {
       a.classList.add('active');
     }
   });

@@ -238,33 +238,6 @@ const businessSchema = {
     </footer>
 
     <script src="/assets/js/main.js" defer></script>
-    <script is:inline>
-      window.addEventListener("load", () => {
-        let chatLoaded = false;
-        const interactionEvents = ["pointerdown", "keydown"];
-        const shouldLoadChat = window.location.pathname === "/contact.html" || window.location.pathname === "/book.html";
-
-        if (!shouldLoadChat) {
-          return;
-        }
-
-        const loadChat = () => {
-          if (chatLoaded) return;
-          chatLoaded = true;
-          interactionEvents.forEach((eventName) => {
-            window.removeEventListener(eventName, loadChat, true);
-          });
-
-          const chatScript = document.createElement("script");
-          chatScript.src = "https://chat.niopictures.com/widget.js";
-          chatScript.defer = true;
-          document.body.appendChild(chatScript);
-        };
-
-        interactionEvents.forEach((eventName) => {
-          window.addEventListener(eventName, loadChat, { once: true, capture: true, passive: true });
-        });
-      }, { once: true });
-    </script>
+    <script src="https://chat.niopictures.com/widget.js" defer></script>
   </body>
 </html>

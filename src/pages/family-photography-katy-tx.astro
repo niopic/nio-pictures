@@ -217,7 +217,7 @@ import aboutPortrait from "../assets/images/about-portrait.webp";
 
     <section class="section" style="background: var(--surface); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
       <div class="container">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 8vw, 7rem); align-items: center;">
+        <div class="family-layout-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 8vw, 7rem); align-items: center;">
           <div class="reveal">
             <p class="eyebrow" style="margin-bottom: 1rem;">Why It Matters</p>
             <div class="gold-line gold-line-animate"></div>
@@ -231,7 +231,7 @@ import aboutPortrait from "../assets/images/about-portrait.webp";
             <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-gold-outline btn-arrow">Book Family Session</a>
           </div>
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;" class="reveal reveal-delay-2">
+          <div class="family-image-grid reveal reveal-delay-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
             <div style="aspect-ratio: 3/4; overflow: hidden; border-radius: 2px;">
               <Image src={familyPanel} alt="Heirloom family portrait in Katy TX" loading="lazy" width={400} height={533} style="width:100%;height:100%;object-fit:cover;background:var(--surface-2)" />
             </div>
