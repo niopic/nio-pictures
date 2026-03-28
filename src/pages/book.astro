@@ -9,9 +9,9 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
 
 <BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage}>
   <Fragment slot="head" set:html={extraHead} />
-<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top .2s;" onfocus="this.style.top='1rem'" onblur="this.style.top='-40px'">Skip to main content</a>
+<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);" onfocus="this.style.top='1rem'" onblur="this.style.top='-40px'">Skip to main content</a>
 
-  <nav class="nav">
+  <nav class="nav" role="navigation" aria-label="Main navigation">
     <a href="/" class="nav-logo">Ni<span>O</span> Pictures</a>
     <div class="nav-links">
       <a href="/event-photography-katy-tx.html">Events</a>
@@ -22,17 +22,17 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
       <a href="/contact.html">Contact</a>
     </div>
     <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">Book Now</a>
-    <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </nav>
 
-  <div class="nav-mobile">
+  <div class="nav-mobile" role="dialog" aria-label="Mobile navigation">
     <a href="/event-photography-katy-tx.html">Events</a>
     <a href="/family-photography-katy-tx.html">Family</a>
     <a href="/blog.html">Blog</a>
       <a href="/portfolio.html">Portfolio</a>
     <a href="/about.html">About</a>
     <a href="/contact.html">Contact</a>
-    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" style="color:var(--gold);margin-top:1rem;">Book a Session →</a>
+    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="nav-mobile-cta">Book a Session →</a>
   </div>
 
   <!-- ── Booking Section ────────────────────────────────────── -->
@@ -51,7 +51,7 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
             Fill out the form and we'll reach out to confirm your booking, discuss your vision, and answer any questions. Prefer to book directly? Use the button below.
           </p>
 
-          <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-arrow" style="margin-bottom: 3rem;">
+          <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-arrow btn-mb-lg">
             Book Directly on Pixieset
           </a>
 
@@ -153,7 +153,7 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
                 <textarea class="form-control" id="book-message" name="message" placeholder="Any details, special requests, or questions…" style="min-height:110px;"></textarea>
               </div>
 
-              <button type="submit" class="btn btn-primary btn-arrow" style="width:100%; justify-content:center;">
+              <button type="submit" class="btn btn-primary btn-arrow btn-block">
                 Submit Request
               </button>
 

@@ -7,12 +7,12 @@ const ogImage = "https://niopictures.com/assets/images/og-home.webp";
 const extraHead = "";
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage}>
+<BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage} noIndex={true}>
   <Fragment slot="head" set:html={extraHead} />
-<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top .2s;" onfocus="this.style.top='1rem'" onblur="this.style.top='-40px'">Skip to main content</a>
+<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);" onfocus="this.style.top='1rem'" onblur="this.style.top='-40px'">Skip to main content</a>
 
-  <nav class="nav">
-    <a href="/index.html" class="nav-logo">Ni<span>O</span> Pictures</a>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-logo">Ni<span>O</span> Pictures</a>
     <div class="nav-links">
       <a href="/event-photography-katy-tx.html">Events</a>
       <a href="/family-photography-katy-tx.html">Family</a>
@@ -22,17 +22,17 @@ const extraHead = "";
       <a href="/contact.html">Contact</a>
     </div>
     <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">Book Now</a>
-    <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </nav>
 
-  <div class="nav-mobile">
+  <div class="nav-mobile" role="dialog" aria-label="Mobile navigation">
     <a href="/event-photography-katy-tx.html">Events</a>
     <a href="/family-photography-katy-tx.html">Family</a>
     <a href="/blog.html">Blog</a>
     <a href="/portfolio.html">Portfolio</a>
     <a href="/about.html">About</a>
     <a href="/contact.html">Contact</a>
-    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" style="color:var(--gold);margin-top:1rem;">Book a Session →</a>
+    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="nav-mobile-cta">Book a Session →</a>
   </div>
 
   <main id="main-content">
@@ -41,7 +41,7 @@ const extraHead = "";
     <div class="container" style="max-width: 760px;">
       <p class="eyebrow" style="margin-bottom:1rem;">Legal</p>
       <div class="gold-line"></div>
-      <h1 class="display-lg" style="margin-bottom:0.75rem;">Terms of Service</h1>
+      <h1 class="display-xl" style="margin-bottom:0.75rem;">Terms of Service</h1>
       <p class="body-lg">By using this website or engaging NiO Pictures for photography services, you agree to the following terms.</p>
     </div>
   </div>
@@ -49,13 +49,13 @@ const extraHead = "";
   <div class="legal-body">
     <span class="effective-date">Effective date: March 1, 2026 &nbsp;·&nbsp; NiO Pictures, Katy, Texas</span>
 
-    <h2>1. About NiO Pictures</h2>
+    <h2 class="display-md">1. About NiO Pictures</h2>
     <p>NiO Pictures is a photography business operated by Palanivel, based in Katy, Texas. We provide event photography and family portrait services to clients in the greater Houston area including Katy, Sugar Land, Cypress, and Richmond, TX.</p>
     <p>Contact: <a href="mailto:niopictureskaty@gmail.com">niopictureskaty@gmail.com</a> &nbsp;·&nbsp; <a href="tel:2814093585">281-409-3585</a></p>
 
     <div class="legal-divider"></div>
 
-    <h2>2. Website Use</h2>
+    <h2 class="display-md">2. Website Use</h2>
     <p>By accessing niopictures.com, you agree to use this website lawfully and in accordance with these terms. You may not:</p>
     <ul>
       <li>Scrape, copy, or reproduce content from this site without permission</li>
@@ -66,26 +66,26 @@ const extraHead = "";
 
     <div class="legal-divider"></div>
 
-    <h2>3. Photography Services</h2>
+    <h2 class="display-md">3. Photography Services</h2>
 
-    <h3>Booking & Deposits</h3>
+    <h3 class="display-sm">Booking & Deposits</h3>
     <p>Sessions are confirmed once a booking form is submitted and a date is agreed upon. Specific payment and deposit terms are communicated at the time of booking. NiO Pictures reserves the right to decline any booking at its discretion.</p>
 
-    <h3>Session Delivery</h3>
+    <h3 class="display-sm">Session Delivery</h3>
     <p>Edited images are delivered via a private online gallery (Pixieset) within the timeframe agreed upon at booking — typically 7–10 business days depending on the package selected. Delivery timelines may vary during peak seasons.</p>
 
-    <h3>Cancellations & Rescheduling</h3>
+    <h3 class="display-sm">Cancellations & Rescheduling</h3>
     <p>Cancellation and rescheduling policies are communicated at the time of booking. NiO Pictures reserves the right to reschedule sessions due to severe weather or circumstances outside our control.</p>
 
-    <h3>Additional Images</h3>
+    <h3 class="display-sm">Additional Images</h3>
     <p>Each package includes a set number of edited images. Additional images beyond the package allowance are available at $20 per image, purchased through your private gallery.</p>
 
-    <h3>Prints & Products</h3>
+    <h3 class="display-sm">Prints & Products</h3>
     <p>Prints, wall art, and keepsake albums are ordered through your private Pixieset gallery. Product quality, pricing, and fulfillment are subject to Pixieset's terms and conditions.</p>
 
     <div class="legal-divider"></div>
 
-    <h2>4. Intellectual Property</h2>
+    <h2 class="display-md">4. Intellectual Property</h2>
     <p>All photographs taken by NiO Pictures remain the intellectual property and copyright of Palanivel / NiO Pictures. All rights reserved.</p>
     <p>Upon delivery, clients receive a <strong style="color:var(--cream);">personal use license</strong> to print and share their images for non-commercial purposes. This includes sharing on personal social media, sending to family, and ordering prints for personal use.</p>
     <p>You may not:</p>
@@ -97,12 +97,12 @@ const extraHead = "";
     </ul>
     <p>NiO Pictures may use photographs from sessions for portfolio, website, and social media purposes, unless a written opt-out is requested at the time of booking.</p>
 
-    <h3>Website Content</h3>
+    <h3 class="display-sm">Website Content</h3>
     <p>All content on niopictures.com — including text, design, graphics, and code — is the property of NiO Pictures. You may not reproduce, republish, or distribute any content without written permission.</p>
 
     <div class="legal-divider"></div>
 
-    <h2>5. Limitation of Liability</h2>
+    <h2 class="display-md">5. Limitation of Liability</h2>
     <p>NiO Pictures makes every reasonable effort to deliver high-quality photography services. However, to the fullest extent permitted by applicable law:</p>
     <ul>
       <li>NiO Pictures is not liable for any indirect, incidental, or consequential damages arising from use of this website or photography services</li>
@@ -113,22 +113,22 @@ const extraHead = "";
 
     <div class="legal-divider"></div>
 
-    <h2>6. Third-Party Links</h2>
+    <h2 class="display-md">6. Third-Party Links</h2>
     <p>This website contains links to third-party websites including Pixieset, Google, Instagram, and Facebook. NiO Pictures is not responsible for the content, privacy practices, or terms of these external sites.</p>
 
     <div class="legal-divider"></div>
 
-    <h2>7. Governing Law</h2>
+    <h2 class="display-md">7. Governing Law</h2>
     <p>These terms are governed by the laws of the State of Texas, United States. Any disputes arising under these terms shall be subject to the jurisdiction of the courts of Fort Bend County or Harris County, Texas.</p>
 
     <div class="legal-divider"></div>
 
-    <h2>8. Changes to These Terms</h2>
+    <h2 class="display-md">8. Changes to These Terms</h2>
     <p>NiO Pictures may update these Terms of Service at any time. Updated terms will be posted on this page with a new effective date. Continued use of the website after changes constitutes acceptance.</p>
 
     <div class="legal-divider"></div>
 
-    <h2>9. Contact</h2>
+    <h2 class="display-md">9. Contact</h2>
     <p>Questions about these terms? Get in touch:</p>
     <p>
       <strong style="color:var(--cream);">NiO Pictures</strong><br>
@@ -138,7 +138,7 @@ const extraHead = "";
     </p>
 
     <div style="margin-top:3rem; padding:1.5rem; background:var(--surface); border:1px solid var(--border-light); border-radius:2px;">
-      <p style="margin:0; font-size:0.85rem; color:var(--muted);">See also: <a href="/privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="/contact.html">Contact Us</a> &nbsp;·&nbsp; <a href="/index.html">Back to Home</a></p>
+      <p style="margin:0; font-size:0.85rem; color:var(--muted);">See also: <a href="/privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="/contact.html">Contact Us</a> &nbsp;·&nbsp; <a href="/">Back to Home</a></p>
     </div>
   </div>
 

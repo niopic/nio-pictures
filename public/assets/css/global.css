@@ -32,9 +32,20 @@
   /* Transitions */
   --ease:         cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --ease-out:     cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:      cubic-bezier(0.42, 0, 1, 1);
   --dur-fast:     180ms;
   --dur-base:     320ms;
   --dur-slow:     600ms;
+  --dur-reveal:   700ms;
+  --dur-gold-line: 800ms;
+  --dur-extended: 1000ms;
+
+  /* Animation delays */
+  --delay-1:      100ms;
+  --delay-2:      200ms;
+  --delay-3:      300ms;
+  --delay-4:      400ms;
+  --delay-5:      500ms;
 }
 
 /* ── Reset ─────────────────────────────────────────────────── */
@@ -212,6 +223,24 @@ button, input, textarea, select {
 }
 
 .btn-arrow:hover::after { transform: translateX(4px); }
+
+.btn-sm {
+  font-size: 0.6rem;
+  padding: 0.6rem 1.25rem;
+}
+
+.btn-nowrap {
+  white-space: nowrap;
+}
+
+.btn-block {
+  width: 100%;
+  justify-content: center;
+}
+
+.btn-mb-lg {
+  margin-bottom: 3rem;
+}
 
 /* ── Section Layout ────────────────────────────────────────── */
 .section { padding: var(--section-pad) 0; }

@@ -2,12 +2,12 @@
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-import eventsHero from "../assets/images/events-hero.webp";
-import eventsPanel from "../assets/images/events-panel.webp";
-import familyHero from "../assets/images/family-hero.webp";
-import familyPanel from "../assets/images/family-panel.webp";
-import aboutMain from "../assets/images/about-main.webp";
-import aboutPortrait from "../assets/images/about-portrait.webp";
+import eventsHero from "../assets/images/heroes/events.jpg";
+import eventsPanel from "../assets/images/panels/events.jpg";
+import familyHero from "../assets/images/heroes/family.jpg";
+import familyPanel from "../assets/images/panels/family.jpg";
+import aboutMain from "../assets/images/about/main.jpg";
+import aboutPortrait from "../assets/images/about/portrait.jpg";
 ---
 
 <BaseLayout
@@ -102,7 +102,7 @@ import aboutPortrait from "../assets/images/about-portrait.webp";
     </script>
   </fragment>
 
-  <a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top .2s;" onfocus="this.style.top='1rem'" onblur="this.style.top='-40px'">Skip to main content</a>
+  <a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);" onfocus="this.style.top='1rem'" onblur="this.style.top='-40px'">Skip to main content</a>
 
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <a href="/" class="nav-logo">Ni<span>O</span> Pictures</a>
@@ -125,12 +125,12 @@ import aboutPortrait from "../assets/images/about-portrait.webp";
     <a href="/portfolio.html">Portfolio</a>
     <a href="/about.html">About</a>
     <a href="/contact.html">Contact</a>
-    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" style="color:var(--gold);margin-top:1rem;">Book a Session</a>
+    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="nav-mobile-cta">Book a Session</a>
   </div>
 
   <main id="main-content">
     <div class="page-hero" style="margin-top: 0; padding-top: 0;">
-      <div class="page-hero-bg" style="background-image: url('/assets/images/events-hero.webp'); background-color: #18161a;"></div>
+      <div class="page-hero-bg" style="background-image: url('/assets/images/heroes/events.jpg'); background-color: #18161a;"></div>
       <div class="page-hero-overlay"></div>
       <div class="page-hero-content container">
         <p class="eyebrow" style="margin-bottom: 1rem;">Katy TX · Houston · Sugar Land · Richmond</p>
@@ -231,22 +231,22 @@ import aboutPortrait from "../assets/images/about-portrait.webp";
         <div class="process-steps reveal reveal-delay-1">
           <div class="process-step">
             <div class="step-number">01</div>
-            <h3 class="step-title">Consultation</h3>
+            <h3 class="display-sm">Consultation</h3>
             <p class="body-sm">We discuss your event, vision, must-have shots, and timeline - so nothing is left to chance.</p>
           </div>
           <div class="process-step">
             <div class="step-number">02</div>
-            <h3 class="step-title">Day-Of Coverage</h3>
+            <h3 class="display-sm">Day-Of Coverage</h3>
             <p class="body-sm">We arrive early, stay late, and cover every moment with a cinematic, candid eye.</p>
           </div>
           <div class="process-step">
             <div class="step-number">03</div>
-            <h3 class="step-title">Culling and Edit</h3>
+            <h3 class="display-sm">Culling and Edit</h3>
             <p class="body-sm">Every image is carefully selected and edited with our signature warm, cinematic style.</p>
           </div>
           <div class="process-step">
             <div class="step-number">04</div>
-            <h3 class="step-title">Gallery Delivery</h3>
+            <h3 class="display-sm">Gallery Delivery</h3>
             <p class="body-sm">Your private online gallery is delivered within 2-3 weeks, ready to download and share.</p>
           </div>
         </div>
@@ -357,9 +357,9 @@ import aboutPortrait from "../assets/images/about-portrait.webp";
         <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
           <p class="body-sm">Also looking for <a href="/family-photography-katy-tx.html" style="color:var(--gold);">family photography in Katy TX</a>? We cover heirloom portraits and lifestyle sessions too.</p>
           <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-            <a href="/family-photography-katy-tx.html" class="btn btn-outline" style="font-size:0.6rem; padding:0.6rem 1.25rem;">Family Photography</a>
-            <a href="/portfolio.html" class="btn btn-outline" style="font-size:0.6rem; padding:0.6rem 1.25rem;">View Portfolio</a>
-            <a href="/about.html" class="btn btn-outline" style="font-size:0.6rem; padding:0.6rem 1.25rem;">About Palanivel</a>
+            <a href="/family-photography-katy-tx.html" class="btn btn-outline btn-sm">Family Photography</a>
+            <a href="/portfolio.html" class="btn btn-outline btn-sm">View Portfolio</a>
+            <a href="/about.html" class="btn btn-outline btn-sm">About Palanivel</a>
           </div>
         </div>
       </div>

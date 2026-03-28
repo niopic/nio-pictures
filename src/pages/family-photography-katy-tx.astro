@@ -2,12 +2,12 @@
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-import familyHero from "../assets/images/family-hero.webp";
-import familyPanel from "../assets/images/family-panel.webp";
-import eventsHero from "../assets/images/events-hero.webp";
-import eventsPanel from "../assets/images/events-panel.webp";
-import aboutMain from "../assets/images/about-main.webp";
-import aboutPortrait from "../assets/images/about-portrait.webp";
+import familyHero from "../assets/images/heroes/family.jpg";
+import familyPanel from "../assets/images/panels/family.jpg";
+import eventsHero from "../assets/images/heroes/events.jpg";
+import eventsPanel from "../assets/images/panels/events.jpg";
+import aboutMain from "../assets/images/about/main.jpg";
+import aboutPortrait from "../assets/images/about/portrait.jpg";
 ---
 
 <BaseLayout
@@ -117,7 +117,7 @@ import aboutPortrait from "../assets/images/about-portrait.webp";
     </script>
   </fragment>
 
-  <a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top .2s;" onfocus="this.style.top='1rem'" onblur="this.style.top='-40px'">Skip to main content</a>
+  <a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);" onfocus="this.style.top='1rem'" onblur="this.style.top='-40px'">Skip to main content</a>
 
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <a href="/" class="nav-logo">Ni<span>O</span> Pictures</a>
@@ -140,12 +140,12 @@ import aboutPortrait from "../assets/images/about-portrait.webp";
     <a href="/portfolio.html">Portfolio</a>
     <a href="/about.html">About</a>
     <a href="/contact.html">Contact</a>
-    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" style="color:var(--gold);margin-top:1rem;">Book a Session</a>
+    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="nav-mobile-cta">Book a Session</a>
   </div>
 
   <main id="main-content">
     <div class="page-hero">
-      <div class="page-hero-bg" style="background-image: url('/assets/images/family-hero.webp'); background-color: #1d1a14;"></div>
+      <div class="page-hero-bg" style="background-image: url('/assets/images/heroes/family.jpg'); background-color: #1d1a14;"></div>
       <div class="page-hero-overlay"></div>
       <div class="page-hero-content container">
         <p class="eyebrow" style="margin-bottom: 1rem;">Portraits - Lifestyle - Legacy</p>
@@ -343,7 +343,7 @@ import aboutPortrait from "../assets/images/about-portrait.webp";
             <p style="font-size:0.9rem;color:var(--cream);font-weight:400;margin-bottom:0.3rem;">Prints, Wall Art and Keepsake Albums</p>
             <p style="font-size:0.83rem;color:var(--muted);line-height:1.65;">Every package includes access to our print store - order framed prints, large-format wall art, and handcrafted albums directly from your private gallery. These are the products built to last generations.</p>
           </div>
-          <a href="https://niopictures.pixieset.com/" target="_blank" rel="noopener noreferrer" class="btn btn-gold-outline btn-arrow" style="white-space:nowrap;">Browse Print Shop</a>
+          <a href="https://niopictures.pixieset.com/" target="_blank" rel="noopener noreferrer" class="btn btn-gold-outline btn-arrow btn-nowrap">Browse Print Shop</a>
         </div>
       </div>
     </section>

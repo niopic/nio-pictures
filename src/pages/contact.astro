@@ -9,9 +9,9 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
 
 <BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage}>
   <Fragment slot="head" set:html={extraHead} />
-<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top .2s;" onfocus="this.style.top='1rem'" onblur="this.style.top='-40px'">Skip to main content</a>
+<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);" onfocus="this.style.top='1rem'" onblur="this.style.top='-40px'">Skip to main content</a>
 
-  <nav class="nav">
+  <nav class="nav" role="navigation" aria-label="Main navigation">
     <a href="/" class="nav-logo">Ni<span>O</span> Pictures</a>
     <div class="nav-links">
       <a href="/event-photography-katy-tx.html">Events</a>
@@ -22,17 +22,17 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
       <a href="/contact.html" class="active">Contact</a>
     </div>
     <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">Book Now</a>
-    <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </nav>
 
-  <div class="nav-mobile">
+  <div class="nav-mobile" role="dialog" aria-label="Mobile navigation">
     <a href="/event-photography-katy-tx.html">Events</a>
     <a href="/family-photography-katy-tx.html">Family</a>
     <a href="/blog.html">Blog</a>
       <a href="/portfolio.html">Portfolio</a>
     <a href="/about.html">About</a>
     <a href="/contact.html">Contact</a>
-    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" style="color:var(--gold);margin-top:1rem;">Book a Session →</a>
+    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="nav-mobile-cta">Book a Session →</a>
   </div>
 
   <!-- ── Contact Section ────────────────────────────────────── -->
@@ -44,7 +44,7 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
         <div>
           <p class="eyebrow" style="margin-bottom: 1rem;">Reach Out</p>
           <div class="gold-line gold-line-animate"></div>
-          <h1 class="display-lg" style="margin-bottom: 1.5rem;">
+          <h1 class="display-xl" style="margin-bottom: 1.5rem;">
             Let's Start a<br><em style="font-style:italic; color:var(--gold);">Conversation</em>
           </h1>
           <p class="body-lg" style="margin-bottom: 3rem;">
@@ -87,11 +87,11 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
             <div>
               <p class="footer-heading" style="margin-bottom:0.75rem;">Follow Along</p>
               <div style="display:flex; gap:0.75rem;">
-                <a href="https://www.instagram.com/nio_pictures" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="display:flex;align-items:center;gap:0.5rem;font-family:var(--font-accent);font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);padding:0.6rem 1rem;border:1px solid var(--border);border-radius:2px;transition:all var(--dur-fast) var(--ease);" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">
+                <a href="https://www.instagram.com/nio_pictures" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-chip">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
                   @nio_pictures
                 </a>
-                <a href="https://www.facebook.com/profile.php?id=61580596898855" target="_blank" rel="noopener noreferrer" aria-label="Facebook" style="display:flex;align-items:center;gap:0.5rem;font-family:var(--font-accent);font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);padding:0.6rem 1rem;border:1px solid var(--border);border-radius:2px;transition:all var(--dur-fast) var(--ease);" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">
+                <a href="https://www.facebook.com/profile.php?id=61580596898855" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-chip">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                   Facebook
                 </a>
@@ -101,9 +101,9 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
             <div style="padding-top: 1.5rem; border-top: 1px solid var(--border-light);">
               <p class="footer-heading" style="margin-bottom: 1rem;">Quick Links</p>
               <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                <a href="/event-photography-katy-tx.html" class="btn btn-outline" style="padding: 0.6rem 1.25rem; font-size:0.6rem;">Events</a>
-                <a href="/family-photography-katy-tx.html" class="btn btn-outline" style="padding: 0.6rem 1.25rem; font-size:0.6rem;">Family</a>
-                <a href="/portfolio.html" class="btn btn-outline" style="padding: 0.6rem 1.25rem; font-size:0.6rem;">Portfolio</a>
+                <a href="/event-photography-katy-tx.html" class="btn btn-outline btn-sm">Events</a>
+                <a href="/family-photography-katy-tx.html" class="btn btn-outline btn-sm">Family</a>
+                <a href="/portfolio.html" class="btn btn-outline btn-sm">Portfolio</a>
               </div>
             </div>
 
@@ -150,7 +150,7 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
                 <textarea class="form-control" id="contact-message" name="message" placeholder="Tell us about your project, event, or questions…" required style="min-height:160px;"></textarea>
               </div>
 
-              <button type="submit" class="btn btn-primary btn-arrow" style="width:100%; justify-content:center;">
+              <button type="submit" class="btn btn-primary btn-arrow btn-block">
                 Send Message
               </button>
 
@@ -167,7 +167,7 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
               <p style="font-size:0.85rem; color:var(--cream); font-weight:400; margin-bottom:0.2rem;">Ready to book now?</p>
               <p class="body-sm">Skip the form and reserve your date directly.</p>
             </div>
-            <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-gold-outline btn-arrow" style="white-space:nowrap;">Book Now</a>
+            <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-gold-outline btn-arrow btn-nowrap">Book Now</a>
           </div>
         </div>
 

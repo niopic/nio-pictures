@@ -2,12 +2,12 @@
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-import aboutPortrait from "../assets/images/about-portrait.webp";
-import aboutMain from "../assets/images/about-main.webp";
-import eventsPanel from "../assets/images/events-panel.webp";
-import familyPanel from "../assets/images/family-panel.webp";
-import eventsHero from "../assets/images/events-hero.webp";
-import familyHero from "../assets/images/family-hero.webp";
+import aboutPortrait from "../assets/images/about/portrait.jpg";
+import aboutMain from "../assets/images/about/main.jpg";
+import eventsPanel from "../assets/images/panels/events.jpg";
+import familyPanel from "../assets/images/panels/family.jpg";
+import eventsHero from "../assets/images/heroes/events.jpg";
+import familyHero from "../assets/images/heroes/family.jpg";
 ---
 
 <BaseLayout
@@ -17,7 +17,7 @@ import familyHero from "../assets/images/family-hero.webp";
   ogImage="https://niopictures.com/assets/images/og-home.webp"
 >
   <fragment slot="head">
-    <link rel="preload" as="image" href="/assets/images/hero-home.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/assets/images/heroes/home.jpg" fetchpriority="high" />
     <script type="application/ld+json" is:inline>
       {
         "@context": "https://schema.org",
@@ -90,7 +90,7 @@ import familyHero from "../assets/images/family-hero.webp";
     </script>
   </fragment>
 
-  <a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top .2s;" onfocus="this.style.top='1rem'" onblur="this.style.top='-40px'">Skip to main content</a>
+  <a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);" onfocus="this.style.top='1rem'" onblur="this.style.top='-40px'">Skip to main content</a>
 
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <a href="/" class="nav-logo" aria-label="NiO Pictures Home">
@@ -120,17 +120,17 @@ import familyHero from "../assets/images/family-hero.webp";
     <a href="/portfolio.html">Portfolio</a>
     <a href="/about.html">About</a>
     <a href="/contact.html">Contact</a>
-    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" style="color:var(--gold);margin-top:1rem;">Book a Session</a>
+    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="nav-mobile-cta">Book a Session</a>
   </div>
 
   <main id="main-content">
     <section class="hero" aria-label="Hero">
-      <div class="hero-bg" style="background-image: url('/assets/images/hero-home.webp'); background-color: #1e1a17;" data-fetchpriority="high"></div>
+      <div class="hero-bg" style="background-image: url('/assets/images/heroes/home.jpg'); background-color: #1e1a17;" data-fetchpriority="high"></div>
       <div class="hero-overlay"></div>
 
       <div class="hero-content">
         <p class="eyebrow">Katy, Texas &nbsp;·&nbsp; Cypress &nbsp;·&nbsp; Houston &nbsp;·&nbsp; Sugar Land &nbsp;·&nbsp; Richmond</p>
-        <h1 class="hero-title">
+        <h1 class="display-xl">
           Cinematic <em>Event</em> &amp;<br />Family Photography
         </h1>
         <p class="hero-subtitle">
@@ -171,7 +171,7 @@ import familyHero from "../assets/images/family-hero.webp";
 
     <div class="service-split" role="region" aria-label="Photography services">
       <a href="/event-photography-katy-tx.html" class="service-panel" aria-label="Event Photography">
-        <div class="service-panel-bg" style="background-image: url('/assets/images/events-panel.webp'); background-color: #1a1816;"></div>
+        <div class="service-panel-bg" style="background-image: url('/assets/images/panels/events.jpg'); background-color: #1a1816;"></div>
         <div class="service-panel-overlay"></div>
         <div class="service-panel-content">
           <p class="eyebrow">Corporate · Private · Candid</p>
@@ -182,7 +182,7 @@ import familyHero from "../assets/images/family-hero.webp";
       </a>
 
       <a href="/family-photography-katy-tx.html" class="service-panel" aria-label="Family & Heirloom Photography">
-        <div class="service-panel-bg" style="background-image: url('/assets/images/family-panel.webp'); background-color: #1c1915;"></div>
+        <div class="service-panel-bg" style="background-image: url('/assets/images/panels/family.jpg'); background-color: #1c1915;"></div>
         <div class="service-panel-overlay"></div>
         <div class="service-panel-content">
           <p class="eyebrow">Portraits · Lifestyle · Legacy</p>
@@ -197,7 +197,7 @@ import familyHero from "../assets/images/family-hero.webp";
       <div class="container">
         <div class="about-split">
           <div class="about-image-wrap reveal">
-            <Image src={aboutPortrait} alt="NiO Pictures photographer in Katy, TX" loading="lazy" width={560} height={700} style="background: var(--surface);" />
+            <Image src={aboutPortrait} alt="NiO Pictures photographer in Katy, TX" loading="lazy" width={560} height={700} widths={[400, 800]} sizes="(max-width: 768px) 100vw, 50vw" quality={85} style="background: var(--surface);" />
           </div>
 
           <div class="reveal reveal-delay-2">
@@ -242,22 +242,22 @@ import familyHero from "../assets/images/family-hero.webp";
 
         <div class="featured-grid reveal reveal-delay-1">
           <div class="grid-item">
-            <Image src={eventsPanel} alt="Corporate event photography in Houston TX" loading="lazy" width={800} height={600} style="background:var(--surface-2)" />
+            <Image src={eventsPanel} alt="Corporate event photography in Houston TX" loading="lazy" width={800} height={600} widths={[400, 800, 1200]} sizes="(max-width: 768px) 100vw, 50vw" quality={90} style="background:var(--surface-2)" />
           </div>
           <div class="grid-item">
-            <Image src={familyPanel} alt="Family portrait photography in Katy TX" loading="lazy" width={400} height={533} style="background:var(--surface-2)" />
+            <Image src={familyPanel} alt="Family portrait photography in Katy TX" loading="lazy" width={400} height={533} widths={[400, 800]} sizes="(max-width: 768px) 100vw, 50vw" quality={90} style="background:var(--surface-2)" />
           </div>
           <div class="grid-item">
-            <Image src={eventsHero} alt="Private event photography in Sugar Land TX" loading="lazy" width={400} height={533} style="background:var(--surface-2)" />
+            <Image src={eventsHero} alt="Private event photography in Sugar Land TX" loading="lazy" width={400} height={533} widths={[400, 800]} sizes="(max-width: 768px) 100vw, 50vw" quality={90} style="background:var(--surface-2)" />
           </div>
           <div class="grid-item">
-            <Image src={aboutMain} alt="Heirloom family photography session in Katy TX" loading="lazy" width={400} height={533} style="background:var(--surface-2)" />
+            <Image src={aboutMain} alt="Heirloom family photography session in Katy TX" loading="lazy" width={400} height={533} widths={[400, 800]} sizes="(max-width: 768px) 100vw, 50vw" quality={90} style="background:var(--surface-2)" />
           </div>
           <div class="grid-item">
-            <Image src={familyHero} alt="Lifestyle family session in Houston TX" loading="lazy" width={400} height={533} style="background:var(--surface-2)" />
+            <Image src={familyHero} alt="Lifestyle family session in Houston TX" loading="lazy" width={400} height={533} widths={[400, 800]} sizes="(max-width: 768px) 100vw, 50vw" quality={90} style="background:var(--surface-2)" />
           </div>
           <div class="grid-item">
-            <Image src={aboutPortrait} alt="Candid portrait storytelling in Richmond TX" loading="lazy" width={800} height={600} style="background:var(--surface-2)" />
+            <Image src={aboutPortrait} alt="Candid portrait storytelling in Richmond TX" loading="lazy" width={800} height={600} widths={[400, 800, 1200]} sizes="(max-width: 768px) 100vw, 50vw" quality={90} style="background:var(--surface-2)" />
           </div>
         </div>
 
