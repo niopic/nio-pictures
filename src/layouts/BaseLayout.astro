@@ -105,13 +105,18 @@ const businessSchema = {
       />
     </noscript>
 
-    <link rel="stylesheet" href="/assets/css/global.css" />
+    <link rel="preload" as="style" href="/assets/css/global.css" />
+    <link rel="stylesheet" href="/assets/css/global.css" media="print" onload="this.media='all'" />
 
     <link rel="preload" as="style" href="/assets/css/components.css" />
     <link rel="stylesheet" href="/assets/css/components.css" />
 
     <link rel="preload" as="style" href="/assets/css/animations.css" />
     <link rel="stylesheet" href="/assets/css/animations.css" media="print" onload="this.media='all'" />
+
+    <noscript>
+      <link rel="stylesheet" href="/assets/css/global.css" />
+    </noscript>
 
     <noscript>
       <link rel="stylesheet" href="/assets/css/animations.css" />
