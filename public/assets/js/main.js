@@ -152,7 +152,7 @@
 
   async function submitToFormspree(form, btn, successMsg, onSuccess) {
     // Honeypot check — bots fill hidden field, humans don't
-    const trap = form.querySelector('#website');
+    const trap = form.querySelector('input[name="website"]');
     if (trap && trap.value) return;
 
     // Basic client-side validation
