@@ -21,7 +21,7 @@
 
   /* Typography */
   --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body:    'DM Sans', system-ui, sans-serif;
+  --font-body:    system-ui, sans-serif;
   --font-accent:  'Cinzel', Georgia, serif;
 
   /* Spacing */
