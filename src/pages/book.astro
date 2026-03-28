@@ -1,10 +1,44 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 const title = "Book a Photography Session | NiO Pictures — Katy TX";
-const description = "Book Palanivel at NiO Pictures. Event coverage, family portraits \u0026 milestone sessions in Katy TX, Houston, Sugar Land \u0026 Richmond. Weekends and weeknights available.";
+const description = "Book event & family photography sessions with NiO Pictures in Katy TX. Serving Houston, Sugar Land & Richmond. Weekends and weeknights available.";
 const canonical = "https://niopictures.com/book.html";
 const ogImage = "https://niopictures.com/assets/images/og-home.webp";
-const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"BreadcrumbList\",\n    \"itemListElement\": [\n        {\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://niopictures.com/\"},\n        {\"@type\":\"ListItem\",\"position\":2,\"name\":\"Book a Session\",\"item\":\"https://niopictures.com/book.html\"}\n    ]\n  }\n  \u003c/script\u003e";
+const extraHead = `<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://niopictures.com/"},
+        {"@type":"ListItem","position":2,"name":"Book a Session","item":"https://niopictures.com/book.html"}
+    ]
+  }
+  <\/script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Photography Session Booking — NiO Pictures",
+    "serviceType": "Photography Session Booking",
+    "provider": {"@id": "https://niopictures.com/#business"},
+    "areaServed": [
+      {"@type": "City", "name": "Katy"},
+      {"@type": "City", "name": "Houston"},
+      {"@type": "City", "name": "Sugar Land"},
+      {"@type": "City", "name": "Richmond"}
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Photography Sessions",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Event Photography", "url": "https://niopictures.com/event-photography-katy-tx.html"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Family Photography", "url": "https://niopictures.com/family-photography-katy-tx.html"}}
+      ]
+    },
+    "url": "https://niopictures.com/book.html",
+    "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "url": "https://niopictures.pixieset.com/booking/"}
+  }
+  <\/script>`;
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage}>

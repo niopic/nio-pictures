@@ -43,6 +43,16 @@
     <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://niopictures.com/assets/images/events-hero.webp</image:loc>
+      <image:title>Event photography portfolio — NiO Pictures Katy TX</image:title>
+      <image:geo_location>Katy, Texas, US</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://niopictures.com/assets/images/family-hero.webp</image:loc>
+      <image:title>Family portrait photography portfolio — NiO Pictures Katy TX</image:title>
+      <image:geo_location>Katy, Texas, US</image:geo_location>
+    </image:image>
   </url>
 
   <url>
@@ -50,6 +60,11 @@
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://niopictures.com/assets/images/about-main.webp</image:loc>
+      <image:title>Palanivel — NiO Pictures event and family photographer based in Katy TX</image:title>
+      <image:geo_location>Katy, Texas, US</image:geo_location>
+    </image:image>
   </url>
 
   <url>
@@ -78,6 +93,11 @@
     <lastmod>2026-02-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://niopictures.com/assets/images/blog-journey.webp</image:loc>
+      <image:title>Family photography session journey with NiO Pictures Katy TX</image:title>
+      <image:geo_location>Katy, Texas, US</image:geo_location>
+    </image:image>
   </url>
 
   <url>
@@ -85,6 +105,11 @@
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://niopictures.com/assets/images/blog-prepare.webp</image:loc>
+      <image:title>How to prepare for a family portrait session in Katy TX</image:title>
+      <image:geo_location>Katy, Texas, US</image:geo_location>
+    </image:image>
   </url>
 
   <url>
@@ -92,6 +117,11 @@
     <lastmod>2026-01-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://niopictures.com/assets/images/blog-editorial-hero.webp</image:loc>
+      <image:title>Editorial portrait photography lighting study by Palanivel NiO Pictures</image:title>
+      <image:geo_location>Katy, Texas, US</image:geo_location>
+    </image:image>
   </url>
 
   <url>
@@ -99,6 +129,11 @@
     <lastmod>2025-12-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://niopictures.com/assets/images/blog-bluehour.webp</image:loc>
+      <image:title>Blue hour holiday family portraits in front yard Katy TX</image:title>
+      <image:geo_location>Katy, Texas, US</image:geo_location>
+    </image:image>
   </url>
 
   <url>
@@ -127,20 +162,6 @@
     <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://niopictures.com/privacy.html</loc>
-    <lastmod>2026-03-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-
-  <url>
-    <loc>https://niopictures.com/terms.html</loc>
-    <lastmod>2026-03-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
   </url>
 
 </urlset>

@@ -53,13 +53,17 @@ const extraHead = "\u003clink rel=\"preload\" as=\"image\" href=\"/assets/images
     </div>
   </div>
 
-  <!-- ── Hero Image Placeholder ─────────────────────────────── -->
+  <!-- ── Hero Image ───────────────────────────────────────── -->
   <div style="max-width:900px; margin:0 auto; padding:0 var(--gutter);">
     <div class="post-img">
-      <div class="post-img-placeholder">
-        <svg class="img-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Hero image — add blog-journey.webp to assets/images/</span>
-      </div>
+      <img
+        src="/assets/images/blog-journey.webp"
+        alt="Family photography experience from booking to heirloom keepsakes with NiO Pictures Katy TX"
+        width="900" height="506"
+        loading="eager"
+        fetchpriority="high"
+        style="width:100%;height:auto;display:block;background:var(--surface-2);"
+      />
     </div>
   </div>
 
@@ -111,12 +115,15 @@ const extraHead = "\u003clink rel=\"preload\" as=\"image\" href=\"/assets/images
       </li>
     </ol>
 
-    <!-- Image placeholder mid-post -->
+    <!-- Image — mid post -->
     <div class="post-img">
-      <div class="post-img-placeholder">
-        <svg class="img-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Session photo — add to assets/images/blog-journey-2.webp</span>
-      </div>
+      <img
+        src="/assets/images/blog-journey-2.webp"
+        alt="Heirloom family portrait session delivery from NiO Pictures — online gallery and album keepsakes for Katy TX families"
+        width="900" height="506"
+        loading="lazy"
+        style="width:100%;height:auto;display:block;background:var(--surface-2);"
+      />
       <p class="post-img-caption">A moment from a recent family session in Katy, TX</p>
     </div>
 

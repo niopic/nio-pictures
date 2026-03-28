@@ -3,10 +3,45 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 import aboutMain from "../assets/images/about/main.jpg";
 const title = "About Palanivel | NiO Pictures Photographer — Katy TX";
-const description = "Meet Palanivel, photographer behind NiO Pictures in Katy TX. Shooting since 2017. Specializing in events, Indian celebrations, and family portraits across Houston.";
+const description = "Meet Palanivel, photographer at NiO Pictures in Katy TX. Events, Indian celebrations, and heirloom family portraits across Houston since 2017.";
 const canonical = "https://niopictures.com/about.html";
 const ogImage = "https://niopictures.com/assets/images/og-home.webp";
-const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"BreadcrumbList\",\n    \"itemListElement\": [\n        {\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://niopictures.com/\"},\n        {\"@type\":\"ListItem\",\"position\":2,\"name\":\"About\",\"item\":\"https://niopictures.com/about.html\"}\n    ]\n  }\n  \u003c/script\u003e\n\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Person\",\n    \"name\": \"Palanivel\",\n    \"jobTitle\": \"Photographer\",\n    \"description\": \"Event and family photographer based in Katy, Texas. Specializing in corporate events, Indian cultural celebrations, and heirloom family portraits since 2017.\",\n    \"url\": \"https://niopictures.com/about.html\",\n    \"sameAs\": [\n      \"https://www.instagram.com/nio_pictures\",\n      \"https://www.facebook.com/profile.php?id=61580596898855\"\n    ],\n    \"worksFor\": {\"@id\": \"https://niopictures.com/#business\"}\n  }\n  \u003c/script\u003e";
+const extraHead = `<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://niopictures.com/"},
+        {"@type":"ListItem","position":2,"name":"About","item":"https://niopictures.com/about.html"}
+    ]
+  }
+  <\/script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Palanivel",
+    "jobTitle": "Photographer",
+    "description": "Event and family photographer based in Katy, Texas. Specializing in corporate events, Indian cultural celebrations, and heirloom family portraits since 2017.",
+    "url": "https://niopictures.com/about.html",
+    "image": "https://niopictures.com/assets/images/about-portrait.webp",
+    "knowsAbout": [
+      "Event Photography",
+      "Family Photography",
+      "Heirloom Portrait Photography",
+      "Indian Cultural Event Photography",
+      "South Asian Wedding Photography",
+      "Corporate Event Photography",
+      "Personal Branding Photography",
+      "Candid Photography"
+    ],
+    "sameAs": [
+      "https://www.instagram.com/nio_pictures",
+      "https://www.facebook.com/profile.php?id=61580596898855"
+    ],
+    "worksFor": {"@id": "https://niopictures.com/#business"}
+  }
+  <\/script>`;
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage}>
@@ -54,7 +89,7 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
       <div class="about-split">
 
         <div class="about-image-wrap reveal">
-          <Image src={aboutMain} alt="NiO Pictures photographer based in Katy TX" loading="lazy" style="background: var(--surface);" width={560} height={700} />
+          <Image src={aboutMain} alt="Palanivel, event and family photographer at NiO Pictures, posing in Katy Texas photography studio" loading="lazy" style="background: var(--surface);" width={560} height={700} />
         </div>
 
         <div class="reveal reveal-delay-2">
@@ -89,8 +124,8 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
           </div>
 
           <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-arrow">Book a Session</a>
-            <a href="/portfolio.html" class="btn btn-outline">View Portfolio</a>
+            <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-arrow">Book a Portrait Session</a>
+            <a href="/portfolio.html" class="btn btn-outline">See Photography Portfolio</a>
           </div>
         </div>
 
@@ -173,7 +208,7 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
       </h2>
       <p class="body-lg" style="max-width:380px; margin:0 auto 2.5rem;">We'd love to hear about your upcoming event or session.</p>
       <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-        <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-arrow">Book a Session</a>
+        <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-arrow">Book a Portrait Session</a>
         <a href="/contact.html" class="btn btn-outline">Get in Touch</a>
       </div>
     </div>

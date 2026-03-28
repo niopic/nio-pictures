@@ -1,12 +1,12 @@
 User-agent: *
 Allow: /
 
-# Block AI training crawlers while keeping search indexing open.
+# Allow AI search citation crawlers; block pure training scrapers.
 User-agent: GPTBot
-Disallow: /
+Allow: /
 
 User-agent: Google-Extended
-Disallow: /
+Allow: /
 
 User-agent: ClaudeBot
 Disallow: /
