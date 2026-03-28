@@ -159,3 +159,15 @@
   .hero-bg { transform: scale(1) !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+@media (max-width: 768px) {
+  .hero-content .eyebrow,
+  .hero-title,
+  .hero-subtitle,
+  .hero-actions,
+  .hero-scroll {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}

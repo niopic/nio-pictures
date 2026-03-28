@@ -204,6 +204,7 @@ header .reveal {
 .hero-bg {
   position: absolute;
   inset: 0;
+  background-image: url('/assets/images/hero-home.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -212,6 +213,12 @@ header .reveal {
   /* Promote to GPU layer — prevents repaints during scroll    */
   will-change: transform;
   backface-visibility: hidden;
+}
+
+@media (max-width: 768px) {
+  .hero-bg {
+    background-image: url('/assets/images/hero-home-mobile.webp');
+  }
 }
 
 .hero-bg.loaded { transform: scale(1); }
