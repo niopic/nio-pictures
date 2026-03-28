@@ -243,18 +243,20 @@
         items.forEach(item => {
           const categories = item.dataset.cat || item.dataset.category || '';
           const show = filter === 'all' || categories.includes(filter);
-          item.style.opacity = '0';
-          item.style.transform = 'scale(0.97)';
-
-          setTimeout(() => {
-            item.style.display = show ? '' : 'none';
-            if (show) {
+          
+          // Set display first to avoid forced reflow with animations
+          item.style.display = show ? '' : 'none';
+          
+          if (show) {
+            item.style.opacity = '0';
+            item.style.transform = 'scale(0.97)';
+            setTimeout(() => {
               requestAnimationFrame(() => {
                 item.style.opacity = '1';
                 item.style.transform = 'scale(1)';
               });
-            }
-          }, 200);
+            }, 200);
+          }
         });
       });
     });
