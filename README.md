@@ -1,31 +1,283 @@
 # NiO Pictures — Website Project Reference
 
 **Business:** NiO Pictures · Palanivel · Katy, Texas  
-**Tech:** Static HTML + CSS + JS · Cloudflare Pages · Zero build step  
+**Tech:** Astro 5 · SSG · Cloudflare Pages · Git-based deployment
 **Domain:** https://niopictures.com  
-**Built:** March 2026
+**Last Updated:** March 27, 2026
 
-> This document is the single source of truth for the project. If you lose your chat history, everything you need to continue, maintain, or hand off this site is here.
+> This document is the single source of truth for the project. If you lose your chat history, everything you need to continue, maintain, or hand off this site is here. **Someone should be able to recreate this entire website from this README.**
 
 ---
 
-## 📋 Table of Contents
+## ⚡ Quick Start (New Developer)
 
-1. [Project Status](#-project-status)
-2. [File Structure](#-file-structure)
-3. [Brand Design System](#-brand-design-system)
-4. [Typography](#-typography)
-5. [Key Integrations](#-key-integrations)
-6. [Images Required](#-images-required)
-7. [Deploy to Cloudflare Pages](#-deploy-to-cloudflare-pages)
-8. [DNS Migration](#-dns-migration)
-9. [Post-Launch Checklist](#-post-launch-checklist)
-10. [SEO Summary](#-seo-summary)
-11. [Security & Legal](#-security--legal)
-12. [Maintenance Guide](#-maintenance-guide)
-13. [Pricing Packages](#-pricing-packages)
-14. [Business Details](#-business-details)
-15. [AI & Claude Notes](#-ai--claude-notes)
+### Prerequisites
+- Node.js 18+ (check: `node --version`)
+- Git (check: `git --version`)
+- GitHub account (for deployments)
+- Cloudflare account (for hosting)
+
+### Clone & Run Locally
+```bash
+# Clone the repository
+git clone https://github.com/YOUR_ORG/nio-pictures.git
+cd nio-pictures
+
+# Install dependencies (includes Sharp for image optimization)
+npm install
+
+# Start development server (http://localhost:3000)
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+### Test Build Output
+```bash
+# After running 'npm run build', verify:
+ls -la dist/index.html          # Pages built ✓
+ls -la dist/_astro/             # Images optimized ✓
+du -sh dist/                    # Check total size
+```
+
+---
+
+## 🏗️ Architecture & Tech Stack
+
+### Technology Stack
+
+| Layer | Technology | Version | Purpose |
+|---|---|---|---|
+| **Framework** | Astro | 5.5.0 | Static site generation (SSG) |
+| **Language** | JavaScript/TypeScript | ES modules | Page logic & components |
+| **Styling** | Vanilla CSS | (no framework) | 4 CSS files, CSS variables, responsive |
+| **Image Optimization** | Sharp | 0.33.0 | Convert JPEG source → WebP/AVIF formats at build time |
+| **Fonts** | Google Fonts | (CDT) | Cormorant Garamond, DM Sans, Cinzel (non-blocking load) |
+| **Forms** | Formspree | `xjgpbyeb` endpoint | Contact + booking form submissions |
+| **Hosting** | Cloudflare Pages | — | Git-connected deployment, auto-builds on push |
+| **Analytics** | Google Analytics 4 | `G-1VZ3GPSWGH` | Conversion tracking on all 19 pages |
+| **Chat** | NiO Chat Widget | external JS | Real-time customer messaging |
+| **SEO** | JSON-LD Schema Markup | (embedded in HTML) | LocalBusiness, Service, FAQ, BlogPosting, etc. |
+
+### High-Level Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                     DEVELOPMENT WORKFLOW                         │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│  1. LOCAL DEVELOPMENT                                            │
+│     ├─ Edit .astro files (src/pages/, src/layouts/)             │
+│     ├─ Edit CSS (public/assets/css/)                            │
+│     ├─ Replace images in src/assets/images/                     │
+│     └─ npm run dev → Live refresh (http://localhost:3000)       │
+│                                                                   │
+│  2. BUILD PROCESS                                                │
+│     ├─ Astro parses all .astro pages                            │
+│     ├─ Sharp optimizes JPEG/PNG → WebP/AVIF                    │
+│     ├─ CSS + JS bundled & minified                             │
+│     ├─ JSON-LD schemas embedded                                 │
+│     └─ Output: dist/ folder (ready for hosting)                │
+│                                                                   │
+│  3. GIT WORKFLOW                                                 │
+│     ├─ git add .                                                │
+│     ├─ git commit -m "descriptive message"                      │
+│     └─ git push origin main                                     │
+│                                                                   │
+│  4. CLOUDFLARE DEPLOYMENT (AUTOMATIC)                           │
+│     ├─ GitHub webhook triggers Cloudflare build                 │
+│     ├─ Cloudflare runs: npm install && npm run build            │
+│     ├─ dist/ contents deployed to CDN                           │
+│     ├─ Security headers (_headers) applied                      │
+│     ├─ Routing rules (_redirects) applied                       │
+│     └─ Live at https://niopictures.com (~60 seconds)           │
+│                                                                   │
+│  5. BROWSER DELIVERY                                             │
+│     ├─ HTML pages served globally from Cloudflare edge          │
+│     ├─ Images served with caching headers                       │
+│     ├─ GA4 tracks user behavior                                 │
+│     ├─ Chat widget loads on all pages                           │
+│     └─ Forms post to Formspree endpoint                         │
+│                                                                   │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Image Optimization Pipeline
+
+**Before (Manual):**
+- Upload WebP files manually
+- No responsive variants
+- Slow on mobile
+
+**Now (Automatic with Sharp):**
+{% raw %}
+```
+Source (JPEG/PNG)          Sharp Processor           Browser Display
+┌──────────────┐           ┌──────────────┐         ┌──────────────┐
+│ photo.jpg    │ ────→    │ • Resize     │────→    │ <picture>    │
+│ (2400px)     │ (build   │ • Convert    │         │ <source>     │
+│              │  time)   │ • Optimize   │         │ (srcset)     │
+└──────────────┘           │ • Densities  │         └──────────────┘
+                           └──────────────┘
+Output formats (auto-generated):
+├─ WebP @ 400, 800, 1200, 1600px (2x density)
+├─ AVIF @ 400, 800, 1200, 1600px (2x density)
+└─ Original JPEG as fallback
+```
+{% endraw %}
+
+**Sharp Configuration (astro.config.mjs):**
+```javascript
+image: {
+  service: {
+    entrypoint: "astro/assets/services/sharp",
+    config: {
+      formats: ["avif", "webp"],
+      densities: [1, 2],                    // 1x & 2x for Retina
+    },
+  },
+}
+```
+
+**Current Image Props (added to all Image components):**
+```astro
+<Image 
+  src={heroImage}
+  alt="Descriptive alt text"
+  widths={[400, 800, 1200]}              // Breakpoints
+  sizes="(max-width: 768px) 100vw, 50vw"  // Media query
+  quality={90}                             // 85–90 for photography
+  loading="eager|lazy"                    // Hero = eager, rest = lazy
+/>
+```
+
+---
+
+## 🎯 Deployment Workflow
+
+### Step 1: Initialize Git & GitHub (First Time Only)
+
+```bash
+cd nio-pictures
+
+# Create local git repo
+git init
+git config user.name "Your Name"
+git config user.email "your.email@gmail.com"
+
+# Add all files
+git add .
+git commit -m "Initial commit — NiO Pictures website"
+
+# Create repo on GitHub.com, then link:
+git remote add origin https://github.com/YOUR_ORG/nio-pictures.git
+git branch -M main
+git push -u origin main
+```
+
+### Step 2: Connect to Cloudflare Pages
+
+1. Go to [pages.cloudflare.com](https://pages.cloudflare.com)
+2. Click **Create a project** → **Connect to Git**
+3. Authorize GitHub & select `nio-pictures` repo
+4. **Framework preset:** Astro
+5. **Build command:** `npm run build`
+6. **Build output directory:** `dist`
+7. **Node.js version:** 18 or 20
+8. Click **Save and Deploy**
+
+### Step 3: Add Custom Domain
+
+1. In Cloudflare Pages → your project → **Custom domains**
+2. Add `niopictures.com`
+3. Cloudflare shows nameserver records → add to domain registrar
+4. Wait for DNS propagation (5 min – 2 hours)
+5. Verify at `https://niopictures.com` ✓
+
+### Step 4: Ongoing Workflow
+
+**Every change follows this flow:**
+
+```bash
+# 1. Make edits (pages, styles, images, config)
+# 2. Test locally
+npm run dev           # Test at http://localhost:3000
+
+# 3. Commit & push
+git add .
+git commit -m "Describe what changed"
+git push origin main
+
+# 4. Cloudflare auto-deploys (watch https://pages.cloudflare.com)
+# → Logs show build progress
+# → ~60 seconds later, site is live
+```
+
+**IMPORTANT:** Before first deploy, move these files to `public/`:
+- `_headers` → `public/_headers` (security headers)
+- `_redirects` → `public/_redirects` (routing rules)
+
+---
+
+## 🎨 Color Palette — Complete Reference
+
+### Primary Colors
+
+| Name | CSS Var | Hex | RGB | Usage |
+|---|---|---|---|---|
+| **Deep Black** | `--black` | `#161412` | 22, 20, 18 | Page background |
+| **Gold** | `--gold` | `#C5A572` | 197, 165, 114 | Primary actions, headings |
+| **Gold Dark** | `--gold-dark` | `#8B6A35` | 139, 106, 53 | Hover states, scrollbar |
+| **Cream** | `--cream` | `#F0E8D8` | 240, 232, 216 | Body text (on dark bg) |
+
+### Surface & Secondary Colors
+
+| Name | CSS Var | Hex | RGB | Usage |
+|---|---|---|---|---|
+| **Surface** | `--surface` | `#262320` | 38, 35, 32 | Cards, nav on scroll |
+| **Surface 2** | `--surface-2` | `#302C29` | 48, 44, 41 | Deeper cards |
+| **Muted** | `--muted` | `#A89880` | 168, 152, 128 | Secondary text |
+| **Muted Dark** | `--muted-dark` | `#6B5F52` | 107, 95, 82 | Tertiary text, captions |
+| **Violet** | `--violet` | `#9B7FD4` | 155, 127, 212 | Accent (sparingly) |
+
+### Borders & Utilities
+
+| Name | CSS Var | Hex | RGB | Usage |
+|---|---|---|---|---|
+| **Border** | `--border` | rgba(197,165,114,0.15) | 15% alpha | Card edges |
+| **Border Light** | `--border-light` | rgba(197,165,114,0.08) | 8% alpha | Dividers |
+| **Gold Glow** | `--gold-glow` | rgba(197,165,114,0.12) | 12% alpha | Radial glows |
+
+### Theme Color (Browser UI)
+```html
+<meta name="theme-color" content="#161412" />
+```
+
+---
+
+1. [Quick Start](#-quick-start-new-developer)
+2. [Architecture & Tech Stack](#-architecture--tech-stack)
+3. [Deployment Workflow](#-deployment-workflow)
+4. [Color Palette](#-color-palette--complete-reference)
+5. [Project Status](#-project-status)
+6. [File Structure](#-file-structure)
+7. [Brand Design System](#-brand-design-system)
+8. [Typography](#-typography)
+9. [Key Integrations](#-key-integrations)
+10. [Images Required](#-images-required)
+11. [DNS Migration](#-dns-migration)
+12. [Post-Launch Checklist](#-post-launch-checklist)
+13. [SEO Summary](#-seo-summary)
+14. [Security & Legal](#-security--legal)
+15. [Maintenance Guide](#-maintenance-guide)
+16. [Pricing Packages](#-pricing-packages)
+17. [Business Details](#-business-details)
+18. [Known Limitations](#-known-limitations)
+19. [AI & Claude Notes](#-ai--claude-notes)
 
 ---
 
@@ -35,12 +287,12 @@
 
 | Area | Status |
 |---|---|
-| All 18 HTML pages built and styled | ✅ |
+| All 19 Astro pages built and styled | ✅ |
 | Brand design system (CSS variables, fonts) | ✅ |
 | Mobile-first responsive layout | ✅ |
 | Sticky nav, scroll reveal, animations | ✅ |
 | NiO Chat widget embedded sitewide | ✅ |
-| Google Analytics GA4 on all 18 pages | ✅ |
+| Google Analytics GA4 on all 19 pages | ✅ |
 | Formspree contact + book forms wired | ✅ |
 | Honeypot spam protection on forms | ✅ |
 | Event FAQ + pricing cards ($500/$700/$900) | ✅ |
@@ -50,10 +302,10 @@
 | Terms of Service page | ✅ |
 | Custom 404 page (auto-served by Cloudflare) | ✅ |
 | Favicon SVG | ✅ |
-| robots.txt + sitemap.xml (17 URLs) | ✅ |
+| robots.txt + sitemap.xml (18 URLs) | ✅ |
 | JSON-LD schemas (LocalBusiness, Service, FAQ, Person, Breadcrumb, AggregateRating) | ✅ |
 | Security headers (CSP, X-Frame-Options, Permissions-Policy, etc.) | ✅ |
-| 3 location pages (Katy, Sugar Land, Richmond) | ✅ |
+| 4 location pages (Katy, Sugar Land, Richmond, Cypress/Bridgeland) | ✅ |
 | Skip-to-main, noreferrer, analytics disclosure — all pages | ✅ |
 | Domain consistency — all pages point to niopictures.com | ✅ |
 
@@ -61,9 +313,8 @@
 
 | Task | Priority |
 |---|---|
-| Add photos to `assets/images/` | 🔴 Last blocker |
-| Create og-home.webp (1200×630px) | 🔴 High |
-| Add blog cover images | 🔴 High |
+| Add gallery images (home, event, family, portfolio) — see Images section | 🔴 Last blocker |
+| Move `_headers` and `_redirects` to `public/` so Astro includes them in `dist/` | 🔴 High |
 | Deploy to Cloudflare Pages (push to GitHub) | 🔴 High |
 | DNS swap — unpublish Pixieset, point to Cloudflare | 🔴 High |
 | Submit sitemap to Google Search Console | 🔴 High — do on go-live day |
@@ -73,7 +324,6 @@
 
 | Task | Priority |
 |---|---|
-| Build Cypress TX / Bridgeland location page | 🟡 Medium |
 | Verify GA4 Realtime data after launch | 🟡 Medium |
 | Link GA4 to Google Search Console | 🟡 Medium |
 | Submit sitemap to Bing Webmaster Tools | 🟡 Medium |
@@ -88,72 +338,101 @@
 
 ## 📁 File Structure
 
+This is an **Astro 5** project. Source files are in `src/`, static assets in `public/`. The build output (`dist/`) is what Cloudflare Pages serves — do not edit `dist/` directly.
+
 ```
 nio-pictures/
 │
-├── index.html                           ← Home page
-├── event-photography-katy-tx.html       ← Event Photography
-├── family-photography-katy-tx.html      ← Family Photography + FAQ + Pricing
-├── portfolio.html                       ← Portfolio (filterable: All/Events/Family)
-├── about.html                           ← About Palanivel
-├── book.html                            ← Booking inquiry form
-├── contact.html                         ← Contact form
-├── blog.html                            ← Blog index
-├── privacy.html                         ← Privacy Policy (noindex)
-├── terms.html                           ← Terms of Service (noindex)
-├── 404.html                             ← Custom 404 (auto-served by Cloudflare)
+├── src/
+│   ├── layouts/
+│   │   ├── BaseLayout.astro   ← Main layout (head, nav, footer, scripts)
+│   │   └── Layout.astro       ← Alternate layout variant
+│   └── pages/
+│       ├── index.astro                        ← Home page
+│       ├── event-photography-katy-tx.astro    ← Event Photography + FAQ + Pricing
+│       ├── family-photography-katy-tx.astro   ← Family Photography + FAQ + Pricing
+│       ├── portfolio.astro                    ← Portfolio (filterable: All/Events/Family)
+│       ├── about.astro                        ← About Palanivel
+│       ├── book.astro                         ← Booking inquiry form
+│       ├── contact.astro                      ← Contact form
+│       ├── blog.astro                         ← Blog index
+│       ├── privacy.astro                      ← Privacy Policy (noindex)
+│       ├── terms.astro                        ← Terms of Service (noindex)
+│       ├── 404.astro                          ← Custom 404 (auto-served by Cloudflare)
+│       ├── katy-tx-photographer.astro         ← Location: Katy TX (primary)
+│       ├── sugar-land-photographer.astro      ← Location: Sugar Land TX
+│       ├── richmond-tx-photographer.astro     ← Location: Richmond TX
+│       ├── cypress-tx-photographer.astro      ← Location: Cypress / Bridgeland TX
+│       └── blog/
+│           ├── how-to-prepare-family-portrait-session.astro   ← Feb 6, 2026 (highest SEO value)
+│           ├── family-photography-journey.astro               ← Feb 11, 2026
+│           ├── blue-hour-holiday-portraits.astro              ← Dec 9, 2025
+│           └── editorial-portrait-photography.astro           ← Jan 9, 2026
 │
-├── katy-tx-photographer.html            ← Location: Katy TX (primary)
-├── sugar-land-photographer.html         ← Location: Sugar Land TX
-├── richmond-tx-photographer.html        ← Location: Richmond TX
+├── public/                    ← Static files copied as-is into dist/
+│   ├── assets/
+│   │   ├── css/
+│   │   │   ├── global.css        ← CSS variables, reset, typography scale
+│   │   │   ├── components.css    ← Nav, hero, cards, forms, footer
+│   │   │   ├── animations.css    ← Scroll reveal, keyframes, transitions
+│   │   │   └── blog.css          ← Blog index + blog post styles
+│   │   ├── js/
+│   │   │   ├── main.js           ← Nav, scroll reveal, portfolio filter, Formspree forms
+│   │   │   └── chat-bubble.js    ← Unused legacy file (safe to delete)
+│   │   └── images/
+│   │       ├── favicon.svg       ← ✅ Gold N on dark background
+│   │       ├── heroes/
+│   │       │   ├── home.jpg     ← ✅ Home page hero
+│   │       │   ├── events.jpg   ← ✅ Event page hero
+│   │       │   └── family.jpg   ← ✅ Family page hero
+│   │       ├── panels/
+│   │       │   ├── events.jpg   ← ✅ Home — events panel
+│   │       │   └── family.jpg   ← ✅ Home — family panel
+│   │       ├── about/
+│   │       │   ├── portrait.jpg ← ✅ About snippet (home)
+│   │       │   └── main.jpg     ← ✅ About page main photo
+│   │       ├── blog/
+│   │       │   ├── prepare-hero.jpg
+│   │       │   ├── journey-1.jpg
+│   │       │   ├── journey-2.jpg
+│   │       │   ├── bluehour.jpg
+│   │       │   ├── editorial-hero.jpg
+│   │       │   └── editorial-2.jpg
+│   │       ├── portfolio/
+│   │       │   ├── events/      ← Event portfolio images (still needed)
+│   │       │   │   ├── 1.jpg through 5.jpg
+│   │       │   │   └── ...
+│   │       │   ├── family/      ← Family portfolio images (still needed)
+│   │       │   │   ├── 1.jpg through 4.jpg
+│   │       │   │   └── ...
+│   │       │   └── gallery/     ← Gallery grid images (still needed)
+│   │       │       ├── 1.jpg through 6.jpg
+│   │       │       └── ...
+│   │       └── social/
+│   │           └── og-home.jpg  ← ✅ Social sharing card
+│   ├── robots.txt                ← Allow all crawlers, references sitemap
+│   └── sitemap.xml               ← 18 URLs, all on niopictures.com
 │
-├── blog/
-│   ├── how-to-prepare-family-portrait-session.html   ← Feb 6, 2026 (highest SEO value)
-│   ├── family-photography-journey.html               ← Feb 11, 2026 (2 image placeholders)
-│   ├── blue-hour-holiday-portraits.html              ← Dec 9, 2025
-│   └── editorial-portrait-photography.html           ← Jan 9, 2026 (2 image placeholders)
-│
-├── assets/
-│   ├── css/
-│   │   ├── global.css        ← CSS variables, reset, typography scale
-│   │   ├── components.css    ← Nav, hero, cards, forms, footer
-│   │   ├── animations.css    ← Scroll reveal, keyframes, transitions
-│   │   └── blog.css          ← Blog index + blog post styles
-│   ├── js/
-│   │   ├── main.js           ← Nav, scroll reveal, portfolio filter, Formspree forms
-│   │   └── chat-bubble.js    ← Unused legacy file (safe to delete)
-│   └── images/
-│       ├── favicon.svg       ← ✅ Created — gold N on dark background
-│       └── (all other images need adding — see Images section below)
-│
-├── _headers                  ← Cloudflare security + cache headers
-├── _redirects                ← Cloudflare routing (minimal)
-├── robots.txt                ← Allow all crawlers, references sitemap
-└── sitemap.xml               ← 17 URLs, all on niopictures.com
+├── _headers                  ← ⚠️ Cloudflare security + cache headers
+│                                   MUST move to public/ so Astro includes it in dist/
+├── _redirects                ← ⚠️ Cloudflare routing — same: must move to public/
+├── astro.config.mjs          ← Astro config (site URL, build format: file, trailingSlash: never)
+└── package.json              ← Scripts: dev, build, preview
 ```
+
+### 🔗 Navigation Behavior
+
+**Logo as Home Link:**
+- The **NiO Pictures logo** (top-left) is the primary way to navigate to the homepage
+- Clicking the logo from any page returns to `/` 
+- This provides a consistent, familiar pattern that users expect
+- No redundant "Home" menu item needed
 
 ---
 
 ## 🎨 Brand Design System
 
-### Color Palette
-
-| Token | CSS Variable | Hex | Usage |
-|---|---|---|---|
-| Deep Black | `--black` | `#161412` | Page background |
-| Surface | `--surface` | `#262320` | Cards, scrolled nav bg, footer |
-| Surface 2 | `--surface-2` | `#302C29` | Deeper card backgrounds |
-| Gold | `--gold` | `#C5A572` | Primary accent — CTAs, headings, borders |
-| Gold Dark | `--gold-dark` | `#8B6A35` | Hover states, scrollbar thumb |
-| Gold Glow | `--gold-glow` | `rgba(197,165,114,0.12)` | Radial glows, subtle fills |
-| Violet | `--violet` | `#9B7FD4` | Subtle secondary accent (used sparingly) |
-| Cream | `--cream` | `#F0E8D8` | Primary body text on dark backgrounds |
-| Muted | `--muted` | `#A89880` | Secondary text, descriptions |
-| Muted Dark | `--muted-dark` | `#6B5F52` | Tertiary text, captions, footer notes |
-| Border | `--border` | `rgba(197,165,114,0.15)` | Card and section borders |
-| Border Light | `--border-light` | `rgba(197,165,114,0.08)` | Subtle dividers |
-
-**Browser theme-color:** `#161412`
+> **See [Color Palette](#-color-palette--complete-reference) section above for complete hex codes, RGB values, and CSS variable reference.**
 
 ### Design Rationale
 
@@ -225,13 +504,14 @@ https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,40
 | Spam protection | Hidden honeypot field `id="website"` — bots fill it, humans don't |
 | Validation | Required fields highlight gold if empty |
 | Error handling | Network errors show retry message; server errors show fallback message |
-| Dashboard | https://formspree.io |
+| Dashboard | [https://formspree.io](https://formspree.io) — monitor form submissions and manage endpoint |
 
 ### NiO Chat Widget
 | Field | Value |
 |---|---|
 | Script URL | https://chat.niopictures.com/widget.js |
-| Embedded on | All 18 pages, before `</body>` |
+| Embedded on | **All 19 pages** — global via `src/layouts/BaseLayout.astro` line 242 (before `</body>`) |
+| Status | ✅ Active — loads on every page without condition |
 | Snippet | `<script src="https://chat.niopictures.com/widget.js" defer></script>` |
 
 ### Google Analytics
@@ -239,102 +519,100 @@ https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,40
 |---|---|
 | Property | GA4 |
 | Measurement ID | `G-1VZ3GPSWGH` |
-| Status | Active on all 18 pages |
+| Status | Active on all 19 pages |
+| Dashboard | [https://analytics.google.com](https://analytics.google.com) — check Realtime and traffic sources |
 | Action needed | Link to Search Console after go-live (GA4 → Admin → Search Console links) |
 
 ### Google Business Profile
 | Field | Value |
 |---|---|
 | Status | Claimed ✅ |
-| Reviews | 7 × five-star ✅ |
-| AggregateRating schema | Already in index.html ✅ |
-| Action needed | Update website URL to niopictures.com on go-live day |
+| Reviews | 7 × five-star ✅ (current) |
+| AggregateRating schema | Already in [src/pages/index.astro](src/pages/index.astro) ✅ |
+| Dashboard | [https://business.google.com](https://business.google.com) — update website URL and description on go-live day |
+| Action needed | Update website URL to niopictures.com on go-live day; update after review count changes |
 
 ---
 
 ## 🖼️ Images Required
 
-All images go in `assets/images/`. Use WebP format.
+All images go in `public/assets/images/` in organized subfolders. **Use JPEG source files** — Astro will automatically optimize them during the build.
 
-**Convert to WebP:** [squoosh.app](https://squoosh.app) (free, browser-based) or:
-```bash
-cwebp -q 85 photo.jpg -o photo.webp
-```
+**Quality settings for JPEGs:** Use 85–90% quality for best balance of file size and visual fidelity.
 
-### Hero & Page Backgrounds
+### Hero & Page Backgrounds ✅ All added
 
-| Filename | Used on | Dimensions |
-|---|---|---|
-| `hero-home.webp` | Home — full viewport hero | 1920×1080px |
-| `events-hero.webp` | Event page hero | 1920×900px |
-| `family-hero.webp` | Family page hero | 1920×900px |
-| `events-panel.webp` | Home service split — left panel | 960×1200px |
-| `family-panel.webp` | Home service split — right panel | 960×1200px |
-
-### About Photos
+**Folder:** `public/assets/images/heroes/` and `public/assets/images/panels/`
 
 | Filename | Used on | Dimensions |
 |---|---|---|
-| `about-portrait.webp` | About snippet on home page | 560×700px |
-| `about-main.webp` | About page main photo | 560×700px |
+| `heroes/home.jpg` | Home — full viewport hero | 1920×1080px |
+| `heroes/events.jpg` | Event page hero | 1920×900px |
+| `heroes/family.jpg` | Family page hero | 1920×900px |
+| `panels/events.jpg` | Home service split — events panel | 960×1200px |
+| `panels/family.jpg` | Home service split — family panel | 960×1200px |
 
-### Home Gallery Grid (6 images)
+### About Photos ✅ All added
+
+**Folder:** `public/assets/images/about/`
+
+| Filename | Used on | Dimensions |
+|---|---|---|
+| `portrait.jpg` | About snippet on home page | 560×700px |
+| `main.jpg` | About page main photo | 560×700px |
+
+### Portfolio & Gallery Images — 🔴 Still needed
+
+**Folder structure:** `public/assets/images/portfolio/`
+
+#### Gallery Grid (home page + filterable pages)
+**Subfolder:** `portfolio/gallery/` — 6 images
 
 | Filename | Grid position | Dimensions |
 |---|---|---|
-| `gallery-1.webp` | Large left (cols 1–6) | 800×600px |
-| `gallery-2.webp` | Top right narrow | 400×533px |
-| `gallery-3.webp` | Top right narrow | 400×533px |
-| `gallery-4.webp` | Bottom left narrow | 400×533px |
-| `gallery-5.webp` | Bottom centre narrow | 400×533px |
-| `gallery-6.webp` | Large right (cols 7–12) | 800×600px |
+| `1.jpg` | Large left (cols 1–6) | 800×600px |
+| `2.jpg` | Top right narrow | 400×533px |
+| `3.jpg` | Top right narrow | 400×533px |
+| `4.jpg` | Bottom left narrow | 400×533px |
+| `5.jpg` | Bottom centre narrow | 400×533px |
+| `6.jpg` | Large right (cols 7–12) | 800×600px |
 
-### Event Page Gallery
-
-| Filename | Dimensions |
-|---|---|
-| `event-1.webp` through `event-6.webp` | Same pattern as home gallery |
-
-### Family Page (9 images)
+#### Event Portfolio Images
+**Subfolder:** `portfolio/events/` — 5 images
 
 | Filename | Usage | Dimensions |
 |---|---|---|
-| `family-1.webp` | Side grid — tall portrait | 400×533px |
-| `family-2.webp` | Side grid — small | 400×300px |
-| `family-3.webp` | Side grid — small | 400×300px |
-| `family-g1.webp` through `family-g6.webp` | Family gallery grid | Same as home gallery |
+| `1.jpg` through `5.jpg` | Portfolio grid (Events filter) | 600×450px each |
 
-### Portfolio Grid
+#### Family Portfolio Images
+**Subfolder:** `portfolio/family/` — 4–9 images
 
-| Filename | Category | Dimensions |
+| Filename | Usage | Dimensions |
 |---|---|---|
-| `port-e1.webp` — `port-e5.webp` | Events | 600×450px |
-| `port-f1.webp` — `port-f4.webp` | Family | 600×450px |
+| `1.jpg` through `4.jpg` | Portfolio grid (Family filter) | 600×450px each |
+| (Plus up to 9 for family page side grid if needed) | Family page side gallery | 400×533px or 400×300px |
 
-### Blog Cover Images
+
+### Blog Cover Images ✅ All added
+
+**Folder:** `public/assets/images/blog/`
 
 | Filename | Post | Dimensions |
 |---|---|---|
-| `blog-prepare.webp` | How to Prepare for Your Session | 900×506px |
-| `blog-journey.webp` | Photography Journey (also: featured post card on blog index) | 900×506px |
-| `blog-journey-2.webp` | Journey post — mid-article placeholder | 900×506px |
-| `blog-bluehour.webp` | Blue Hour Holiday Portraits | 900×506px |
-| `blog-editorial-hero.webp` | Shaping Light — hero | 900×506px |
-| `blog-editorial-2.webp` | Shaping Light — mid-article placeholder | 900×506px |
+| `prepare-hero.jpg` | How to Prepare for Your Session | 900×506px |
+| `journey-1.jpg` | Photography Journey (featured post card) | 900×506px |
+| `journey-2.jpg` | Journey post — mid-article | 900×506px |
+| `bluehour.jpg` | Blue Hour Holiday Portraits | 900×506px |
+| `editorial-hero.jpg` | Shaping Light — hero | 900×506px |
+| `editorial-2.jpg` | Shaping Light — mid-article | 900×506px |
 
-### Social Sharing (OG Image)
+### Social Sharing (OG Image) ✅ Added
+
+**Folder:** `public/assets/images/social/`
 
 | Filename | Usage | Dimensions |
 |---|---|---|
-| `og-home.webp` | All pages — WhatsApp/iMessage/LinkedIn preview | 1200×630px |
-
-**Creating og-home.webp:**
-1. Go to canva.com → New Design → Custom size → 1200 × 630
-2. Background: `#161412` (deep black)
-3. Add gold "NiO Pictures" text (use a serif font, gold colour `#C5A572`)
-4. Add a strong portrait or event photo as a secondary element
-5. Export as JPG → convert to WebP at squoosh.app
-6. Save as `assets/images/og-home.webp`
+| `og-home.jpg` | All pages — WhatsApp/iMessage/LinkedIn preview | 1200×630px |
 
 ### Favicon (partially done)
 
@@ -343,47 +621,6 @@ cwebp -q 85 photo.jpg -o photo.webp
 | `favicon.svg` | ✅ Done | Gold "N" on dark background |
 | `favicon-32.png` | Optional | Export 32×32 from favicon.svg in any image editor |
 | `apple-touch-icon.png` | Optional | Export 180×180 from favicon.svg |
-
----
-
-## 🚀 Deploy to Cloudflare Pages
-
-### Step 1 — Push to GitHub
-
-```bash
-cd nio-pictures
-
-# First time only:
-git init
-echo ".DS_Store\nThumbs.db\n*.zip" > .gitignore
-git add .
-git commit -m "Initial commit — NiO Pictures website"
-gh repo create nio-pictures --public --push --source=.
-# (or manually create repo on github.com and add remote)
-```
-
-### Step 2 — Connect to Cloudflare Pages
-
-1. Go to [pages.cloudflare.com](https://pages.cloudflare.com)
-2. **Create a project** → **Connect to Git**
-3. Select your `nio-pictures` GitHub repo
-4. Build settings:
-   - Framework preset: **None**
-   - Build command: *(leave blank)*
-   - Build output directory: `/`
-5. **Save and Deploy**
-
-Every `git push` to `main` auto-deploys in ~30 seconds. ✓
-
-### Ongoing update workflow
-
-```bash
-# After any file change:
-git add .
-git commit -m "Brief description of change"
-git push
-# → Cloudflare deploys automatically
-```
 
 ---
 
@@ -427,7 +664,6 @@ Week 1
 
 Month 1
 [ ] Check Search Console for first keyword impressions
-[ ] Build Cypress TX / Bridgeland location page
 [ ] Check GA4 for top traffic sources
 [ ] Add srcset to images for mobile optimisation
 ```
@@ -452,16 +688,16 @@ Month 1
 
 | Schema type | Location |
 |---|---|
-| `LocalBusiness` + `ProfessionalService` | index.html |
-| `AggregateRating` (7 reviews, 5 stars) | index.html |
-| `Service` — Event Photography | event-photography-katy-tx.html |
-| `Service` — Family Photography | family-photography-katy-tx.html |
-| `FAQPage` (5 questions, pricing) | event-photography-katy-tx.html |
-| `FAQPage` (8 questions, pricing, prints) | family-photography-katy-tx.html |
-| `Person` (Palanivel) | about.html |
-| `BlogPosting` | All 4 blog posts |
+| `LocalBusiness` + `ProfessionalService` | `src/pages/index.astro` |
+| `AggregateRating` (7 reviews, 5 stars) | `src/pages/index.astro` |
+| `Service` — Event Photography | `src/pages/event-photography-katy-tx.astro` |
+| `Service` — Family Photography | `src/pages/family-photography-katy-tx.astro` |
+| `FAQPage` (5 questions, pricing) | `src/pages/event-photography-katy-tx.astro` |
+| `FAQPage` (8 questions, pricing, prints) | `src/pages/family-photography-katy-tx.astro` |
+| `Person` (Palanivel) | `src/pages/about.astro` |
+| `BlogPosting` | All 4 blog post `.astro` files |
 | `BreadcrumbList` | All inner pages |
-| `LocalBusiness` (city-scoped) | All 3 location pages |
+| `LocalBusiness` (city-scoped) | All 4 location pages |
 
 ### Target keywords by page
 
@@ -518,38 +754,29 @@ NiO Pictures may use session photos for portfolio/social unless client opts out 
 ## 🛠️ Maintenance Guide
 
 ### Adding a new blog post
-1. Copy `blog/how-to-prepare-family-portrait-session.html`
+1. Copy `src/pages/blog/how-to-prepare-family-portrait-session.astro`
 2. Update: `<title>`, `<meta description>`, canonical URL, og: tags, `<h1>`, date, body content
-3. Update the `BlogPosting` JSON-LD schema at the top
-4. Add cover image to `assets/images/`
-5. Add a card for it in `blog.html` (copy an existing `.blog-card` block)
-6. Add to `sitemap.xml` with today's date
+3. Update the `BlogPosting` JSON-LD schema at the top of the file
+4. Add cover image to `public/assets/images/`
+5. Add a card for it in `src/pages/blog.astro` (copy an existing `.blog-card` block)
+6. Add a `<url>` entry to `public/sitemap.xml` with today's date
 7. `git add . && git commit -m "Blog: [post title]" && git push`
 
 ### Updating prices
-- **Event prices ($500/$700/$900):** `event-photography-katy-tx.html` — search `$500`
-- **Family prices ($300/$450/$600):** `family-photography-katy-tx.html` — search `$300`
+- **Event prices ($500/$700/$900):** `src/pages/event-photography-katy-tx.astro` — search `$500`
+- **Family prices ($300/$450/$600):** `src/pages/family-photography-katy-tx.astro` — search `$300`
 - Also update the FAQ answer text on each page that mentions specific prices
 - Also update the FAQ JSON-LD schema (`acceptedAnswer` text)
 
 ### Updating testimonials
-- `index.html` → find `class="testimonial-card"` → edit name, role, and quote
+- `src/pages/index.astro` → find `class="testimonial-card"` → edit name, role, and quote
 
 ### Swapping a portfolio image
-Replace the file in `assets/images/` with the same filename. No code change needed.
+Replace the file in `public/assets/images/` with the same filename. No code change needed.
 
 ### Updating Google review count
-- `index.html` → find `"reviewCount"` in JSON-LD → update number
+- `src/pages/index.astro` → find `"reviewCount"` in JSON-LD → update number
 - Re-deploy: `git add . && git commit -m "Update review count" && git push`
-
-### Adding Cypress / Bridgeland page (post-launch)
-1. Copy `katy-tx-photographer.html` → save as `cypress-tx-photographer.html`
-2. Update title, meta, H1, canonical, body copy
-3. Mention **Bridgeland** by name in the copy — it's a distinct master-planned community in Cypress that clients search for specifically
-4. Update `areaServed` in JSON-LD to feature Cypress
-5. Add `<url>` entry to `sitemap.xml`
-6. Add to the Locations nav in the footer of all pages
-7. `git push` to deploy
 
 ---
 
@@ -598,18 +825,29 @@ Replace the file in `assets/images/` with the same filename. No code change need
 
 ---
 
+## ⚠️ Known Limitations
+
+| Limitation | Impact | Workaround |
+|---|---|---|
+| No dynamic image import system | Gallery images use hardcoded paths in Astro Image components; swapping galleries requires manual file replacement | This is by design — improves performance and SEO. To update, replace files with same names in `public/assets/images/` |
+| `_headers` and `_redirects` in project root | Files won't be deployed unless moved to `public/` folder | Move both files to `public/` before any Cloudflare Pages deployment |
+| Hero images preloaded on every page | Slight performance hit on slower connections | Intentional for visual priority; consider adding `fetchpriority="low"` on non-critical pages in future |
+| Formspree honeypot field | Spambots may still probe the endpoint, creating noise in logs | Monitor dashboard; extremely low false positive rate with current validation |
+
+---
+
 ## 🤖 AI & Claude Notes
 
 This site was built with Claude (Anthropic) across multiple sessions. If you continue development in a new Claude chat, paste this README as context at the start. Key facts Claude needs:
 
 | Thing | Value |
 |---|---|
-| Site type | Static HTML, no framework, no build step |
+| Site type | Astro 5 SSG — requires build step (`npm run build`), output in `dist/` |
 | Domain | `niopictures.com` — **no hyphen** (nio-pictures.com is wrong) |
 | Formspree endpoint | `https://formspree.io/f/xjgpbyeb` |
 | GA4 Measurement ID | `G-1VZ3GPSWGH` |
 | NiO Chat widget | `<script src="https://chat.niopictures.com/widget.js" defer></script>` |
-| Blog asset paths | Blog posts are in `/blog/` subfolder — use `../` for all asset paths |
+| Blog source files | Blog posts are in `src/pages/blog/` — Astro resolves asset paths; static assets served from `public/` at root |
 | External link rel | All external links must use `rel="noopener noreferrer"` |
 | Honeypot field | `id="website"` hidden in both forms — JS discards if populated |
 | CSP must allow | googletagmanager.com, google-analytics.com, chat.niopictures.com, fonts.googleapis.com, fonts.gstatic.com, formspree.io, niopictures.pixieset.com |

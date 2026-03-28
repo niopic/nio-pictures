@@ -3,6 +3,11 @@ dist/
 node_modules/
 .astro/
 
+# optimized images (built from src/assets/images/)
+dist/**/*.webp
+dist/**/*.avif
+dist/_astro/
+
 # wrangler files
 .wrangler
 .dev.vars*

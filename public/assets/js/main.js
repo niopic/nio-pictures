@@ -22,8 +22,8 @@
     container.prepend(homeLink);
   };
 
-  ensureHomeLink(document.querySelector('.nav-links'));
-  ensureHomeLink(document.querySelector('.nav-mobile'));
+  // ensureHomeLink(document.querySelector('.nav-links'));
+  // ensureHomeLink(document.querySelector('.nav-mobile'));
 
   /* ── Sticky Nav ──────────────────────────────────────────── */
   const nav = document.querySelector('.nav');
@@ -57,6 +57,7 @@
     toggle.addEventListener('click', () => {
       const open = toggle.classList.toggle('open');
       mobileNav.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', String(open));
       document.body.style.overflow = open ? 'hidden' : '';
     });
 
@@ -64,6 +65,7 @@
       a.addEventListener('click', () => {
         toggle.classList.remove('open');
         mobileNav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
       });
     });

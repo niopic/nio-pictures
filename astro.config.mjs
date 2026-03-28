@@ -6,4 +6,13 @@ export default defineConfig({
   build: {
     format: "file",
   },
+  image: {
+    service: {
+      entrypoint: "astro/assets/services/sharp",
+      config: {
+        formats: ["avif", "webp"],
+        densities: [1, 2],
+      },
+    },
+  },
 });

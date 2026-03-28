@@ -159,6 +159,31 @@ header .reveal {
 
 .nav-mobile a:hover { color: var(--gold); }
 
+.nav-mobile .nav-mobile-cta {
+  margin-top: 1rem;
+  color: var(--gold);
+}
+
+.social-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-accent);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  transition: all var(--dur-fast) var(--ease);
+}
+
+.social-chip:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
 /* ── Hero ──────────────────────────────────────────────────── */
 .hero {
   position: relative;
