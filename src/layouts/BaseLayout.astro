@@ -244,6 +244,40 @@ const businessSchema = {
     </footer>
 
     <script src="/assets/js/main.js" defer></script>
-    <script src="https://chat.niopictures.com/widget.js" defer></script>
+      <script is:inline>
+        (() => {
+          const chatWidgetUrl = "https://chat.niopictures.com/widget.js";
+          const interactionEvents = ["pointerdown", "keydown", "touchstart", "focusin"];
+          let chatLoaded = false;
+
+          const loadChatWidget = () => {
+            if (chatLoaded) return;
+            chatLoaded = true;
+
+            interactionEvents.forEach((eventName) => {
+              window.removeEventListener(eventName, loadChatWidget, true);
+            });
+
+            const script = document.createElement("script");
+            script.src = chatWidgetUrl;
+            script.async = true;
+            document.body.appendChild(script);
+          };
+
+          interactionEvents.forEach((eventName) => {
+            window.addEventListener(eventName, loadChatWidget, { once: true, capture: true, passive: true });
+          });
+
+          window.addEventListener("load", () => {
+            const scheduleLoad = () => window.setTimeout(loadChatWidget, 2500);
+
+            if ("requestIdleCallback" in window) {
+              window.requestIdleCallback(scheduleLoad, { timeout: 3000 });
+            } else {
+              scheduleLoad();
+            }
+          }, { once: true });
+        })();
+      </script>
   </body>
 </html>
