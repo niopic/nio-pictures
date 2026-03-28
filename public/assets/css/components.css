@@ -405,7 +405,7 @@ header .reveal {
   line-height: 1.7;
   opacity: 0;
   transform: translateY(8px);
-  transition: all var(--dur-base) var(--ease-out);
+  transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
 }
 
 .service-panel:hover .service-panel-desc {
@@ -986,7 +986,7 @@ select.form-control option { background: var(--surface); color: var(--cream); }
 
 .footer-copy {
   font-size: 0.8rem;
-  color: var(--muted-dark);
+  color: var(--muted);
 }
 
 .footer-copy span { color: var(--gold); }
@@ -998,11 +998,12 @@ select.form-control option { background: var(--surface); color: var(--cream); }
 
 .footer-legal a {
   font-size: 0.75rem;
-  color: var(--muted-dark);
+  color: var(--muted);
+  text-decoration: underline;
   transition: color var(--dur-fast) var(--ease);
 }
 
-.footer-legal a:hover { color: var(--muted); }
+.footer-legal a:hover { color: var(--cream); text-decoration: none; }
 
 /* ── Chat Bubble ───────────────────────────────────────────── */
 .chat-bubble {
