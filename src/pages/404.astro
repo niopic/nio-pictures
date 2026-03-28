@@ -4,7 +4,16 @@ const title = "Page Not Found | NiO Pictures";
 const description = "The page you're looking for doesn't exist. Return to NiO Pictures — event and family photographer in Katy, TX.";
 const canonical = "https://niopictures.com/404.html";
 const ogImage = "https://niopictures.com/assets/images/og-home.webp";
-const extraHead = "";
+const extraHead = `<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://niopictures.com/"},
+		{"@type": "ListItem", "position": 2, "name": "Page Not Found"}
+	]
+}
+</script>`;
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage} noIndex={true}>
