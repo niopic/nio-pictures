@@ -228,6 +228,9 @@ select:focus-visible {
   content: '→';
   font-family: var(--font-body);
   font-size: 0.85rem;
+  display: inline-block;
+  width: 0.9em;
+  text-align: center;
   transition: transform var(--dur-base) var(--ease-out);
 }
 

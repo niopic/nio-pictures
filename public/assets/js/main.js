@@ -112,15 +112,6 @@
     obs.observe(el);
   });
 
-  /* ── Hero Background Ken Burns ───────────────────────────── */
-  const heroBg = document.querySelector('.hero-bg');
-  if (heroBg) {
-    // Add loaded class after a frame to trigger scale transition
-    requestAnimationFrame(() => {
-      setTimeout(() => heroBg.classList.add('loaded'), 100);
-    });
-  }
-
   /* ── Smooth scroll for anchor links ─────────────────────── */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {

@@ -116,7 +116,7 @@ header .reveal {
   width: 24px;
   height: 1px;
   background: var(--cream);
-  transition: all var(--dur-base) var(--ease);
+  transition: transform var(--dur-base) var(--ease), opacity var(--dur-base) var(--ease);
   transform-origin: center;
 }
 
@@ -208,11 +208,7 @@ header .reveal {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  transform: scale(1.05);
-  transition: transform 8s var(--ease);
-  /* Promote to GPU layer — prevents repaints during scroll    */
-  will-change: transform;
-  backface-visibility: hidden;
+  transform: scale(1);
 }
 
 @media (max-width: 768px) {
@@ -220,8 +216,6 @@ header .reveal {
     background-image: url('/assets/images/hero-home-mobile.webp');
   }
 }
-
-.hero-bg.loaded { transform: scale(1); }
 
 .hero-overlay {
   position: absolute;
@@ -274,6 +268,11 @@ header .reveal {
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+.hero-actions .btn-primary.btn-arrow {
+  min-inline-size: 20ch;
+  justify-content: center;
 }
 
 .hero-scroll {
