@@ -2,12 +2,12 @@
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-import aboutPortrait from "../assets/images/about/portrait.jpg";
-import aboutMain from "../assets/images/about/main.jpg";
-import eventsPanel from "../assets/images/panels/events.jpg";
-import familyPanel from "../assets/images/panels/family.jpg";
-import eventsHero from "../assets/images/heroes/events.jpg";
-import familyHero from "../assets/images/heroes/family.jpg";
+import aboutPortrait from "../assets/images/home/about-portrait.jpg";
+import aboutMain from "../assets/images/home/about-main.jpg";
+import eventsPanel from "../assets/images/home/events-panel.jpg";
+import familyPanel from "../assets/images/home/family-panel.jpg";
+import eventsHero from "../assets/images/home/events-hero.jpg";
+import familyHero from "../assets/images/home/family-hero.jpg";
 ---
 
 <BaseLayout
@@ -692,7 +692,7 @@ import familyHero from "../assets/images/heroes/family.jpg";
       <a href="/event-photography-katy-tx.html" class="service-panel">
         <div
           class="service-panel-bg"
-          style="background-image: url('/assets/images/events-panel.webp'); background-color: #1a1816;"
+          style={`background-image: url('${eventsPanel.src}'); background-color: #1a1816;`}
         >
         </div>
         <div class="service-panel-overlay"></div>
@@ -713,7 +713,7 @@ import familyHero from "../assets/images/heroes/family.jpg";
       <a href="/family-photography-katy-tx.html" class="service-panel">
         <div
           class="service-panel-bg"
-          style="background-image: url('/assets/images/family-panel.webp'); background-color: #1c1915;"
+          style={`background-image: url('${familyPanel.src}'); background-color: #1c1915;`}
         >
         </div>
         <div class="service-panel-overlay"></div>
