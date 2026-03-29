@@ -1,15 +1,29 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const title = "Katy TX Photographer | Events \u0026 Family Portraits | NiO Pictures";
-const description = "Katy TX photographer for Cinco Ranch, Grand Lakes, and Seven Meadows events and family portraits. Local cinematic coverage by NiO Pictures since 2017.";
+const title =
+  "Katy TX Photographer | Events \u0026 Family Portraits | NiO Pictures";
+const description =
+  "Katy TX photographer for Cinco Ranch, Grand Lakes, and Seven Meadows events and family portraits. Local cinematic coverage by NiO Pictures since 2017.";
 const canonical = "https://niopictures.com/katy-tx-photographer.html";
 const ogImage = "https://niopictures.com/assets/images/og-home.webp";
-const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@context\": \"https://schema.org\",\n    \"@type\": [\"LocalBusiness\", \"ProfessionalService\"],\n    \"@id\": \"https://niopictures.com/#business\",\n    \"name\": \"NiO Pictures\",\n    \"description\": \"Professional event and family photographer based in Katy, Texas. Specializing in corporate events, Indian cultural celebrations, and heirloom family portraits since 2017.\",\n    \"url\": \"https://niopictures.com\",\n    \"telephone\": \"+12814093585\",\n    \"email\": \"niopictureskaty@gmail.com\",\n    \"founder\": {\"@type\": \"Person\", \"name\": \"Palanivel\"},\n    \"address\": {\n      \"@type\": \"PostalAddress\",\n      \"addressLocality\": \"Katy\",\n      \"addressRegion\": \"TX\",\n      \"postalCode\": \"77449\",\n      \"addressCountry\": \"US\"\n    },\n    \"geo\": {\"@type\": \"GeoCoordinates\", \"latitude\": \"29.7858\", \"longitude\": \"-95.8245\"},\n    \"areaServed\": [\n      {\"@type\": \"City\", \"name\": \"Katy\", \"sameAs\": \"https://en.wikipedia.org/wiki/Katy,_Texas\"},\n      {\"@type\": \"City\", \"name\": \"Cypress\"},\n      {\"@type\": \"City\", \"name\": \"Houston\", \"sameAs\": \"https://en.wikipedia.org/wiki/Houston\"},\n      {\"@type\": \"City\", \"name\": \"Sugar Land\", \"sameAs\": \"https://en.wikipedia.org/wiki/Sugar_Land,_Texas\"},\n      {\"@type\": \"City\", \"name\": \"Richmond\", \"sameAs\": \"https://en.wikipedia.org/wiki/Richmond,_Texas\"}\n    ],\n    \"priceRange\": \"$$\",\n    \"aggregateRating\": {\n      \"@type\": \"AggregateRating\",\n      \"ratingValue\": \"5\",\n      \"reviewCount\": \"7\",\n      \"bestRating\": \"5\"\n    },\n    \"sameAs\": [\n      \"https://www.instagram.com/nio_pictures\",\n      \"https://www.facebook.com/profile.php?id=61580596898855\"\n    ]\n  }\n  \u003c/script\u003e\n\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"BreadcrumbList\",\n    \"itemListElement\": [\n      {\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://niopictures.com/\"},\n      {\"@type\":\"ListItem\",\"position\":2,\"name\":\"Katy TX Photographer\",\"item\":\"https://niopictures.com/katy-tx-photographer.html\"}\n    ]\n  }\n  \u003c/script\u003e\n\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"FAQPage\",\n    \"mainEntity\": [\n      {\n        \"@type\": \"Question\",\n        \"name\": \"Do you cover Cinco Ranch, Grand Lakes, and Seven Meadows?\",\n        \"acceptedAnswer\": {\n          \"@type\": \"Answer\",\n          \"text\": \"Yes. NiO Pictures regularly photographs events and family portraits throughout Cinco Ranch, Grand Lakes, Seven Meadows, and surrounding Katy neighborhoods.\"\n        }\n      },\n      {\n        \"@type\": \"Question\",\n        \"name\": \"Can I book both event and family photography in Katy?\",\n        \"acceptedAnswer\": {\n          \"@type\": \"Answer\",\n          \"text\": \"Yes. I provide both cinematic event coverage and heirloom family portrait sessions in Katy TX.\"\n        }\n      },\n      {\n        \"@type\": \"Question\",\n        \"name\": \"When are Katy sessions available?\",\n        \"acceptedAnswer\": {\n          \"@type\": \"Answer\",\n          \"text\": \"Most sessions are available on weekends and weeknight evenings, with earlier booking recommended for peak dates.\"\n        }\n      }\n    ]\n  }\n  \u003c/script\u003e";
+const extraHead =
+  '\u003cscript type="application/ld+json"\u003e\n  {\n    "@context": "https://schema.org",\n    "@type": ["LocalBusiness", "ProfessionalService"],\n    "@id": "https://niopictures.com/#business",\n    "name": "NiO Pictures",\n    "description": "Professional event and family photographer based in Katy, Texas. Specializing in corporate events, Indian cultural celebrations, and heirloom family portraits since 2017.",\n    "url": "https://niopictures.com",\n    "telephone": "+12814093585",\n    "email": "niopictureskaty@gmail.com",\n    "founder": {"@type": "Person", "name": "Palanivel"},\n    "address": {\n      "@type": "PostalAddress",\n      "addressLocality": "Katy",\n      "addressRegion": "TX",\n      "postalCode": "77449",\n      "addressCountry": "US"\n    },\n    "geo": {"@type": "GeoCoordinates", "latitude": "29.7858", "longitude": "-95.8245"},\n    "areaServed": [\n      {"@type": "City", "name": "Katy", "sameAs": "https://en.wikipedia.org/wiki/Katy,_Texas"},\n      {"@type": "City", "name": "Cypress"},\n      {"@type": "City", "name": "Houston", "sameAs": "https://en.wikipedia.org/wiki/Houston"},\n      {"@type": "City", "name": "Sugar Land", "sameAs": "https://en.wikipedia.org/wiki/Sugar_Land,_Texas"},\n      {"@type": "City", "name": "Richmond", "sameAs": "https://en.wikipedia.org/wiki/Richmond,_Texas"}\n    ],\n    "priceRange": "$$",\n    "aggregateRating": {\n      "@type": "AggregateRating",\n      "ratingValue": "5",\n      "reviewCount": "7",\n      "bestRating": "5"\n    },\n    "sameAs": [\n      "https://www.instagram.com/nio_pictures",\n      "https://www.facebook.com/profile.php?id=61580596898855"\n    ]\n  }\n  \u003c/script\u003e\n\u003cscript type="application/ld+json"\u003e\n  {\n    "@context": "https://schema.org",\n    "@type": "BreadcrumbList",\n    "itemListElement": [\n      {"@type":"ListItem","position":1,"name":"Home","item":"https://niopictures.com/"},\n      {"@type":"ListItem","position":2,"name":"Katy TX Photographer","item":"https://niopictures.com/katy-tx-photographer.html"}\n    ]\n  }\n  \u003c/script\u003e\n\u003cscript type="application/ld+json"\u003e\n  {\n    "@context": "https://schema.org",\n    "@type": "FAQPage",\n    "mainEntity": [\n      {\n        "@type": "Question",\n        "name": "Do you cover Cinco Ranch, Grand Lakes, and Seven Meadows?",\n        "acceptedAnswer": {\n          "@type": "Answer",\n          "text": "Yes. NiO Pictures regularly photographs events and family portraits throughout Cinco Ranch, Grand Lakes, Seven Meadows, and surrounding Katy neighborhoods."\n        }\n      },\n      {\n        "@type": "Question",\n        "name": "Can I book both event and family photography in Katy?",\n        "acceptedAnswer": {\n          "@type": "Answer",\n          "text": "Yes. I provide both cinematic event coverage and heirloom family portrait sessions in Katy TX."\n        }\n      },\n      {\n        "@type": "Question",\n        "name": "When are Katy sessions available?",\n        "acceptedAnswer": {\n          "@type": "Answer",\n          "text": "Most sessions are available on weekends and weeknight evenings, with earlier booking recommended for peak dates."\n        }\n      }\n    ]\n  }\n  \u003c/script\u003e';
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage}>
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+>
   <Fragment slot="head" set:html={extraHead} />
-<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);" onfocus="this.style.top='1rem'" onblur="this.style.top='-40px'">Skip to main content</a>
+  <a
+    href="#main-content"
+    class="skip-link"
+    style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);"
+    onfocus="this.style.top='1rem'"
+    onblur="this.style.top='-40px'">Skip to main content</a
+  >
 
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <a href="/" class="nav-logo">Ni<span>O</span> Pictures</a>
@@ -21,8 +35,15 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
       <a href="/blog.html">Blog</a>
       <a href="/contact.html">Contact</a>
     </div>
-    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">Book Now</a>
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <a
+      href="https://niopictures.pixieset.com/booking/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn btn-primary nav-cta">Book Now</a
+    >
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"
+      ><span></span><span></span><span></span></button
+    >
   </nav>
 
   <div class="nav-mobile" role="dialog" aria-label="Mobile navigation">
@@ -32,24 +53,42 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
     <a href="/about.html">About</a>
     <a href="/blog.html">Blog</a>
     <a href="/contact.html">Contact</a>
-    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="nav-mobile-cta">Book a Session →</a>
+    <a
+      href="https://niopictures.pixieset.com/booking/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="nav-mobile-cta">Book a Session →</a
+    >
   </div>
 
   <!-- ── Hero ───────────────────────────────────────────────── -->
-  <div style="padding: calc(var(--section-pad) + 4rem) 0 var(--section-pad); border-bottom: 1px solid var(--border-light);">
+  <div
+    style="padding: calc(var(--section-pad) + 4rem) 0 var(--section-pad); border-bottom: 1px solid var(--border-light);"
+  >
     <div class="container">
       <div>
         <p class="eyebrow" style="margin-bottom:1rem;">Based in Katy, Texas</p>
         <div class="gold-line gold-line-animate"></div>
         <h1 class="display-xl" style="max-width:700px; margin-bottom:1.25rem;">
-          Your Katy TX<br><em style="font-style:italic; color:var(--gold);">Photographer</em>
+          Your Katy TX<br /><em style="font-style:italic; color:var(--gold);"
+            >Photographer</em
+          >
         </h1>
         <p class="body-lg" style="max-width:560px; margin-bottom:2.5rem;">
-          NiO Pictures is a photography studio rooted in Katy, Texas — specializing in cinematic event coverage and heirloom family portraits for families and businesses across the greater Houston area.
+          NiO Pictures is a photography studio rooted in Katy, Texas —
+          specializing in cinematic event coverage and heirloom family portraits
+          for families and businesses across the greater Houston area.
         </p>
         <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-          <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-arrow">Book a Katy TX Session</a>
-          <a href="/portfolio.html" class="btn btn-outline">See Event &amp; Family Portfolio</a>
+          <a
+            href="https://niopictures.pixieset.com/booking/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary btn-arrow">Book a Katy TX Session</a
+          >
+          <a href="/portfolio.html" class="btn btn-outline"
+            >See Event &amp; Family Portfolio</a
+          >
         </div>
       </div>
     </div>
@@ -68,58 +107,145 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
         <div class="feature-card">
           <div class="feature-icon">◈</div>
           <h3 class="feature-title">Event Photography Katy TX</h3>
-          <p class="body-sm">Corporate events, private celebrations, Indian and South Asian cultural events, birthday parties, anniversaries, and business gatherings. Cinematic, candid, and professionally delivered.</p>
-          <a href="/event-photography-katy-tx.html" class="read-more" style="display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-accent);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-top:1.25rem;">Event Photography →</a>
+          <p class="body-sm">
+            Corporate events, private celebrations, Indian and South Asian
+            cultural events, birthday parties, anniversaries, and business
+            gatherings. Cinematic, candid, and professionally delivered.
+          </p>
+          <a
+            href="/event-photography-katy-tx.html"
+            class="read-more"
+            style="display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-accent);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-top:1.25rem;"
+            >Event Photography →</a
+          >
         </div>
         <div class="feature-card">
           <div class="feature-icon">◇</div>
           <h3 class="feature-title">Family Photography Katy TX</h3>
-          <p class="body-sm">Heirloom family portraits, lifestyle sessions, and milestone photography. Delivered as high-resolution digital images and available to order as wall art, framed prints, and keepsake albums.</p>
-          <a href="/family-photography-katy-tx.html" class="read-more" style="display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-accent);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-top:1.25rem;">Family Photography →</a>
+          <p class="body-sm">
+            Heirloom family portraits, lifestyle sessions, and milestone
+            photography. Delivered as high-resolution digital images and
+            available to order as wall art, framed prints, and keepsake albums.
+          </p>
+          <a
+            href="/family-photography-katy-tx.html"
+            class="read-more"
+            style="display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-accent);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-top:1.25rem;"
+            >Family Photography →</a
+          >
         </div>
         <div class="feature-card">
           <div class="feature-icon">◉</div>
           <h3 class="feature-title">Editorial & Branding</h3>
-          <p class="body-sm">Personal branding portraits, editorial lighting sessions, and professional headshots for creators, founders, and professionals in Katy and Houston.</p>
-          <a href="/contact.html" class="read-more" style="display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-accent);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-top:1.25rem;">Get in Touch →</a>
+          <p class="body-sm">
+            Personal branding portraits, editorial lighting sessions, and
+            professional headshots for creators, founders, and professionals in
+            Katy and Houston.
+          </p>
+          <a
+            href="/contact.html"
+            class="read-more"
+            style="display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-accent);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-top:1.25rem;"
+            >Get in Touch →</a
+          >
         </div>
       </div>
     </div>
   </section>
 
   <!-- ── About snippet ──────────────────────────────────────── -->
-  <section class="section" style="background:var(--surface); border-top:1px solid var(--border-light); border-bottom:1px solid var(--border-light);">
+  <section
+    class="section"
+    style="background:var(--surface); border-top:1px solid var(--border-light); border-bottom:1px solid var(--border-light);"
+  >
     <div class="container">
-      <div class="location-layout-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:clamp(3rem,8vw,7rem); align-items:center;">
+      <div
+        class="location-layout-grid"
+        style="display:grid; grid-template-columns:1fr 1fr; gap:clamp(3rem,8vw,7rem); align-items:center;"
+      >
         <div class="reveal">
           <p class="eyebrow" style="margin-bottom:1rem;">About Palanivel</p>
           <div class="gold-line gold-line-animate"></div>
-          <h2 class="display-md" style="margin-bottom:1.5rem;">Katy's Photographer<br><em style="font-style:italic;color:var(--gold);">Since 2017</em></h2>
+          <h2 class="display-md" style="margin-bottom:1.5rem;">
+            Katy's Photographer<br /><em
+              style="font-style:italic;color:var(--gold);">Since 2017</em>
+          </h2>
           <p class="body-lg" style="margin-bottom:1.25rem;">
-            Palanivel is a Katy-based photographer and software engineer who has been capturing meaningful moments since 2017. As a family man with two children, he brings genuine care and personal understanding to every session.
+            Palanivel is a Katy-based photographer and software engineer who has
+            been capturing meaningful moments since 2017. As a family man with
+            two children, he brings genuine care and personal understanding to
+            every session.
           </p>
           <p class="body-lg" style="margin-bottom:2rem;">
-            He specializes in the energy of events — corporate gatherings, Indian and South Asian cultural celebrations, private parties — and the quiet tenderness of family life. His style is cinematic, natural, and always story-first.
+            He specializes in the energy of events — corporate gatherings,
+            Indian and South Asian cultural celebrations, private parties — and
+            the quiet tenderness of family life. His style is cinematic,
+            natural, and always story-first.
           </p>
-          <a href="/about.html" class="btn btn-gold-outline btn-arrow">Meet Palanivel</a>
+          <a href="/about.html" class="btn btn-gold-outline btn-arrow"
+            >Meet Palanivel</a
+          >
         </div>
         <div class="reveal reveal-delay-2">
-          <div class="location-stats-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
-            <div style="background:var(--surface-2); border:1px solid var(--border-light); border-radius:2px; padding:2rem; text-align:center;">
-              <p style="font-family:var(--font-display);font-size:2.5rem;font-weight:300;color:var(--gold);line-height:1;">50+</p>
-              <p style="font-family:var(--font-accent);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-top:0.5rem;">Sessions</p>
+          <div
+            class="location-stats-grid"
+            style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;"
+          >
+            <div
+              style="background:var(--surface-2); border:1px solid var(--border-light); border-radius:2px; padding:2rem; text-align:center;"
+            >
+              <p
+                style="font-family:var(--font-display);font-size:2.5rem;font-weight:300;color:var(--gold);line-height:1;"
+              >
+                50+
+              </p>
+              <p
+                style="font-family:var(--font-accent);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-top:0.5rem;"
+              >
+                Sessions
+              </p>
             </div>
-            <div style="background:var(--surface-2); border:1px solid var(--border-light); border-radius:2px; padding:2rem; text-align:center;">
-              <p style="font-family:var(--font-display);font-size:2.5rem;font-weight:300;color:var(--gold);line-height:1;">7</p>
-              <p style="font-family:var(--font-accent);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-top:0.5rem;">5-Star Reviews</p>
+            <div
+              style="background:var(--surface-2); border:1px solid var(--border-light); border-radius:2px; padding:2rem; text-align:center;"
+            >
+              <p
+                style="font-family:var(--font-display);font-size:2.5rem;font-weight:300;color:var(--gold);line-height:1;"
+              >
+                7
+              </p>
+              <p
+                style="font-family:var(--font-accent);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-top:0.5rem;"
+              >
+                5-Star Reviews
+              </p>
             </div>
-            <div style="background:var(--surface-2); border:1px solid var(--border-light); border-radius:2px; padding:2rem; text-align:center;">
-              <p style="font-family:var(--font-display);font-size:2.5rem;font-weight:300;color:var(--gold);line-height:1;">2017</p>
-              <p style="font-family:var(--font-accent);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-top:0.5rem;">Established</p>
+            <div
+              style="background:var(--surface-2); border:1px solid var(--border-light); border-radius:2px; padding:2rem; text-align:center;"
+            >
+              <p
+                style="font-family:var(--font-display);font-size:2.5rem;font-weight:300;color:var(--gold);line-height:1;"
+              >
+                2017
+              </p>
+              <p
+                style="font-family:var(--font-accent);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-top:0.5rem;"
+              >
+                Established
+              </p>
             </div>
-            <div style="background:var(--surface-2); border:1px solid var(--border-light); border-radius:2px; padding:2rem; text-align:center;">
-              <p style="font-family:var(--font-display);font-size:2.5rem;font-weight:300;color:var(--gold);line-height:1;">5</p>
-              <p style="font-family:var(--font-accent);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-top:0.5rem;">Cities Served</p>
+            <div
+              style="background:var(--surface-2); border:1px solid var(--border-light); border-radius:2px; padding:2rem; text-align:center;"
+            >
+              <p
+                style="font-family:var(--font-display);font-size:2.5rem;font-weight:300;color:var(--gold);line-height:1;"
+              >
+                5
+              </p>
+              <p
+                style="font-family:var(--font-accent);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-top:0.5rem;"
+              >
+                Cities Served
+              </p>
             </div>
           </div>
         </div>
@@ -133,38 +259,104 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
       <div class="section-header center reveal">
         <p class="eyebrow">Service Area</p>
         <div class="gold-line center gold-line-animate"></div>
-        <h2 class="display-md">Based in Katy — Available Across Greater Houston</h2>
-        <p class="body-lg" style="max-width:580px; margin:1rem auto 0;">NiO Pictures serves clients throughout the Houston metro area. Weekend and weeknight sessions available.</p>
+        <h2 class="display-md">
+          Based in Katy — Available Across Greater Houston
+        </h2>
+        <p class="body-lg" style="max-width:580px; margin:1rem auto 0;">
+          NiO Pictures serves clients throughout the Houston metro area. Weekend
+          and weeknight sessions available.
+        </p>
       </div>
-      <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; margin-top:2.5rem;" class="reveal reveal-delay-1">
-        <a href="/katy-tx-photographer.html" style="padding:0.75rem 1.5rem; border:1px solid var(--gold); border-radius:1px; font-family:var(--font-accent); font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold);">Katy TX ✦</a>
-        <a href="/cypress-tx-photographer.html" style="padding:0.75rem 1.5rem; border:1px solid var(--border); border-radius:1px; font-family:var(--font-accent); font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); transition:all var(--dur-fast);" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">Cypress TX</a>
-        <a href="/sugar-land-photographer.html" style="padding:0.75rem 1.5rem; border:1px solid var(--border); border-radius:1px; font-family:var(--font-accent); font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); transition:all var(--dur-fast);" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">Sugar Land</a>
-        <a href="/richmond-tx-photographer.html" style="padding:0.75rem 1.5rem; border:1px solid var(--border); border-radius:1px; font-family:var(--font-accent); font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); transition:all var(--dur-fast);" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">Richmond TX</a>
-        <span style="padding:0.75rem 1.5rem; border:1px solid var(--border-light); border-radius:1px; font-family:var(--font-accent); font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted-dark);">Houston</span>
+      <div
+        style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; margin-top:2.5rem;"
+        class="reveal reveal-delay-1"
+      >
+        <a
+          href="/katy-tx-photographer.html"
+          style="padding:0.75rem 1.5rem; border:1px solid var(--gold); border-radius:1px; font-family:var(--font-accent); font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold);"
+          >Katy TX ✦</a
+        >
+        <a
+          href="/cypress-tx-photographer.html"
+          style="padding:0.75rem 1.5rem; border:1px solid var(--border); border-radius:1px; font-family:var(--font-accent); font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); transition:all var(--dur-fast);"
+          onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'"
+          onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'"
+          >Cypress TX</a
+        >
+        <a
+          href="/sugar-land-photographer.html"
+          style="padding:0.75rem 1.5rem; border:1px solid var(--border); border-radius:1px; font-family:var(--font-accent); font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); transition:all var(--dur-fast);"
+          onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'"
+          onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'"
+          >Sugar Land</a
+        >
+        <a
+          href="/richmond-tx-photographer.html"
+          style="padding:0.75rem 1.5rem; border:1px solid var(--border); border-radius:1px; font-family:var(--font-accent); font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); transition:all var(--dur-fast);"
+          onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'"
+          onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'"
+          >Richmond TX</a
+        >
+        <span
+          style="padding:0.75rem 1.5rem; border:1px solid var(--border-light); border-radius:1px; font-family:var(--font-accent); font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted-dark);"
+          >Houston</span
+        >
       </div>
     </div>
   </section>
 
-  <section class="section" style="background:var(--surface); border-top:1px solid var(--border-light); border-bottom:1px solid var(--border-light);">
+  <section
+    class="section"
+    style="background:var(--surface); border-top:1px solid var(--border-light); border-bottom:1px solid var(--border-light);"
+  >
     <div class="container" style="max-width:920px;">
       <div class="section-header center reveal">
         <p class="eyebrow">Katy Expertise</p>
         <div class="gold-line center gold-line-animate"></div>
-        <h2 class="display-md">Why Katy Families and Hosts Choose NiO Pictures</h2>
+        <h2 class="display-md">
+          Why Katy Families and Hosts Choose NiO Pictures
+        </h2>
       </div>
-      <p class="body-lg reveal" style="text-align:center; max-width:780px; margin:0 auto 1.25rem;">
-        Katy is my home base, so my local knowledge runs deep. I photograph regularly in Cinco Ranch, Grand Lakes, and Seven Meadows, and I understand how to match each session to the feel of the neighborhood and family style.
+      <p
+        class="body-lg reveal"
+        style="text-align:center; max-width:780px; margin:0 auto 1.25rem;"
+      >
+        Katy is my home base, so my local knowledge runs deep. I photograph
+        regularly in Cinco Ranch, Grand Lakes, and Seven Meadows, and I
+        understand how to match each session to the feel of the neighborhood and
+        family style.
       </p>
-      <p class="body-lg reveal reveal-delay-1" style="text-align:center; max-width:780px; margin:0 auto 1.25rem;">
-        For portraits, I plan around light at neighborhood parks, greenbelts, and trails near Mason Road and LaCenterra at Cinco Ranch. For events, I work efficiently at local community centers, private venues, and homes throughout Katy, with a process that keeps coverage smooth from arrivals to final group photos.
+      <p
+        class="body-lg reveal reveal-delay-1"
+        style="text-align:center; max-width:780px; margin:0 auto 1.25rem;"
+      >
+        For portraits, I plan around light at neighborhood parks, greenbelts,
+        and trails near Mason Road and LaCenterra at Cinco Ranch. For events, I
+        work efficiently at local community centers, private venues, and homes
+        throughout Katy, with a process that keeps coverage smooth from arrivals
+        to final group photos.
       </p>
-      <p class="body-lg reveal reveal-delay-2" style="text-align:center; max-width:780px; margin:0 auto;">
-        We serve Katy first because this community has trusted us since 2017. Many of our referrals come from returning families and hosts who want a photographer that is reliable, calm under pressure, and focused on real moments that still matter years later.
+      <p
+        class="body-lg reveal reveal-delay-2"
+        style="text-align:center; max-width:780px; margin:0 auto;"
+      >
+        We serve Katy first because this community has trusted us since 2017.
+        Many of our referrals come from returning families and hosts who want a
+        photographer that is reliable, calm under pressure, and focused on real
+        moments that still matter years later.
       </p>
-      <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; margin-top:2rem;" class="reveal">
-        <a href="/event-photography-katy-tx.html" class="btn btn-gold-outline btn-arrow">Katy Event Photography Services</a>
-        <a href="/family-photography-katy-tx.html" class="btn btn-outline">Katy Family Photography Services</a>
+      <div
+        style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; margin-top:2rem;"
+        class="reveal"
+      >
+        <a
+          href="/event-photography-katy-tx.html"
+          class="btn btn-gold-outline btn-arrow"
+          >Katy Event Photography Services</a
+        >
+        <a href="/family-photography-katy-tx.html" class="btn btn-outline"
+          >Katy Family Photography Services</a
+        >
       </div>
     </div>
   </section>
@@ -173,18 +365,29 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
   <section class="cta-banner reveal">
     <div class="container">
       <p class="eyebrow" style="margin-bottom:1.25rem;">Katy TX Photographer</p>
-      <h2 class="display-md" style="margin-bottom:1rem; max-width:520px; margin-left:auto; margin-right:auto;">
-        Ready to Book Your<br><em style="font-style:italic; color:var(--gold);">Session in Katy?</em>
+      <h2
+        class="display-md"
+        style="margin-bottom:1rem; max-width:520px; margin-left:auto; margin-right:auto;"
+      >
+        Ready to Book Your<br /><em
+          style="font-style:italic; color:var(--gold);">Session in Katy?</em
+        >
       </h2>
-      <p class="body-lg" style="max-width:420px; margin:0 auto 2.5rem;">Events, family portraits, and milestone sessions — weekends and weeknights across Katy TX and the Houston area.</p>
-      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-        <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-arrow">Book Now</a>
+      <p class="body-lg" style="max-width:420px; margin:0 auto 2.5rem;">
+        Events, family portraits, and milestone sessions — weekends and
+        weeknights across Katy TX and the Houston area.
+      </p>
+      <div
+        style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;"
+      >
+        <a
+          href="https://niopictures.pixieset.com/booking/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary btn-arrow">Book Now</a
+        >
         <a href="/contact.html" class="btn btn-outline">Get in Touch</a>
       </div>
     </div>
   </section>
-
-  
 </BaseLayout>
-
-

@@ -5,51 +5,57 @@
 /* ── CSS Variables ─────────────────────────────────────────── */
 :root {
   /* Core palette */
-  --black:        #161412;
-  --surface:      #262320;
-  --surface-2:    #302C29;
-  --gold:         #C5A572;
-  --gold-dark:    #8B6A35;
-  --gold-glow:    rgba(197, 165, 114, 0.12);
-  --violet:       #9B7FD4;
-  --violet-subtle:rgba(155, 127, 212, 0.08);
-  --cream:        #F0E8D8;
-  --muted:        #A89880;
-  --muted-dark:   #6B5F52;
-  --border:       rgba(197, 165, 114, 0.15);
+  --black: #161412;
+  --surface: #262320;
+  --surface-2: #302c29;
+  --gold: #c5a572;
+  --gold-dark: #8b6a35;
+  --gold-glow: rgba(197, 165, 114, 0.12);
+  --violet: #9b7fd4;
+  --violet-subtle: rgba(155, 127, 212, 0.08);
+  --cream: #f0e8d8;
+  --muted: #a89880;
+  --muted-dark: #6b5f52;
+  --border: rgba(197, 165, 114, 0.15);
   --border-light: rgba(197, 165, 114, 0.08);
 
   /* Typography */
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body:    system-ui, sans-serif;
-  --font-accent:  'Cinzel', Georgia, serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: system-ui, sans-serif;
+  --font-accent: "Cinzel", Georgia, serif;
 
   /* Spacing */
-  --section-pad:  clamp(5rem, 10vw, 8rem);
-  --container:    1200px;
-  --gutter:       clamp(1.25rem, 5vw, 2.5rem);
+  --section-pad: clamp(5rem, 10vw, 8rem);
+  --container: 1200px;
+  --gutter: clamp(1.25rem, 5vw, 2.5rem);
 
   /* Transitions */
-  --ease:         cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --ease-out:     cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in:      cubic-bezier(0.42, 0, 1, 1);
-  --dur-fast:     180ms;
-  --dur-base:     320ms;
-  --dur-slow:     600ms;
-  --dur-reveal:   700ms;
+  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.42, 0, 1, 1);
+  --dur-fast: 180ms;
+  --dur-base: 320ms;
+  --dur-slow: 600ms;
+  --dur-reveal: 700ms;
   --dur-gold-line: 800ms;
   --dur-extended: 1000ms;
 
   /* Animation delays */
-  --delay-1:      100ms;
-  --delay-2:      200ms;
-  --delay-3:      300ms;
-  --delay-4:      400ms;
-  --delay-5:      500ms;
+  --delay-1: 100ms;
+  --delay-2: 200ms;
+  --delay-3: 300ms;
+  --delay-4: 400ms;
+  --delay-5: 500ms;
 }
 
 /* ── Reset ─────────────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 html {
   font-size: 16px;
@@ -78,9 +84,15 @@ a {
   text-decoration: none;
 }
 
-ul, ol { list-style: none; }
+ul,
+ol {
+  list-style: none;
+}
 
-button, input, textarea, select {
+button,
+input,
+textarea,
+select {
   font: inherit;
   border: none;
   outline: none;
@@ -159,7 +171,9 @@ select:focus-visible {
   margin: 1.25rem 0;
 }
 
-.gold-line.center { margin: 1.25rem auto; }
+.gold-line.center {
+  margin: 1.25rem auto;
+}
 
 /* ── Buttons ───────────────────────────────────────────────── */
 .btn {
@@ -181,7 +195,7 @@ select:focus-visible {
 }
 
 .btn::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: currentColor;
@@ -189,7 +203,9 @@ select:focus-visible {
   transition: opacity var(--dur-fast) var(--ease);
 }
 
-.btn:hover::before { opacity: 0.06; }
+.btn:hover::before {
+  opacity: 0.06;
+}
 
 .btn-primary {
   background: var(--gold);
@@ -225,7 +241,7 @@ select:focus-visible {
 }
 
 .btn-arrow::after {
-  content: '→';
+  content: "→";
   font-family: var(--font-body);
   font-size: 0.85rem;
   display: inline-block;
@@ -234,7 +250,9 @@ select:focus-visible {
   transition: transform var(--dur-base) var(--ease-out);
 }
 
-.btn-arrow:hover::after { transform: translateX(4px); }
+.btn-arrow:hover::after {
+  transform: translateX(4px);
+}
 
 .btn-sm {
   font-size: 0.6rem;
@@ -255,14 +273,20 @@ select:focus-visible {
 }
 
 /* ── Section Layout ────────────────────────────────────────── */
-.section { padding: var(--section-pad) 0; }
-.section-sm { padding: calc(var(--section-pad) * 0.6) 0; }
+.section {
+  padding: var(--section-pad) 0;
+}
+.section-sm {
+  padding: calc(var(--section-pad) * 0.6) 0;
+}
 
 .section-header {
   margin-bottom: clamp(3rem, 6vw, 5rem);
 }
 
-.section-header.center { text-align: center; }
+.section-header.center {
+  text-align: center;
+}
 
 /* ── Divider ───────────────────────────────────────────────── */
 .divider {
@@ -300,6 +324,13 @@ img[loading="lazy"] {
 }
 
 /* ── Scrollbar ─────────────────────────────────────────────── */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--black); }
-::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 3px; }
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold-dark);
+  border-radius: 3px;
+}

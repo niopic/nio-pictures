@@ -1,7 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 const title = "Book a Photography Session | NiO Pictures — Katy TX";
-const description = "Book event & family photography sessions with NiO Pictures in Katy TX. Serving Houston, Sugar Land & Richmond. Weekends and weeknights available.";
+const description =
+  "Book event & family photography sessions with NiO Pictures in Katy TX. Serving Houston, Sugar Land & Richmond. Weekends and weeknights available.";
 const canonical = "https://niopictures.com/book.html";
 const ogImage = "https://niopictures.com/assets/images/og-home.webp";
 const extraHead = `<script type="application/ld+json">
@@ -41,9 +42,20 @@ const extraHead = `<script type="application/ld+json">
   <\/script>`;
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage}>
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+>
   <Fragment slot="head" set:html={extraHead} />
-<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);" onfocus="this.style.top='1rem'" onblur="this.style.top='-40px'">Skip to main content</a>
+  <a
+    href="#main-content"
+    class="skip-link"
+    style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);"
+    onfocus="this.style.top='1rem'"
+    onblur="this.style.top='-40px'">Skip to main content</a
+  >
 
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <a href="/" class="nav-logo">Ni<span>O</span> Pictures</a>
@@ -55,8 +67,15 @@ const extraHead = `<script type="application/ld+json">
       <a href="/blog.html">Blog</a>
       <a href="/contact.html">Contact</a>
     </div>
-    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">Book Now</a>
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <a
+      href="https://niopictures.pixieset.com/booking/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn btn-primary nav-cta">Book Now</a
+    >
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"
+      ><span></span><span></span><span></span></button
+    >
   </nav>
 
   <div class="nav-mobile" role="dialog" aria-label="Mobile navigation">
@@ -66,58 +85,117 @@ const extraHead = `<script type="application/ld+json">
     <a href="/about.html">About</a>
     <a href="/blog.html">Blog</a>
     <a href="/contact.html">Contact</a>
-    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="nav-mobile-cta">Book a Session →</a>
+    <a
+      href="https://niopictures.pixieset.com/booking/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="nav-mobile-cta">Book a Session →</a
+    >
   </div>
 
   <!-- ── Booking Section ────────────────────────────────────── -->
-  <section style="min-height: 100svh; display: flex; align-items: center; padding: calc(var(--section-pad) + 4rem) 0 var(--section-pad);">
+  <section
+    style="min-height: 100svh; display: flex; align-items: center; padding: calc(var(--section-pad) + 4rem) 0 var(--section-pad);"
+  >
     <div class="container">
-      <div class="booking-layout-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 8vw, 7rem); align-items: start;">
-
+      <div
+        class="booking-layout-grid"
+        style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 8vw, 7rem); align-items: start;"
+      >
         <!-- Left: Info -->
         <div>
           <p class="eyebrow" style="margin-bottom: 1rem;">Reserve Your Date</p>
           <div class="gold-line gold-line-animate"></div>
           <h1 class="display-lg" style="margin-bottom: 1.5rem;">
-            Book a<br><em style="font-style:italic; color:var(--gold);">Session</em>
+            Book a<br /><em style="font-style:italic; color:var(--gold);"
+              >Session</em
+            >
           </h1>
           <p class="body-lg" style="margin-bottom: 2.5rem;">
-            Fill out the form and we'll reach out to confirm your booking, discuss your vision, and answer any questions. Prefer to book directly? Use the button below.
+            Fill out the form and we'll reach out to confirm your booking,
+            discuss your vision, and answer any questions. Prefer to book
+            directly? Use the button below.
           </p>
 
-          <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-arrow btn-mb-lg">
+          <a
+            href="https://niopictures.pixieset.com/booking/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary btn-arrow btn-mb-lg"
+          >
             Book Directly on Pixieset
           </a>
 
-          <div style="border-top: 1px solid var(--border-light); padding-top: 2.5rem;">
-            <p class="footer-heading" style="margin-bottom: 1.25rem;">What to Expect</p>
+          <div
+            style="border-top: 1px solid var(--border-light); padding-top: 2.5rem;"
+          >
+            <p class="footer-heading" style="margin-bottom: 1.25rem;">
+              What to Expect
+            </p>
             <div style="display: flex; flex-direction: column; gap: 1.25rem;">
               <div style="display: flex; gap: 1rem;">
-                <span style="color:var(--gold); font-family:var(--font-accent); font-size:0.75rem; flex-shrink:0; padding-top:2px;">01</span>
+                <span
+                  style="color:var(--gold); font-family:var(--font-accent); font-size:0.75rem; flex-shrink:0; padding-top:2px;"
+                  >01</span
+                >
                 <div>
-                  <p style="font-size:0.9rem; color:var(--cream); font-weight:400; margin-bottom:0.2rem;">Submit your request</p>
-                  <p class="body-sm">Tell us about your session type, date, and vision.</p>
+                  <p
+                    style="font-size:0.9rem; color:var(--cream); font-weight:400; margin-bottom:0.2rem;"
+                  >
+                    Submit your request
+                  </p>
+                  <p class="body-sm">
+                    Tell us about your session type, date, and vision.
+                  </p>
                 </div>
               </div>
               <div style="display: flex; gap: 1rem;">
-                <span style="color:var(--gold); font-family:var(--font-accent); font-size:0.75rem; flex-shrink:0; padding-top:2px;">02</span>
+                <span
+                  style="color:var(--gold); font-family:var(--font-accent); font-size:0.75rem; flex-shrink:0; padding-top:2px;"
+                  >02</span
+                >
                 <div>
-                  <p style="font-size:0.9rem; color:var(--cream); font-weight:400; margin-bottom:0.2rem;">We confirm within 24 hrs</p>
-                  <p class="body-sm">We'll reach out to discuss details and confirm availability.</p>
+                  <p
+                    style="font-size:0.9rem; color:var(--cream); font-weight:400; margin-bottom:0.2rem;"
+                  >
+                    We confirm within 24 hrs
+                  </p>
+                  <p class="body-sm">
+                    We'll reach out to discuss details and confirm availability.
+                  </p>
                 </div>
               </div>
               <div style="display: flex; gap: 1rem;">
-                <span style="color:var(--gold); font-family:var(--font-accent); font-size:0.75rem; flex-shrink:0; padding-top:2px;">03</span>
+                <span
+                  style="color:var(--gold); font-family:var(--font-accent); font-size:0.75rem; flex-shrink:0; padding-top:2px;"
+                  >03</span
+                >
                 <div>
-                  <p style="font-size:0.9rem; color:var(--cream); font-weight:400; margin-bottom:0.2rem;">Session day</p>
-                  <p class="body-sm">We arrive prepared, shoot with intention, and deliver stunning images.</p>
+                  <p
+                    style="font-size:0.9rem; color:var(--cream); font-weight:400; margin-bottom:0.2rem;"
+                  >
+                    Session day
+                  </p>
+                  <p class="body-sm">
+                    We arrive prepared, shoot with intention, and deliver
+                    stunning images.
+                  </p>
                 </div>
               </div>
               <div style="display: flex; gap: 1rem;">
-                <span style="color:var(--gold); font-family:var(--font-accent); font-size:0.75rem; flex-shrink:0; padding-top:2px;">04</span>
+                <span
+                  style="color:var(--gold); font-family:var(--font-accent); font-size:0.75rem; flex-shrink:0; padding-top:2px;"
+                  >04</span
+                >
                 <div>
-                  <p style="font-size:0.9rem; color:var(--cream); font-weight:400; margin-bottom:0.2rem;">Gallery delivery</p>
-                  <p class="body-sm">Your private online gallery is ready within 2–3 weeks.</p>
+                  <p
+                    style="font-size:0.9rem; color:var(--cream); font-weight:400; margin-bottom:0.2rem;"
+                  >
+                    Gallery delivery
+                  </p>
+                  <p class="body-sm">
+                    Your private online gallery is ready within 2–3 weeks.
+                  </p>
                 </div>
               </div>
             </div>
@@ -126,35 +204,83 @@ const extraHead = `<script type="application/ld+json">
 
         <!-- Right: Form -->
         <div class="reveal reveal-delay-2">
-          <div style="background: var(--surface); border: 1px solid var(--border-light); border-radius: 2px; padding: clamp(2rem, 4vw, 3rem);">
-            <p style="font-family:var(--font-display); font-size:1.4rem; font-weight:300; color:var(--cream); margin-bottom:2rem;">Session Request</p>
+          <div
+            style="background: var(--surface); border: 1px solid var(--border-light); border-radius: 2px; padding: clamp(2rem, 4vw, 3rem);"
+          >
+            <p
+              style="font-family:var(--font-display); font-size:1.4rem; font-weight:300; color:var(--cream); margin-bottom:2rem;"
+            >
+              Session Request
+            </p>
 
             <form id="book-form" novalidate style="position:relative;">
               <!-- Honeypot spam protection — hidden from real users -->
-              <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
+              <div
+                style="position:absolute;left:-9999px;top:-9999px;"
+                aria-hidden="true"
+              >
                 <label for="book-website">Leave this empty</label>
-                <input type="text" id="book-website" name="website" tabindex="-1" autocomplete="off">
+                <input
+                  type="text"
+                  id="book-website"
+                  name="website"
+                  tabindex="-1"
+                  autocomplete="off"
+                />
               </div>
               <div class="form-row">
                 <div class="form-group">
                   <label class="form-label" for="book-name">Full Name</label>
-                  <input class="form-control" type="text" id="book-name" name="name" placeholder="Your name" required autocomplete="name">
+                  <input
+                    class="form-control"
+                    type="text"
+                    id="book-name"
+                    name="name"
+                    placeholder="Your name"
+                    required
+                    autocomplete="name"
+                  />
                 </div>
                 <div class="form-group">
-                  <label class="form-label" for="book-email">Email Address</label>
-                  <input class="form-control" type="email" id="book-email" name="email" placeholder="your@email.com" required autocomplete="email">
+                  <label class="form-label" for="book-email"
+                    >Email Address</label
+                  >
+                  <input
+                    class="form-control"
+                    type="email"
+                    id="book-email"
+                    name="email"
+                    placeholder="your@email.com"
+                    required
+                    autocomplete="email"
+                  />
                 </div>
               </div>
 
               <div class="form-group">
-                <label class="form-label" for="book-phone">Phone (optional)</label>
-                <input class="form-control" type="tel" id="book-phone" name="phone" placeholder="(832) 000-0000" autocomplete="tel">
+                <label class="form-label" for="book-phone"
+                  >Phone (optional)</label
+                >
+                <input
+                  class="form-control"
+                  type="tel"
+                  id="book-phone"
+                  name="phone"
+                  placeholder="(832) 000-0000"
+                  autocomplete="tel"
+                />
               </div>
 
               <div class="form-group">
                 <label class="form-label" for="book-type">Session Type</label>
-                <select class="form-control" id="book-type" name="session_type" required>
-                  <option value="" disabled selected>Select session type</option>
+                <select
+                  class="form-control"
+                  id="book-type"
+                  name="session_type"
+                  required
+                >
+                  <option value="" disabled selected>Select session type</option
+                  >
                   <optgroup label="Events">
                     <option value="corporate-event">Corporate Event</option>
                     <option value="private-event">Private Event / Party</option>
@@ -173,34 +299,59 @@ const extraHead = `<script type="application/ld+json">
 
               <div class="form-row">
                 <div class="form-group">
-                  <label class="form-label" for="book-date">Preferred Date</label>
-                  <input class="form-control" type="date" id="book-date" name="preferred_date">
+                  <label class="form-label" for="book-date"
+                    >Preferred Date</label
+                  >
+                  <input
+                    class="form-control"
+                    type="date"
+                    id="book-date"
+                    name="preferred_date"
+                  />
                 </div>
                 <div class="form-group">
-                  <label class="form-label" for="book-location">Location / City</label>
-                  <input class="form-control" type="text" id="book-location" name="location" placeholder="Katy, Sugar Land…">
+                  <label class="form-label" for="book-location"
+                    >Location / City</label
+                  >
+                  <input
+                    class="form-control"
+                    type="text"
+                    id="book-location"
+                    name="location"
+                    placeholder="Katy, Sugar Land…"
+                  />
                 </div>
               </div>
 
               <div class="form-group">
-                <label class="form-label" for="book-message">Tell Us About Your Session</label>
-                <textarea class="form-control" id="book-message" name="message" placeholder="Any details, special requests, or questions…" style="min-height:110px;"></textarea>
+                <label class="form-label" for="book-message"
+                  >Tell Us About Your Session</label
+                >
+                <textarea
+                  class="form-control"
+                  id="book-message"
+                  name="message"
+                  placeholder="Any details, special requests, or questions…"
+                  style="min-height:110px;"></textarea>
               </div>
 
               <button type="submit" class="btn btn-primary btn-arrow btn-block">
                 Submit Request
               </button>
 
-              <p class="body-sm" style="text-align:center; margin-top:1rem; font-size:0.8rem;">
-                Your request will be sent directly to Palanivel. We'll confirm availability within <span style="color:var(--gold);">24 hours</span>.
+              <p
+                class="body-sm"
+                style="text-align:center; margin-top:1rem; font-size:0.8rem;"
+              >
+                Your request will be sent directly to Palanivel. We'll confirm
+                availability within <span style="color:var(--gold);"
+                  >24 hours</span
+                >.
               </p>
             </form>
           </div>
         </div>
-
       </div>
     </div>
   </section>
-
-  
 </BaseLayout>

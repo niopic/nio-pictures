@@ -8,15 +8,18 @@
 This task list is extracted from your full launch checklist and filtered to what can be executed from this codebase.
 
 ## Scope
+
 - Included: tasks that can be audited, validated, or fixed from source files and build output.
 - Excluded from active execution: tasks requiring live production accounts, external tools with login, real-device testing, or business profile access.
 
 ## ✅ Completed Phases
 
 ### Priority 0 — Launch Blockers (9/9 ✅)
+
 - H1 validation, canonical links, robots.txt/sitemap, 404 route, placeholder content, phone/email consistency
 
 ### Priority 1 — SEO & Schema (10/10 ✅)
+
 - Title uniqueness/length audit
 - Meta description uniqueness/length (trimmed 4 location pages to 150-160 chars)
 - City keywords in location pages
@@ -26,6 +29,7 @@ This task list is extracted from your full launch checklist and filtered to what
 - BreadcrumbList added to Blog hub page
 
 ### Priority 3 — Accessibility (7/7 ✅)
+
 - Landmarks verified on all pages (`main`, `nav`, `footer`)
 - Skip links verified and focusable
 - Alt text quality verified across gallery, blog, and portfolio images
@@ -35,6 +39,7 @@ This task list is extracted from your full launch checklist and filtered to what
 - Contrast tokens verified at WCAG AA/AAA levels
 
 ### Priority 2 — Performance & Frontend (6/7 checked)
+
 - Hero image loading strategy verified on homepage, portfolio, and blog posts
 - Below-fold lazy loading verified across gallery and blog images
 - Broken background-image asset paths fixed on homepage and service pages
@@ -44,6 +49,7 @@ This task list is extracted from your full launch checklist and filtered to what
 - Remaining blocker: final exported images not ready for final compression audit
 
 ### Priority 4 — Security & Privacy (5/5 ✅)
+
 - Privacy and Terms pages verified in footer links and generated output
 - `noindex, nofollow` verified on privacy, terms, and 404 pages
 - Contact and booking forms verified to submit to Formspree over HTTPS in shared JS
@@ -51,6 +57,7 @@ This task list is extracted from your full launch checklist and filtered to what
 - No insecure `http://` source references found
 
 ### Priority 5 — Deployment & Ops Readiness (4/4 ✅)
+
 - Production build verified clean with 19 generated pages
 - `_headers` and `_redirects` now copied into `dist` during the post-build step
 - Wrangler config verified to serve `./dist` assets for deployment
@@ -74,20 +81,21 @@ This task list is extracted from your full launch checklist and filtered to what
 
 ## 📊 Validation Summary
 
-| Category | Result | Notes |
-|---|---|---|
-| **Priority 0 (Blockers)** | ✅ PASS (9/9) | No critical issues; all blockers cleared |
-| **Priority 1 (SEO)** | ✅ PASS (10/10) | All 10 schema/SEO checks complete; descriptions trimmed |
-| **Priority 2 (Performance)** | ⚠️ PARTIAL (6/7) | Minification fixed; only final image export audit remains |
-| **Priority 3 (Accessibility)** | ✅ PASS (7/7) | Landmarks, skip links, alt text, forms, focus, contrast verified |
-| **Priority 4 (Security)** | ✅ PASS (5/5) | Privacy, noindex, form transport, external links, and HTTPS verified |
-| **Priority 5 (Deployment)** | ✅ PASS (4/4) | Build, metadata files, wrangler config, and cache headers verified |
-| **Lighthouse (Homepage)** | ✅ PASS | Mobile 100/100/96/100, Desktop 100/100/96/100 |
-| **Core Web Vitals** | ✅ PASS | CLS 0.013–0.053, LCP 0.3–1.1s, FCP 0.2–0.9s |
-| **Build Status** | ✅ PASS | 19 pages, 0 errors |
-| **Next Phase** | 🔄 READY | Finalize image exports to close the last Priority 2 item, then handle manual follow-ups |
+| Category                       | Result           | Notes                                                                                   |
+| ------------------------------ | ---------------- | --------------------------------------------------------------------------------------- |
+| **Priority 0 (Blockers)**      | ✅ PASS (9/9)    | No critical issues; all blockers cleared                                                |
+| **Priority 1 (SEO)**           | ✅ PASS (10/10)  | All 10 schema/SEO checks complete; descriptions trimmed                                 |
+| **Priority 2 (Performance)**   | ⚠️ PARTIAL (6/7) | Minification fixed; only final image export audit remains                               |
+| **Priority 3 (Accessibility)** | ✅ PASS (7/7)    | Landmarks, skip links, alt text, forms, focus, contrast verified                        |
+| **Priority 4 (Security)**      | ✅ PASS (5/5)    | Privacy, noindex, form transport, external links, and HTTPS verified                    |
+| **Priority 5 (Deployment)**    | ✅ PASS (4/4)    | Build, metadata files, wrangler config, and cache headers verified                      |
+| **Lighthouse (Homepage)**      | ✅ PASS          | Mobile 100/100/96/100, Desktop 100/100/96/100                                           |
+| **Core Web Vitals**            | ✅ PASS          | CLS 0.013–0.053, LCP 0.3–1.1s, FCP 0.2–0.9s                                             |
+| **Build Status**               | ✅ PASS          | 19 pages, 0 errors                                                                      |
+| **Next Phase**                 | 🔄 READY         | Finalize image exports to close the last Priority 2 item, then handle manual follow-ups |
 
 ### Priority 0 + 1 Achievements
+
 - ✅ CLS improved from 0.388 → 0.013 (via transition fix + sync CSS)
 - ✅ Accessibility improved 92 → 100 (homepage)
 - ✅ All 19 pages have canonical + proper meta directives
@@ -174,15 +182,15 @@ This task list is extracted from your full launch checklist and filtered to what
 
 ## Progress Summary
 
-| Priority | Status | Progress | Details |
-|---|---|---|---|
-| **0 - Blockers** | 🟢 COMPLETE | 9/9 | H1s, canonicals, robots, 404, phone/email |
-| **1 - SEO** | 🟢 COMPLETE | 10/10 | Titles, descriptions, schema, city keywords, internal links |
-| **2 - Performance** | 🟡 IN PROGRESS | 6/7 | Loading strategy, Astro images, fonts, overflow, and minification checked; final exports pending |
-| **3 - Accessibility** | 🟢 COMPLETE | 7/7 | Landmarks, skip links, alt text, forms, focus, contrast |
-| **4 - Security** | 🟢 COMPLETE | 5/5 | Privacy/terms, noindex, form transport, external links, HTTPS |
-| **5 - Deployment** | 🟢 COMPLETE | 4/4 | Build clean, redirects/headers shipped, host config, caching headers |
-| **Manual Follow-Ups** | 📋 NOT STARTED | 0/7 | GSC, GA4, GBP, real devices, browsers, SSL, UX testing |
+| Priority              | Status         | Progress | Details                                                                                          |
+| --------------------- | -------------- | -------- | ------------------------------------------------------------------------------------------------ |
+| **0 - Blockers**      | 🟢 COMPLETE    | 9/9      | H1s, canonicals, robots, 404, phone/email                                                        |
+| **1 - SEO**           | 🟢 COMPLETE    | 10/10    | Titles, descriptions, schema, city keywords, internal links                                      |
+| **2 - Performance**   | 🟡 IN PROGRESS | 6/7      | Loading strategy, Astro images, fonts, overflow, and minification checked; final exports pending |
+| **3 - Accessibility** | 🟢 COMPLETE    | 7/7      | Landmarks, skip links, alt text, forms, focus, contrast                                          |
+| **4 - Security**      | 🟢 COMPLETE    | 5/5      | Privacy/terms, noindex, form transport, external links, HTTPS                                    |
+| **5 - Deployment**    | 🟢 COMPLETE    | 4/4      | Build clean, redirects/headers shipped, host config, caching headers                             |
+| **Manual Follow-Ups** | 📋 NOT STARTED | 0/7      | GSC, GA4, GBP, real devices, browsers, SSL, UX testing                                           |
 
 ## Success Criteria
 

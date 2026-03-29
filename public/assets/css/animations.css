@@ -4,41 +4,79 @@
 
 /* ── Keyframes ─────────────────────────────────────────────── */
 @keyframes scrollPulse {
-  0%, 100% { opacity: 0.4; transform: scaleY(1); }
-  50%       { opacity: 1;   transform: scaleY(1.15); }
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1.15);
+  }
 }
 
 @keyframes chatPulse {
-  0%   { transform: scale(1);    opacity: 0.6; }
-  50%  { transform: scale(1.18); opacity: 0; }
-  100% { transform: scale(1);    opacity: 0; }
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(28px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideRight {
-  from { transform: scaleX(0); transform-origin: left; }
-  to   { transform: scaleX(1); transform-origin: left; }
+  from {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  to {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
 }
 
 @keyframes shimmer {
-  0%   { background-position: -200% center; }
-  100% { background-position: 200% center; }
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
 
 /* ── Scroll Reveal ─────────────────────────────────────────── */
 .reveal {
   opacity: 0;
   transform: translateY(32px);
-  transition: opacity var(--dur-reveal) var(--ease-out), transform var(--dur-reveal) var(--ease-out);
+  transition:
+    opacity var(--dur-reveal) var(--ease-out),
+    transform var(--dur-reveal) var(--ease-out);
 }
 
 .reveal.visible {
@@ -46,11 +84,21 @@
   transform: translateY(0);
 }
 
-.reveal-delay-1 { transition-delay: var(--delay-1); }
-.reveal-delay-2 { transition-delay: var(--delay-2); }
-.reveal-delay-3 { transition-delay: var(--delay-3); }
-.reveal-delay-4 { transition-delay: var(--delay-4); }
-.reveal-delay-5 { transition-delay: var(--delay-5); }
+.reveal-delay-1 {
+  transition-delay: var(--delay-1);
+}
+.reveal-delay-2 {
+  transition-delay: var(--delay-2);
+}
+.reveal-delay-3 {
+  transition-delay: var(--delay-3);
+}
+.reveal-delay-4 {
+  transition-delay: var(--delay-4);
+}
+.reveal-delay-5 {
+  transition-delay: var(--delay-5);
+}
 
 /* ── Hero entrance ─────────────────────────────────────────── */
 .hero-content .eyebrow {
@@ -80,11 +128,13 @@
   transition: transform var(--dur-gold-line) var(--ease-out);
 }
 
-.gold-line-animate.visible { transform: scaleX(1); }
+.gold-line-animate.visible {
+  transform: scaleX(1);
+}
 
 /* ── Image hover grain effect ──────────────────────────────── */
 .grid-item::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -97,7 +147,9 @@
   pointer-events: none;
 }
 
-.grid-item:hover::after { opacity: 1; }
+.grid-item:hover::after {
+  opacity: 1;
+}
 
 /* ── Gold shimmer on hover (for eyebrow text) ──────────────── */
 .eyebrow-shimmer {
@@ -141,7 +193,7 @@
 }
 
 .noise-overlay::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   opacity: 0.025;
@@ -151,13 +203,20 @@
 
 /* ── Reduced motion ────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .hero-bg { transform: scale(1) !important; }
-  .reveal { opacity: 1; transform: none; }
+  .hero-bg {
+    transform: scale(1) !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @media (max-width: 768px) {

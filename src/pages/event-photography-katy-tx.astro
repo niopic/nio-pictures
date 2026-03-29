@@ -17,7 +17,12 @@ import aboutPortrait from "../assets/images/about/portrait.jpg";
   ogImage="https://niopictures.com/assets/images/events-hero.webp"
 >
   <fragment slot="head">
-    <link rel="preload" as="image" href="/assets/images/events-hero.webp" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/images/events-hero.webp"
+      fetchpriority="high"
+    />
 
     <script type="application/ld+json" is:inline>
       {
@@ -42,8 +47,18 @@ import aboutPortrait from "../assets/images/about/portrait.jpg";
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-          {"@type":"ListItem","position":1,"name":"Home","item":"https://niopictures.com/"},
-          {"@type":"ListItem","position":2,"name":"Event Photography Katy TX","item":"https://niopictures.com/event-photography-katy-tx.html"}
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://niopictures.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Event Photography Katy TX",
+            "item": "https://niopictures.com/event-photography-katy-tx.html"
+          }
         ]
       }
     </script>
@@ -54,16 +69,36 @@ import aboutPortrait from "../assets/images/about/portrait.jpg";
         "@type": "Service",
         "name": "Event Photography in Katy TX",
         "serviceType": "Event Photography",
-        "provider": {"@id": "https://niopictures.com/#business"},
+        "provider": { "@id": "https://niopictures.com/#business" },
         "areaServed": [
-          {"@type": "City", "name": "Katy", "sameAs": "https://en.wikipedia.org/wiki/Katy,_Texas"},
-          {"@type": "City", "name": "Houston", "sameAs": "https://en.wikipedia.org/wiki/Houston"},
-          {"@type": "City", "name": "Sugar Land", "sameAs": "https://en.wikipedia.org/wiki/Sugar_Land,_Texas"},
-          {"@type": "City", "name": "Richmond", "sameAs": "https://en.wikipedia.org/wiki/Richmond,_Texas"}
+          {
+            "@type": "City",
+            "name": "Katy",
+            "sameAs": "https://en.wikipedia.org/wiki/Katy,_Texas"
+          },
+          {
+            "@type": "City",
+            "name": "Houston",
+            "sameAs": "https://en.wikipedia.org/wiki/Houston"
+          },
+          {
+            "@type": "City",
+            "name": "Sugar Land",
+            "sameAs": "https://en.wikipedia.org/wiki/Sugar_Land,_Texas"
+          },
+          {
+            "@type": "City",
+            "name": "Richmond",
+            "sameAs": "https://en.wikipedia.org/wiki/Richmond,_Texas"
+          }
         ],
         "description": "Professional event photography for corporate events, private celebrations, Indian and South Asian cultural events, birthdays, and anniversaries in Katy, Houston, Sugar Land, and Richmond TX.",
         "url": "https://niopictures.com/event-photography-katy-tx.html",
-        "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "url": "https://niopictures.pixieset.com/booking/"}
+        "offers": {
+          "@type": "Offer",
+          "availability": "https://schema.org/InStock",
+          "url": "https://niopictures.pixieset.com/booking/"
+        }
       }
     </script>
 
@@ -75,34 +110,55 @@ import aboutPortrait from "../assets/images/about/portrait.jpg";
           {
             "@type": "Question",
             "name": "Do you photograph Indian and South Asian events in Katy TX?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Yes. NiO Pictures specializes in Indian and South Asian cultural events including garba nights, sangeet, receptions, birthday milestones, and community celebrations throughout Katy, Houston, and Sugar Land, TX."}
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. NiO Pictures specializes in Indian and South Asian cultural events including garba nights, sangeet, receptions, birthday milestones, and community celebrations throughout Katy, Houston, and Sugar Land, TX."
+            }
           },
           {
             "@type": "Question",
             "name": "How far in advance should I book event photography in Katy TX?",
-            "acceptedAnswer": {"@type": "Answer", "text": "We recommend booking at least 4-6 weeks in advance for private events, and 2-3 months ahead for larger corporate events or cultural celebrations to secure your preferred date."}
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We recommend booking at least 4-6 weeks in advance for private events, and 2-3 months ahead for larger corporate events or cultural celebrations to secure your preferred date."
+            }
           },
           {
             "@type": "Question",
             "name": "Do you cover events in Houston and Sugar Land, not just Katy?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Absolutely. NiO Pictures is based in Katy TX but actively serves Houston, Sugar Land, and Richmond for all types of events - corporate, private, and cultural."}
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely. NiO Pictures is based in Katy TX but actively serves Houston, Sugar Land, and Richmond for all types of events - corporate, private, and cultural."
+            }
           },
           {
             "@type": "Question",
             "name": "What is included in event photography coverage?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Every event package includes full-day or half-day coverage, professionally edited images in our cinematic style, and delivery of a private online gallery within 2-3 weeks of the event."}
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Every package includes 2-hour event coverage, professionally edited images in my cinematic style, and delivery via a private online gallery. Additional coverage hours are available — contact me for custom quotes."
+            }
           },
           {
             "@type": "Question",
             "name": "Are you available on weekends and weeknights for events?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Yes. NiO Pictures offers photography sessions on weekends and weeknight evenings throughout the Katy, Houston, Sugar Land, and Richmond areas."}
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. NiO Pictures offers photography sessions on weekends and weeknight evenings throughout the Katy, Houston, Sugar Land, and Richmond areas."
+            }
           }
         ]
       }
     </script>
   </fragment>
 
-  <a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);" onfocus="this.style.top='1rem'" onblur="this.style.top='-40px'">Skip to main content</a>
+  <a
+    href="#main-content"
+    class="skip-link"
+    style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);"
+    onfocus="this.style.top='1rem'"
+    onblur="this.style.top='-40px'">Skip to main content</a
+  >
 
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <a href="/" class="nav-logo">Ni<span>O</span> Pictures</a>
@@ -114,8 +170,15 @@ import aboutPortrait from "../assets/images/about/portrait.jpg";
       <a href="/blog.html">Blog</a>
       <a href="/contact.html">Contact</a>
     </div>
-    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">Book Now</a>
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <a
+      href="https://niopictures.pixieset.com/booking/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn btn-primary nav-cta">Book Now</a
+    >
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"
+      ><span></span><span></span><span></span></button
+    >
   </nav>
 
   <div class="nav-mobile" role="dialog" aria-label="Mobile navigation">
@@ -125,28 +188,57 @@ import aboutPortrait from "../assets/images/about/portrait.jpg";
     <a href="/about.html">About</a>
     <a href="/blog.html">Blog</a>
     <a href="/contact.html">Contact</a>
-    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="nav-mobile-cta">Book a Session</a>
+    <a
+      href="https://niopictures.pixieset.com/booking/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="nav-mobile-cta">Book a Session</a
+    >
   </div>
 
   <main id="main-content">
     <div class="page-hero" style="margin-top: 0; padding-top: 0;">
-      <div class="page-hero-bg" style="background-image: url('/assets/images/events-hero.webp'); background-color: #18161a;"></div>
+      <div
+        class="page-hero-bg"
+        style="background-image: url('/assets/images/events-hero.webp'); background-color: #18161a;"
+      >
+      </div>
       <div class="page-hero-overlay"></div>
       <div class="page-hero-content container">
-        <p class="eyebrow" style="margin-bottom: 1rem;">Katy TX · Houston · Sugar Land · Richmond</p>
-        <h1 class="display-xl" style="max-width: 680px;">Event<br /><em style="font-style:italic; color:var(--gold);">Photography</em></h1>
-        <p class="body-lg" style="max-width: 500px; margin-top: 1rem;">Event photography Katy TX for corporate events, private celebrations, and every meaningful gathering in between.</p>
+        <p class="eyebrow" style="margin-bottom: 1rem;">
+          Katy TX · Houston · Sugar Land · Richmond
+        </p>
+        <h1 class="display-xl" style="max-width: 680px;">
+          Event<br /><em style="font-style:italic; color:var(--gold);"
+            >Photography</em>
+        </h1>
+        <p class="body-lg" style="max-width: 500px; margin-top: 1rem;">
+          Event photography Katy TX for corporate events, private celebrations,
+          and every meaningful gathering in between.
+        </p>
       </div>
     </div>
 
     <section class="section">
       <div class="container">
-        <div style="max-width: 720px; margin: 0 auto; text-align: center;" class="reveal">
+        <div
+          style="max-width: 720px; margin: 0 auto; text-align: center;"
+          class="reveal"
+        >
           <p class="eyebrow">The Approach</p>
           <div class="gold-line center gold-line-animate"></div>
-          <h2 class="display-md" style="margin-bottom: 1.5rem;">Every Event Has a Story.<br /><em style="font-style:italic; color:var(--gold);">I Tell It Beautifully.</em></h2>
+          <h2 class="display-md" style="margin-bottom: 1.5rem;">
+            Every Event Has a Story.<br /><em
+              style="font-style:italic; color:var(--gold);"
+              >I Tell It Beautifully.</em>
+          </h2>
           <p class="body-lg">
-            As a dedicated <strong style="color:var(--cream); font-weight:400;">event photographer in Katy, TX</strong>, NiO Pictures approaches every event like a documentary filmmaker - invisible, observant, and always in the right place at the right moment. No stiff poses. No missed moments. Just authentic, cinematic imagery that captures the energy of your event exactly as it was.
+            As a dedicated <strong style="color:var(--cream); font-weight:400;"
+              >event photographer in Katy, TX</strong
+            >, NiO Pictures approaches every event like a documentary filmmaker
+            - invisible, observant, and always in the right place at the right
+            moment. No stiff poses. No missed moments. Just authentic, cinematic
+            imagery that captures the energy of your event exactly as it was.
           </p>
         </div>
       </div>
@@ -159,12 +251,26 @@ import aboutPortrait from "../assets/images/about/portrait.jpg";
             <div class="feature-icon">◈</div>
             <p class="eyebrow" style="margin-bottom: 0.75rem;">Corporate</p>
             <h3 class="feature-title">Corporate Events</h3>
-            <p class="body-sm">Conferences, galas, product launches, award ceremonies, and team events. Professional imagery that reflects your brand with polish and precision.</p>
-            <ul style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.4rem;">
-              <li class="body-sm" style="display:flex; gap:0.5rem;"><span style="color:var(--gold);">-</span> Corporate headshots on-site</li>
-              <li class="body-sm" style="display:flex; gap:0.5rem;"><span style="color:var(--gold);">-</span> Conference and keynote coverage</li>
-              <li class="body-sm" style="display:flex; gap:0.5rem;"><span style="color:var(--gold);">-</span> Award ceremony documentation</li>
-              <li class="body-sm" style="display:flex; gap:0.5rem;"><span style="color:var(--gold);">-</span> Brand-aligned editing style</li>
+            <p class="body-sm">
+              Conferences, galas, product launches, award ceremonies, and team
+              events. Professional imagery that reflects your brand with polish
+              and precision.
+            </p>
+            <ul
+              style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.4rem;"
+            >
+              <li class="body-sm" style="display:flex; gap:0.5rem;">
+                <span style="color:var(--gold);">-</span> Corporate headshots on-site
+              </li>
+              <li class="body-sm" style="display:flex; gap:0.5rem;">
+                <span style="color:var(--gold);">-</span> Conference and keynote coverage
+              </li>
+              <li class="body-sm" style="display:flex; gap:0.5rem;">
+                <span style="color:var(--gold);">-</span> Award ceremony documentation
+              </li>
+              <li class="body-sm" style="display:flex; gap:0.5rem;">
+                <span style="color:var(--gold);">-</span> Brand-aligned editing style
+              </li>
             </ul>
           </article>
 
@@ -172,12 +278,27 @@ import aboutPortrait from "../assets/images/about/portrait.jpg";
             <div class="feature-icon">◇</div>
             <p class="eyebrow" style="margin-bottom: 0.75rem;">Private</p>
             <h3 class="feature-title">Private Events</h3>
-            <p class="body-sm">Birthdays, anniversaries, housewarmings, quinceaneras, and cultural celebrations - including South Asian and Indian events. I capture the warmth, energy, and authentic detail of every gathering.</p>
-            <ul style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.4rem;">
-              <li class="body-sm" style="display:flex; gap:0.5rem;"><span style="color:var(--gold);">-</span> Birthday and milestone parties</li>
-              <li class="body-sm" style="display:flex; gap:0.5rem;"><span style="color:var(--gold);">-</span> Anniversary celebrations</li>
-              <li class="body-sm" style="display:flex; gap:0.5rem;"><span style="color:var(--gold);">-</span> Cultural and community events</li>
-              <li class="body-sm" style="display:flex; gap:0.5rem;"><span style="color:var(--gold);">-</span> Candid and portrait mix</li>
+            <p class="body-sm">
+              Birthdays, anniversaries, housewarmings, quinceaneras, and
+              cultural celebrations - including South Asian and Indian events. I
+              capture the warmth, energy, and authentic detail of every
+              gathering.
+            </p>
+            <ul
+              style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.4rem;"
+            >
+              <li class="body-sm" style="display:flex; gap:0.5rem;">
+                <span style="color:var(--gold);">-</span> Birthday and milestone parties
+              </li>
+              <li class="body-sm" style="display:flex; gap:0.5rem;">
+                <span style="color:var(--gold);">-</span> Anniversary celebrations
+              </li>
+              <li class="body-sm" style="display:flex; gap:0.5rem;">
+                <span style="color:var(--gold);">-</span> Cultural and community events
+              </li>
+              <li class="body-sm" style="display:flex; gap:0.5rem;">
+                <span style="color:var(--gold);">-</span> Candid and portrait mix
+              </li>
             </ul>
           </article>
 
@@ -185,19 +306,37 @@ import aboutPortrait from "../assets/images/about/portrait.jpg";
             <div class="feature-icon">◉</div>
             <p class="eyebrow" style="margin-bottom: 0.75rem;">Storytelling</p>
             <h3 class="feature-title">Candid Coverage</h3>
-            <p class="body-sm">Real moments. Real emotions. My candid photography style ensures nothing authentic is missed - from the first handshake to the last dance.</p>
-            <ul style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.4rem;">
-              <li class="body-sm" style="display:flex; gap:0.5rem;"><span style="color:var(--gold);">-</span> Unobtrusive documentary style</li>
-              <li class="body-sm" style="display:flex; gap:0.5rem;"><span style="color:var(--gold);">-</span> Full-event timeline coverage</li>
-              <li class="body-sm" style="display:flex; gap:0.5rem;"><span style="color:var(--gold);">-</span> Emotion-first editing</li>
-              <li class="body-sm" style="display:flex; gap:0.5rem;"><span style="color:var(--gold);">-</span> Online gallery delivery</li>
+            <p class="body-sm">
+              Real moments. Real emotions. My candid photography style ensures
+              nothing authentic is missed - from the first handshake to the last
+              dance.
+            </p>
+            <ul
+              style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.4rem;"
+            >
+              <li class="body-sm" style="display:flex; gap:0.5rem;">
+                <span style="color:var(--gold);">-</span> Unobtrusive documentary
+                style
+              </li>
+              <li class="body-sm" style="display:flex; gap:0.5rem;">
+                <span style="color:var(--gold);">-</span> Full-event timeline coverage
+              </li>
+              <li class="body-sm" style="display:flex; gap:0.5rem;">
+                <span style="color:var(--gold);">-</span> Emotion-first editing
+              </li>
+              <li class="body-sm" style="display:flex; gap:0.5rem;">
+                <span style="color:var(--gold);">-</span> Online gallery delivery
+              </li>
             </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section" style="background: var(--surface); border-top: 1px solid var(--border-light);">
+    <section
+      class="section"
+      style="background: var(--surface); border-top: 1px solid var(--border-light);"
+    >
       <div class="container">
         <div class="section-header center reveal">
           <p class="eyebrow">Event Gallery</p>
@@ -206,16 +345,81 @@ import aboutPortrait from "../assets/images/about/portrait.jpg";
         </div>
 
         <div class="featured-grid reveal reveal-delay-1">
-          <div class="grid-item"><Image src={eventsPanel} alt="Guests mingling and laughing during corporate event photography coverage in Houston TX" loading="lazy" width={800} height={600} sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" style="background:var(--surface-2)" /></div>
-          <div class="grid-item"><Image src={familyPanel} alt="Candid celebration moment during private birthday party photography in Katy TX" loading="lazy" width={400} height={533} sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" style="background:var(--surface-2)" /></div>
-          <div class="grid-item"><Image src={eventsHero} alt="Documentary-style candid event photographer capturing authentic moments in Sugar Land TX" loading="lazy" width={400} height={533} sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" style="background:var(--surface-2)" /></div>
-          <div class="grid-item"><Image src={aboutMain} alt="Toddler birthday celebration with family interaction and balloons photographed by NiO Pictures Katy TX" loading="lazy" width={400} height={533} sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" style="background:var(--surface-2)" /></div>
-          <div class="grid-item"><Image src={familyHero} alt="Anniversary milestone event photography capturing couple during warm evening celebration in Richmond TX" loading="lazy" width={400} height={533} sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" style="background:var(--surface-2)" /></div>
-          <div class="grid-item"><Image src={aboutPortrait} alt="Corporate gala photography showing elegantly dressed professionals during formal dinner event in Houston" loading="lazy" width={800} height={600} sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" style="background:var(--surface-2)" /></div>
+          <div class="grid-item">
+            <Image
+              src={eventsPanel}
+              alt="Guests mingling and laughing during corporate event photography coverage in Houston TX"
+              loading="lazy"
+              width={800}
+              height={600}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              style="background:var(--surface-2)"
+            />
+          </div>
+          <div class="grid-item">
+            <Image
+              src={familyPanel}
+              alt="Candid celebration moment during private birthday party photography in Katy TX"
+              loading="lazy"
+              width={400}
+              height={533}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              style="background:var(--surface-2)"
+            />
+          </div>
+          <div class="grid-item">
+            <Image
+              src={eventsHero}
+              alt="Documentary-style candid event photographer capturing authentic moments in Sugar Land TX"
+              loading="lazy"
+              width={400}
+              height={533}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              style="background:var(--surface-2)"
+            />
+          </div>
+          <div class="grid-item">
+            <Image
+              src={aboutMain}
+              alt="Toddler birthday celebration with family interaction and balloons photographed by NiO Pictures Katy TX"
+              loading="lazy"
+              width={400}
+              height={533}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              style="background:var(--surface-2)"
+            />
+          </div>
+          <div class="grid-item">
+            <Image
+              src={familyHero}
+              alt="Anniversary milestone event photography capturing couple during warm evening celebration in Richmond TX"
+              loading="lazy"
+              width={400}
+              height={533}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              style="background:var(--surface-2)"
+            />
+          </div>
+          <div class="grid-item">
+            <Image
+              src={aboutPortrait}
+              alt="Corporate gala photography showing elegantly dressed professionals during formal dinner event in Houston"
+              loading="lazy"
+              width={800}
+              height={600}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              style="background:var(--surface-2)"
+            />
+          </div>
         </div>
 
         <div style="text-align:center; margin-top: 3rem;" class="reveal">
-          <a href="https://niopictures.pixieset.com/" target="_blank" rel="noopener noreferrer" class="btn btn-gold-outline btn-arrow">View Full Event Gallery</a>
+          <a
+            href="https://niopictures.pixieset.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-gold-outline btn-arrow">View Full Event Gallery</a
+          >
         </div>
       </div>
     </section>
@@ -232,78 +436,211 @@ import aboutPortrait from "../assets/images/about/portrait.jpg";
           <div class="process-step">
             <div class="step-number">01</div>
             <h3 class="display-sm">Consultation</h3>
-            <p class="body-sm">I'll discuss your event, vision, must-have shots, and timeline - so nothing is left to chance.</p>
+            <p class="body-sm">
+              I'll discuss your event, vision, must-have shots, and timeline -
+              so nothing is left to chance.
+            </p>
           </div>
           <div class="process-step">
             <div class="step-number">02</div>
             <h3 class="display-sm">Day-Of Coverage</h3>
-            <p class="body-sm">I arrive early, stay late, and cover every moment with a cinematic, candid eye.</p>
+            <p class="body-sm">
+              I arrive early, stay late, and cover every moment with a
+              cinematic, candid eye.
+            </p>
           </div>
           <div class="process-step">
             <div class="step-number">03</div>
             <h3 class="display-sm">Culling and Edit</h3>
-            <p class="body-sm">Every image is carefully selected and edited with my signature warm, cinematic style.</p>
+            <p class="body-sm">
+              Every image is carefully selected and edited with my signature
+              warm, cinematic style.
+            </p>
           </div>
           <div class="process-step">
             <div class="step-number">04</div>
             <h3 class="display-sm">Gallery Delivery</h3>
-            <p class="body-sm">Your private online gallery is delivered within 2-3 weeks, ready to download and share.</p>
+            <p class="body-sm">
+              Your private online gallery is delivered within 2-3 weeks, ready
+              to download and share.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" style="background: var(--surface); border-top: 1px solid var(--border-light);" id="pricing">
+    <section
+      class="section"
+      style="background: var(--surface); border-top: 1px solid var(--border-light);"
+      id="pricing"
+    >
       <div class="container">
         <div class="section-header center reveal">
           <p class="eyebrow">Event Packages</p>
           <div class="gold-line center gold-line-animate"></div>
           <h2 class="display-md">Transparent Pricing</h2>
-          <p class="body-lg" style="max-width:540px; margin:1rem auto 0;">All packages are for 2-hour events. Every package includes professionally edited images delivered via your private online gallery - no watermarks, no hidden fees.</p>
+          <p class="body-lg" style="max-width:540px; margin:1rem auto 0;">
+            All packages are for 2-hour events. Every package includes
+            professionally edited images delivered via your private online
+            gallery - no watermarks, no hidden fees.
+          </p>
         </div>
 
-        <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:1px; background:var(--border-light); border:1px solid var(--border-light); border-radius:2px; overflow:hidden; max-width:900px; margin:0 auto;" class="reveal reveal-delay-1">
+        <div
+          style="display:grid; grid-template-columns: repeat(3, 1fr); gap:1px; background:var(--border-light); border:1px solid var(--border-light); border-radius:2px; overflow:hidden; max-width:900px; margin:0 auto;"
+          class="reveal reveal-delay-1"
+        >
           <div style="background:var(--black); padding:2.5rem 2rem;">
-            <p style="font-family:var(--font-accent);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;">Essential</p>
-            <p style="font-family:var(--font-display);font-size:3rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:0.25rem;">$500</p>
-            <p style="font-size:0.8rem;color:var(--muted);margin-bottom:1.5rem;">2-hour event coverage</p>
-            <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;">
-              <li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"><span style="color:var(--gold);">✓</span> 50 edited images</li>
-              <li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"><span style="color:var(--gold);">✓</span> Private online gallery</li>
-              <li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"><span style="color:var(--gold);">✓</span> Delivered within 10 days</li>
-              <li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"><span style="color:var(--gold);">✓</span> High-res downloads</li>
+            <p
+              style="font-family:var(--font-accent);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;"
+            >
+              Essential
+            </p>
+            <p
+              style="font-family:var(--font-display);font-size:3rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:0.25rem;"
+            >
+              $500
+            </p>
+            <p
+              style="font-size:0.8rem;color:var(--muted);margin-bottom:1.5rem;"
+            >
+              2-hour event coverage
+            </p>
+            <ul
+              style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;"
+            >
+              <li
+                style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"
+              >
+                <span style="color:var(--gold);">✓</span> 50 edited images
+              </li>
+              <li
+                style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"
+              >
+                <span style="color:var(--gold);">✓</span> Private online gallery
+              </li>
+              <li
+                style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"
+              >
+                <span style="color:var(--gold);">✓</span> Delivered within 10 days
+              </li>
+              <li
+                style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"
+              >
+                <span style="color:var(--gold);">✓</span> High-res downloads
+              </li>
             </ul>
           </div>
 
-          <div style="background:var(--surface); padding:2.5rem 2rem; position:relative;">
-            <div style="position:absolute;top:0;left:0;right:0;background:var(--gold);color:var(--black);font-family:var(--font-accent);font-size:0.55rem;letter-spacing:0.16em;text-transform:uppercase;text-align:center;padding:0.35rem;">Most Popular</div>
-            <p style="font-family:var(--font-accent);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;margin-top:1.25rem;">Signature</p>
-            <p style="font-family:var(--font-display);font-size:3rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:0.25rem;">$700</p>
-            <p style="font-size:0.8rem;color:var(--muted);margin-bottom:1.5rem;">2-hour event coverage</p>
-            <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;">
-              <li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"><span style="color:var(--gold);">✓</span> 80+ edited images</li>
-              <li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"><span style="color:var(--gold);">✓</span> Private online gallery</li>
-              <li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"><span style="color:var(--gold);">✓</span> Priority editing - 10 days</li>
-              <li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"><span style="color:var(--gold);">✓</span> Extra images at $20 each</li>
-              <li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"><span style="color:var(--gold);">✓</span> Optional highlight video clip</li>
+          <div
+            style="background:var(--surface); padding:2.5rem 2rem; position:relative;"
+          >
+            <div
+              style="position:absolute;top:0;left:0;right:0;background:var(--gold);color:var(--black);font-family:var(--font-accent);font-size:0.55rem;letter-spacing:0.16em;text-transform:uppercase;text-align:center;padding:0.35rem;"
+            >
+              Most Popular
+            </div>
+            <p
+              style="font-family:var(--font-accent);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;margin-top:1.25rem;"
+            >
+              Signature
+            </p>
+            <p
+              style="font-family:var(--font-display);font-size:3rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:0.25rem;"
+            >
+              $700
+            </p>
+            <p
+              style="font-size:0.8rem;color:var(--muted);margin-bottom:1.5rem;"
+            >
+              2-hour event coverage
+            </p>
+            <ul
+              style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;"
+            >
+              <li
+                style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"
+              >
+                <span style="color:var(--gold);">✓</span> 80+ edited images
+              </li>
+              <li
+                style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"
+              >
+                <span style="color:var(--gold);">✓</span> Private online gallery
+              </li>
+              <li
+                style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"
+              >
+                <span style="color:var(--gold);">✓</span> Priority editing - 10 days
+              </li>
+              <li
+                style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"
+              >
+                <span style="color:var(--gold);">✓</span> Extra images at $20 each
+              </li>
+              <li
+                style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"
+              >
+                <span style="color:var(--gold);">✓</span> Optional highlight video
+                clip
+              </li>
             </ul>
           </div>
 
           <div style="background:var(--black); padding:2.5rem 2rem;">
-            <p style="font-family:var(--font-accent);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;">Premium</p>
-            <p style="font-family:var(--font-display);font-size:3rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:0.25rem;">$900</p>
-            <p style="font-size:0.8rem;color:var(--muted);margin-bottom:1.5rem;">2-hour event coverage</p>
-            <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;">
-              <li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"><span style="color:var(--gold);">✓</span> 100+ edited images</li>
-              <li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"><span style="color:var(--gold);">✓</span> Private online gallery</li>
-              <li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"><span style="color:var(--gold);">✓</span> Priority editing - 7 days</li>
-              <li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"><span style="color:var(--gold);">✓</span> Highlight video clip included</li>
-              <li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"><span style="color:var(--gold);">✓</span> Optional album +$250</li>
+            <p
+              style="font-family:var(--font-accent);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;"
+            >
+              Premium
+            </p>
+            <p
+              style="font-family:var(--font-display);font-size:3rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:0.25rem;"
+            >
+              $900
+            </p>
+            <p
+              style="font-size:0.8rem;color:var(--muted);margin-bottom:1.5rem;"
+            >
+              2-hour event coverage
+            </p>
+            <ul
+              style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;"
+            >
+              <li
+                style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"
+              >
+                <span style="color:var(--gold);">✓</span> 100+ edited images
+              </li>
+              <li
+                style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"
+              >
+                <span style="color:var(--gold);">✓</span> Private online gallery
+              </li>
+              <li
+                style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"
+              >
+                <span style="color:var(--gold);">✓</span> Priority editing - 7 days
+              </li>
+              <li
+                style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"
+              >
+                <span style="color:var(--gold);">✓</span> Highlight video clip included
+              </li>
+              <li
+                style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"
+              >
+                <span style="color:var(--gold);">✓</span> Optional album +$250
+              </li>
             </ul>
           </div>
         </div>
 
-        <p class="body-sm" style="text-align:center; margin-top:1.5rem;">Additional coverage hours available. Rush delivery on request. <a href="/contact.html" style="color:var(--gold);">Contact me</a> for custom event quotes.</p>
+        <p class="body-sm" style="text-align:center; margin-top:1.5rem;">
+          Additional coverage hours available. Rush delivery on request. <a
+            href="/contact.html"
+            style="color:var(--gold);">Contact me</a
+          > for custom event quotes.
+        </p>
       </div>
     </section>
 
@@ -314,30 +651,94 @@ import aboutPortrait from "../assets/images/about/portrait.jpg";
           <div class="gold-line center gold-line-animate"></div>
           <h2 class="display-md">Event Photography FAQs</h2>
         </div>
-        <div style="display:flex; flex-direction:column; gap:0;" class="reveal reveal-delay-1">
-          <details style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;" open>
-            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">Do you photograph Indian and South Asian events in Katy TX?<span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">+</span></summary>
-            <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">Yes. NiO Pictures specializes in Indian and South Asian cultural events - garba nights, sangeet, receptions, birthday milestones, and community celebrations throughout Katy, Houston, and Sugar Land, TX.</p>
+        <div
+          style="display:flex; flex-direction:column; gap:0;"
+          class="reveal reveal-delay-1"
+        >
+          <details
+            style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
+            open
+          >
+            <summary
+              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
+              >Do you photograph Indian and South Asian events in Katy TX?<span
+                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
+                >+</span
+              ></summary
+            >
+            <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
+              Yes. NiO Pictures specializes in Indian and South Asian cultural
+              events - garba nights, sangeet, receptions, birthday milestones,
+              and community celebrations throughout Katy, Houston, and Sugar
+              Land, TX.
+            </p>
           </details>
 
-          <details style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;">
-            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">How far in advance should I book event photography?<span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">+</span></summary>
-            <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">I recommend booking at least 4-6 weeks ahead for private events, and 2-3 months for larger corporate events or cultural celebrations to secure your date.</p>
+          <details
+            style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
+          >
+            <summary
+              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
+              >How far in advance should I book event photography?<span
+                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
+                >+</span
+              ></summary
+            >
+            <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
+              I recommend booking at least 4-6 weeks ahead for private events,
+              and 2-3 months for larger corporate events or cultural
+              celebrations to secure your date.
+            </p>
           </details>
 
-          <details style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;">
-            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">Do you cover events in Houston and Sugar Land, not just Katy?<span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">+</span></summary>
-            <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">Absolutely. NiO Pictures is based in Katy TX but actively serves Houston, Sugar Land, and Richmond for all event types - corporate, private, and cultural.</p>
+          <details
+            style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
+          >
+            <summary
+              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
+              >Do you cover events in Houston and Sugar Land, not just Katy?<span
+                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
+                >+</span
+              ></summary
+            >
+            <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
+              Absolutely. NiO Pictures is based in Katy TX but actively serves
+              Houston, Sugar Land, and Richmond for all event types - corporate,
+              private, and cultural.
+            </p>
           </details>
 
-          <details style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;">
-            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">What is included in event photography coverage?<span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">+</span></summary>
-            <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">Every package includes 2-hour event coverage, professionally edited images in my cinematic style, and delivery via a private online gallery. Additional coverage hours are available — contact me for custom quotes.</p>
+          <details
+            style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
+          >
+            <summary
+              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
+              >What is included in event photography coverage?<span
+                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
+                >+</span
+              ></summary
+            >
+            <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
+              Every package includes 2-hour event coverage, professionally
+              edited images in my cinematic style, and delivery via a private
+              online gallery. Additional coverage hours are available — contact
+              me for custom quotes.
+            </p>
           </details>
 
           <details style="padding: 1.5rem 0;">
-            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">Are you available on weekends and weeknights?<span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">+</span></summary>
-            <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">Yes. NiO Pictures offers photography sessions on weekends and weeknight evenings throughout Katy, Houston, Sugar Land, and Richmond TX.</p>
+            <summary
+              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
+              >Are you available on weekends and weeknights?<span
+                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
+                >+</span
+              ></summary
+            >
+            <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
+              Yes. NiO Pictures offers photography sessions on weekends and
+              weeknight evenings throughout Katy, Houston, Sugar Land, and
+              Richmond TX.
+            </p>
           </details>
         </div>
       </div>
@@ -354,7 +755,11 @@ import aboutPortrait from "../assets/images/about/portrait.jpg";
         <div class="testimonials-track">
           <article class="testimonial-card reveal reveal-delay-1">
             <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">"Had an amazing experience with Nio Pictures during our family function! The team captured all the important moments with great attention to detail."</p>
+            <p class="testimonial-text">
+              "Had an amazing experience with Nio Pictures during our family
+              function! The team captured all the important moments with great
+              attention to detail."
+            </p>
             <div class="testimonial-author">
               <div class="testimonial-avatar">PG</div>
               <div>
@@ -366,7 +771,11 @@ import aboutPortrait from "../assets/images/about/portrait.jpg";
 
           <article class="testimonial-card reveal reveal-delay-2">
             <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">"Very friendly to work with, on time, and everything from booking to delivery of pictures was seamless. The picture quality was awesome!"</p>
+            <p class="testimonial-text">
+              "Very friendly to work with, on time, and everything from booking
+              to delivery of pictures was seamless. The picture quality was
+              awesome!"
+            </p>
             <div class="testimonial-author">
               <div class="testimonial-avatar">SB</div>
               <div>
@@ -379,27 +788,60 @@ import aboutPortrait from "../assets/images/about/portrait.jpg";
       </div>
     </section>
 
-    <section class="cta-banner reveal" aria-label="Book your event photography session">
+    <section
+      class="cta-banner reveal"
+      aria-label="Book your event photography session"
+    >
       <div class="container">
         <p class="eyebrow" style="margin-bottom: 1.25rem;">Book Your Event</p>
-        <h2 class="display-md" style="margin-bottom: 1rem; max-width: 480px; margin-left:auto; margin-right:auto;">Your Event Deserves<br /><em style="font-style:italic; color:var(--gold);">Great Photography</em></h2>
-        <p class="body-lg" style="max-width: 400px; margin: 0 auto 2.5rem;">Available for events throughout Katy, Houston, Sugar Land, and Richmond, TX.</p>
-        <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-arrow">Book Event Coverage</a>
+        <h2
+          class="display-md"
+          style="margin-bottom: 1rem; max-width: 480px; margin-left:auto; margin-right:auto;"
+        >
+          Your Event Deserves<br /><em
+            style="font-style:italic; color:var(--gold);">Great Photography</em>
+        </h2>
+        <p class="body-lg" style="max-width: 400px; margin: 0 auto 2.5rem;">
+          Available for events throughout Katy, Houston, Sugar Land, and
+          Richmond, TX.
+        </p>
+        <a
+          href="https://niopictures.pixieset.com/booking/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary btn-arrow">Book Event Coverage</a
+        >
       </div>
     </section>
 
-    <section class="section-sm" style="border-top:1px solid var(--border-light);">
+    <section
+      class="section-sm"
+      style="border-top:1px solid var(--border-light);"
+    >
       <div class="container">
-        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
-          <p class="body-sm">Also looking for <a href="/family-photography-katy-tx.html" style="color:var(--gold);">family photography in Katy TX</a>? I cover heirloom portraits and lifestyle sessions too.</p>
+        <div
+          style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;"
+        >
+          <p class="body-sm">
+            Also looking for <a
+              href="/family-photography-katy-tx.html"
+              style="color:var(--gold);">family photography in Katy TX</a
+            >? I cover heirloom portraits and lifestyle sessions too.
+          </p>
           <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-            <a href="/family-photography-katy-tx.html" class="btn btn-outline btn-sm">Family Photography</a>
-            <a href="/portfolio.html" class="btn btn-outline btn-sm">View Portfolio</a>
-            <a href="/about.html" class="btn btn-outline btn-sm">About Palanivel</a>
+            <a
+              href="/family-photography-katy-tx.html"
+              class="btn btn-outline btn-sm">Family Photography</a
+            >
+            <a href="/portfolio.html" class="btn btn-outline btn-sm"
+              >View Portfolio</a
+            >
+            <a href="/about.html" class="btn btn-outline btn-sm"
+              >About Palanivel</a
+            >
           </div>
         </div>
       </div>
     </section>
   </main>
 </BaseLayout>
-

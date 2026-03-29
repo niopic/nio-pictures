@@ -1,15 +1,29 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const title = "Sugar Land Photographer | Events \u0026 Family Portraits | NiO Pictures";
-const description = "Sugar Land photographer for First Colony, Riverstone, and Telfair family portraits and event photography. NiO Pictures serves Fort Bend with cinematic style.";
+const title =
+  "Sugar Land Photographer | Events \u0026 Family Portraits | NiO Pictures";
+const description =
+  "Sugar Land photographer for First Colony, Riverstone, and Telfair family portraits and event photography. NiO Pictures serves Fort Bend with cinematic style.";
 const canonical = "https://niopictures.com/sugar-land-photographer.html";
 const ogImage = "https://niopictures.com/assets/images/og-home.webp";
-const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@context\": \"https://schema.org\",\n    \"@type\": [\"LocalBusiness\", \"ProfessionalService\"],\n    \"@id\": \"https://niopictures.com/#business\",\n    \"name\": \"NiO Pictures\",\n    \"description\": \"Professional event and family photographer serving Sugar Land, Texas and the greater Houston area. Based in Katy TX.\",\n    \"url\": \"https://niopictures.com\",\n    \"telephone\": \"+12814093585\",\n    \"email\": \"niopictureskaty@gmail.com\",\n    \"address\": {\n      \"@type\": \"PostalAddress\",\n      \"addressLocality\": \"Katy\",\n      \"addressRegion\": \"TX\",\n      \"postalCode\": \"77449\",\n      \"addressCountry\": \"US\"\n    },\n    \"areaServed\": [\n      {\"@type\": \"City\", \"name\": \"Katy\"},\n      {\"@type\": \"City\", \"name\": \"Cypress\"},\n      {\"@type\": \"City\", \"name\": \"Sugar Land\"},\n      {\"@type\": \"City\", \"name\": \"Houston\"},\n      {\"@type\": \"City\", \"name\": \"Richmond\"}\n    ],\n    \"aggregateRating\": {\n      \"@type\": \"AggregateRating\",\n      \"ratingValue\": \"5\",\n      \"reviewCount\": \"7\",\n      \"bestRating\": \"5\"\n    },\n    \"sameAs\": [\n      \"https://www.instagram.com/nio_pictures\",\n      \"https://www.facebook.com/profile.php?id=61580596898855\"\n    ]\n  }\n  \u003c/script\u003e\n\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"BreadcrumbList\",\n    \"itemListElement\": [\n      {\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://niopictures.com/\"},\n      {\"@type\":\"ListItem\",\"position\":2,\"name\":\"Sugar Land Photographer\",\"item\":\"https://niopictures.com/sugar-land-photographer.html\"}\n    ]\n  }\n  \u003c/script\u003e\n\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"FAQPage\",\n    \"mainEntity\": [\n      {\n        \"@type\": \"Question\",\n        \"name\": \"Do you photograph families in First Colony, Riverstone, and Telfair?\",\n        \"acceptedAnswer\": {\n          \"@type\": \"Answer\",\n          \"text\": \"Yes. NiO Pictures regularly photographs families and events in First Colony, Riverstone, Telfair, and nearby Sugar Land neighborhoods.\"\n        }\n      },\n      {\n        \"@type\": \"Question\",\n        \"name\": \"Can you cover events near Sugar Land Town Square?\",\n        \"acceptedAnswer\": {\n          \"@type\": \"Answer\",\n          \"text\": \"Yes. We provide event photography coverage for venues near Sugar Land Town Square and across Fort Bend County.\"\n        }\n      },\n      {\n        \"@type\": \"Question\",\n        \"name\": \"Are weeknight portrait sessions available in Sugar Land?\",\n        \"acceptedAnswer\": {\n          \"@type\": \"Answer\",\n          \"text\": \"Yes. We offer both weekend and weeknight session options depending on season and availability.\"\n        }\n      }\n    ]\n  }\n  \u003c/script\u003e";
+const extraHead =
+  '\u003cscript type="application/ld+json"\u003e\n  {\n    "@context": "https://schema.org",\n    "@type": ["LocalBusiness", "ProfessionalService"],\n    "@id": "https://niopictures.com/#business",\n    "name": "NiO Pictures",\n    "description": "Professional event and family photographer serving Sugar Land, Texas and the greater Houston area. Based in Katy TX.",\n    "url": "https://niopictures.com",\n    "telephone": "+12814093585",\n    "email": "niopictureskaty@gmail.com",\n    "address": {\n      "@type": "PostalAddress",\n      "addressLocality": "Katy",\n      "addressRegion": "TX",\n      "postalCode": "77449",\n      "addressCountry": "US"\n    },\n    "areaServed": [\n      {"@type": "City", "name": "Katy"},\n      {"@type": "City", "name": "Cypress"},\n      {"@type": "City", "name": "Sugar Land"},\n      {"@type": "City", "name": "Houston"},\n      {"@type": "City", "name": "Richmond"}\n    ],\n    "aggregateRating": {\n      "@type": "AggregateRating",\n      "ratingValue": "5",\n      "reviewCount": "7",\n      "bestRating": "5"\n    },\n    "sameAs": [\n      "https://www.instagram.com/nio_pictures",\n      "https://www.facebook.com/profile.php?id=61580596898855"\n    ]\n  }\n  \u003c/script\u003e\n\u003cscript type="application/ld+json"\u003e\n  {\n    "@context": "https://schema.org",\n    "@type": "BreadcrumbList",\n    "itemListElement": [\n      {"@type":"ListItem","position":1,"name":"Home","item":"https://niopictures.com/"},\n      {"@type":"ListItem","position":2,"name":"Sugar Land Photographer","item":"https://niopictures.com/sugar-land-photographer.html"}\n    ]\n  }\n  \u003c/script\u003e\n\u003cscript type="application/ld+json"\u003e\n  {\n    "@context": "https://schema.org",\n    "@type": "FAQPage",\n    "mainEntity": [\n      {\n        "@type": "Question",\n        "name": "Do you photograph families in First Colony, Riverstone, and Telfair?",\n        "acceptedAnswer": {\n          "@type": "Answer",\n          "text": "Yes. NiO Pictures regularly photographs families and events in First Colony, Riverstone, Telfair, and nearby Sugar Land neighborhoods."\n        }\n      },\n      {\n        "@type": "Question",\n        "name": "Can you cover events near Sugar Land Town Square?",\n        "acceptedAnswer": {\n          "@type": "Answer",\n          "text": "Yes. We provide event photography coverage for venues near Sugar Land Town Square and across Fort Bend County."\n        }\n      },\n      {\n        "@type": "Question",\n        "name": "Are weeknight portrait sessions available in Sugar Land?",\n        "acceptedAnswer": {\n          "@type": "Answer",\n          "text": "Yes. We offer both weekend and weeknight session options depending on season and availability."\n        }\n      }\n    ]\n  }\n  \u003c/script\u003e';
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage}>
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+>
   <Fragment slot="head" set:html={extraHead} />
-<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);" onfocus="this.style.top='1rem'" onblur="this.style.top='-40px'">Skip to main content</a>
+  <a
+    href="#main-content"
+    class="skip-link"
+    style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);"
+    onfocus="this.style.top='1rem'"
+    onblur="this.style.top='-40px'">Skip to main content</a
+  >
 
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <a href="/" class="nav-logo">Ni<span>O</span> Pictures</a>
@@ -21,8 +35,15 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
       <a href="/blog.html">Blog</a>
       <a href="/contact.html">Contact</a>
     </div>
-    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">Book Now</a>
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <a
+      href="https://niopictures.pixieset.com/booking/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn btn-primary nav-cta">Book Now</a
+    >
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"
+      ><span></span><span></span><span></span></button
+    >
   </nav>
 
   <div class="nav-mobile" role="dialog" aria-label="Mobile navigation">
@@ -32,22 +53,41 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
     <a href="/about.html">About</a>
     <a href="/blog.html">Blog</a>
     <a href="/contact.html">Contact</a>
-    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="nav-mobile-cta">Book a Session →</a>
+    <a
+      href="https://niopictures.pixieset.com/booking/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="nav-mobile-cta">Book a Session →</a
+    >
   </div>
 
-  <div style="padding: calc(var(--section-pad) + 4rem) 0 var(--section-pad); border-bottom: 1px solid var(--border-light);">
+  <div
+    style="padding: calc(var(--section-pad) + 4rem) 0 var(--section-pad); border-bottom: 1px solid var(--border-light);"
+  >
     <div class="container">
       <div class="reveal">
-        <p class="eyebrow" style="margin-bottom:1rem;">Serving Sugar Land, Texas</p>
+        <p class="eyebrow" style="margin-bottom:1rem;">
+          Serving Sugar Land, Texas
+        </p>
         <div class="gold-line gold-line-animate"></div>
         <h1 class="display-xl" style="max-width:700px; margin-bottom:1.25rem;">
-          Sugar Land<br><em style="font-style:italic; color:var(--gold);">Photographer</em>
+          Sugar Land<br /><em style="font-style:italic; color:var(--gold);"
+            >Photographer</em
+          >
         </h1>
         <p class="body-lg" style="max-width:580px; margin-bottom:2.5rem;">
-          NiO Pictures is based in Katy, TX and regularly serves Sugar Land (Fort Bend County). Whether you need professional event coverage or timeless family portraits, Palanivel brings the same cinematic eye and genuine care to every session.
+          NiO Pictures is based in Katy, TX and regularly serves Sugar Land
+          (Fort Bend County). Whether you need professional event coverage or
+          timeless family portraits, Palanivel brings the same cinematic eye and
+          genuine care to every session.
         </p>
         <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-          <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-arrow">Book a Session</a>
+          <a
+            href="https://niopictures.pixieset.com/booking/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary btn-arrow">Book a Session</a
+          >
           <a href="/contact.html" class="btn btn-outline">Get in Touch</a>
         </div>
       </div>
@@ -59,45 +99,96 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
       <div class="section-header center reveal">
         <p class="eyebrow">Photography in Sugar Land TX</p>
         <div class="gold-line center gold-line-animate"></div>
-        <h2 class="display-md">Sugar Land Event and Portrait Photography Services</h2>
+        <h2 class="display-md">
+          Sugar Land Event and Portrait Photography Services
+        </h2>
       </div>
       <div class="features-grid reveal reveal-delay-1">
         <div class="feature-card">
           <div class="feature-icon">◈</div>
           <h3 class="feature-title">Event Photography</h3>
-          <p class="body-sm">Corporate events, private parties, cultural celebrations, and milestone gatherings in Sugar Land TX. Candid, cinematic, professionally delivered.</p>
-          <a href="/event-photography-katy-tx.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-accent);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-top:1.25rem;">Event Photography →</a>
+          <p class="body-sm">
+            Corporate events, private parties, cultural celebrations, and
+            milestone gatherings in Sugar Land TX. Candid, cinematic,
+            professionally delivered.
+          </p>
+          <a
+            href="/event-photography-katy-tx.html"
+            style="display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-accent);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-top:1.25rem;"
+            >Event Photography →</a
+          >
         </div>
         <div class="feature-card">
           <div class="feature-icon">◇</div>
           <h3 class="feature-title">Family Photography</h3>
-          <p class="body-sm">Heirloom family portraits and lifestyle sessions for Sugar Land families. Natural, unscripted, and available as wall art, prints, and keepsake albums.</p>
-          <a href="/family-photography-katy-tx.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-accent);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-top:1.25rem;">Family Photography →</a>
+          <p class="body-sm">
+            Heirloom family portraits and lifestyle sessions for Sugar Land
+            families. Natural, unscripted, and available as wall art, prints,
+            and keepsake albums.
+          </p>
+          <a
+            href="/family-photography-katy-tx.html"
+            style="display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-accent);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-top:1.25rem;"
+            >Family Photography →</a
+          >
         </div>
         <div class="feature-card">
           <div class="feature-icon">◉</div>
           <h3 class="feature-title">Weekends & Weeknights</h3>
-          <p class="body-sm">Sessions available on weekends and weeknight evenings throughout Sugar Land and the greater Houston area — no need to take time off work.</p>
-          <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-accent);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-top:1.25rem;">Check Availability →</a>
+          <p class="body-sm">
+            Sessions available on weekends and weeknight evenings throughout
+            Sugar Land and the greater Houston area — no need to take time off
+            work.
+          </p>
+          <a
+            href="https://niopictures.pixieset.com/booking/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-accent);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-top:1.25rem;"
+            >Check Availability →</a
+          >
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" style="background:var(--surface); border-top:1px solid var(--border-light); border-bottom:1px solid var(--border-light);">
+  <section
+    class="section"
+    style="background:var(--surface); border-top:1px solid var(--border-light); border-bottom:1px solid var(--border-light);"
+  >
     <div class="container" style="max-width:800px;">
       <div class="section-header center reveal">
         <p class="eyebrow">Why NiO Pictures</p>
         <div class="gold-line center gold-line-animate"></div>
         <h2 class="display-md">A Photographer Who Knows the Area</h2>
       </div>
-      <p class="body-lg reveal" style="text-align:center; max-width:620px; margin:0 auto 2rem;">
-        NiO Pictures serves Sugar Land and the surrounding Fort Bend County communities as part of a regular schedule across the Houston metro. Palanivel regularly photographs families and events in First Colony, Riverstone, and Telfair — and knows how golden-hour light falls across the lakes and parks that make Sugar Land sessions especially beautiful. Whether it's a corporate event at a Sugar Land Town Square venue or a family portrait session along the Brazos River greenway, every session gets the same cinematic care.
+      <p
+        class="body-lg reveal"
+        style="text-align:center; max-width:620px; margin:0 auto 2rem;"
+      >
+        NiO Pictures serves Sugar Land and the surrounding Fort Bend County
+        communities as part of a regular schedule across the Houston metro.
+        Palanivel regularly photographs families and events in First Colony,
+        Riverstone, and Telfair — and knows how golden-hour light falls across
+        the lakes and parks that make Sugar Land sessions especially beautiful.
+        Whether it's a corporate event at a Sugar Land Town Square venue or a
+        family portrait session along the Brazos River greenway, every session
+        gets the same cinematic care.
       </p>
-      <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;" class="reveal">
-        <a href="/katy-tx-photographer.html" class="btn btn-gold-outline btn-arrow">Katy TX (Home Base)</a>
-        <a href="/cypress-tx-photographer.html" class="btn btn-outline">Cypress TX</a>
-        <a href="/portfolio.html" class="btn btn-gold-outline btn-arrow">See Event &amp; Family Portfolio</a>
+      <div
+        style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;"
+        class="reveal"
+      >
+        <a
+          href="/katy-tx-photographer.html"
+          class="btn btn-gold-outline btn-arrow">Katy TX (Home Base)</a
+        >
+        <a href="/cypress-tx-photographer.html" class="btn btn-outline"
+          >Cypress TX</a
+        >
+        <a href="/portfolio.html" class="btn btn-gold-outline btn-arrow"
+          >See Event &amp; Family Portfolio</a
+        >
         <a href="/about.html" class="btn btn-outline">About Palanivel</a>
       </div>
     </div>
@@ -108,39 +199,82 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
       <div class="section-header center reveal">
         <p class="eyebrow">Sugar Land Local Expertise</p>
         <div class="gold-line center gold-line-animate"></div>
-        <h2 class="display-md">Neighborhoods, Landmarks, and Why We Serve Sugar Land</h2>
+        <h2 class="display-md">
+          Neighborhoods, Landmarks, and Why We Serve Sugar Land
+        </h2>
       </div>
-      <p class="body-lg reveal" style="text-align:center; max-width:780px; margin:0 auto 1.25rem;">
-        Sugar Land is a key part of our Fort Bend schedule, and we regularly photograph in First Colony, Riverstone, and Telfair. These communities are ideal for family and event coverage because they combine elegant architecture with accessible outdoor locations.
+      <p
+        class="body-lg reveal"
+        style="text-align:center; max-width:780px; margin:0 auto 1.25rem;"
+      >
+        Sugar Land is a key part of our Fort Bend schedule, and we regularly
+        photograph in First Colony, Riverstone, and Telfair. These communities
+        are ideal for family and event coverage because they combine elegant
+        architecture with accessible outdoor locations.
       </p>
-      <p class="body-lg reveal reveal-delay-1" style="text-align:center; max-width:780px; margin:0 auto 1.25rem;">
-        For portraits, we often use parks and lakeside paths near Oyster Creek and around neighborhood greenbelts where evening light is flattering and consistent. For celebrations, we know the rhythm of venues near Sugar Land Town Square and surrounding event spaces, which helps us stay unobtrusive while still capturing every key moment.
+      <p
+        class="body-lg reveal reveal-delay-1"
+        style="text-align:center; max-width:780px; margin:0 auto 1.25rem;"
+      >
+        For portraits, we often use parks and lakeside paths near Oyster Creek
+        and around neighborhood greenbelts where evening light is flattering and
+        consistent. For celebrations, we know the rhythm of venues near Sugar
+        Land Town Square and surrounding event spaces, which helps us stay
+        unobtrusive while still capturing every key moment.
       </p>
-      <p class="body-lg reveal reveal-delay-2" style="text-align:center; max-width:780px; margin:0 auto;">
-        We continue to serve Sugar Land because families and hosts here value craftsmanship and reliability. Many clients return for multiple milestones over time, and we treat each session as part of that larger family story.
+      <p
+        class="body-lg reveal reveal-delay-2"
+        style="text-align:center; max-width:780px; margin:0 auto;"
+      >
+        We continue to serve Sugar Land because families and hosts here value
+        craftsmanship and reliability. Many clients return for multiple
+        milestones over time, and we treat each session as part of that larger
+        family story.
       </p>
-      <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; margin-top:2rem;" class="reveal">
-        <a href="/event-photography-katy-tx.html" class="btn btn-gold-outline btn-arrow">Sugar Land Event Photography Services</a>
-        <a href="/family-photography-katy-tx.html" class="btn btn-outline">Sugar Land Family Photography Services</a>
+      <div
+        style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; margin-top:2rem;"
+        class="reveal"
+      >
+        <a
+          href="/event-photography-katy-tx.html"
+          class="btn btn-gold-outline btn-arrow"
+          >Sugar Land Event Photography Services</a
+        >
+        <a href="/family-photography-katy-tx.html" class="btn btn-outline"
+          >Sugar Land Family Photography Services</a
+        >
       </div>
     </div>
   </section>
 
   <section class="cta-banner reveal">
     <div class="container">
-      <p class="eyebrow" style="margin-bottom:1.25rem;">Sugar Land TX Photography</p>
-      <h2 class="display-md" style="margin-bottom:1rem; max-width:520px; margin-left:auto; margin-right:auto;">
-        Book Your Session<br><em style="font-style:italic; color:var(--gold);">in Sugar Land</em>
+      <p class="eyebrow" style="margin-bottom:1.25rem;">
+        Sugar Land TX Photography
+      </p>
+      <h2
+        class="display-md"
+        style="margin-bottom:1rem; max-width:520px; margin-left:auto; margin-right:auto;"
+      >
+        Book Your Session<br /><em style="font-style:italic; color:var(--gold);"
+          >in Sugar Land</em
+        >
       </h2>
-      <p class="body-lg" style="max-width:420px; margin:0 auto 2.5rem;">Events and family sessions available throughout Sugar Land, Katy, Houston, and surrounding areas.</p>
-      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-        <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-arrow">Book Now</a>
+      <p class="body-lg" style="max-width:420px; margin:0 auto 2.5rem;">
+        Events and family sessions available throughout Sugar Land, Katy,
+        Houston, and surrounding areas.
+      </p>
+      <div
+        style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;"
+      >
+        <a
+          href="https://niopictures.pixieset.com/booking/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary btn-arrow">Book Now</a
+        >
         <a href="/contact.html" class="btn btn-outline">Get in Touch</a>
       </div>
     </div>
   </section>
-
-  
 </BaseLayout>
-
-

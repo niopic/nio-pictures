@@ -74,7 +74,10 @@ const businessSchema = {
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="NiO Pictures — Cinematic Event & Family Photography in Katy TX" />
+    <meta
+      property="og:image:alt"
+      content="NiO Pictures — Cinematic Event & Family Photography in Katy TX"
+    />
     <meta property="og:site_name" content="NiO Pictures" />
     <meta property="og:locale" content="en_US" />
 
@@ -108,13 +111,23 @@ const businessSchema = {
     </noscript>
 
     <link rel="preload" as="style" href="/assets/css/global.css" />
-    <link rel="stylesheet" href="/assets/css/global.css" media="print" onload="this.media='all'" />
+    <link
+      rel="stylesheet"
+      href="/assets/css/global.css"
+      media="print"
+      onload="this.media='all'"
+    />
 
     {
       deferComponentsCss ? (
         <Fragment>
           <link rel="preload" as="style" href="/assets/css/components.css" />
-          <link rel="stylesheet" href="/assets/css/components.css" media="print" onload="this.media='all'" />
+          <link
+            rel="stylesheet"
+            href="/assets/css/components.css"
+            media="print"
+            onload="this.media='all'"
+          />
         </Fragment>
       ) : (
         <link rel="stylesheet" href="/assets/css/components.css" />
@@ -122,7 +135,12 @@ const businessSchema = {
     }
 
     <link rel="preload" as="style" href="/assets/css/animations.css" />
-    <link rel="stylesheet" href="/assets/css/animations.css" media="print" onload="this.media='all'" />
+    <link
+      rel="stylesheet"
+      href="/assets/css/animations.css"
+      media="print"
+      onload="this.media='all'"
+    />
 
     <noscript>
       <link rel="stylesheet" href="/assets/css/global.css" />
@@ -137,7 +155,12 @@ const businessSchema = {
       extraStyles.map((href) => (
         <Fragment>
           <link rel="preload" as="style" href={href} />
-          <link rel="stylesheet" href={href} media="print" onload="this.media='all'" />
+          <link
+            rel="stylesheet"
+            href={href}
+            media="print"
+            onload="this.media='all'"
+          />
         </Fragment>
       ))
     }
@@ -145,35 +168,50 @@ const businessSchema = {
     <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
     <meta name="theme-color" content="#161412" />
 
-    <script type="application/ld+json" is:inline set:html={JSON.stringify(businessSchema)}></script>
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify(businessSchema)}
+    />
     <slot name="head" />
 
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      window.addEventListener("load", () => {
-        let analyticsLoaded = false;
-        const interactionEvents = ["pointerdown", "keydown", "submit"];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      window.addEventListener(
+        "load",
+        () => {
+          let analyticsLoaded = false;
+          const interactionEvents = ["pointerdown", "keydown", "submit"];
 
-        const loadAnalytics = () => {
-          if (analyticsLoaded) return;
-          analyticsLoaded = true;
+          const loadAnalytics = () => {
+            if (analyticsLoaded) return;
+            analyticsLoaded = true;
+            interactionEvents.forEach((eventName) => {
+              window.removeEventListener(eventName, loadAnalytics, true);
+            });
+
+            const script = document.createElement("script");
+            script.src =
+              "https://www.googletagmanager.com/gtag/js?id=G-1VZ3GPSWGH";
+            script.async = true;
+            document.head.appendChild(script);
+            gtag("js", new Date());
+            gtag("config", "G-1VZ3GPSWGH");
+          };
+
           interactionEvents.forEach((eventName) => {
-            window.removeEventListener(eventName, loadAnalytics, true);
+            window.addEventListener(eventName, loadAnalytics, {
+              once: true,
+              capture: true,
+              passive: true,
+            });
           });
-
-          const script = document.createElement("script");
-          script.src = "https://www.googletagmanager.com/gtag/js?id=G-1VZ3GPSWGH";
-          script.async = true;
-          document.head.appendChild(script);
-          gtag("js", new Date());
-          gtag("config", "G-1VZ3GPSWGH");
-        };
-
-        interactionEvents.forEach((eventName) => {
-          window.addEventListener(eventName, loadAnalytics, { once: true, capture: true, passive: true });
-        });
-      }, { once: true });
+        },
+        { once: true },
+      );
     </script>
   </head>
   <body>
@@ -185,8 +223,9 @@ const businessSchema = {
           <div class="footer-brand">
             <a href="/" class="nav-logo">Ni<span>O</span> Pictures</a>
             <p>
-              Cinematic photography for life's most meaningful moments. Based in Katy, TX
-              - serving Katy first, then Cypress, Houston, Sugar Land, and Richmond.
+              Cinematic photography for life's most meaningful moments. Based in
+              Katy, TX - serving Katy first, then Cypress, Houston, Sugar Land,
+              and Richmond.
             </p>
           </div>
 
@@ -197,7 +236,11 @@ const businessSchema = {
               <a href="/family-photography-katy-tx.html">Family Sessions</a>
               <a href="/blog.html">Blog</a>
               <a href="/portfolio.html">Portfolio</a>
-              <a href="https://niopictures.pixieset.com/" target="_blank" rel="noopener noreferrer">View Gallery</a>
+              <a
+                href="https://niopictures.pixieset.com/"
+                target="_blank"
+                rel="noopener noreferrer">View Gallery</a
+              >
             </nav>
           </div>
 
@@ -228,25 +271,47 @@ const businessSchema = {
               Katy - Cypress - Sugar Land - Richmond - Houston
             </p>
             <p style="margin-top: 1rem; line-height: 2.2;">
-              <a href="tel:+12814093585" style="display:block;">Phone 281-409-3585</a>
-              <a href="mailto:niopictureskaty@gmail.com" style="display:block;">Email niopictureskaty@gmail.com</a>
-              <a href="https://www.instagram.com/nio_pictures" target="_blank" rel="noopener noreferrer" style="display:block;">Instagram @nio_pictures</a>
-              <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" style="display:block;">Book Online</a>
+              <a href="tel:+12814093585" style="display:block;"
+                >Phone 281-409-3585</a
+              >
+              <a href="mailto:niopictureskaty@gmail.com" style="display:block;"
+                >Email niopictureskaty@gmail.com</a
+              >
+              <a
+                href="https://www.instagram.com/nio_pictures"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="display:block;">Instagram @nio_pictures</a
+              >
+              <a
+                href="https://niopictures.pixieset.com/booking/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="display:block;">Book Online</a
+              >
             </p>
           </div>
         </div>
 
-        <div style="border-top:1px solid var(--border-light);padding:1rem 0;margin-bottom:1rem;">
+        <div
+          style="border-top:1px solid var(--border-light);padding:1rem 0;margin-bottom:1rem;"
+        >
           <p style="font-size:0.75rem;color:var(--muted);line-height:1.6;">
-            This site uses Google Analytics to understand how visitors use our pages. No personal data is sold.
-            <a href="/privacy.html" style="color:var(--muted);">Privacy Policy</a>
+            This site uses Google Analytics to understand how visitors use our
+            pages. No personal data is sold.
+            <a href="/privacy.html" style="color:var(--muted);"
+              >Privacy Policy</a
+            >
             &middot;
             <a href="/terms.html" style="color:var(--muted);">Terms</a>
           </p>
         </div>
 
         <div class="footer-bottom">
-          <p class="footer-copy">&copy; {currentYear} <span>NiO Pictures</span> - Palanivel. All rights reserved. Katy, TX.</p>
+          <p class="footer-copy">
+            &copy; {currentYear}
+            <span>NiO Pictures</span> - Palanivel. All rights reserved. Katy, TX.
+          </p>
           <div class="footer-legal">
             <a href="/privacy.html">Privacy</a>
             <a href="/terms.html">Terms</a>
@@ -256,31 +321,42 @@ const businessSchema = {
     </footer>
 
     <script src="/assets/js/main.js" defer></script>
-      <script is:inline>
-        (() => {
-          const chatWidgetUrl = "https://chat.niopictures.com/widget.js";
-          const interactionEvents = ["pointerdown", "keydown", "touchstart", "focusin"];
-          let chatLoaded = false;
+    <script is:inline>
+      (() => {
+        const chatWidgetUrl = "https://chat.niopictures.com/widget.js";
+        const interactionEvents = [
+          "pointerdown",
+          "keydown",
+          "touchstart",
+          "focusin",
+        ];
+        let chatLoaded = false;
 
-          const loadChatWidget = () => {
-            if (chatLoaded) return;
-            chatLoaded = true;
-
-            interactionEvents.forEach((eventName) => {
-              window.removeEventListener(eventName, loadChatWidget, true);
-            });
-
-            const script = document.createElement("script");
-            script.src = chatWidgetUrl;
-            script.async = true;
-            document.body.appendChild(script);
-          };
+        const loadChatWidget = () => {
+          if (chatLoaded) return;
+          chatLoaded = true;
 
           interactionEvents.forEach((eventName) => {
-            window.addEventListener(eventName, loadChatWidget, { once: true, capture: true, passive: true });
+            window.removeEventListener(eventName, loadChatWidget, true);
           });
 
-          window.addEventListener("load", () => {
+          const script = document.createElement("script");
+          script.src = chatWidgetUrl;
+          script.async = true;
+          document.body.appendChild(script);
+        };
+
+        interactionEvents.forEach((eventName) => {
+          window.addEventListener(eventName, loadChatWidget, {
+            once: true,
+            capture: true,
+            passive: true,
+          });
+        });
+
+        window.addEventListener(
+          "load",
+          () => {
             const scheduleLoad = () => window.setTimeout(loadChatWidget, 2500);
 
             if ("requestIdleCallback" in window) {
@@ -288,8 +364,10 @@ const businessSchema = {
             } else {
               scheduleLoad();
             }
-          }, { once: true });
-        })();
-      </script>
+          },
+          { once: true },
+        );
+      })();
+    </script>
   </body>
 </html>

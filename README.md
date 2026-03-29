@@ -12,12 +12,14 @@
 ## ⚡ Quick Start (New Developer)
 
 ### Prerequisites
+
 - Node.js 18+ (check: `node --version`)
 - Git (check: `git --version`)
 - GitHub account (for deployments)
 - Cloudflare account (for hosting)
 
 ### Clone & Run Locally
+
 ```bash
 # Clone the repository
 git clone https://github.com/YOUR_ORG/nio-pictures.git
@@ -37,6 +39,7 @@ npm run preview
 ```
 
 ### Test Build Output
+
 ```bash
 # After running 'npm run build', verify:
 ls -la dist/index.html          # Pages built ✓
@@ -50,18 +53,18 @@ du -sh dist/                    # Check total size
 
 ### Technology Stack
 
-| Layer | Technology | Version | Purpose |
-|---|---|---|---|
-| **Framework** | Astro | 5.5.0 | Static site generation (SSG) |
-| **Language** | JavaScript/TypeScript | ES modules | Page logic & components |
-| **Styling** | Vanilla CSS | (no framework) | 4 CSS files, CSS variables, responsive |
-| **Image Optimization** | Sharp | 0.33.0 | Convert JPEG source → WebP/AVIF formats at build time |
-| **Fonts** | Google Fonts | (CDT) | Cormorant Garamond, DM Sans, Cinzel (non-blocking load) |
-| **Forms** | Formspree | `xjgpbyeb` endpoint | Contact + booking form submissions |
-| **Hosting** | Cloudflare Pages | — | Git-connected deployment, auto-builds on push |
-| **Analytics** | Google Analytics 4 | `G-1VZ3GPSWGH` | Conversion tracking on all 19 pages |
-| **Chat** | NiO Chat Widget | external JS | Real-time customer messaging |
-| **SEO** | JSON-LD Schema Markup | (embedded in HTML) | LocalBusiness, Service, FAQ, BlogPosting, etc. |
+| Layer                  | Technology            | Version             | Purpose                                                 |
+| ---------------------- | --------------------- | ------------------- | ------------------------------------------------------- |
+| **Framework**          | Astro                 | 5.5.0               | Static site generation (SSG)                            |
+| **Language**           | JavaScript/TypeScript | ES modules          | Page logic & components                                 |
+| **Styling**            | Vanilla CSS           | (no framework)      | 4 CSS files, CSS variables, responsive                  |
+| **Image Optimization** | Sharp                 | 0.33.0              | Convert JPEG source → WebP/AVIF formats at build time   |
+| **Fonts**              | Google Fonts          | (CDT)               | Cormorant Garamond, DM Sans, Cinzel (non-blocking load) |
+| **Forms**              | Formspree             | `xjgpbyeb` endpoint | Contact + booking form submissions                      |
+| **Hosting**            | Cloudflare Pages      | —                   | Git-connected deployment, auto-builds on push           |
+| **Analytics**          | Google Analytics 4    | `G-1VZ3GPSWGH`      | Conversion tracking on all 19 pages                     |
+| **Chat**               | NiO Chat Widget       | external JS         | Real-time customer messaging                            |
+| **SEO**                | JSON-LD Schema Markup | (embedded in HTML)  | LocalBusiness, Service, FAQ, BlogPosting, etc.          |
 
 ### High-Level Architecture
 
@@ -109,12 +112,14 @@ du -sh dist/                    # Check total size
 ### Image Optimization Pipeline
 
 **Before (Manual):**
+
 - Upload WebP files manually
 - No responsive variants
 - Slow on mobile
 
 **Now (Automatic with Sharp):**
 {% raw %}
+
 ```
 Source (JPEG/PNG)          Sharp Processor           Browser Display
 ┌──────────────┐           ┌──────────────┐         ┌──────────────┐
@@ -128,9 +133,11 @@ Output formats (auto-generated):
 ├─ AVIF @ 400, 800, 1200, 1600px (2x density)
 └─ Original JPEG as fallback
 ```
+
 {% endraw %}
 
 **Sharp Configuration (astro.config.mjs):**
+
 ```javascript
 image: {
   service: {
@@ -144,14 +151,23 @@ image: {
 ```
 
 **Current Image Props (added to all Image components):**
+
 ```astro
-<Image 
+<Image
   src={heroImage}
   alt="Descriptive alt text"
-  widths={[400, 800, 1200]}              // Breakpoints
-  sizes="(max-width: 768px) 100vw, 50vw"  // Media query
-  quality={90}                             // 85–90 for photography
-  loading="eager|lazy"                    // Hero = eager, rest = lazy
+  widths={[400, 800, 1200]}
+  Breakpoints
+  sizes="(max-width: 768px) 100vw, 50vw"
+  Media
+  query
+  quality={90}
+  85–90
+  for
+  photography
+  loading="eager|lazy"
+  Hero="eager,"
+  rest="lazy"
 />
 ```
 
@@ -218,6 +234,7 @@ git push origin main
 ```
 
 **IMPORTANT:** Before first deploy, move these files to `public/`:
+
 - `_headers` → `public/_headers` (security headers)
 - `_redirects` → `public/_redirects` (routing rules)
 
@@ -227,32 +244,33 @@ git push origin main
 
 ### Primary Colors
 
-| Name | CSS Var | Hex | RGB | Usage |
-|---|---|---|---|---|
-| **Deep Black** | `--black` | `#161412` | 22, 20, 18 | Page background |
-| **Gold** | `--gold` | `#C5A572` | 197, 165, 114 | Primary actions, headings |
-| **Gold Dark** | `--gold-dark` | `#8B6A35` | 139, 106, 53 | Hover states, scrollbar |
-| **Cream** | `--cream` | `#F0E8D8` | 240, 232, 216 | Body text (on dark bg) |
+| Name           | CSS Var       | Hex       | RGB           | Usage                     |
+| -------------- | ------------- | --------- | ------------- | ------------------------- |
+| **Deep Black** | `--black`     | `#161412` | 22, 20, 18    | Page background           |
+| **Gold**       | `--gold`      | `#C5A572` | 197, 165, 114 | Primary actions, headings |
+| **Gold Dark**  | `--gold-dark` | `#8B6A35` | 139, 106, 53  | Hover states, scrollbar   |
+| **Cream**      | `--cream`     | `#F0E8D8` | 240, 232, 216 | Body text (on dark bg)    |
 
 ### Surface & Secondary Colors
 
-| Name | CSS Var | Hex | RGB | Usage |
-|---|---|---|---|---|
-| **Surface** | `--surface` | `#262320` | 38, 35, 32 | Cards, nav on scroll |
-| **Surface 2** | `--surface-2` | `#302C29` | 48, 44, 41 | Deeper cards |
-| **Muted** | `--muted` | `#A89880` | 168, 152, 128 | Secondary text |
-| **Muted Dark** | `--muted-dark` | `#6B5F52` | 107, 95, 82 | Tertiary text, captions |
-| **Violet** | `--violet` | `#9B7FD4` | 155, 127, 212 | Accent (sparingly) |
+| Name           | CSS Var        | Hex       | RGB           | Usage                   |
+| -------------- | -------------- | --------- | ------------- | ----------------------- |
+| **Surface**    | `--surface`    | `#262320` | 38, 35, 32    | Cards, nav on scroll    |
+| **Surface 2**  | `--surface-2`  | `#302C29` | 48, 44, 41    | Deeper cards            |
+| **Muted**      | `--muted`      | `#A89880` | 168, 152, 128 | Secondary text          |
+| **Muted Dark** | `--muted-dark` | `#6B5F52` | 107, 95, 82   | Tertiary text, captions |
+| **Violet**     | `--violet`     | `#9B7FD4` | 155, 127, 212 | Accent (sparingly)      |
 
 ### Borders & Utilities
 
-| Name | CSS Var | Hex | RGB | Usage |
-|---|---|---|---|---|
-| **Border** | `--border` | rgba(197,165,114,0.15) | 15% alpha | Card edges |
-| **Border Light** | `--border-light` | rgba(197,165,114,0.08) | 8% alpha | Dividers |
-| **Gold Glow** | `--gold-glow` | rgba(197,165,114,0.12) | 12% alpha | Radial glows |
+| Name             | CSS Var          | Hex                    | RGB       | Usage        |
+| ---------------- | ---------------- | ---------------------- | --------- | ------------ |
+| **Border**       | `--border`       | rgba(197,165,114,0.15) | 15% alpha | Card edges   |
+| **Border Light** | `--border-light` | rgba(197,165,114,0.08) | 8% alpha  | Dividers     |
+| **Gold Glow**    | `--gold-glow`    | rgba(197,165,114,0.12) | 12% alpha | Radial glows |
 
 ### Theme Color (Browser UI)
+
 ```html
 <meta name="theme-color" content="#161412" />
 ```
@@ -285,54 +303,54 @@ git push origin main
 
 ### Done — Do Not Rebuild
 
-| Area | Status |
-|---|---|
-| All 19 Astro pages built and styled | ✅ |
-| Brand design system (CSS variables, fonts) | ✅ |
-| Mobile-first responsive layout | ✅ |
-| Sticky nav, scroll reveal, animations | ✅ |
-| NiO Chat widget embedded sitewide | ✅ |
-| Google Analytics GA4 on all 19 pages | ✅ |
-| Formspree contact + book forms wired | ✅ |
-| Honeypot spam protection on forms | ✅ |
-| Event FAQ + pricing cards ($500/$700/$900) | ✅ |
-| Family FAQ + pricing cards + prints/albums section | ✅ |
-| 4 blog posts + blog index with category filter | ✅ |
-| Privacy Policy page | ✅ |
-| Terms of Service page | ✅ |
-| Custom 404 page (auto-served by Cloudflare) | ✅ |
-| Favicon SVG | ✅ |
-| robots.txt + sitemap.xml (18 URLs) | ✅ |
-| JSON-LD schemas (LocalBusiness, Service, FAQ, Person, Breadcrumb, AggregateRating) | ✅ |
-| Security headers (CSP, X-Frame-Options, Permissions-Policy, etc.) | ✅ |
-| 4 location pages (Katy, Sugar Land, Richmond, Cypress/Bridgeland) | ✅ |
-| Skip-to-main, noreferrer, analytics disclosure — all pages | ✅ |
-| Domain consistency — all pages point to niopictures.com | ✅ |
+| Area                                                                               | Status |
+| ---------------------------------------------------------------------------------- | ------ |
+| All 19 Astro pages built and styled                                                | ✅     |
+| Brand design system (CSS variables, fonts)                                         | ✅     |
+| Mobile-first responsive layout                                                     | ✅     |
+| Sticky nav, scroll reveal, animations                                              | ✅     |
+| NiO Chat widget embedded sitewide                                                  | ✅     |
+| Google Analytics GA4 on all 19 pages                                               | ✅     |
+| Formspree contact + book forms wired                                               | ✅     |
+| Honeypot spam protection on forms                                                  | ✅     |
+| Event FAQ + pricing cards ($500/$700/$900)                                         | ✅     |
+| Family FAQ + pricing cards + prints/albums section                                 | ✅     |
+| 4 blog posts + blog index with category filter                                     | ✅     |
+| Privacy Policy page                                                                | ✅     |
+| Terms of Service page                                                              | ✅     |
+| Custom 404 page (auto-served by Cloudflare)                                        | ✅     |
+| Favicon SVG                                                                        | ✅     |
+| robots.txt + sitemap.xml (18 URLs)                                                 | ✅     |
+| JSON-LD schemas (LocalBusiness, Service, FAQ, Person, Breadcrumb, AggregateRating) | ✅     |
+| Security headers (CSP, X-Frame-Options, Permissions-Policy, etc.)                  | ✅     |
+| 4 location pages (Katy, Sugar Land, Richmond, Cypress/Bridgeland)                  | ✅     |
+| Skip-to-main, noreferrer, analytics disclosure — all pages                         | ✅     |
+| Domain consistency — all pages point to niopictures.com                            | ✅     |
 
 ### Remaining Before Go-Live
 
-| Task | Priority |
-|---|---|
-| Add gallery images (home, event, family, portfolio) — see Images section | 🔴 Last blocker |
-| Move `_headers` and `_redirects` to `public/` so Astro includes them in `dist/` | 🔴 High |
-| Deploy to Cloudflare Pages (push to GitHub) | 🔴 High |
-| DNS swap — unpublish Pixieset, point to Cloudflare | 🔴 High |
-| Submit sitemap to Google Search Console | 🔴 High — do on go-live day |
-| Update GBP website URL to niopictures.com | 🔴 High — do on go-live day |
+| Task                                                                            | Priority                    |
+| ------------------------------------------------------------------------------- | --------------------------- |
+| Add gallery images (home, event, family, portfolio) — see Images section        | 🔴 Last blocker             |
+| Move `_headers` and `_redirects` to `public/` so Astro includes them in `dist/` | 🔴 High                     |
+| Deploy to Cloudflare Pages (push to GitHub)                                     | 🔴 High                     |
+| DNS swap — unpublish Pixieset, point to Cloudflare                              | 🔴 High                     |
+| Submit sitemap to Google Search Console                                         | 🔴 High — do on go-live day |
+| Update GBP website URL to niopictures.com                                       | 🔴 High — do on go-live day |
 
 ### Post-Launch Tasks
 
-| Task | Priority |
-|---|---|
-| Verify GA4 Realtime data after launch | 🟡 Medium |
-| Link GA4 to Google Search Console | 🟡 Medium |
-| Submit sitemap to Bing Webmaster Tools | 🟡 Medium |
-| Update GBP business description to new site copy | 🟡 Medium |
-| Add srcset to images (400w + 800w, mobile performance) | 🟡 Medium |
-| PageSpeed Insights test — target LCP < 2.5s | 🟡 Medium |
-| Update AggregateRating reviewCount as reviews grow (currently 7) | 🟢 Low |
-| Delete unused `chat-bubble.js` from `assets/js/` | 🟢 Low |
-| Update sitemap.xml lastmod dates to match go-live date | 🟢 Low |
+| Task                                                             | Priority  |
+| ---------------------------------------------------------------- | --------- |
+| Verify GA4 Realtime data after launch                            | 🟡 Medium |
+| Link GA4 to Google Search Console                                | 🟡 Medium |
+| Submit sitemap to Bing Webmaster Tools                           | 🟡 Medium |
+| Update GBP business description to new site copy                 | 🟡 Medium |
+| Add srcset to images (400w + 800w, mobile performance)           | 🟡 Medium |
+| PageSpeed Insights test — target LCP < 2.5s                      | 🟡 Medium |
+| Update AggregateRating reviewCount as reviews grow (currently 7) | 🟢 Low    |
+| Delete unused `chat-bubble.js` from `assets/js/`                 | 🟢 Low    |
+| Update sitemap.xml lastmod dates to match go-live date           | 🟢 Low    |
 
 ---
 
@@ -423,8 +441,9 @@ nio-pictures/
 ### 🔗 Navigation Behavior
 
 **Logo as Home Link:**
+
 - The **NiO Pictures logo** (top-left) is the primary way to navigate to the homepage
-- Clicking the logo from any page returns to `/` 
+- Clicking the logo from any page returns to `/`
 - This provides a consistent, familiar pattern that users expect
 - No redundant "Home" menu item needed
 
@@ -437,6 +456,7 @@ nio-pictures/
 ### Design Rationale
 
 The palette started from the brief (Charcoal Black + Antique Gold) but was refined:
+
 - The two near-identical golds in the original spec were replaced with a proper light/dark pair (`--gold` + `--gold-dark`)
 - The warm Deep Purple (#5C3A6B) was replaced with cool Violet (#9B7FD4) — warm purple competes with gold; cool violet complements it
 - Warm Cream body text (#F0E8D8) replaces pure white — avoids the clinical feel of #FFFFFF on warm dark backgrounds
@@ -448,13 +468,14 @@ The palette started from the brief (Charcoal Black + Antique Gold) but was refin
 
 ### Font Stack
 
-| Role | Font Family | Weights | Source |
-|---|---|---|---|
-| Display / Headlines | Cormorant Garamond | 300, 400 (+ italic variants) | Google Fonts |
-| Body / UI Text | DM Sans | 300, 400, 500 | Google Fonts |
-| Accent / Labels / Nav | Cinzel | 400, 500 | Google Fonts |
+| Role                  | Font Family        | Weights                      | Source       |
+| --------------------- | ------------------ | ---------------------------- | ------------ |
+| Display / Headlines   | Cormorant Garamond | 300, 400 (+ italic variants) | Google Fonts |
+| Body / UI Text        | DM Sans            | 300, 400, 500                | Google Fonts |
+| Accent / Labels / Nav | Cinzel             | 400, 500                     | Google Fonts |
 
 **Google Fonts load URL:**
+
 ```
 https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Cinzel:wght@400;500&display=swap
 ```
@@ -463,14 +484,14 @@ https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,40
 
 ### Type Scale
 
-| CSS Class | Font | Size | Weight | Usage |
-|---|---|---|---|---|
-| `.display-xl` | Cormorant Garamond | clamp(2.8rem → 5.5rem) | 300 | Page hero headlines |
-| `.display-lg` | Cormorant Garamond | clamp(2.2rem → 3.8rem) | 300 | Section hero headlines |
-| `.display-md` | Cormorant Garamond | clamp(1.6rem → 2.6rem) | 400 | Section headings |
-| `.eyebrow` | Cinzel | 0.62–0.75rem | 400 | Category labels, uppercase tags |
-| `.body-lg` | DM Sans | clamp(1rem → 1.15rem) | 300 | Lead paragraphs |
-| `.body-sm` | DM Sans | 0.875rem | 300 | Secondary copy, captions |
+| CSS Class     | Font               | Size                   | Weight | Usage                           |
+| ------------- | ------------------ | ---------------------- | ------ | ------------------------------- |
+| `.display-xl` | Cormorant Garamond | clamp(2.8rem → 5.5rem) | 300    | Page hero headlines             |
+| `.display-lg` | Cormorant Garamond | clamp(2.2rem → 3.8rem) | 300    | Section hero headlines          |
+| `.display-md` | Cormorant Garamond | clamp(1.6rem → 2.6rem) | 400    | Section headings                |
+| `.eyebrow`    | Cinzel             | 0.62–0.75rem           | 400    | Category labels, uppercase tags |
+| `.body-lg`    | DM Sans            | clamp(1rem → 1.15rem)  | 300    | Lead paragraphs                 |
+| `.body-sm`    | DM Sans            | 0.875rem               | 300    | Secondary copy, captions        |
 
 ### Reasoning
 
@@ -483,54 +504,60 @@ https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,40
 ## 🔗 Key Integrations
 
 ### Booking
-| Field | Value |
-|---|---|
-| URL | https://niopictures.pixieset.com/booking/ |
-| Used on | Every "Book Now" button sitewide (39+ occurrences) |
+
+| Field               | Value                                                                           |
+| ------------------- | ------------------------------------------------------------------------------- |
+| URL                 | https://niopictures.pixieset.com/booking/                                       |
+| Used on             | Every "Book Now" button sitewide (39+ occurrences)                              |
 | Book form behaviour | Submits to Formspree first (sends email to you), then opens Pixieset in new tab |
 
 ### Gallery
-| Field | Value |
-|---|---|
-| URL | https://niopictures.pixieset.com/ |
+
+| Field   | Value                                              |
+| ------- | -------------------------------------------------- |
+| URL     | https://niopictures.pixieset.com/                  |
 | Used on | Portfolio page, "View Gallery" buttons, blog posts |
 
 ### Formspree (Contact Forms)
-| Field | Value |
-|---|---|
-| Endpoint | `https://formspree.io/f/xjgpbyeb` |
-| Email destination | niopictureskaty@gmail.com |
-| Pages | `contact.html` + `book.html` |
-| Spam protection | Hidden honeypot field `id="website"` — bots fill it, humans don't |
-| Validation | Required fields highlight gold if empty |
-| Error handling | Network errors show retry message; server errors show fallback message |
-| Dashboard | [https://formspree.io](https://formspree.io) — monitor form submissions and manage endpoint |
+
+| Field             | Value                                                                                       |
+| ----------------- | ------------------------------------------------------------------------------------------- |
+| Endpoint          | `https://formspree.io/f/xjgpbyeb`                                                           |
+| Email destination | niopictureskaty@gmail.com                                                                   |
+| Pages             | `contact.html` + `book.html`                                                                |
+| Spam protection   | Hidden honeypot field `id="website"` — bots fill it, humans don't                           |
+| Validation        | Required fields highlight gold if empty                                                     |
+| Error handling    | Network errors show retry message; server errors show fallback message                      |
+| Dashboard         | [https://formspree.io](https://formspree.io) — monitor form submissions and manage endpoint |
 
 ### NiO Chat Widget
-| Field | Value |
-|---|---|
-| Script URL | https://chat.niopictures.com/widget.js |
+
+| Field       | Value                                                                                    |
+| ----------- | ---------------------------------------------------------------------------------------- |
+| Script URL  | https://chat.niopictures.com/widget.js                                                   |
 | Embedded on | **All 19 pages** — global via `src/layouts/BaseLayout.astro` line 242 (before `</body>`) |
-| Status | ✅ Active — loads on every page without condition |
-| Snippet | `<script src="https://chat.niopictures.com/widget.js" defer></script>` |
+| Status      | ✅ Active — loads on every page without condition                                        |
+| Snippet     | `<script src="https://chat.niopictures.com/widget.js" defer></script>`                   |
 
 ### Google Analytics
-| Field | Value |
-|---|---|
-| Property | GA4 |
-| Measurement ID | `G-1VZ3GPSWGH` |
-| Status | Active on all 19 pages |
-| Dashboard | [https://analytics.google.com](https://analytics.google.com) — check Realtime and traffic sources |
-| Action needed | Link to Search Console after go-live (GA4 → Admin → Search Console links) |
+
+| Field          | Value                                                                                             |
+| -------------- | ------------------------------------------------------------------------------------------------- |
+| Property       | GA4                                                                                               |
+| Measurement ID | `G-1VZ3GPSWGH`                                                                                    |
+| Status         | Active on all 19 pages                                                                            |
+| Dashboard      | [https://analytics.google.com](https://analytics.google.com) — check Realtime and traffic sources |
+| Action needed  | Link to Search Console after go-live (GA4 → Admin → Search Console links)                         |
 
 ### Google Business Profile
-| Field | Value |
-|---|---|
-| Status | Claimed ✅ |
-| Reviews | 7 × five-star ✅ (current) |
-| AggregateRating schema | Already in [src/pages/index.astro](src/pages/index.astro) ✅ |
-| Dashboard | [https://business.google.com](https://business.google.com) — update website URL and description on go-live day |
-| Action needed | Update website URL to niopictures.com on go-live day; update after review count changes |
+
+| Field                  | Value                                                                                                          |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------- |
+| Status                 | Claimed ✅                                                                                                     |
+| Reviews                | 7 × five-star ✅ (current)                                                                                     |
+| AggregateRating schema | Already in [src/pages/index.astro](src/pages/index.astro) ✅                                                   |
+| Dashboard              | [https://business.google.com](https://business.google.com) — update website URL and description on go-live day |
+| Action needed          | Update website URL to niopictures.com on go-live day; update after review count changes                        |
 
 ---
 
@@ -544,83 +571,85 @@ All images go in `public/assets/images/` in organized subfolders. **Use JPEG sou
 
 **Folder:** `public/assets/images/heroes/` and `public/assets/images/panels/`
 
-| Filename | Used on | Dimensions |
-|---|---|---|
-| `heroes/home.jpg` | Home — full viewport hero | 1920×1080px |
-| `heroes/events.jpg` | Event page hero | 1920×900px |
-| `heroes/family.jpg` | Family page hero | 1920×900px |
-| `panels/events.jpg` | Home service split — events panel | 960×1200px |
-| `panels/family.jpg` | Home service split — family panel | 960×1200px |
+| Filename            | Used on                           | Dimensions  |
+| ------------------- | --------------------------------- | ----------- |
+| `heroes/home.jpg`   | Home — full viewport hero         | 1920×1080px |
+| `heroes/events.jpg` | Event page hero                   | 1920×900px  |
+| `heroes/family.jpg` | Family page hero                  | 1920×900px  |
+| `panels/events.jpg` | Home service split — events panel | 960×1200px  |
+| `panels/family.jpg` | Home service split — family panel | 960×1200px  |
 
 ### About Photos ✅ All added
 
 **Folder:** `public/assets/images/about/`
 
-| Filename | Used on | Dimensions |
-|---|---|---|
-| `portrait.jpg` | About snippet on home page | 560×700px |
-| `main.jpg` | About page main photo | 560×700px |
+| Filename       | Used on                    | Dimensions |
+| -------------- | -------------------------- | ---------- |
+| `portrait.jpg` | About snippet on home page | 560×700px  |
+| `main.jpg`     | About page main photo      | 560×700px  |
 
 ### Portfolio & Gallery Images — 🔴 Still needed
 
 **Folder structure:** `public/assets/images/portfolio/`
 
 #### Gallery Grid (home page + filterable pages)
+
 **Subfolder:** `portfolio/gallery/` — 6 images
 
-| Filename | Grid position | Dimensions |
-|---|---|---|
-| `1.jpg` | Large left (cols 1–6) | 800×600px |
-| `2.jpg` | Top right narrow | 400×533px |
-| `3.jpg` | Top right narrow | 400×533px |
-| `4.jpg` | Bottom left narrow | 400×533px |
-| `5.jpg` | Bottom centre narrow | 400×533px |
-| `6.jpg` | Large right (cols 7–12) | 800×600px |
+| Filename | Grid position           | Dimensions |
+| -------- | ----------------------- | ---------- |
+| `1.jpg`  | Large left (cols 1–6)   | 800×600px  |
+| `2.jpg`  | Top right narrow        | 400×533px  |
+| `3.jpg`  | Top right narrow        | 400×533px  |
+| `4.jpg`  | Bottom left narrow      | 400×533px  |
+| `5.jpg`  | Bottom centre narrow    | 400×533px  |
+| `6.jpg`  | Large right (cols 7–12) | 800×600px  |
 
 #### Event Portfolio Images
+
 **Subfolder:** `portfolio/events/` — 5 images
 
-| Filename | Usage | Dimensions |
-|---|---|---|
+| Filename                | Usage                          | Dimensions     |
+| ----------------------- | ------------------------------ | -------------- |
 | `1.jpg` through `5.jpg` | Portfolio grid (Events filter) | 600×450px each |
 
 #### Family Portfolio Images
+
 **Subfolder:** `portfolio/family/` — 4–9 images
 
-| Filename | Usage | Dimensions |
-|---|---|---|
-| `1.jpg` through `4.jpg` | Portfolio grid (Family filter) | 600×450px each |
-| (Plus up to 9 for family page side grid if needed) | Family page side gallery | 400×533px or 400×300px |
-
+| Filename                                           | Usage                          | Dimensions             |
+| -------------------------------------------------- | ------------------------------ | ---------------------- |
+| `1.jpg` through `4.jpg`                            | Portfolio grid (Family filter) | 600×450px each         |
+| (Plus up to 9 for family page side grid if needed) | Family page side gallery       | 400×533px or 400×300px |
 
 ### Blog Cover Images ✅ All added
 
 **Folder:** `public/assets/images/blog/`
 
-| Filename | Post | Dimensions |
-|---|---|---|
-| `prepare-hero.jpg` | How to Prepare for Your Session | 900×506px |
-| `journey-1.jpg` | Photography Journey (featured post card) | 900×506px |
-| `journey-2.jpg` | Journey post — mid-article | 900×506px |
-| `bluehour.jpg` | Blue Hour Holiday Portraits | 900×506px |
-| `editorial-hero.jpg` | Shaping Light — hero | 900×506px |
-| `editorial-2.jpg` | Shaping Light — mid-article | 900×506px |
+| Filename             | Post                                     | Dimensions |
+| -------------------- | ---------------------------------------- | ---------- |
+| `prepare-hero.jpg`   | How to Prepare for Your Session          | 900×506px  |
+| `journey-1.jpg`      | Photography Journey (featured post card) | 900×506px  |
+| `journey-2.jpg`      | Journey post — mid-article               | 900×506px  |
+| `bluehour.jpg`       | Blue Hour Holiday Portraits              | 900×506px  |
+| `editorial-hero.jpg` | Shaping Light — hero                     | 900×506px  |
+| `editorial-2.jpg`    | Shaping Light — mid-article              | 900×506px  |
 
 ### Social Sharing (OG Image) ✅ Added
 
 **Folder:** `public/assets/images/social/`
 
-| Filename | Usage | Dimensions |
-|---|---|---|
+| Filename      | Usage                                          | Dimensions |
+| ------------- | ---------------------------------------------- | ---------- |
 | `og-home.jpg` | All pages — WhatsApp/iMessage/LinkedIn preview | 1200×630px |
 
 ### Favicon (partially done)
 
-| Filename | Status | Notes |
-|---|---|---|
-| `favicon.svg` | ✅ Done | Gold "N" on dark background |
-| `favicon-32.png` | Optional | Export 32×32 from favicon.svg in any image editor |
-| `apple-touch-icon.png` | Optional | Export 180×180 from favicon.svg |
+| Filename               | Status   | Notes                                             |
+| ---------------------- | -------- | ------------------------------------------------- |
+| `favicon.svg`          | ✅ Done  | Gold "N" on dark background                       |
+| `favicon-32.png`       | Optional | Export 32×32 from favicon.svg in any image editor |
+| `apple-touch-icon.png` | Optional | Export 180×180 from favicon.svg                   |
 
 ---
 
@@ -629,6 +658,7 @@ All images go in `public/assets/images/` in organized subfolders. **Use JPEG sou
 **Do this only when:** images are added, forms tested, and site fully reviewed.
 
 **Steps:**
+
 1. In Cloudflare Pages → your project → **Custom Domains** → Add `niopictures.com`
 2. Cloudflare shows you DNS records to add — follow their instructions exactly
 3. In Pixieset → Settings → disconnect or unpublish `niopictures.com`
@@ -636,6 +666,7 @@ All images go in `public/assets/images/` in organized subfolders. **Use JPEG sou
 5. Test the site loads correctly at `https://niopictures.com`
 
 **Go-live day actions:**
+
 - Google Business Profile → Edit → Website → change to `https://niopictures.com`
 - Google Search Console → Add property → Verify ownership → Submit sitemap: `https://niopictures.com/sitemap.xml`
 
@@ -673,6 +704,7 @@ Month 1
 ## 🔍 SEO Summary
 
 ### What's on every page
+
 - Unique `<title>` and `<meta description>`
 - Single `<h1>` with proper H2/H3 hierarchy
 - `<link rel="canonical">` pointing to niopictures.com
@@ -686,34 +718,35 @@ Month 1
 
 ### Schema markup
 
-| Schema type | Location |
-|---|---|
-| `LocalBusiness` + `ProfessionalService` | `src/pages/index.astro` |
-| `AggregateRating` (7 reviews, 5 stars) | `src/pages/index.astro` |
-| `Service` — Event Photography | `src/pages/event-photography-katy-tx.astro` |
-| `Service` — Family Photography | `src/pages/family-photography-katy-tx.astro` |
-| `FAQPage` (5 questions, pricing) | `src/pages/event-photography-katy-tx.astro` |
+| Schema type                              | Location                                     |
+| ---------------------------------------- | -------------------------------------------- |
+| `LocalBusiness` + `ProfessionalService`  | `src/pages/index.astro`                      |
+| `AggregateRating` (7 reviews, 5 stars)   | `src/pages/index.astro`                      |
+| `Service` — Event Photography            | `src/pages/event-photography-katy-tx.astro`  |
+| `Service` — Family Photography           | `src/pages/family-photography-katy-tx.astro` |
+| `FAQPage` (5 questions, pricing)         | `src/pages/event-photography-katy-tx.astro`  |
 | `FAQPage` (8 questions, pricing, prints) | `src/pages/family-photography-katy-tx.astro` |
-| `Person` (Palanivel) | `src/pages/about.astro` |
-| `BlogPosting` | All 4 blog post `.astro` files |
-| `BreadcrumbList` | All inner pages |
-| `LocalBusiness` (city-scoped) | All 4 location pages |
+| `Person` (Palanivel)                     | `src/pages/about.astro`                      |
+| `BlogPosting`                            | All 4 blog post `.astro` files               |
+| `BreadcrumbList`                         | All inner pages                              |
+| `LocalBusiness` (city-scoped)            | All 4 location pages                         |
 
 ### Target keywords by page
 
-| Page | Primary keywords |
-|---|---|
-| Home | NiO Pictures, photographer Katy TX |
-| Events | event photographer Katy TX, corporate event photographer Houston, Indian event photographer Katy |
-| Family | family photographer Katy TX, heirloom portraits, lifestyle family photography Houston |
-| Portfolio | photography portfolio Katy TX |
-| About | Palanivel photographer Katy TX |
-| Blog posts | family photos what to wear Katy TX, family photography process Houston, blue hour portraits |
-| Katy location | Katy TX photographer |
-| Sugar Land location | Sugar Land photographer TX |
-| Richmond location | Richmond TX photographer |
+| Page                | Primary keywords                                                                                 |
+| ------------------- | ------------------------------------------------------------------------------------------------ |
+| Home                | NiO Pictures, photographer Katy TX                                                               |
+| Events              | event photographer Katy TX, corporate event photographer Houston, Indian event photographer Katy |
+| Family              | family photographer Katy TX, heirloom portraits, lifestyle family photography Houston            |
+| Portfolio           | photography portfolio Katy TX                                                                    |
+| About               | Palanivel photographer Katy TX                                                                   |
+| Blog posts          | family photos what to wear Katy TX, family photography process Houston, blue hour portraits      |
+| Katy location       | Katy TX photographer                                                                             |
+| Sugar Land location | Sugar Land photographer TX                                                                       |
+| Richmond location   | Richmond TX photographer                                                                         |
 
 ### Service area in schema
+
 Katy · Houston · Sugar Land · Richmond · Cypress
 
 ---
@@ -736,15 +769,18 @@ Cache-Control (Images)    public, max-age=31536000, immutable
 **CSP allows:** `self`, `googletagmanager.com`, `google-analytics.com`, `chat.niopictures.com`, `fonts.googleapis.com`, `fonts.gstatic.com`, `formspree.io`, `niopictures.pixieset.com`
 
 ### Spam Protection
+
 Both forms have a hidden honeypot field (`id="website"`, `tabindex="-1"`). If it's filled in (bots do this automatically), the submission is silently discarded in JS before any fetch is made.
 
 ### Legal Pages
-| Page | Coverage |
-|---|---|
-| `privacy.html` | GA4 cookies, Formspree data handling, Pixieset, data rights, Texas jurisdiction, 30-day response commitment |
-| `terms.html` | Image copyright, personal use license, session terms, cancellation, liability limitation, governing law (Texas) |
+
+| Page           | Coverage                                                                                                        |
+| -------------- | --------------------------------------------------------------------------------------------------------------- |
+| `privacy.html` | GA4 cookies, Formspree data handling, Pixieset, data rights, Texas jurisdiction, 30-day response commitment     |
+| `terms.html`   | Image copyright, personal use license, session terms, cancellation, liability limitation, governing law (Texas) |
 
 ### Image Copyright
+
 All photographs © NiO Pictures / Palanivel. All rights reserved.  
 Clients receive a **personal use license** — not commercial rights.  
 NiO Pictures may use session photos for portfolio/social unless client opts out in writing at booking.
@@ -754,6 +790,7 @@ NiO Pictures may use session photos for portfolio/social unless client opts out 
 ## 🛠️ Maintenance Guide
 
 ### Adding a new blog post
+
 1. Copy `src/pages/blog/how-to-prepare-family-portrait-session.astro`
 2. Update: `<title>`, `<meta description>`, canonical URL, og: tags, `<h1>`, date, body content
 3. Update the `BlogPosting` JSON-LD schema at the top of the file
@@ -763,18 +800,22 @@ NiO Pictures may use session photos for portfolio/social unless client opts out 
 7. `git add . && git commit -m "Blog: [post title]" && git push`
 
 ### Updating prices
+
 - **Event prices ($500/$700/$900):** `src/pages/event-photography-katy-tx.astro` — search `$500`
 - **Family prices ($300/$450/$600):** `src/pages/family-photography-katy-tx.astro` — search `$300`
 - Also update the FAQ answer text on each page that mentions specific prices
 - Also update the FAQ JSON-LD schema (`acceptedAnswer` text)
 
 ### Updating testimonials
+
 - `src/pages/index.astro` → find `class="testimonial-card"` → edit name, role, and quote
 
 ### Swapping a portfolio image
+
 Replace the file in `public/assets/images/` with the same filename. No code change needed.
 
 ### Updating Google review count
+
 - `src/pages/index.astro` → find `"reviewCount"` in JSON-LD → update number
 - Re-deploy: `git add . && git commit -m "Update review count" && git push`
 
@@ -784,21 +825,22 @@ Replace the file in `public/assets/images/` with the same filename. No code chan
 
 ### Event Photography (all packages = 2-hour coverage)
 
-| Package | Price | Images | Delivery | Extras |
-|---|---|---|---|---|
-| Essential | $500 | 50 edited | 10 days | — |
-| Signature | $700 | 80+ edited | 10 days priority | Optional highlight video clip |
-| Premium | $900 | 100+ edited | 7 days priority | Highlight video included · Optional album +$250 |
+| Package   | Price | Images      | Delivery         | Extras                                          |
+| --------- | ----- | ----------- | ---------------- | ----------------------------------------------- |
+| Essential | $500  | 50 edited   | 10 days          | —                                               |
+| Signature | $700  | 80+ edited  | 10 days priority | Optional highlight video clip                   |
+| Premium   | $900  | 100+ edited | 7 days priority  | Highlight video included · Optional album +$250 |
 
 ### Family Photography
 
-| Package | Price | Duration | Images | Delivery |
-|---|---|---|---|---|
-| Essential | $300 | 1 hour | 30 edited | 10 days |
-| Signature | $450 | 90 mins | 50+ edited | 10 days priority |
-| Premium | $600 | 2 hours | 80+ edited | 7 days priority · Optional album +$250 |
+| Package   | Price | Duration | Images     | Delivery                               |
+| --------- | ----- | -------- | ---------- | -------------------------------------- |
+| Essential | $300  | 1 hour   | 30 edited  | 10 days                                |
+| Signature | $450  | 90 mins  | 50+ edited | 10 days priority                       |
+| Premium   | $600  | 2 hours  | 80+ edited | 7 days priority · Optional album +$250 |
 
 **Both services:**
+
 - Extra images: $20 each
 - Rush delivery: available on request
 - Prints, wall art, keepsake albums: ordered via niopictures.pixieset.com (archival quality)
@@ -807,32 +849,32 @@ Replace the file in `public/assets/images/` with the same filename. No code chan
 
 ## 📞 Business Details
 
-| Field | Value |
-|---|---|
-| Business name | NiO Pictures |
-| Photographer | Palanivel |
-| Location | Katy, Texas 77449 |
-| Phone | 281-409-3585 |
-| Email | niopictureskaty@gmail.com |
-| Website | https://niopictures.com |
-| Booking | https://niopictures.pixieset.com/booking/ |
-| Gallery / Print store | https://niopictures.pixieset.com/ |
-| Instagram | https://www.instagram.com/nio_pictures |
-| Facebook | https://www.facebook.com/profile.php?id=61580596898855 |
-| Service area | Katy · Houston · Sugar Land · Cypress (Bridgeland) · Richmond TX |
-| Hours | Weekends: 9am–7pm · Weeknights: 6pm–9pm |
-| Shooting since | 2017 |
+| Field                 | Value                                                            |
+| --------------------- | ---------------------------------------------------------------- |
+| Business name         | NiO Pictures                                                     |
+| Photographer          | Palanivel                                                        |
+| Location              | Katy, Texas 77449                                                |
+| Phone                 | 281-409-3585                                                     |
+| Email                 | niopictureskaty@gmail.com                                        |
+| Website               | https://niopictures.com                                          |
+| Booking               | https://niopictures.pixieset.com/booking/                        |
+| Gallery / Print store | https://niopictures.pixieset.com/                                |
+| Instagram             | https://www.instagram.com/nio_pictures                           |
+| Facebook              | https://www.facebook.com/profile.php?id=61580596898855           |
+| Service area          | Katy · Houston · Sugar Land · Cypress (Bridgeland) · Richmond TX |
+| Hours                 | Weekends: 9am–7pm · Weeknights: 6pm–9pm                          |
+| Shooting since        | 2017                                                             |
 
 ---
 
 ## ⚠️ Known Limitations
 
-| Limitation | Impact | Workaround |
-|---|---|---|
-| No dynamic image import system | Gallery images use hardcoded paths in Astro Image components; swapping galleries requires manual file replacement | This is by design — improves performance and SEO. To update, replace files with same names in `public/assets/images/` |
-| `_headers` and `_redirects` in project root | Files won't be deployed unless moved to `public/` folder | Move both files to `public/` before any Cloudflare Pages deployment |
-| Hero images preloaded on every page | Slight performance hit on slower connections | Intentional for visual priority; consider adding `fetchpriority="low"` on non-critical pages in future |
-| Formspree honeypot field | Spambots may still probe the endpoint, creating noise in logs | Monitor dashboard; extremely low false positive rate with current validation |
+| Limitation                                  | Impact                                                                                                            | Workaround                                                                                                            |
+| ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| No dynamic image import system              | Gallery images use hardcoded paths in Astro Image components; swapping galleries requires manual file replacement | This is by design — improves performance and SEO. To update, replace files with same names in `public/assets/images/` |
+| `_headers` and `_redirects` in project root | Files won't be deployed unless moved to `public/` folder                                                          | Move both files to `public/` before any Cloudflare Pages deployment                                                   |
+| Hero images preloaded on every page         | Slight performance hit on slower connections                                                                      | Intentional for visual priority; consider adding `fetchpriority="low"` on non-critical pages in future                |
+| Formspree honeypot field                    | Spambots may still probe the endpoint, creating noise in logs                                                     | Monitor dashboard; extremely low false positive rate with current validation                                          |
 
 ---
 
@@ -840,17 +882,17 @@ Replace the file in `public/assets/images/` with the same filename. No code chan
 
 This site was built with Claude (Anthropic) across multiple sessions. If you continue development in a new Claude chat, paste this README as context at the start. Key facts Claude needs:
 
-| Thing | Value |
-|---|---|
-| Site type | Astro 5 SSG — requires build step (`npm run build`), output in `dist/` |
-| Domain | `niopictures.com` — **no hyphen** (nio-pictures.com is wrong) |
-| Formspree endpoint | `https://formspree.io/f/xjgpbyeb` |
-| GA4 Measurement ID | `G-1VZ3GPSWGH` |
-| NiO Chat widget | `<script src="https://chat.niopictures.com/widget.js" defer></script>` |
-| Blog source files | Blog posts are in `src/pages/blog/` — Astro resolves asset paths; static assets served from `public/` at root |
-| External link rel | All external links must use `rel="noopener noreferrer"` |
-| Honeypot field | `id="website"` hidden in both forms — JS discards if populated |
-| CSP must allow | googletagmanager.com, google-analytics.com, chat.niopictures.com, fonts.googleapis.com, fonts.gstatic.com, formspree.io, niopictures.pixieset.com |
-| Favicon | SVG only — PNG versions optional |
-| Copyright year | 2026 |
-| 404 handling | `404.html` is auto-served by Cloudflare Pages — no `_redirects` rule needed |
+| Thing              | Value                                                                                                                                             |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Site type          | Astro 5 SSG — requires build step (`npm run build`), output in `dist/`                                                                            |
+| Domain             | `niopictures.com` — **no hyphen** (nio-pictures.com is wrong)                                                                                     |
+| Formspree endpoint | `https://formspree.io/f/xjgpbyeb`                                                                                                                 |
+| GA4 Measurement ID | `G-1VZ3GPSWGH`                                                                                                                                    |
+| NiO Chat widget    | `<script src="https://chat.niopictures.com/widget.js" defer></script>`                                                                            |
+| Blog source files  | Blog posts are in `src/pages/blog/` — Astro resolves asset paths; static assets served from `public/` at root                                     |
+| External link rel  | All external links must use `rel="noopener noreferrer"`                                                                                           |
+| Honeypot field     | `id="website"` hidden in both forms — JS discards if populated                                                                                    |
+| CSP must allow     | googletagmanager.com, google-analytics.com, chat.niopictures.com, fonts.googleapis.com, fonts.gstatic.com, formspree.io, niopictures.pixieset.com |
+| Favicon            | SVG only — PNG versions optional                                                                                                                  |
+| Copyright year     | 2026                                                                                                                                              |
+| 404 handling       | `404.html` is auto-served by Cloudflare Pages — no `_redirects` rule needed                                                                       |

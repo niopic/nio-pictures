@@ -17,7 +17,12 @@ import aboutPortrait from "../assets/images/about/portrait.jpg";
   ogImage="https://niopictures.com/assets/images/family-hero.webp"
 >
   <fragment slot="head">
-    <link rel="preload" as="image" href="/assets/images/family-hero.webp" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/images/family-hero.webp"
+      fetchpriority="high"
+    />
 
     <script type="application/ld+json" is:inline>
       {
@@ -42,8 +47,18 @@ import aboutPortrait from "../assets/images/about/portrait.jpg";
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-          {"@type":"ListItem","position":1,"name":"Home","item":"https://niopictures.com/"},
-          {"@type":"ListItem","position":2,"name":"Family Photography Katy TX","item":"https://niopictures.com/family-photography-katy-tx.html"}
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://niopictures.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Family Photography Katy TX",
+            "item": "https://niopictures.com/family-photography-katy-tx.html"
+          }
         ]
       }
     </script>
@@ -54,16 +69,36 @@ import aboutPortrait from "../assets/images/about/portrait.jpg";
         "@type": "Service",
         "name": "Family Photography in Katy TX",
         "serviceType": "Family Photography",
-        "provider": {"@id": "https://niopictures.com/#business"},
+        "provider": { "@id": "https://niopictures.com/#business" },
         "areaServed": [
-          {"@type": "City", "name": "Katy", "sameAs": "https://en.wikipedia.org/wiki/Katy,_Texas"},
-          {"@type": "City", "name": "Houston", "sameAs": "https://en.wikipedia.org/wiki/Houston"},
-          {"@type": "City", "name": "Sugar Land", "sameAs": "https://en.wikipedia.org/wiki/Sugar_Land,_Texas"},
-          {"@type": "City", "name": "Richmond", "sameAs": "https://en.wikipedia.org/wiki/Richmond,_Texas"}
+          {
+            "@type": "City",
+            "name": "Katy",
+            "sameAs": "https://en.wikipedia.org/wiki/Katy,_Texas"
+          },
+          {
+            "@type": "City",
+            "name": "Houston",
+            "sameAs": "https://en.wikipedia.org/wiki/Houston"
+          },
+          {
+            "@type": "City",
+            "name": "Sugar Land",
+            "sameAs": "https://en.wikipedia.org/wiki/Sugar_Land,_Texas"
+          },
+          {
+            "@type": "City",
+            "name": "Richmond",
+            "sameAs": "https://en.wikipedia.org/wiki/Richmond,_Texas"
+          }
         ],
         "description": "Heirloom family portraits, lifestyle sessions, and milestone photography in Katy TX and the greater Houston area. Natural, unscripted, emotionally authentic.",
         "url": "https://niopictures.com/family-photography-katy-tx.html",
-        "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "url": "https://niopictures.pixieset.com/booking/"}
+        "offers": {
+          "@type": "Offer",
+          "availability": "https://schema.org/InStock",
+          "url": "https://niopictures.pixieset.com/booking/"
+        }
       }
     </script>
 
@@ -75,49 +110,79 @@ import aboutPortrait from "../assets/images/about/portrait.jpg";
           {
             "@type": "Question",
             "name": "What is heirloom family photography?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Heirloom family photography focuses on creating timeless, emotionally authentic portraits designed to be treasured and passed down for generations. Rather than stiff posed shots, we capture genuine moments - laughter, connection, and the real personality of your family. Images are delivered at full resolution and available to order as wall art, framed prints, and keepsake albums."}
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Heirloom family photography focuses on creating timeless, emotionally authentic portraits designed to be treasured and passed down for generations. Rather than stiff posed shots, we capture genuine moments - laughter, connection, and the real personality of your family. Images are delivered at full resolution and available to order as wall art, framed prints, and keepsake albums."
+            }
           },
           {
             "@type": "Question",
             "name": "How much does a family photography session cost in Katy TX?",
-            "acceptedAnswer": {"@type": "Answer", "text": "NiO Pictures offers three family session packages: Essential at $300 (1 hour, 30 images, delivered within 10 days), Signature at $450 (90 minutes, 50+ images, priority editing within 10 days - most popular), and Premium at $600 (2 hours, 80+ images, priority editing within 7 days, optional keepsake album for $250). All packages include a private online gallery and access to our print and album store. Additional images can be added at $20 each. No hidden fees."}
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "NiO Pictures offers three family session packages: Essential at $300 (1 hour, 30 images, delivered within 10 days), Signature at $450 (90 minutes, 50+ images, priority editing within 10 days - most popular), and Premium at $600 (2 hours, 80+ images, priority editing within 7 days, optional keepsake album for $250). All packages include a private online gallery and access to our print and album store. Additional images can be added at $20 each. No hidden fees."
+            }
           },
           {
             "@type": "Question",
             "name": "Can we order prints, wall art, and albums from our session?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Yes - every session includes access to our Pixieset print store where you can order premium framed prints, large-format wall art, canvas gallery wraps, and handcrafted keepsake albums. These are archival-quality products built to last decades, and are the heart of what heirloom photography is about. Order directly from your private gallery after your session at niopictures.pixieset.com."}
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes - every session includes access to our Pixieset print store where you can order premium framed prints, large-format wall art, canvas gallery wraps, and handcrafted keepsake albums. These are archival-quality products built to last decades, and are the heart of what heirloom photography is about. Order directly from your private gallery after your session at niopictures.pixieset.com."
+            }
           },
           {
             "@type": "Question",
             "name": "Where do you photograph family sessions in Katy TX?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Sessions are available at outdoor locations across Katy, Sugar Land, Houston, Cypress, and Richmond TX - local parks, nature trails, lakefronts, and open fields. In-home lifestyle sessions are also available. Palanivel will help you choose the right location based on your family's style and vision."}
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sessions are available at outdoor locations across Katy, Sugar Land, Houston, Cypress, and Richmond TX - local parks, nature trails, lakefronts, and open fields. In-home lifestyle sessions are also available. Palanivel will help you choose the right location based on your family's style and vision."
+            }
           },
           {
             "@type": "Question",
             "name": "When will I receive my family photos?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Essential and Signature sessions are delivered within 10 days. Premium sessions within 7 days. You'll receive a private Pixieset gallery link where you can view, download, share, and order prints. Rush delivery may be available for select sessions."}
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Essential and Signature sessions are delivered within 10 days. Premium sessions within 7 days. You'll receive a private Pixieset gallery link where you can view, download, share, and order prints. Rush delivery may be available for select sessions."
+            }
           },
           {
             "@type": "Question",
             "name": "What should we wear for family photos?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Coordinated but not matching tends to photograph best. Choose two or three colors - navy, cream, olive, soft grays, and earth tones all work beautifully in the warm Texas light. Solid colors photograph better than bold patterns. Traditional or cultural clothing is absolutely welcome. Palanivel is happy to guide you during booking."}
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Coordinated but not matching tends to photograph best. Choose two or three colors - navy, cream, olive, soft grays, and earth tones all work beautifully in the warm Texas light. Solid colors photograph better than bold patterns. Traditional or cultural clothing is absolutely welcome. Palanivel is happy to guide you during booking."
+            }
           },
           {
             "@type": "Question",
             "name": "Can we bring our pets to the family session?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Yes - pets are welcome and often bring the most joyful moments to a session. Bring a leash, a few treats, and give them a quick brush beforehand. We build time into the session for both posed and candid moments so your pet feels comfortable too."}
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes - pets are welcome and often bring the most joyful moments to a session. Bring a leash, a few treats, and give them a quick brush beforehand. We build time into the session for both posed and candid moments so your pet feels comfortable too."
+            }
           },
           {
             "@type": "Question",
             "name": "Do you photograph families of all cultural backgrounds?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Absolutely. Palanivel's approach is culturally adaptable and he has worked with families from many backgrounds across Katy and Houston. He has a particular appreciation for South Asian and Indian family traditions, and warmly welcomes every family regardless of background."}
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely. Palanivel's approach is culturally adaptable and he has worked with families from many backgrounds across Katy and Houston. He has a particular appreciation for South Asian and Indian family traditions, and warmly welcomes every family regardless of background."
+            }
           }
         ]
       }
     </script>
   </fragment>
 
-  <a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);" onfocus="this.style.top='1rem'" onblur="this.style.top='-40px'">Skip to main content</a>
+  <a
+    href="#main-content"
+    class="skip-link"
+    style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);"
+    onfocus="this.style.top='1rem'"
+    onblur="this.style.top='-40px'">Skip to main content</a
+  >
 
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <a href="/" class="nav-logo">Ni<span>O</span> Pictures</a>
@@ -129,8 +194,15 @@ import aboutPortrait from "../assets/images/about/portrait.jpg";
       <a href="/blog.html">Blog</a>
       <a href="/contact.html">Contact</a>
     </div>
-    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">Book Now</a>
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <a
+      href="https://niopictures.pixieset.com/booking/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn btn-primary nav-cta">Book Now</a
+    >
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"
+      ><span></span><span></span><span></span></button
+    >
   </nav>
 
   <div class="nav-mobile" role="dialog" aria-label="Mobile navigation">
@@ -140,31 +212,62 @@ import aboutPortrait from "../assets/images/about/portrait.jpg";
     <a href="/about.html">About</a>
     <a href="/blog.html">Blog</a>
     <a href="/contact.html">Contact</a>
-    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="nav-mobile-cta">Book a Session</a>
+    <a
+      href="https://niopictures.pixieset.com/booking/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="nav-mobile-cta">Book a Session</a
+    >
   </div>
 
   <main id="main-content">
     <div class="page-hero">
-      <div class="page-hero-bg" style="background-image: url('/assets/images/family-hero.webp'); background-color: #1d1a14;"></div>
+      <div
+        class="page-hero-bg"
+        style="background-image: url('/assets/images/family-hero.webp'); background-color: #1d1a14;"
+      >
+      </div>
       <div class="page-hero-overlay"></div>
       <div class="page-hero-content container">
-        <p class="eyebrow" style="margin-bottom: 1rem;">Portraits - Lifestyle - Legacy</p>
-        <h1 class="display-xl" style="max-width: 680px;">Family<br /><em style="font-style:italic; color:var(--gold);">Heirloom</em><br />Photography</h1>
-        <p class="body-lg" style="max-width: 480px; margin-top: 1rem;">Family photography Katy TX with images built to outlive us: warm, emotional, and made for the walls of homes that matter.</p>
+        <p class="eyebrow" style="margin-bottom: 1rem;">
+          Portraits - Lifestyle - Legacy
+        </p>
+        <h1 class="display-xl" style="max-width: 680px;">
+          Family<br /><em style="font-style:italic; color:var(--gold);"
+            >Heirloom</em
+          ><br />Photography
+        </h1>
+        <p class="body-lg" style="max-width: 480px; margin-top: 1rem;">
+          Family photography Katy TX with images built to outlive us: warm,
+          emotional, and made for the walls of homes that matter.
+        </p>
       </div>
     </div>
 
     <section class="section">
       <div class="container">
-        <div style="max-width: 720px; margin: 0 auto; text-align: center;" class="reveal">
+        <div
+          style="max-width: 720px; margin: 0 auto; text-align: center;"
+          class="reveal"
+        >
           <p class="eyebrow">The Philosophy</p>
           <div class="gold-line center gold-line-animate"></div>
-          <h2 class="display-md" style="margin-bottom: 1.5rem;">Photographs Are the Only<br /><em style="font-style:italic; color:var(--gold);">Heirlooms That Don't Age</em></h2>
+          <h2 class="display-md" style="margin-bottom: 1.5rem;">
+            Photographs Are the Only<br /><em
+              style="font-style:italic; color:var(--gold);"
+              >Heirlooms That Don't Age</em>
+          </h2>
           <p class="body-lg" style="margin-bottom: 1rem;">
-            As your trusted <strong style="color:var(--cream); font-weight:400;">family photographer in Katy, TX</strong>, I believe great portraits are not posed - they are felt. Every session is a collaboration that lets your family's real personality shine through.
+            As your trusted <strong style="color:var(--cream); font-weight:400;"
+              >family photographer in Katy, TX</strong
+            >, I believe great portraits are not posed - they are felt. Every
+            session is a collaboration that lets your family's real personality
+            shine through.
           </p>
           <p class="body-lg">
-            From outdoor lifestyle sessions in Sugar Land's green spaces to cozy in-home portraits, I meet your family exactly where you are - and make the images you'll hang on your walls for decades.
+            From outdoor lifestyle sessions in Sugar Land's green spaces to cozy
+            in-home portraits, I meet your family exactly where you are - and
+            make the images you'll hang on your walls for decades.
           </p>
         </div>
       </div>
@@ -177,12 +280,27 @@ import aboutPortrait from "../assets/images/about/portrait.jpg";
             <div class="feature-icon">◈</div>
             <p class="eyebrow" style="margin-bottom: 0.75rem;">Portraits</p>
             <h3 class="feature-title">Heirloom Family Portraits</h3>
-            <p class="body-sm">Timeless, beautifully composed portraits designed to become the images your family treasures for generations. Classic, intentional, and deeply personal.</p>
-            <ul style="margin-top: 1rem; display:flex; flex-direction:column; gap:0.4rem;">
-              <li class="body-sm" style="display:flex;gap:0.5rem;"><span style="color:var(--gold);">-</span> Indoor and outdoor sessions</li>
-              <li class="body-sm" style="display:flex;gap:0.5rem;"><span style="color:var(--gold);">-</span> Full family and individual portraits</li>
-              <li class="body-sm" style="display:flex;gap:0.5rem;"><span style="color:var(--gold);">-</span> Golden hour preferred timing</li>
-              <li class="body-sm" style="display:flex;gap:0.5rem;"><span style="color:var(--gold);">-</span> Print-ready final images</li>
+            <p class="body-sm">
+              Timeless, beautifully composed portraits designed to become the
+              images your family treasures for generations. Classic,
+              intentional, and deeply personal.
+            </p>
+            <ul
+              style="margin-top: 1rem; display:flex; flex-direction:column; gap:0.4rem;"
+            >
+              <li class="body-sm" style="display:flex;gap:0.5rem;">
+                <span style="color:var(--gold);">-</span> Indoor and outdoor sessions
+              </li>
+              <li class="body-sm" style="display:flex;gap:0.5rem;">
+                <span style="color:var(--gold);">-</span> Full family and individual
+                portraits
+              </li>
+              <li class="body-sm" style="display:flex;gap:0.5rem;">
+                <span style="color:var(--gold);">-</span> Golden hour preferred timing
+              </li>
+              <li class="body-sm" style="display:flex;gap:0.5rem;">
+                <span style="color:var(--gold);">-</span> Print-ready final images
+              </li>
             </ul>
           </article>
 
@@ -190,12 +308,26 @@ import aboutPortrait from "../assets/images/about/portrait.jpg";
             <div class="feature-icon">◇</div>
             <p class="eyebrow" style="margin-bottom: 0.75rem;">Lifestyle</p>
             <h3 class="feature-title">Lifestyle Sessions</h3>
-            <p class="body-sm">Natural, documentary-style photography that captures your family in motion - cooking together, playing in the yard, reading before bed. Real life, beautifully preserved.</p>
-            <ul style="margin-top: 1rem; display:flex; flex-direction:column; gap:0.4rem;">
-              <li class="body-sm" style="display:flex;gap:0.5rem;"><span style="color:var(--gold);">-</span> In-home or outdoor location</li>
-              <li class="body-sm" style="display:flex;gap:0.5rem;"><span style="color:var(--gold);">-</span> Candid, unscripted approach</li>
-              <li class="body-sm" style="display:flex;gap:0.5rem;"><span style="color:var(--gold);">-</span> Kids and pets welcome</li>
-              <li class="body-sm" style="display:flex;gap:0.5rem;"><span style="color:var(--gold);">-</span> 1 to 2 hour sessions</li>
+            <p class="body-sm">
+              Natural, documentary-style photography that captures your family
+              in motion - cooking together, playing in the yard, reading before
+              bed. Real life, beautifully preserved.
+            </p>
+            <ul
+              style="margin-top: 1rem; display:flex; flex-direction:column; gap:0.4rem;"
+            >
+              <li class="body-sm" style="display:flex;gap:0.5rem;">
+                <span style="color:var(--gold);">-</span> In-home or outdoor location
+              </li>
+              <li class="body-sm" style="display:flex;gap:0.5rem;">
+                <span style="color:var(--gold);">-</span> Candid, unscripted approach
+              </li>
+              <li class="body-sm" style="display:flex;gap:0.5rem;">
+                <span style="color:var(--gold);">-</span> Kids and pets welcome
+              </li>
+              <li class="body-sm" style="display:flex;gap:0.5rem;">
+                <span style="color:var(--gold);">-</span> 1 to 2 hour sessions
+              </li>
             </ul>
           </article>
 
@@ -203,44 +335,105 @@ import aboutPortrait from "../assets/images/about/portrait.jpg";
             <div class="feature-icon">◉</div>
             <p class="eyebrow" style="margin-bottom: 0.75rem;">Milestones</p>
             <h3 class="feature-title">Milestone Sessions</h3>
-            <p class="body-sm">Anniversaries, housewarmings, birthday celebrations, and new beginnings. Every milestone deserves imagery as meaningful as the moment itself.</p>
-            <ul style="margin-top: 1rem; display:flex; flex-direction:column; gap:0.4rem;">
-              <li class="body-sm" style="display:flex;gap:0.5rem;"><span style="color:var(--gold);">-</span> Anniversaries and renewals</li>
-              <li class="body-sm" style="display:flex;gap:0.5rem;"><span style="color:var(--gold);">-</span> Housewarming celebrations</li>
-              <li class="body-sm" style="display:flex;gap:0.5rem;"><span style="color:var(--gold);">-</span> Milestone birthdays</li>
-              <li class="body-sm" style="display:flex;gap:0.5rem;"><span style="color:var(--gold);">-</span> New family additions</li>
+            <p class="body-sm">
+              Anniversaries, housewarmings, birthday celebrations, and new
+              beginnings. Every milestone deserves imagery as meaningful as the
+              moment itself.
+            </p>
+            <ul
+              style="margin-top: 1rem; display:flex; flex-direction:column; gap:0.4rem;"
+            >
+              <li class="body-sm" style="display:flex;gap:0.5rem;">
+                <span style="color:var(--gold);">-</span> Anniversaries and renewals
+              </li>
+              <li class="body-sm" style="display:flex;gap:0.5rem;">
+                <span style="color:var(--gold);">-</span> Housewarming celebrations
+              </li>
+              <li class="body-sm" style="display:flex;gap:0.5rem;">
+                <span style="color:var(--gold);">-</span> Milestone birthdays
+              </li>
+              <li class="body-sm" style="display:flex;gap:0.5rem;">
+                <span style="color:var(--gold);">-</span> New family additions
+              </li>
             </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section" style="background: var(--surface); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+    <section
+      class="section"
+      style="background: var(--surface); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);"
+    >
       <div class="container">
-        <div class="family-layout-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 8vw, 7rem); align-items: center;">
+        <div
+          class="family-layout-grid"
+          style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 8vw, 7rem); align-items: center;"
+        >
           <div class="reveal">
             <p class="eyebrow" style="margin-bottom: 1rem;">Why It Matters</p>
             <div class="gold-line gold-line-animate"></div>
-            <h2 class="display-md" style="margin-bottom: 1.5rem;">Katy, TX Families<br />Trust Me With Their<br /><em style="font-style:italic; color:var(--gold);">Most Precious Moments</em></h2>
+            <h2 class="display-md" style="margin-bottom: 1.5rem;">
+              Katy, TX Families<br />Trust Me With Their<br /><em
+                style="font-style:italic; color:var(--gold);"
+                >Most Precious Moments</em>
+            </h2>
             <p class="body-lg" style="margin-bottom: 1.25rem;">
-              We serve families throughout <strong style="color:var(--cream); font-weight:400;">Katy, Sugar Land, Houston, and Richmond, TX</strong> - and every session is treated as if it is my own family in the frame.
+              We serve families throughout <strong
+                style="color:var(--cream); font-weight:400;"
+                >Katy, Sugar Land, Houston, and Richmond, TX</strong
+              > - and every session is treated as if it is my own family in the frame.
             </p>
             <p class="body-lg" style="margin-bottom: 2rem;">
-              The warmth of Texas golden hour. The laughter that cannot be planned. The quiet moment between a parent and child. These are the images that will matter most - not in five years, but in fifty.
+              The warmth of Texas golden hour. The laughter that cannot be
+              planned. The quiet moment between a parent and child. These are
+              the images that will matter most - not in five years, but in
+              fifty.
             </p>
-            <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-gold-outline btn-arrow">Book Family Session</a>
+            <a
+              href="https://niopictures.pixieset.com/booking/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-gold-outline btn-arrow">Book Family Session</a
+            >
           </div>
 
-          <div class="family-image-grid reveal reveal-delay-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
-            <div style="aspect-ratio: 3/4; overflow: hidden; border-radius: 2px;">
-              <Image src={familyPanel} alt="Heirloom family portrait session with warm golden light and close family connection in Katy TX" loading="lazy" width={400} height={533} style="width:100%;height:100%;object-fit:cover;background:var(--surface-2)" />
+          <div
+            class="family-image-grid reveal reveal-delay-2"
+            style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;"
+          >
+            <div
+              style="aspect-ratio: 3/4; overflow: hidden; border-radius: 2px;"
+            >
+              <Image
+                src={familyPanel}
+                alt="Heirloom family portrait session with warm golden light and close family connection in Katy TX"
+                loading="lazy"
+                width={400}
+                height={533}
+                style="width:100%;height:100%;object-fit:cover;background:var(--surface-2)"
+              />
             </div>
             <div style="display:flex; flex-direction:column; gap:0.75rem;">
               <div style="flex:1; overflow:hidden; border-radius:2px;">
-                <Image src={aboutMain} alt="Lifestyle family photography session showing parents and children relaxing together outdoors in Sugar Land" loading="lazy" width={400} height={300} style="width:100%;height:100%;object-fit:cover;background:var(--surface-2)" />
+                <Image
+                  src={aboutMain}
+                  alt="Lifestyle family photography session showing parents and children relaxing together outdoors in Sugar Land"
+                  loading="lazy"
+                  width={400}
+                  height={300}
+                  style="width:100%;height:100%;object-fit:cover;background:var(--surface-2)"
+                />
               </div>
               <div style="flex:1; overflow:hidden; border-radius:2px;">
-                <Image src={familyHero} alt="Family portrait session capturing parents and children laughing together during golden hour in Houston TX" loading="lazy" width={400} height={300} style="width:100%;height:100%;object-fit:cover;background:var(--surface-2)" />
+                <Image
+                  src={familyHero}
+                  alt="Family portrait session capturing parents and children laughing together during golden hour in Houston TX"
+                  loading="lazy"
+                  width={400}
+                  height={300}
+                  style="width:100%;height:100%;object-fit:cover;background:var(--surface-2)"
+                />
               </div>
             </div>
           </div>
@@ -250,12 +443,29 @@ import aboutPortrait from "../assets/images/about/portrait.jpg";
 
     <section class="section">
       <div class="container" style="max-width: 800px;">
-        <div class="testimonial-card reveal" style="text-align:center; padding: 3.5rem 3rem;">
-          <div class="testimonial-stars" style="justify-content:center; display:flex; margin-bottom:1rem;">★★★★★</div>
-          <p class="testimonial-text" style="font-size: clamp(1.1rem, 2vw, 1.4rem); text-align:center;">
-            "I was nervous about a family photo session but NiO Pictures made us all feel so comfortable. My kids were laughing and actually having fun - and the images look absolutely stunning. These are the portraits I'll treasure forever."
+        <div
+          class="testimonial-card reveal"
+          style="text-align:center; padding: 3.5rem 3rem;"
+        >
+          <div
+            class="testimonial-stars"
+            style="justify-content:center; display:flex; margin-bottom:1rem;"
+          >
+            ★★★★★
+          </div>
+          <p
+            class="testimonial-text"
+            style="font-size: clamp(1.1rem, 2vw, 1.4rem); text-align:center;"
+          >
+            "I was nervous about a family photo session but NiO Pictures made us
+            all feel so comfortable. My kids were laughing and actually having
+            fun - and the images look absolutely stunning. These are the
+            portraits I'll treasure forever."
           </p>
-          <div class="testimonial-author" style="justify-content:center; margin-top:1.5rem;">
+          <div
+            class="testimonial-author"
+            style="justify-content:center; margin-top:1.5rem;"
+          >
             <div class="testimonial-avatar">SM</div>
             <div>
               <div class="testimonial-name">Sarah M.</div>
@@ -274,76 +484,279 @@ import aboutPortrait from "../assets/images/about/portrait.jpg";
           <h2 class="display-md">From the Portrait Sessions</h2>
         </div>
         <div class="featured-grid reveal reveal-delay-1">
-          <div class="grid-item"><Image src={familyHero} alt="Outdoor family portrait session in warm evening golden hour light in Sugar Land TX" loading="lazy" width={800} height={600} sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" style="background:var(--surface-2)" /></div>
-          <div class="grid-item"><Image src={familyPanel} alt="Lifestyle family photography capturing natural movement and genuine connection in Katy TX" loading="lazy" width={400} height={533} sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" style="background:var(--surface-2)" /></div>
-          <div class="grid-item"><Image src={aboutPortrait} alt="Heirloom portrait session with soft natural light and intimate family moment in Houston TX" loading="lazy" width={400} height={533} sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" style="background:var(--surface-2)" /></div>
-          <div class="grid-item"><Image src={aboutMain} alt="Family milestone photography capturing young children and parents during special celebration in Richmond TX" loading="lazy" width={400} height={533} sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" style="background:var(--surface-2)" /></div>
-          <div class="grid-item"><Image src={eventsPanel} alt="Candid outdoor family portrait session in autumn light in Katy TX park setting" loading="lazy" width={400} height={533} sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" style="background:var(--surface-2)" /></div>
-          <div class="grid-item"><Image src={eventsHero} alt="Anniversary portrait photography capturing couple together during outdoor golden hour session in Sugar Land TX" loading="lazy" width={800} height={600} sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" style="background:var(--surface-2)" /></div>
+          <div class="grid-item">
+            <Image
+              src={familyHero}
+              alt="Outdoor family portrait session in warm evening golden hour light in Sugar Land TX"
+              loading="lazy"
+              width={800}
+              height={600}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              style="background:var(--surface-2)"
+            />
+          </div>
+          <div class="grid-item">
+            <Image
+              src={familyPanel}
+              alt="Lifestyle family photography capturing natural movement and genuine connection in Katy TX"
+              loading="lazy"
+              width={400}
+              height={533}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              style="background:var(--surface-2)"
+            />
+          </div>
+          <div class="grid-item">
+            <Image
+              src={aboutPortrait}
+              alt="Heirloom portrait session with soft natural light and intimate family moment in Houston TX"
+              loading="lazy"
+              width={400}
+              height={533}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              style="background:var(--surface-2)"
+            />
+          </div>
+          <div class="grid-item">
+            <Image
+              src={aboutMain}
+              alt="Family milestone photography capturing young children and parents during special celebration in Richmond TX"
+              loading="lazy"
+              width={400}
+              height={533}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              style="background:var(--surface-2)"
+            />
+          </div>
+          <div class="grid-item">
+            <Image
+              src={eventsPanel}
+              alt="Candid outdoor family portrait session in autumn light in Katy TX park setting"
+              loading="lazy"
+              width={400}
+              height={533}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              style="background:var(--surface-2)"
+            />
+          </div>
+          <div class="grid-item">
+            <Image
+              src={eventsHero}
+              alt="Anniversary portrait photography capturing couple together during outdoor golden hour session in Sugar Land TX"
+              loading="lazy"
+              width={800}
+              height={600}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              style="background:var(--surface-2)"
+            />
+          </div>
         </div>
         <div style="text-align:center; margin-top:3rem;" class="reveal">
-          <a href="https://niopictures.pixieset.com/" target="_blank" rel="noopener noreferrer" class="btn btn-gold-outline btn-arrow">View Full Family Gallery</a>
+          <a
+            href="https://niopictures.pixieset.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-gold-outline btn-arrow">View Full Family Gallery</a
+          >
         </div>
       </div>
     </section>
 
-    <section class="section" style="background: var(--surface); border-top: 1px solid var(--border-light);" id="pricing">
+    <section
+      class="section"
+      style="background: var(--surface); border-top: 1px solid var(--border-light);"
+      id="pricing"
+    >
       <div class="container">
         <div class="section-header center reveal">
           <p class="eyebrow">Session Packages</p>
           <div class="gold-line center gold-line-animate"></div>
           <h2 class="display-md">Simple, Transparent Pricing</h2>
-          <p class="body-lg" style="max-width:540px; margin: 1rem auto 0;">Every package includes professionally edited, high-resolution images delivered via your private online gallery - no watermarks, no hidden fees.</p>
+          <p class="body-lg" style="max-width:540px; margin: 1rem auto 0;">
+            Every package includes professionally edited, high-resolution images
+            delivered via your private online gallery - no watermarks, no hidden
+            fees.
+          </p>
         </div>
 
-        <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:1px; background:var(--border-light); border:1px solid var(--border-light); border-radius:2px; overflow:hidden; max-width:900px; margin:0 auto;" class="reveal reveal-delay-1">
+        <div
+          style="display:grid; grid-template-columns: repeat(3, 1fr); gap:1px; background:var(--border-light); border:1px solid var(--border-light); border-radius:2px; overflow:hidden; max-width:900px; margin:0 auto;"
+          class="reveal reveal-delay-1"
+        >
           <div style="background:var(--black); padding:2.5rem 2rem;">
-            <p style="font-family:var(--font-accent);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;">Essential</p>
-            <p style="font-family:var(--font-display);font-size:3rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:0.25rem;">$300</p>
-            <p style="font-size:0.8rem;color:var(--muted);margin-bottom:1.5rem;">1 hour session</p>
-            <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;">
-              <li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"><span style="color:var(--gold);">✓</span> 30 edited images</li>
-              <li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"><span style="color:var(--gold);">✓</span> Private online gallery</li>
-              <li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"><span style="color:var(--gold);">✓</span> Delivered within 10 days</li>
-              <li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"><span style="color:var(--gold);">✓</span> Print and album ordering</li>
+            <p
+              style="font-family:var(--font-accent);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;"
+            >
+              Essential
+            </p>
+            <p
+              style="font-family:var(--font-display);font-size:3rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:0.25rem;"
+            >
+              $300
+            </p>
+            <p
+              style="font-size:0.8rem;color:var(--muted);margin-bottom:1.5rem;"
+            >
+              1 hour session
+            </p>
+            <ul
+              style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;"
+            >
+              <li
+                style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"
+              >
+                <span style="color:var(--gold);">✓</span> 30 edited images
+              </li>
+              <li
+                style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"
+              >
+                <span style="color:var(--gold);">✓</span> Private online gallery
+              </li>
+              <li
+                style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"
+              >
+                <span style="color:var(--gold);">✓</span> Delivered within 10 days
+              </li>
+              <li
+                style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"
+              >
+                <span style="color:var(--gold);">✓</span> Print and album ordering
+              </li>
             </ul>
           </div>
 
-          <div style="background:var(--surface); padding:2.5rem 2rem; position:relative;">
-            <div style="position:absolute;top:0;left:0;right:0;background:var(--gold);color:var(--black);font-family:var(--font-accent);font-size:0.55rem;letter-spacing:0.16em;text-transform:uppercase;text-align:center;padding:0.35rem;">Most Popular</div>
-            <p style="font-family:var(--font-accent);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;margin-top:1.25rem;">Signature</p>
-            <p style="font-family:var(--font-display);font-size:3rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:0.25rem;">$450</p>
-            <p style="font-size:0.8rem;color:var(--muted);margin-bottom:1.5rem;">90 minute session</p>
-            <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;">
-              <li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"><span style="color:var(--gold);">✓</span> 50+ edited images</li>
-              <li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"><span style="color:var(--gold);">✓</span> Private online gallery</li>
-              <li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"><span style="color:var(--gold);">✓</span> Priority editing - 10 days</li>
-              <li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"><span style="color:var(--gold);">✓</span> Print and album ordering</li>
-              <li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"><span style="color:var(--gold);">✓</span> Extra images at $20 each</li>
+          <div
+            style="background:var(--surface); padding:2.5rem 2rem; position:relative;"
+          >
+            <div
+              style="position:absolute;top:0;left:0;right:0;background:var(--gold);color:var(--black);font-family:var(--font-accent);font-size:0.55rem;letter-spacing:0.16em;text-transform:uppercase;text-align:center;padding:0.35rem;"
+            >
+              Most Popular
+            </div>
+            <p
+              style="font-family:var(--font-accent);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;margin-top:1.25rem;"
+            >
+              Signature
+            </p>
+            <p
+              style="font-family:var(--font-display);font-size:3rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:0.25rem;"
+            >
+              $450
+            </p>
+            <p
+              style="font-size:0.8rem;color:var(--muted);margin-bottom:1.5rem;"
+            >
+              90 minute session
+            </p>
+            <ul
+              style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;"
+            >
+              <li
+                style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"
+              >
+                <span style="color:var(--gold);">✓</span> 50+ edited images
+              </li>
+              <li
+                style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"
+              >
+                <span style="color:var(--gold);">✓</span> Private online gallery
+              </li>
+              <li
+                style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"
+              >
+                <span style="color:var(--gold);">✓</span> Priority editing - 10 days
+              </li>
+              <li
+                style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"
+              >
+                <span style="color:var(--gold);">✓</span> Print and album ordering
+              </li>
+              <li
+                style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"
+              >
+                <span style="color:var(--gold);">✓</span> Extra images at $20 each
+              </li>
             </ul>
           </div>
 
           <div style="background:var(--black); padding:2.5rem 2rem;">
-            <p style="font-family:var(--font-accent);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;">Premium</p>
-            <p style="font-family:var(--font-display);font-size:3rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:0.25rem;">$600</p>
-            <p style="font-size:0.8rem;color:var(--muted);margin-bottom:1.5rem;">2 hour session</p>
-            <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;">
-              <li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"><span style="color:var(--gold);">✓</span> 80+ edited images</li>
-              <li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"><span style="color:var(--gold);">✓</span> Private online gallery</li>
-              <li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"><span style="color:var(--gold);">✓</span> Priority editing - 7 days</li>
-              <li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"><span style="color:var(--gold);">✓</span> Print and album ordering</li>
-              <li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"><span style="color:var(--gold);">✓</span> Optional keepsake album +$250</li>
+            <p
+              style="font-family:var(--font-accent);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;"
+            >
+              Premium
+            </p>
+            <p
+              style="font-family:var(--font-display);font-size:3rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:0.25rem;"
+            >
+              $600
+            </p>
+            <p
+              style="font-size:0.8rem;color:var(--muted);margin-bottom:1.5rem;"
+            >
+              2 hour session
+            </p>
+            <ul
+              style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;"
+            >
+              <li
+                style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"
+              >
+                <span style="color:var(--gold);">✓</span> 80+ edited images
+              </li>
+              <li
+                style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"
+              >
+                <span style="color:var(--gold);">✓</span> Private online gallery
+              </li>
+              <li
+                style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"
+              >
+                <span style="color:var(--gold);">✓</span> Priority editing - 7 days
+              </li>
+              <li
+                style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"
+              >
+                <span style="color:var(--gold);">✓</span> Print and album ordering
+              </li>
+              <li
+                style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.5rem;"
+              >
+                <span style="color:var(--gold);">✓</span> Optional keepsake album
+                +$250
+              </li>
             </ul>
           </div>
         </div>
 
-        <div style="max-width:900px; margin:1.5rem auto 0; background:var(--surface-2); border:1px solid var(--border); border-radius:2px; padding:1.5rem 2rem; display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;" class="reveal">
+        <div
+          style="max-width:900px; margin:1.5rem auto 0; background:var(--surface-2); border:1px solid var(--border); border-radius:2px; padding:1.5rem 2rem; display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;"
+          class="reveal"
+        >
           <div style="flex:1; min-width:220px;">
-            <p style="font-family:var(--font-accent);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;">The Heirloom Difference</p>
-            <p style="font-size:0.9rem;color:var(--cream);font-weight:400;margin-bottom:0.3rem;">Prints, Wall Art and Keepsake Albums</p>
-            <p style="font-size:0.83rem;color:var(--muted);line-height:1.65;">Every package includes access to my print store - order framed prints, large-format wall art, and handcrafted albums directly from your private gallery. These are the products built to last generations.</p>
+            <p
+              style="font-family:var(--font-accent);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;"
+            >
+              The Heirloom Difference
+            </p>
+            <p
+              style="font-size:0.9rem;color:var(--cream);font-weight:400;margin-bottom:0.3rem;"
+            >
+              Prints, Wall Art and Keepsake Albums
+            </p>
+            <p style="font-size:0.83rem;color:var(--muted);line-height:1.65;">
+              Every package includes access to my print store - order framed
+              prints, large-format wall art, and handcrafted albums directly
+              from your private gallery. These are the products built to last
+              generations.
+            </p>
           </div>
-          <a href="https://niopictures.pixieset.com/" target="_blank" rel="noopener noreferrer" class="btn btn-gold-outline btn-arrow btn-nowrap">Browse Print Shop</a>
+          <a
+            href="https://niopictures.pixieset.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-gold-outline btn-arrow btn-nowrap"
+            >Browse Print Shop</a
+          >
         </div>
       </div>
     </section>
@@ -355,51 +768,183 @@ import aboutPortrait from "../assets/images/about/portrait.jpg";
           <div class="gold-line center gold-line-animate"></div>
           <h2 class="display-md">Family Photography FAQs</h2>
         </div>
-        <div style="display:flex; flex-direction:column; gap:0;" class="reveal reveal-delay-1">
-          <details style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;" open>
-            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">What is heirloom family photography?<span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">+</span></summary>
-            <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">Heirloom family photography focuses on creating timeless, emotionally authentic portraits designed to be treasured - and eventually passed down - for generations. Rather than stiff posed shots, the goal is to capture genuine moments: the laughter, the quiet glances, the real connections that make your family yours. Images are delivered at full resolution and available to order as wall art, framed prints, and keepsake albums.</p>
+        <div
+          style="display:flex; flex-direction:column; gap:0;"
+          class="reveal reveal-delay-1"
+        >
+          <details
+            style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
+            open
+          >
+            <summary
+              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
+              >What is heirloom family photography?<span
+                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
+                >+</span
+              ></summary
+            >
+            <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
+              Heirloom family photography focuses on creating timeless,
+              emotionally authentic portraits designed to be treasured - and
+              eventually passed down - for generations. Rather than stiff posed
+              shots, the goal is to capture genuine moments: the laughter, the
+              quiet glances, the real connections that make your family yours.
+              Images are delivered at full resolution and available to order as
+              wall art, framed prints, and keepsake albums.
+            </p>
           </details>
 
-          <details style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;">
-            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">How much does a family photography session cost?<span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">+</span></summary>
+          <details
+            style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
+          >
+            <summary
+              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
+              >How much does a family photography session cost?<span
+                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
+                >+</span
+              ></summary
+            >
             <div style="margin-top:1rem; padding-right:2rem;">
-              <p class="body-sm" style="margin-bottom:0.75rem;">Sessions are offered in three tiers - all include professionally edited images, a private online gallery, and access to my print and album store:</p>
-              <p class="body-sm"><strong style="color:var(--cream);">Essential - $300:</strong> 1 hour, 30 images, delivered within 10 days.</p>
-              <p class="body-sm" style="margin-top:0.4rem;"><strong style="color:var(--cream);">Signature - $450:</strong> 90 minutes, 50+ images, priority editing within 10 days. Most popular.</p>
-              <p class="body-sm" style="margin-top:0.4rem;"><strong style="color:var(--cream);">Premium - $600:</strong> 2 hours, 80+ images, priority editing within 7 days. Optional keepsake album available for $250.</p>
-              <p class="body-sm" style="margin-top:0.75rem;">Additional images can be added at $20 each. No hidden fees.</p>
+              <p class="body-sm" style="margin-bottom:0.75rem;">
+                Sessions are offered in three tiers - all include professionally
+                edited images, a private online gallery, and access to my print
+                and album store:
+              </p>
+              <p class="body-sm">
+                <strong style="color:var(--cream);">Essential - $300:</strong> 1 hour,
+                30 images, delivered within 10 days.
+              </p>
+              <p class="body-sm" style="margin-top:0.4rem;">
+                <strong style="color:var(--cream);">Signature - $450:</strong> 90
+                minutes, 50+ images, priority editing within 10 days. Most popular.
+              </p>
+              <p class="body-sm" style="margin-top:0.4rem;">
+                <strong style="color:var(--cream);">Premium - $600:</strong> 2 hours,
+                80+ images, priority editing within 7 days. Optional keepsake album
+                available for $250.
+              </p>
+              <p class="body-sm" style="margin-top:0.75rem;">
+                Additional images can be added at $20 each. No hidden fees.
+              </p>
             </div>
           </details>
 
-          <details style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;">
-            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">Can we order prints, wall art, and albums?<span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">+</span></summary>
-            <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">Absolutely - and this is the heart of what heirloom photography is about. Every session comes with access to my Pixieset print store where you can order premium framed prints, large-format wall art, canvas gallery wraps, and handcrafted 10x10 keepsake albums. These are archival-quality products built to last decades. You can browse and order directly from your private gallery after your session.</p>
+          <details
+            style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
+          >
+            <summary
+              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
+              >Can we order prints, wall art, and albums?<span
+                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
+                >+</span
+              ></summary
+            >
+            <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
+              Absolutely - and this is the heart of what heirloom photography is
+              about. Every session comes with access to my Pixieset print store
+              where you can order premium framed prints, large-format wall art,
+              canvas gallery wraps, and handcrafted 10x10 keepsake albums. These
+              are archival-quality products built to last decades. You can
+              browse and order directly from your private gallery after your
+              session.
+            </p>
           </details>
 
-          <details style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;">
-            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">Where do you photograph family sessions?<span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">+</span></summary>
-            <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">Sessions are available at outdoor locations across Katy, Sugar Land, Houston, Cypress, and Richmond TX - local parks, nature trails, lakefronts, and open fields. In-home lifestyle sessions are also available for families who prefer a natural, everyday setting. Palanivel will help you choose the right location based on your family's style and the look you are going for.</p>
+          <details
+            style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
+          >
+            <summary
+              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
+              >Where do you photograph family sessions?<span
+                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
+                >+</span
+              ></summary
+            >
+            <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
+              Sessions are available at outdoor locations across Katy, Sugar
+              Land, Houston, Cypress, and Richmond TX - local parks, nature
+              trails, lakefronts, and open fields. In-home lifestyle sessions
+              are also available for families who prefer a natural, everyday
+              setting. Palanivel will help you choose the right location based
+              on your family's style and the look you are going for.
+            </p>
           </details>
 
-          <details style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;">
-            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">When will I receive my photos?<span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">+</span></summary>
-            <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">Essential and Signature sessions are delivered within 10 days. Premium sessions within 7 days. You will receive a link to your private Pixieset gallery where you can view, download, share, and order prints - all in one place. Rush delivery may be available for select sessions; contact me to discuss.</p>
+          <details
+            style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
+          >
+            <summary
+              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
+              >When will I receive my photos?<span
+                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
+                >+</span
+              ></summary
+            >
+            <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
+              Essential and Signature sessions are delivered within 10 days.
+              Premium sessions within 7 days. You will receive a link to your
+              private Pixieset gallery where you can view, download, share, and
+              order prints - all in one place. Rush delivery may be available
+              for select sessions; contact me to discuss.
+            </p>
           </details>
 
-          <details style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;">
-            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">What should we wear?<span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">+</span></summary>
-            <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">Coordinated but not matching tends to photograph best. Choose two or three colors across the family - navy, cream, olive, soft grays, and earth tones all work beautifully in the warm Texas light. Solid colors photograph better than bold patterns. Comfort always comes first, and traditional or cultural clothing is absolutely welcome - those details add genuine warmth and character to portraits. Palanivel is happy to guide you during booking.</p>
+          <details
+            style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
+          >
+            <summary
+              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
+              >What should we wear?<span
+                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
+                >+</span
+              ></summary
+            >
+            <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
+              Coordinated but not matching tends to photograph best. Choose two
+              or three colors across the family - navy, cream, olive, soft
+              grays, and earth tones all work beautifully in the warm Texas
+              light. Solid colors photograph better than bold patterns. Comfort
+              always comes first, and traditional or cultural clothing is
+              absolutely welcome - those details add genuine warmth and
+              character to portraits. Palanivel is happy to guide you during
+              booking.
+            </p>
           </details>
 
-          <details style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;">
-            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">Can we bring our pets?<span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">+</span></summary>
-            <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">Yes - pets are absolutely welcome and often bring the most joyful, unscripted moments to a session. Bring a leash, a few treats, and give them a quick brush beforehand. I will build time into the session for both posed and candid moments so your pet feels as relaxed as everyone else.</p>
+          <details
+            style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
+          >
+            <summary
+              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
+              >Can we bring our pets?<span
+                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
+                >+</span
+              ></summary
+            >
+            <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
+              Yes - pets are absolutely welcome and often bring the most joyful,
+              unscripted moments to a session. Bring a leash, a few treats, and
+              give them a quick brush beforehand. I will build time into the
+              session for both posed and candid moments so your pet feels as
+              relaxed as everyone else.
+            </p>
           </details>
 
           <details style="padding: 1.5rem 0;">
-            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">Do you work with families of all cultural backgrounds?<span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">+</span></summary>
-            <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">Absolutely. Palanivel's approach is culturally adaptable and he has worked with families from many different backgrounds across Katy and Houston. He has a particular appreciation for South Asian and Indian family traditions - and he warmly welcomes every family, regardless of background.</p>
+            <summary
+              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
+              >Do you work with families of all cultural backgrounds?<span
+                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
+                >+</span
+              ></summary
+            >
+            <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
+              Absolutely. Palanivel's approach is culturally adaptable and he
+              has worked with families from many different backgrounds across
+              Katy and Houston. He has a particular appreciation for South Asian
+              and Indian family traditions - and he warmly welcomes every
+              family, regardless of background.
+            </p>
           </details>
         </div>
       </div>
@@ -407,12 +952,28 @@ import aboutPortrait from "../assets/images/about/portrait.jpg";
 
     <section class="cta-banner reveal" aria-label="Book a family session">
       <div class="container">
-        <p class="eyebrow" style="margin-bottom:1.25rem;">Book a Family Session</p>
-        <h2 class="display-md" style="margin-bottom:1rem; max-width:520px; margin-left:auto; margin-right:auto;">The Moments That Matter<br /><em style="font-style:italic; color:var(--gold);">Deserve to Last Forever</em></h2>
-        <p class="body-lg" style="max-width:400px; margin: 0 auto 2.5rem;">Sessions available throughout Katy, Houston, Sugar Land, and Richmond, TX.</p>
-        <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-arrow">Book Family Session</a>
+        <p class="eyebrow" style="margin-bottom:1.25rem;">
+          Book a Family Session
+        </p>
+        <h2
+          class="display-md"
+          style="margin-bottom:1rem; max-width:520px; margin-left:auto; margin-right:auto;"
+        >
+          The Moments That Matter<br /><em
+            style="font-style:italic; color:var(--gold);"
+            >Deserve to Last Forever</em>
+        </h2>
+        <p class="body-lg" style="max-width:400px; margin: 0 auto 2.5rem;">
+          Sessions available throughout Katy, Houston, Sugar Land, and Richmond,
+          TX.
+        </p>
+        <a
+          href="https://niopictures.pixieset.com/booking/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary btn-arrow">Book Family Session</a
+        >
       </div>
     </section>
   </main>
 </BaseLayout>
-

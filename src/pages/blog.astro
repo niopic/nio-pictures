@@ -1,7 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const title = "Blog | Photography Tips, Stories \u0026 Guides | NiO Pictures Katy TX";
-const description = "The NiO Pictures blog — photography tips, session guides, behind-the-lens stories, and advice for families and event clients in Katy TX and Houston.";
+const title =
+  "Blog | Photography Tips, Stories \u0026 Guides | NiO Pictures Katy TX";
+const description =
+  "The NiO Pictures blog — photography tips, session guides, behind-the-lens stories, and advice for families and event clients in Katy TX and Houston.";
 const canonical = "https://niopictures.com/blog.html";
 const ogImage = "https://niopictures.com/assets/images/og-home.webp";
 const extraHead = `<script type="application/ld+json">
@@ -26,9 +28,21 @@ const extraHead = `<script type="application/ld+json">
   <\/script>`;
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage} extraStyles={["/assets/css/blog.css"]}>
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  extraStyles={["/assets/css/blog.css"]}
+>
   <Fragment slot="head" set:html={extraHead} />
-<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);" onfocus="this.style.top='1rem'" onblur="this.style.top='-40px'">Skip to main content</a>
+  <a
+    href="#main-content"
+    class="skip-link"
+    style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);"
+    onfocus="this.style.top='1rem'"
+    onblur="this.style.top='-40px'">Skip to main content</a
+  >
 
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <a href="/" class="nav-logo">Ni<span>O</span> Pictures</a>
@@ -40,8 +54,15 @@ const extraHead = `<script type="application/ld+json">
       <a href="/blog.html" class="active">Blog</a>
       <a href="/contact.html">Contact</a>
     </div>
-    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">Book Now</a>
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <a
+      href="https://niopictures.pixieset.com/booking/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn btn-primary nav-cta">Book Now</a
+    >
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"
+      ><span></span><span></span><span></span></button
+    >
   </nav>
 
   <div class="nav-mobile" role="dialog" aria-label="Mobile navigation">
@@ -51,7 +72,12 @@ const extraHead = `<script type="application/ld+json">
     <a href="/about.html">About</a>
     <a href="/blog.html">Blog</a>
     <a href="/contact.html">Contact</a>
-    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="nav-mobile-cta">Book a Session →</a>
+    <a
+      href="https://niopictures.pixieset.com/booking/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="nav-mobile-cta">Book a Session →</a
+    >
   </div>
 
   <!-- ── Header ─────────────────────────────────────────────── -->
@@ -60,8 +86,13 @@ const extraHead = `<script type="application/ld+json">
       <div>
         <p class="eyebrow" style="margin-bottom:1rem;">From the Studio</p>
         <div class="gold-line gold-line-animate"></div>
-        <h1 class="display-xl" style="max-width:600px; margin-bottom:1rem;">Photography Tips &amp; Session Guides</h1>
-        <p class="body-lg" style="max-width:520px;">Session guides, photography tips, and stories from Palanivel — photographer and storyteller based in Katy, TX.</p>
+        <h1 class="display-xl" style="max-width:600px; margin-bottom:1rem;">
+          Photography Tips &amp; Session Guides
+        </h1>
+        <p class="body-lg" style="max-width:520px;">
+          Session guides, photography tips, and stories from Palanivel —
+          photographer and storyteller based in Katy, TX.
+        </p>
       </div>
     </div>
   </div>
@@ -69,7 +100,6 @@ const extraHead = `<script type="application/ld+json">
   <!-- ── Blog Posts ──────────────────────────────────────────── -->
   <section class="section">
     <div class="container">
-
       <!-- Filter tabs -->
       <div class="blog-filters">
         <button class="blog-filter active" data-filter="all">All Posts</button>
@@ -80,20 +110,31 @@ const extraHead = `<script type="application/ld+json">
       </div>
 
       <!-- Featured post -->
-      <a href="/blog/family-photography-journey.html" class="blog-featured reveal" data-cat="process family">
+      <a
+        href="/blog/family-photography-journey.html"
+        class="blog-featured reveal"
+        data-cat="process family"
+      >
         <div class="blog-featured-img">
           <img
             src="/assets/images/blog-journey.webp"
             alt="Family photography session journey from booking through heirloom keepsake delivery with NiO Pictures Katy TX"
-            width="700" height="500"
+            width="700"
+            height="500"
             loading="lazy"
             style="width:100%;height:100%;object-fit:cover;background:var(--surface-2);"
           />
         </div>
         <div class="blog-featured-body">
           <p class="blog-tag">Process · Family</p>
-          <h2 class="blog-card-title">Your Family Photography Journey with NiO Pictures</h2>
-          <p class="blog-card-excerpt">From easy online booking to beautiful keepsakes — a complete walkthrough of what to expect at every step of your family portrait experience, including albums, wall art, and prints.</p>
+          <h2 class="blog-card-title">
+            Your Family Photography Journey with NiO Pictures
+          </h2>
+          <p class="blog-card-excerpt">
+            From easy online booking to beautiful keepsakes — a complete
+            walkthrough of what to expect at every step of your family portrait
+            experience, including albums, wall art, and prints.
+          </p>
           <div class="blog-meta">
             <span>Palanivel</span>
             <span class="blog-meta-dot"></span>
@@ -107,21 +148,31 @@ const extraHead = `<script type="application/ld+json">
 
       <!-- Post grid -->
       <div class="blog-grid">
-
-        <a href="/blog/how-to-prepare-family-portrait-session.html" class="blog-card reveal reveal-delay-1" data-cat="tips family">
+        <a
+          href="/blog/how-to-prepare-family-portrait-session.html"
+          class="blog-card reveal reveal-delay-1"
+          data-cat="tips family"
+        >
           <div class="blog-card-img">
             <img
               src="/assets/images/blog-prepare.webp"
               alt="Family preparing outfits and styling for a portrait session in Katy TX — tips for what to wear to family photos"
-              width="600" height="338"
+              width="600"
+              height="338"
               loading="lazy"
               style="width:100%;height:100%;object-fit:cover;background:var(--surface-2);"
             />
           </div>
           <div class="blog-card-body">
             <p class="blog-tag">Tips & Guides · Family</p>
-            <h2 class="blog-card-title">How to Prepare for Your Katy Family Portrait Session</h2>
-            <p class="blog-card-excerpt">Color coordination, what to wear, grooming tips for everyone — kids, adults, and even the family pet. Everything you need to feel confident and relaxed on session day.</p>
+            <h2 class="blog-card-title">
+              How to Prepare for Your Katy Family Portrait Session
+            </h2>
+            <p class="blog-card-excerpt">
+              Color coordination, what to wear, grooming tips for everyone —
+              kids, adults, and even the family pet. Everything you need to feel
+              confident and relaxed on session day.
+            </p>
             <div class="blog-meta" style="margin-bottom:0.75rem;">
               <span>February 6, 2026</span>
               <span class="blog-meta-dot"></span>
@@ -131,20 +182,31 @@ const extraHead = `<script type="application/ld+json">
           </div>
         </a>
 
-        <a href="/blog/blue-hour-holiday-portraits.html" class="blog-card reveal reveal-delay-2" data-cat="family tips">
+        <a
+          href="/blog/blue-hour-holiday-portraits.html"
+          class="blog-card reveal reveal-delay-2"
+          data-cat="family tips"
+        >
           <div class="blog-card-img">
             <img
               src="/assets/images/blog-bluehour.webp"
               alt="Blue hour holiday family portraits in front yard with string lights during dusk in Katy TX"
-              width="600" height="338"
+              width="600"
+              height="338"
               loading="lazy"
               style="width:100%;height:100%;object-fit:cover;background:var(--surface-2);"
             />
           </div>
           <div class="blog-card-body">
             <p class="blog-tag">Family · Holiday</p>
-            <h2 class="blog-card-title">Blue Hour Front-Yard Holiday Portraits</h2>
-            <p class="blog-card-excerpt">You don't need a studio or a fancy location. Your front yard, your holiday lights, and the quiet magic of blue hour — that's all it takes for portraits that feel truly special.</p>
+            <h2 class="blog-card-title">
+              Blue Hour Front-Yard Holiday Portraits
+            </h2>
+            <p class="blog-card-excerpt">
+              You don't need a studio or a fancy location. Your front yard, your
+              holiday lights, and the quiet magic of blue hour — that's all it
+              takes for portraits that feel truly special.
+            </p>
             <div class="blog-meta" style="margin-bottom:0.75rem;">
               <span>December 9, 2025</span>
               <span class="blog-meta-dot"></span>
@@ -154,20 +216,31 @@ const extraHead = `<script type="application/ld+json">
           </div>
         </a>
 
-        <a href="/blog/editorial-portrait-photography.html" class="blog-card reveal reveal-delay-3" data-cat="editorial">
+        <a
+          href="/blog/editorial-portrait-photography.html"
+          class="blog-card reveal reveal-delay-3"
+          data-cat="editorial"
+        >
           <div class="blog-card-img">
             <img
               src="/assets/images/blog-editorial-hero.webp"
               alt="Editorial portrait photography session with bold controlled-shadow lighting for personal branding Katy TX Houston"
-              width="600" height="338"
+              width="600"
+              height="338"
               loading="lazy"
               style="width:100%;height:100%;object-fit:cover;background:var(--surface-2);"
             />
           </div>
           <div class="blog-card-body">
             <p class="blog-tag">Editorial · Branding</p>
-            <h2 class="blog-card-title">Shaping Light — A Study in Editorial Portrait Photography</h2>
-            <p class="blog-card-excerpt">Strong shape, controlled shadows, a touch of color. A personal exploration of editorial lighting and what it means to make a portrait that commands presence.</p>
+            <h2 class="blog-card-title">
+              Shaping Light — A Study in Editorial Portrait Photography
+            </h2>
+            <p class="blog-card-excerpt">
+              Strong shape, controlled shadows, a touch of color. A personal
+              exploration of editorial lighting and what it means to make a
+              portrait that commands presence.
+            </p>
             <div class="blog-meta" style="margin-bottom:0.75rem;">
               <span>January 9, 2026</span>
               <span class="blog-meta-dot"></span>
@@ -176,7 +249,6 @@ const extraHead = `<script type="application/ld+json">
             <div class="read-more">Read more →</div>
           </div>
         </a>
-
       </div>
     </div>
   </section>
@@ -185,16 +257,30 @@ const extraHead = `<script type="application/ld+json">
   <section class="cta-banner reveal">
     <div class="container">
       <p class="eyebrow" style="margin-bottom:1.25rem;">Ready to Book?</p>
-      <h2 class="display-md" style="margin-bottom:1rem; max-width:480px; margin-left:auto; margin-right:auto;">
-        Let's Create Something<br><em style="font-style:italic; color:var(--gold);">Worth Keeping</em>
+      <h2
+        class="display-md"
+        style="margin-bottom:1rem; max-width:480px; margin-left:auto; margin-right:auto;"
+      >
+        Let's Create Something<br /><em
+          style="font-style:italic; color:var(--gold);">Worth Keeping</em
+        >
       </h2>
-      <p class="body-lg" style="max-width:380px; margin:0 auto 2.5rem;">Sessions available in Katy, Houston, Sugar Land, Cypress & Richmond TX.</p>
-      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-        <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-arrow">Book a Session</a>
-        <a href="/family-photography-katy-tx.html" class="btn btn-outline">Family Photography</a>
+      <p class="body-lg" style="max-width:380px; margin:0 auto 2.5rem;">
+        Sessions available in Katy, Houston, Sugar Land, Cypress & Richmond TX.
+      </p>
+      <div
+        style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;"
+      >
+        <a
+          href="https://niopictures.pixieset.com/booking/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary btn-arrow">Book a Session</a
+        >
+        <a href="/family-photography-katy-tx.html" class="btn btn-outline"
+          >Family Photography</a
+        >
       </div>
     </div>
   </section>
-
-  
 </BaseLayout>

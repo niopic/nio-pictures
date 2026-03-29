@@ -2,16 +2,32 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 import aboutMain from "../../assets/images/about/main.jpg";
-const title = "How to Prepare for Your Katy Family Portrait Session | NiO Pictures";
-const description = "What to know before your family photo session in Katy TX — what to wear, color tips, advice for kids and pets, and how to feel relaxed and ready.";
-const canonical = "https://niopictures.com/blog/how-to-prepare-family-portrait-session.html";
+const title =
+  "How to Prepare for Your Katy Family Portrait Session | NiO Pictures";
+const description =
+  "What to know before your family photo session in Katy TX — what to wear, color tips, advice for kids and pets, and how to feel relaxed and ready.";
+const canonical =
+  "https://niopictures.com/blog/how-to-prepare-family-portrait-session.html";
 const ogImage = "https://niopictures.com/assets/images/blog-prepare.webp";
-const extraHead = "\u003clink rel=\"preload\" as=\"image\" href=\"/assets/images/blog-prepare.webp\" fetchpriority=\"high\"\u003e\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"BlogPosting\",\n    \"headline\": \"How to Prepare for Your Katy Family Portrait Session\",\n    \"description\": \"Everything you need to know before your family photo session in Katy TX — color coordination, outfit tips, grooming advice for kids and adults, and how to feel relaxed on the day.\",\n    \"image\": \"https://niopictures.com/assets/images/blog-prepare.webp\",\n    \"datePublished\": \"2026-02-06\",\n    \"dateModified\": \"2026-02-06\",\n    \"author\": {\"@type\": \"Person\", \"name\": \"Palanivel\", \"url\": \"https://niopictures.com/about.html\"},\n    \"publisher\": {\"@id\": \"https://niopictures.com/#business\"},\n    \"url\": \"https://niopictures.com/blog/how-to-prepare-family-portrait-session.html\",\n    \"keywords\": [\"family photography Katy TX\", \"what to wear family photos\", \"family portrait preparation\", \"family photographer Katy Texas\"],\n    \"mainEntityOfPage\": {\"@type\": \"WebPage\", \"@id\": \"https://niopictures.com/blog/how-to-prepare-family-portrait-session.html\"}\n  }\n  \u003c/script\u003e \u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"BreadcrumbList\",\n    \"itemListElement\": [\n      {\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://niopictures.com/\"},\n      {\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://niopictures.com/blog.html\"},\n      {\"@type\":\"ListItem\",\"position\":3,\"name\":\"How to Prepare for Your Family Portrait Session\",\"item\":\"https://niopictures.com/blog/how-to-prepare-family-portrait-session.html\"}\n    ]\n  }\n  \u003c/script\u003e";
+const extraHead =
+  '\u003clink rel="preload" as="image" href="/assets/images/blog-prepare.webp" fetchpriority="high"\u003e\u003cscript type="application/ld+json"\u003e\n  {\n    "@context": "https://schema.org",\n    "@type": "BlogPosting",\n    "headline": "How to Prepare for Your Katy Family Portrait Session",\n    "description": "Everything you need to know before your family photo session in Katy TX — color coordination, outfit tips, grooming advice for kids and adults, and how to feel relaxed on the day.",\n    "image": "https://niopictures.com/assets/images/blog-prepare.webp",\n    "datePublished": "2026-02-06",\n    "dateModified": "2026-02-06",\n    "author": {"@type": "Person", "name": "Palanivel", "url": "https://niopictures.com/about.html"},\n    "publisher": {"@id": "https://niopictures.com/#business"},\n    "url": "https://niopictures.com/blog/how-to-prepare-family-portrait-session.html",\n    "keywords": ["family photography Katy TX", "what to wear family photos", "family portrait preparation", "family photographer Katy Texas"],\n    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://niopictures.com/blog/how-to-prepare-family-portrait-session.html"}\n  }\n  \u003c/script\u003e \u003cscript type="application/ld+json"\u003e\n  {\n    "@context": "https://schema.org",\n    "@type": "BreadcrumbList",\n    "itemListElement": [\n      {"@type":"ListItem","position":1,"name":"Home","item":"https://niopictures.com/"},\n      {"@type":"ListItem","position":2,"name":"Blog","item":"https://niopictures.com/blog.html"},\n      {"@type":"ListItem","position":3,"name":"How to Prepare for Your Family Portrait Session","item":"https://niopictures.com/blog/how-to-prepare-family-portrait-session.html"}\n    ]\n  }\n  \u003c/script\u003e';
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage} extraStyles={["/assets/css/blog.css"]}>
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  extraStyles={["/assets/css/blog.css"]}
+>
   <Fragment slot="head" set:html={extraHead} />
-<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);" onfocus="this.style.top='1rem'" onblur="this.style.top='-40px'">Skip to main content</a>
+  <a
+    href="#main-content"
+    class="skip-link"
+    style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);"
+    onfocus="this.style.top='1rem'"
+    onblur="this.style.top='-40px'">Skip to main content</a
+  >
 
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <a href="/" class="nav-logo">Ni<span>O</span> Pictures</a>
@@ -23,8 +39,15 @@ const extraHead = "\u003clink rel=\"preload\" as=\"image\" href=\"/assets/images
       <a href="/blog.html" class="active">Blog</a>
       <a href="/contact.html">Contact</a>
     </div>
-    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">Book Now</a>
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <a
+      href="https://niopictures.pixieset.com/booking/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn btn-primary nav-cta">Book Now</a
+    >
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"
+      ><span></span><span></span><span></span></button
+    >
   </nav>
 
   <div class="nav-mobile" role="dialog" aria-label="Mobile navigation">
@@ -34,7 +57,12 @@ const extraHead = "\u003clink rel=\"preload\" as=\"image\" href=\"/assets/images
     <a href="/about.html">About</a>
     <a href="/blog.html">Blog</a>
     <a href="/contact.html">Contact</a>
-    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="nav-mobile-cta">Book a Session →</a>
+    <a
+      href="https://niopictures.pixieset.com/booking/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="nav-mobile-cta">Book a Session →</a
+    >
   </div>
 
   <!-- ── Post Header ─────────────────────────────────────────── -->
@@ -45,14 +73,25 @@ const extraHead = "\u003clink rel=\"preload\" as=\"image\" href=\"/assets/images
       <span>How to Prepare</span>
     </nav>
     <span class="post-tag">Tips &amp; Guides · Family Photography</span>
-    <h1 class="post-title">How to Prepare for Your<br>Katy Family Portrait Session</h1>
+    <h1 class="post-title">
+      How to Prepare for Your<br />Katy Family Portrait Session
+    </h1>
     <div class="post-meta">
       <span>Palanivel</span>
-      <span class="blog-meta-dot" style="width:3px;height:3px;border-radius:50%;background:var(--muted-dark);"></span>
+      <span
+        class="blog-meta-dot"
+        style="width:3px;height:3px;border-radius:50%;background:var(--muted-dark);"
+      ></span>
       <span>February 6, 2026</span>
-      <span class="blog-meta-dot" style="width:3px;height:3px;border-radius:50%;background:var(--muted-dark);"></span>
+      <span
+        class="blog-meta-dot"
+        style="width:3px;height:3px;border-radius:50%;background:var(--muted-dark);"
+      ></span>
       <span>4 min read</span>
-      <span class="blog-meta-dot" style="width:3px;height:3px;border-radius:50%;background:var(--muted-dark);"></span>
+      <span
+        class="blog-meta-dot"
+        style="width:3px;height:3px;border-radius:50%;background:var(--muted-dark);"
+      ></span>
       <span>Katy, TX</span>
     </div>
   </div>
@@ -60,21 +99,42 @@ const extraHead = "\u003clink rel=\"preload\" as=\"image\" href=\"/assets/images
   <!-- ── Hero Image ──────────────────────────────────────────── -->
   <div style="max-width:900px; margin:0 auto; padding:0 var(--gutter);">
     <div class="post-img">
-      <Image src={aboutMain} alt="Happy family preparing outfits and coordinating colors before professional portrait photography session in beautiful Katy TX outdoor park location" loading="eager" style="background:var(--surface-2);" fetchpriority="high" width={900} height={506} />
+      <Image
+        src={aboutMain}
+        alt="Happy family preparing outfits and coordinating colors before professional portrait photography session in beautiful Katy TX outdoor park location"
+        loading="eager"
+        style="background:var(--surface-2);"
+        fetchpriority="high"
+        width={900}
+        height={506}
+      />
     </div>
   </div>
 
   <!-- ── Post Body ───────────────────────────────────────────── -->
   <article class="post-body">
-
-    <p>Family portraits are about connection — laughter, warmth, and simply being together. A little thoughtful preparation helps your session feel relaxed and natural, so your photos look timeless and full of life. Here are the tips I share with every family before we meet.</p>
+    <p>
+      Family portraits are about connection — laughter, warmth, and simply being
+      together. A little thoughtful preparation helps your session feel relaxed
+      and natural, so your photos look timeless and full of life. Here are the
+      tips I share with every family before we meet.
+    </p>
 
     <div class="post-pullquote">
-      <p>When everyone feels comfortable and confident, the photos naturally feel warmer and more genuine — images you'll enjoy looking back on for many years.</p>
+      <p>
+        When everyone feels comfortable and confident, the photos naturally feel
+        warmer and more genuine — images you'll enjoy looking back on for many
+        years.
+      </p>
     </div>
 
     <h2>Color Coordination — Keep It Simple</h2>
-    <p>You don't need everyone dressed the same. Coordinated colors photograph more naturally and keep the focus on your family — not the outfits. Choose two or three colors across the family and let everyone wear their version of those tones.</p>
+    <p>
+      You don't need everyone dressed the same. Coordinated colors photograph
+      more naturally and keep the focus on your family — not the outfits. Choose
+      two or three colors across the family and let everyone wear their version
+      of those tones.
+    </p>
     <p>Colors that tend to work beautifully in the warm Texas light:</p>
     <ul>
       <li>Navy and deep blues</li>
@@ -83,7 +143,12 @@ const extraHead = "\u003clink rel=\"preload\" as=\"image\" href=\"/assets/images
       <li>Olive, sage, and earthy greens</li>
       <li>Soft earth tones and terracotta</li>
     </ul>
-    <p>Solid colors photograph better than bold patterns or large logos. That said — comfort always comes first. If your family loves a particular style or wants to include traditional or cultural clothing, do it. Those details add genuine warmth and character to portraits.</p>
+    <p>
+      Solid colors photograph better than bold patterns or large logos. That
+      said — comfort always comes first. If your family loves a particular style
+      or wants to include traditional or cultural clothing, do it. Those details
+      add genuine warmth and character to portraits.
+    </p>
 
     <h2>For Men</h2>
     <p>A clean, relaxed look always photographs well. Simple is best.</p>
@@ -95,31 +160,59 @@ const extraHead = "\u003clink rel=\"preload\" as=\"image\" href=\"/assets/images
     </ul>
 
     <h2>For Women</h2>
-    <p>Natural and comfortable styling creates timeless portraits. You don't need to look dramatically different from your everyday self — that's often when people look their best.</p>
+    <p>
+      Natural and comfortable styling creates timeless portraits. You don't need
+      to look dramatically different from your everyday self — that's often when
+      people look their best.
+    </p>
     <ul>
       <li>Freshly washed or styled hair</li>
       <li>Light grooming for brows if you prefer</li>
-      <li>Simple makeup — concealer, mascara, and a neutral lip goes a long way</li>
+      <li>
+        Simple makeup — concealer, mascara, and a neutral lip goes a long way
+      </li>
       <li>Moisturized skin looks great on camera</li>
     </ul>
-    <p>If you love wearing traditional outfits or meaningful jewelry, bring them. Subtle personal details often add the most depth and feeling to a portrait.</p>
+    <p>
+      If you love wearing traditional outfits or meaningful jewelry, bring them.
+      Subtle personal details often add the most depth and feeling to a
+      portrait.
+    </p>
 
     <h2>For Kids &amp; Teens</h2>
-    <p>The goal with kids is ease and comfort above everything else. When children feel comfortable, they relax — and that's when the genuine, beautiful moments happen.</p>
+    <p>
+      The goal with kids is ease and comfort above everything else. When
+      children feel comfortable, they relax — and that's when the genuine,
+      beautiful moments happen.
+    </p>
     <ul>
-      <li>Clean, simple outfits — polo shirts, button-downs, dresses, or traditional wear</li>
+      <li>
+        Clean, simple outfits — polo shirts, button-downs, dresses, or
+        traditional wear
+      </li>
       <li>Comfortable bottoms — chinos, dark jeans, or skirts</li>
-      <li>Neatly styled hair (but nothing so new or uncomfortable it becomes a distraction)</li>
+      <li>
+        Neatly styled hair (but nothing so new or uncomfortable it becomes a
+        distraction)
+      </li>
     </ul>
 
     <h2>Bringing Pets</h2>
-    <p>Pets are absolutely welcome and often bring the most joyful, unscripted moments to a session. A few things that help:</p>
+    <p>
+      Pets are absolutely welcome and often bring the most joyful, unscripted
+      moments to a session. A few things that help:
+    </p>
     <ul>
       <li>Bring a leash and a small supply of treats</li>
       <li>A quick brush before the session keeps them looking their best</li>
-      <li>Simple, neutral collars photograph better than overly decorative ones</li>
+      <li>
+        Simple, neutral collars photograph better than overly decorative ones
+      </li>
     </ul>
-    <p>I'll build time into the session for both posed and candid moments, so your pet feels as relaxed as everyone else.</p>
+    <p>
+      I'll build time into the session for both posed and candid moments, so
+      your pet feels as relaxed as everyone else.
+    </p>
 
     <h2>A Few Extras That Make a Difference</h2>
     <ul>
@@ -130,24 +223,48 @@ const extraHead = "\u003clink rel=\"preload\" as=\"image\" href=\"/assets/images
     </ul>
 
     <div class="post-pullquote">
-      <p>No rushing, no pressure. A relaxed session always produces the best images — and the best memories of the day itself.</p>
+      <p>
+        No rushing, no pressure. A relaxed session always produces the best
+        images — and the best memories of the day itself.
+      </p>
     </div>
 
     <h2>Why Preparation Matters</h2>
-    <p>A little thought before session day makes a real difference — not just in how the photos look, but in how the experience feels. When you're not worrying about outfits or running late, you're present. You're laughing. You're actually together. And that's exactly what I'm here to capture.</p>
+    <p>
+      A little thought before session day makes a real difference — not just in
+      how the photos look, but in how the experience feels. When you're not
+      worrying about outfits or running late, you're present. You're laughing.
+      You're actually together. And that's exactly what I'm here to capture.
+    </p>
 
-    <p>If you have any questions while planning — what location to choose, what time of day works best, whether to include extended family — I'm always happy to guide you. <a href="/contact.html" style="color:var(--gold);">Just reach out.</a></p>
+    <p>
+      If you have any questions while planning — what location to choose, what
+      time of day works best, whether to include extended family — I'm always
+      happy to guide you. <a href="/contact.html" style="color:var(--gold);"
+        >Just reach out.</a>
+    </p>
 
     <div class="post-divider"></div>
 
     <!-- CTA -->
     <div class="post-cta">
       <h3>Ready to Book Your Family Session?</h3>
-      <p>Natural, heartfelt family portraits in Katy TX — elegant, timeless, and true to your family.</p>
-      <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-arrow">Book a Family Session</a>
-      <a href="/family-photography-katy-tx.html" class="btn btn-outline" style="margin-left:0.5rem;">Learn About Family Sessions</a>
+      <p>
+        Natural, heartfelt family portraits in Katy TX — elegant, timeless, and
+        true to your family.
+      </p>
+      <a
+        href="https://niopictures.pixieset.com/booking/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-primary btn-arrow">Book a Family Session</a
+      >
+      <a
+        href="/family-photography-katy-tx.html"
+        class="btn btn-outline"
+        style="margin-left:0.5rem;">Learn About Family Sessions</a
+      >
     </div>
-
   </article>
 
   <!-- ── Related Posts ───────────────────────────────────────── -->
@@ -156,7 +273,9 @@ const extraHead = "\u003clink rel=\"preload\" as=\"image\" href=\"/assets/images
     <div class="related-grid">
       <a href="/blog/family-photography-journey.html" class="related-card">
         <p class="related-tag">Process</p>
-        <p class="related-title">Your Family Photography Journey with NiO Pictures</p>
+        <p class="related-title">
+          Your Family Photography Journey with NiO Pictures
+        </p>
       </a>
       <a href="/blog/blue-hour-holiday-portraits.html" class="related-card">
         <p class="related-tag">Family · Holiday</p>
@@ -164,6 +283,4 @@ const extraHead = "\u003clink rel=\"preload\" as=\"image\" href=\"/assets/images
       </a>
     </div>
   </div>
-
-  
 </BaseLayout>

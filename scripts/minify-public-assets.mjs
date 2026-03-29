@@ -14,14 +14,17 @@ async function getFiles(dirPath, extensions) {
         return getFiles(fullPath, extensions);
       }
       return extensions.has(path.extname(entry.name)) ? [fullPath] : [];
-    })
+    }),
   );
 
   return files.flat();
 }
 
 async function minifyAssets() {
-  const cssFiles = await getFiles(path.join(distRoot, "css"), new Set([".css"]));
+  const cssFiles = await getFiles(
+    path.join(distRoot, "css"),
+    new Set([".css"]),
+  );
   const jsFiles = await getFiles(path.join(distRoot, "js"), new Set([".js"]));
 
   if (cssFiles.length) {
@@ -48,7 +51,10 @@ async function minifyAssets() {
 
   await Promise.all([
     copyFile(path.join(projectRoot, "_headers"), path.resolve("dist/_headers")),
-    copyFile(path.join(projectRoot, "_redirects"), path.resolve("dist/_redirects")),
+    copyFile(
+      path.join(projectRoot, "_redirects"),
+      path.resolve("dist/_redirects"),
+    ),
   ]);
 }
 

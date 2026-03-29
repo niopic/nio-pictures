@@ -1,15 +1,31 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-const title = "Shaping Light — Editorial Portrait Photography | NiO Pictures Katy TX";
-const description = "A lighting study in editorial portrait photography. Strong shape, controlled shadows, a touch of color — how intentional light creates portraits with presence.";
-const canonical = "https://niopictures.com/blog/editorial-portrait-photography.html";
+const title =
+  "Shaping Light — Editorial Portrait Photography | NiO Pictures Katy TX";
+const description =
+  "A lighting study in editorial portrait photography. Strong shape, controlled shadows, a touch of color — how intentional light creates portraits with presence.";
+const canonical =
+  "https://niopictures.com/blog/editorial-portrait-photography.html";
 const ogImage = "https://niopictures.com/assets/images/og-home.webp";
-const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"BlogPosting\",\n    \"headline\": \"Shaping Light: A Personal Study in Editorial Portrait Photography\",\n    \"description\": \"Strong shape, controlled shadows, and a touch of color — a personal exploration of editorial lighting and what it means to make a portrait that commands presence and impact.\",\n    \"datePublished\": \"2026-01-09\",\n    \"dateModified\": \"2026-01-09\",\n    \"author\": {\"@type\": \"Person\", \"name\": \"Palanivel\", \"url\": \"https://niopictures.com/about.html\"},\n    \"publisher\": {\"@id\": \"https://niopictures.com/#business\"},\n    \"url\": \"https://niopictures.com/blog/editorial-portrait-photography.html\",\n    \"keywords\": [\"editorial portrait photography Houston\", \"personal branding photographer Katy TX\", \"portrait photography lighting\", \"branding photographer Houston TX\"],\n    \"mainEntityOfPage\": {\"@type\": \"WebPage\", \"@id\": \"https://niopictures.com/blog/editorial-portrait-photography.html\"}\n  }\n  \u003c/script\u003e\n\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"BreadcrumbList\",\n    \"itemListElement\": [\n      {\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://niopictures.com/\"},\n      {\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://niopictures.com/blog.html\"},\n      {\"@type\":\"ListItem\",\"position\":3,\"name\":\"Shaping Light — Editorial Portrait Photography\",\"item\":\"https://niopictures.com/blog/editorial-portrait-photography.html\"}\n    ]\n  }\n  \u003c/script\u003e";
+const extraHead =
+  '\u003cscript type="application/ld+json"\u003e\n  {\n    "@context": "https://schema.org",\n    "@type": "BlogPosting",\n    "headline": "Shaping Light: A Personal Study in Editorial Portrait Photography",\n    "description": "Strong shape, controlled shadows, and a touch of color — a personal exploration of editorial lighting and what it means to make a portrait that commands presence and impact.",\n    "datePublished": "2026-01-09",\n    "dateModified": "2026-01-09",\n    "author": {"@type": "Person", "name": "Palanivel", "url": "https://niopictures.com/about.html"},\n    "publisher": {"@id": "https://niopictures.com/#business"},\n    "url": "https://niopictures.com/blog/editorial-portrait-photography.html",\n    "keywords": ["editorial portrait photography Houston", "personal branding photographer Katy TX", "portrait photography lighting", "branding photographer Houston TX"],\n    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://niopictures.com/blog/editorial-portrait-photography.html"}\n  }\n  \u003c/script\u003e\n\u003cscript type="application/ld+json"\u003e\n  {\n    "@context": "https://schema.org",\n    "@type": "BreadcrumbList",\n    "itemListElement": [\n      {"@type":"ListItem","position":1,"name":"Home","item":"https://niopictures.com/"},\n      {"@type":"ListItem","position":2,"name":"Blog","item":"https://niopictures.com/blog.html"},\n      {"@type":"ListItem","position":3,"name":"Shaping Light — Editorial Portrait Photography","item":"https://niopictures.com/blog/editorial-portrait-photography.html"}\n    ]\n  }\n  \u003c/script\u003e';
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage} extraStyles={["/assets/css/blog.css"]}>
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  extraStyles={["/assets/css/blog.css"]}
+>
   <Fragment slot="head" set:html={extraHead} />
-<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);" onfocus="this.style.top='1rem'" onblur="this.style.top='-40px'">Skip to main content</a>
+  <a
+    href="#main-content"
+    class="skip-link"
+    style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);"
+    onfocus="this.style.top='1rem'"
+    onblur="this.style.top='-40px'">Skip to main content</a
+  >
 
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <a href="/" class="nav-logo">Ni<span>O</span> Pictures</a>
@@ -21,8 +37,15 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
       <a href="/blog.html" class="active">Blog</a>
       <a href="/contact.html">Contact</a>
     </div>
-    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">Book Now</a>
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <a
+      href="https://niopictures.pixieset.com/booking/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn btn-primary nav-cta">Book Now</a
+    >
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"
+      ><span></span><span></span><span></span></button
+    >
   </nav>
 
   <div class="nav-mobile" role="dialog" aria-label="Mobile navigation">
@@ -32,7 +55,12 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
     <a href="/about.html">About</a>
     <a href="/blog.html">Blog</a>
     <a href="/contact.html">Contact</a>
-    <a href="https://niopictures.pixieset.com/booking/" target="_blank" rel="noopener noreferrer" class="nav-mobile-cta">Book a Session →</a>
+    <a
+      href="https://niopictures.pixieset.com/booking/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="nav-mobile-cta">Book a Session →</a
+    >
   </div>
 
   <!-- ── Post Header ─────────────────────────────────────────── -->
@@ -44,12 +72,22 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
     </nav>
     <span class="post-tag">Editorial · Personal Branding · Lighting</span>
     <h1 class="post-title">Shaping Light</h1>
-    <p style="font-family:var(--font-display);font-size:1.2rem;font-weight:300;font-style:italic;color:var(--muted);margin-top:0.5rem;margin-bottom:1.5rem;">A Personal Study in Editorial Portrait Photography</p>
+    <p
+      style="font-family:var(--font-display);font-size:1.2rem;font-weight:300;font-style:italic;color:var(--muted);margin-top:0.5rem;margin-bottom:1.5rem;"
+    >
+      A Personal Study in Editorial Portrait Photography
+    </p>
     <div class="post-meta">
       <span>Palanivel</span>
-      <span class="blog-meta-dot" style="width:3px;height:3px;border-radius:50%;background:var(--muted-dark);"></span>
+      <span
+        class="blog-meta-dot"
+        style="width:3px;height:3px;border-radius:50%;background:var(--muted-dark);"
+      ></span>
       <span>January 9, 2026</span>
-      <span class="blog-meta-dot" style="width:3px;height:3px;border-radius:50%;background:var(--muted-dark);"></span>
+      <span
+        class="blog-meta-dot"
+        style="width:3px;height:3px;border-radius:50%;background:var(--muted-dark);"
+      ></span>
       <span>3 min read</span>
     </div>
   </div>
@@ -60,30 +98,53 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
       <img
         src="/assets/images/blog-editorial-hero.webp"
         alt="Editorial portrait photography using controlled shadow lighting and bold shape — personal branding session Katy TX"
-        width="900" height="506"
+        width="900"
+        height="506"
         loading="eager"
         fetchpriority="high"
         style="width:100%;height:auto;display:block;background:var(--surface-2);"
       />
-      <p class="post-img-caption">Editorial portrait study — strong shape, controlled shadows</p>
+      <p class="post-img-caption">
+        Editorial portrait study — strong shape, controlled shadows
+      </p>
     </div>
   </div>
 
   <!-- ── Post Body ───────────────────────────────────────────── -->
   <article class="post-body">
-
-    <p>I wanted a look that felt confident and modern. Not soft natural light. Not flat studio light. The focus was on strong shape, controlled shadows, and a touch of color to add depth — the kind of lighting often seen in fashion and editorial work, and increasingly in personal branding photography for creators, founders, and professionals who want portraits that actually stand out.</p>
+    <p>
+      I wanted a look that felt confident and modern. Not soft natural light.
+      Not flat studio light. The focus was on strong shape, controlled shadows,
+      and a touch of color to add depth — the kind of lighting often seen in
+      fashion and editorial work, and increasingly in personal branding
+      photography for creators, founders, and professionals who want portraits
+      that actually stand out.
+    </p>
 
     <div class="post-pullquote">
-      <p>Good portraits are about how light is used, not how much light is used. With the right approach, even a simple setup creates strong results.</p>
+      <p>
+        Good portraits are about how light is used, not how much light is used.
+        With the right approach, even a simple setup creates strong results.
+      </p>
     </div>
 
     <h2>How I Approached the Lighting</h2>
-    <p>I kept the setup deliberately minimal. One main light shaped the face, and small accent lights added separation and color depth. Instead of removing shadows — which is the instinct in most portrait work — I let them stay. But in a clean, flattering, controlled way.</p>
+    <p>
+      I kept the setup deliberately minimal. One main light shaped the face, and
+      small accent lights added separation and color depth. Instead of removing
+      shadows — which is the instinct in most portrait work — I let them stay.
+      But in a clean, flattering, controlled way.
+    </p>
     <p>This approach consistently produces:</p>
     <ul>
-      <li>Strong, defined facial structure that reads clearly on screen and in print</li>
-      <li>A bold, editorial quality that separates the image from typical headshots</li>
+      <li>
+        Strong, defined facial structure that reads clearly on screen and in
+        print
+      </li>
+      <li>
+        A bold, editorial quality that separates the image from typical
+        headshots
+      </li>
       <li>Consistent, repeatable results even in relatively short sessions</li>
     </ul>
 
@@ -92,37 +153,70 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
       <img
         src="/assets/images/blog-editorial-2.webp"
         alt="Studio lighting setup for editorial portrait photography, single key light with accent separation and controlled shadow depth"
-        width="900" height="506"
+        width="900"
+        height="506"
         loading="lazy"
         style="width:100%;height:auto;display:block;background:var(--surface-2);"
       />
-      <p class="post-img-caption">The setup — one key light, accent separation, controlled shadow</p>
+      <p class="post-img-caption">
+        The setup — one key light, accent separation, controlled shadow
+      </p>
     </div>
 
     <h2>Why This Style Works for Personal Branding</h2>
-    <p>Editorial lighting makes a portrait stand out because it feels intentional. It communicates confidence, polish, and creative awareness — qualities that matter if you're a creator, an influencer, a founder, or any professional building a public presence online.</p>
-    <p>Standard headshots are lit to be safe. Editorial portraits are lit to make an impression. For LinkedIn profiles, website hero images, speaker bios, and press features, there's a meaningful difference between the two.</p>
+    <p>
+      Editorial lighting makes a portrait stand out because it feels
+      intentional. It communicates confidence, polish, and creative awareness —
+      qualities that matter if you're a creator, an influencer, a founder, or
+      any professional building a public presence online.
+    </p>
+    <p>
+      Standard headshots are lit to be safe. Editorial portraits are lit to make
+      an impression. For LinkedIn profiles, website hero images, speaker bios,
+      and press features, there's a meaningful difference between the two.
+    </p>
     <p>This style works particularly well for:</p>
     <ul>
-      <li>Creators and content producers building a recognisable personal brand</li>
+      <li>
+        Creators and content producers building a recognisable personal brand
+      </li>
       <li>Founders and executives who want imagery that reflects leadership</li>
-      <li>Personal branding sessions for professionals in Houston and Katy TX</li>
+      <li>
+        Personal branding sessions for professionals in Houston and Katy TX
+      </li>
       <li>Editorial or fashion-inspired portrait work</li>
     </ul>
 
     <h2>The Lesson</h2>
-    <p>This study reminded me that the most interesting photography decisions are usually about restraint, not addition. One carefully positioned light does more than three lights placed without thought. A shadow that falls in the right place adds dimension. A color accent that's barely visible in the setup creates depth you feel more than see.</p>
-    <p>Every session I do — whether it's a corporate event in Houston, a family portrait in Katy, or a personal branding shoot — is informed by this kind of deliberate thinking about light. That's what I mean when I say every image is made with intention.</p>
+    <p>
+      This study reminded me that the most interesting photography decisions are
+      usually about restraint, not addition. One carefully positioned light does
+      more than three lights placed without thought. A shadow that falls in the
+      right place adds dimension. A color accent that's barely visible in the
+      setup creates depth you feel more than see.
+    </p>
+    <p>
+      Every session I do — whether it's a corporate event in Houston, a family
+      portrait in Katy, or a personal branding shoot — is informed by this kind
+      of deliberate thinking about light. That's what I mean when I say every
+      image is made with intention.
+    </p>
 
     <div class="post-divider"></div>
 
     <div class="post-cta">
       <h3>Interested in an Editorial Portrait Session?</h3>
-      <p>Personal branding and editorial portrait sessions available in Katy, Houston & the greater Houston area.</p>
+      <p>
+        Personal branding and editorial portrait sessions available in Katy,
+        Houston & the greater Houston area.
+      </p>
       <a href="/contact.html" class="btn btn-primary btn-arrow">Get in Touch</a>
-      <a href="/portfolio.html" class="btn btn-outline" style="margin-left:0.5rem;">View Portfolio</a>
+      <a
+        href="/portfolio.html"
+        class="btn btn-outline"
+        style="margin-left:0.5rem;">View Portfolio</a
+      >
     </div>
-
   </article>
 
   <!-- ── Related Posts ───────────────────────────────────────── -->
@@ -131,14 +225,19 @@ const extraHead = "\u003cscript type=\"application/ld+json\"\u003e\n  {\n    \"@
     <div class="related-grid">
       <a href="/blog/family-photography-journey.html" class="related-card">
         <p class="related-tag">Process</p>
-        <p class="related-title">Your Family Photography Journey with NiO Pictures</p>
+        <p class="related-title">
+          Your Family Photography Journey with NiO Pictures
+        </p>
       </a>
-      <a href="/blog/how-to-prepare-family-portrait-session.html" class="related-card">
+      <a
+        href="/blog/how-to-prepare-family-portrait-session.html"
+        class="related-card"
+      >
         <p class="related-tag">Tips & Guides</p>
-        <p class="related-title">How to Prepare for Your Katy Family Portrait Session</p>
+        <p class="related-title">
+          How to Prepare for Your Katy Family Portrait Session
+        </p>
       </a>
     </div>
   </div>
-
-  
 </BaseLayout>
