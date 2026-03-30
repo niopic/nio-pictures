@@ -2,12 +2,7 @@
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-import familyHero from "../assets/images/family-photography-katy-tx/family-hero-1.jpg";
-import familyPanel from "../assets/images/family-photography-katy-tx/family-panel-1.jpg";
-import eventsHero from "../assets/images/family-photography-katy-tx/family-hero-2.jpg";
-import eventsPanel from "../assets/images/family-photography-katy-tx/family-panel-2.jpg";
-import aboutMain from "../assets/images/family-photography-katy-tx/family-hero-3.jpg";
-import aboutPortrait from "../assets/images/family-photography-katy-tx/family-hero-4.jpg";
+import { familyImages } from "../content/images.config";
 ---
 
 <BaseLayout
@@ -224,8 +219,8 @@ import aboutPortrait from "../assets/images/family-photography-katy-tx/family-he
     <div class="page-hero">
       <div class="page-hero-bg" style="background-color: #1d1a14;">
         <Image
-          src={familyHero}
-          alt=""
+          src={familyImages.hero.img}
+          alt={familyImages.hero.alt}
           aria-hidden="true"
           loading="eager"
           fetchpriority="high"
@@ -416,8 +411,8 @@ import aboutPortrait from "../assets/images/family-photography-katy-tx/family-he
               style="aspect-ratio: 3/4; overflow: hidden; border-radius: 2px;"
             >
               <Image
-                src={familyPanel}
-                alt="Heirloom family portrait session with warm golden light and close family connection in Katy TX"
+                src={familyImages.panel.img}
+                alt={familyImages.panel.alt}
                 loading="lazy"
                 width={400}
                 height={533}
@@ -427,8 +422,8 @@ import aboutPortrait from "../assets/images/family-photography-katy-tx/family-he
             <div style="display:flex; flex-direction:column; gap:0.75rem;">
               <div style="flex:1; overflow:hidden; border-radius:2px;">
                 <Image
-                  src={aboutMain}
-                  alt="Lifestyle family photography session showing parents and children relaxing together outdoors in Sugar Land"
+                  src={familyImages.aboutMain.img}
+                  alt={familyImages.aboutMain.alt}
                   loading="lazy"
                   width={400}
                   height={300}
@@ -437,8 +432,8 @@ import aboutPortrait from "../assets/images/family-photography-katy-tx/family-he
               </div>
               <div style="flex:1; overflow:hidden; border-radius:2px;">
                 <Image
-                  src={familyHero}
-                  alt="Family portrait session capturing parents and children laughing together during golden hour in Houston TX"
+                  src={familyImages.hero.img}
+                  alt={familyImages.hero.alt}
                   loading="lazy"
                   width={400}
                   height={300}
@@ -496,8 +491,8 @@ import aboutPortrait from "../assets/images/family-photography-katy-tx/family-he
         <div class="featured-grid reveal reveal-delay-1">
           <div class="grid-item">
             <Image
-              src={familyHero}
-              alt="Outdoor family portrait session in warm evening golden hour light in Sugar Land TX"
+              src={familyImages.hero.img}
+              alt={familyImages.hero.alt}
               loading="lazy"
               width={800}
               height={600}
@@ -507,8 +502,8 @@ import aboutPortrait from "../assets/images/family-photography-katy-tx/family-he
           </div>
           <div class="grid-item">
             <Image
-              src={familyPanel}
-              alt="Lifestyle family photography capturing natural movement and genuine connection in Katy TX"
+              src={familyImages.panel.img}
+              alt={familyImages.panel.alt}
               loading="lazy"
               width={400}
               height={533}
@@ -518,8 +513,8 @@ import aboutPortrait from "../assets/images/family-photography-katy-tx/family-he
           </div>
           <div class="grid-item">
             <Image
-              src={aboutPortrait}
-              alt="Heirloom portrait session with soft natural light and intimate family moment in Houston TX"
+              src={familyImages.aboutPortrait.img}
+              alt={familyImages.aboutPortrait.alt}
               loading="lazy"
               width={400}
               height={533}
@@ -529,8 +524,8 @@ import aboutPortrait from "../assets/images/family-photography-katy-tx/family-he
           </div>
           <div class="grid-item">
             <Image
-              src={aboutMain}
-              alt="Family milestone photography capturing young children and parents during special celebration in Richmond TX"
+              src={familyImages.aboutMain.img}
+              alt={familyImages.aboutMain.alt}
               loading="lazy"
               width={400}
               height={533}
@@ -540,8 +535,8 @@ import aboutPortrait from "../assets/images/family-photography-katy-tx/family-he
           </div>
           <div class="grid-item">
             <Image
-              src={eventsPanel}
-              alt="Candid outdoor family portrait session in autumn light in Katy TX park setting"
+              src={familyImages.eventsPanel.img}
+              alt={familyImages.eventsPanel.alt}
               loading="lazy"
               width={400}
               height={533}
@@ -551,8 +546,8 @@ import aboutPortrait from "../assets/images/family-photography-katy-tx/family-he
           </div>
           <div class="grid-item">
             <Image
-              src={eventsHero}
-              alt="Anniversary portrait photography capturing couple together during outdoor golden hour session in Sugar Land TX"
+              src={familyImages.eventsHero.img}
+              alt={familyImages.eventsHero.alt}
               loading="lazy"
               width={800}
               height={600}

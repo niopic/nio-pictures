@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
-import aboutMain from "../assets/images/about/about-hero-1.jpg";
+import { aboutImages } from "../content/images.config";
 const title = "About Palanivel | NiO Pictures Photographer — Katy TX";
 const description =
   "Meet Palanivel, photographer at NiO Pictures in Katy TX. Events, Indian celebrations, and heirloom family portraits across Houston since 2017.";
@@ -124,8 +124,8 @@ const extraHead = `<script type="application/ld+json">
       <div class="about-split">
         <div class="about-image-wrap reveal">
           <Image
-            src={aboutMain}
-            alt="Palanivel, event and family photographer at NiO Pictures, posing in Katy Texas photography studio"
+            src={aboutImages.main.img}
+            alt={aboutImages.main.alt}
             loading="lazy"
             style="background: var(--surface);"
             width={560}

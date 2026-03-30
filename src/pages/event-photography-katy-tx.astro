@@ -2,12 +2,7 @@
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-import eventsHero from "../assets/images/event-photography-katy-tx/event-hero-1.jpg";
-import eventsPanel from "../assets/images/event-photography-katy-tx/event-panel-1.jpg";
-import familyHero from "../assets/images/event-photography-katy-tx/event-hero-2.jpg";
-import familyPanel from "../assets/images/event-photography-katy-tx/event-panel-2.jpg";
-import aboutMain from "../assets/images/event-photography-katy-tx/event-hero-3.jpg";
-import aboutPortrait from "../assets/images/event-photography-katy-tx/event-hero-4.jpg";
+import { eventsImages } from "../content/images.config";
 ---
 
 <BaseLayout
@@ -200,8 +195,8 @@ import aboutPortrait from "../assets/images/event-photography-katy-tx/event-hero
     <div class="page-hero" style="margin-top: 0; padding-top: 0;">
       <div class="page-hero-bg" style="background-color: #18161a;">
         <Image
-          src={eventsPanel}
-          alt=""
+          src={eventsImages.panel.img}
+          alt={eventsImages.panel.alt}
           aria-hidden="true"
           loading="eager"
           fetchpriority="high"
@@ -357,8 +352,8 @@ import aboutPortrait from "../assets/images/event-photography-katy-tx/event-hero
         <div class="featured-grid reveal reveal-delay-1">
           <div class="grid-item">
             <Image
-              src={eventsPanel}
-              alt="Guests mingling and laughing during corporate event photography coverage in Houston TX"
+              src={eventsImages.panel.img}
+              alt={eventsImages.panel.alt}
               loading="lazy"
               width={800}
               height={600}
@@ -368,8 +363,8 @@ import aboutPortrait from "../assets/images/event-photography-katy-tx/event-hero
           </div>
           <div class="grid-item">
             <Image
-              src={familyPanel}
-              alt="Candid celebration moment during private birthday party photography in Katy TX"
+              src={eventsImages.familyPanel.img}
+              alt={eventsImages.familyPanel.alt}
               loading="lazy"
               width={400}
               height={533}
@@ -379,8 +374,8 @@ import aboutPortrait from "../assets/images/event-photography-katy-tx/event-hero
           </div>
           <div class="grid-item">
             <Image
-              src={eventsHero}
-              alt="Documentary-style candid event photographer capturing authentic moments in Sugar Land TX"
+              src={eventsImages.hero.img}
+              alt={eventsImages.hero.alt}
               loading="lazy"
               width={400}
               height={533}
@@ -390,8 +385,8 @@ import aboutPortrait from "../assets/images/event-photography-katy-tx/event-hero
           </div>
           <div class="grid-item">
             <Image
-              src={aboutMain}
-              alt="Toddler birthday celebration with family interaction and balloons photographed by NiO Pictures Katy TX"
+              src={eventsImages.aboutMain.img}
+              alt={eventsImages.aboutMain.alt}
               loading="lazy"
               width={400}
               height={533}
@@ -401,8 +396,8 @@ import aboutPortrait from "../assets/images/event-photography-katy-tx/event-hero
           </div>
           <div class="grid-item">
             <Image
-              src={familyHero}
-              alt="Anniversary milestone event photography capturing couple during warm evening celebration in Richmond TX"
+              src={eventsImages.familyHero.img}
+              alt={eventsImages.familyHero.alt}
               loading="lazy"
               width={400}
               height={533}
@@ -412,8 +407,8 @@ import aboutPortrait from "../assets/images/event-photography-katy-tx/event-hero
           </div>
           <div class="grid-item">
             <Image
-              src={aboutPortrait}
-              alt="Corporate gala photography showing elegantly dressed professionals during formal dinner event in Houston"
+              src={eventsImages.aboutPortrait.img}
+              alt={eventsImages.aboutPortrait.alt}
               loading="lazy"
               width={800}
               height={600}

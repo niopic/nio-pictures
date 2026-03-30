@@ -1,10 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
-import eventsHero from "../assets/images/portfolio/portfolio-hero-1.jpg";
-import familyHero from "../assets/images/portfolio/portfolio-hero-2.jpg";
-import eventsPanel from "../assets/images/portfolio/portfolio-panel-1.jpg";
-import familyPanel from "../assets/images/portfolio/portfolio-panel-2.jpg";
+import { portfolioImages } from "../content/images.config";
+
+const [leadImage, ...stackImages] = portfolioImages;
 
 const title =
   "Portfolio | Event & Family Photography Gallery | NiO Pictures Katy TX";
@@ -129,54 +128,45 @@ const extraHead = `<script type="application/ld+json">
   </div>
 
   <main id="main-content">
-    <!-- Page Header -->
     <section class="port-header">
       <div class="container">
         <div class="reveal">
-          <p class="eyebrow" style="margin-bottom:1rem;">
-            Katy TX · Houston · Sugar Land · Richmond TX
-          </p>
+          <p class="eyebrow" style="margin-bottom:1rem;">Selected Work</p>
           <div class="gold-line gold-line-animate"></div>
           <h1 class="display-xl port-header-title">
             A Few Frames<br />
             <em style="font-style:italic; color:var(--gold);">Worth Keeping</em>
           </h1>
           <p class="body-lg port-header-intro">
-            A small, intentional selection — event photography and family
-            portraits from Katy, Houston, Sugar Land, and Richmond.
+            A compact edit of event photography, family portraits, and editorial
+            frames made across Katy TX and the Houston area.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Image 1: Events Hero + A Small Note -->
-    <!-- First image gets the side-by-side editorial treatment -->
     <section class="port-lead-section">
       <div class="port-lead-grid">
-        <!-- Image fills left on desktop, full width on mobile -->
         <figure class="port-lead-image reveal">
           <Image
-            src={eventsHero}
-            alt="Cinematic event photography — guests and atmosphere at a celebration in Katy Texas"
+            src={leadImage.img}
+            alt={leadImage.alt}
             loading="eager"
             fetchpriority="high"
-            widths={[480, 800, 1200]}
+            widths={[480, 800, 1200, 1600]}
             sizes="(max-width: 768px) 100vw, 55vw"
             quality={90}
-            class="port-image-fill"
           />
         </figure>
 
-        <!-- Philosophy note — right on desktop, below image on mobile -->
         <aside class="port-note reveal">
           <p class="port-kicker">A Small Note</p>
-          <h2 class="display-md port-note-title">
-            Enough to feel<br />the work.
-          </h2>
+          <h2 class="display-md port-note-title">Enough to feel the work.</h2>
           <p class="port-note-copy">
-            I would rather show a few photographs with real weight to them than
-            fill a page to make it look busy. What you see here is a small
-            selection. The full gallery is at Pixieset.
+            I would rather show a few photographs with some actual weight than
+            pad the page for volume. This is a restrained selection. The full
+            gallery lives on Pixieset, and each route below shows the work in
+            context.
           </p>
           <div class="port-note-links">
             <a
@@ -187,119 +177,50 @@ const extraHead = `<script type="application/ld+json">
             >
               Full Gallery →
             </a>
-            <a href="/event-photography-katy-tx.html" class="port-text-link">
-              Event Photography →
+            <a href={leadImage.link} class="port-text-link">
+              {leadImage.linkText} →
             </a>
           </div>
         </aside>
       </div>
 
-      <!-- Caption below the lead image -->
       <div class="container">
         <div class="port-caption reveal">
-          <p class="port-label">Event Coverage</p>
-          <p class="port-caption-text">
-            The energy in the room — and the quiet moments no one planned.
-          </p>
-          <a href="/event-photography-katy-tx.html" class="port-text-link">
-            See Event Work →
-          </a>
+          <p class="port-label">{leadImage.label}</p>
+          <p class="port-caption-text">{leadImage.caption}</p>
+          <a href={leadImage.link} class="port-text-link"
+            >{leadImage.linkText} →</a
+          >
         </div>
       </div>
     </section>
 
-    <!-- Image 2: Family Hero -->
-    <section class="port-frame-section reveal">
-      <figure class="port-figure">
-        <div class="port-frame">
-          <Image
-            src={familyHero}
-            alt="Outdoor family portrait in warm golden evening light near Katy Texas"
-            loading="lazy"
-            widths={[480, 900, 1600]}
-            sizes="100vw"
-            quality={90}
-            class="port-image-fill"
-          />
-        </div>
-        <figcaption>
+    {
+      stackImages.map((item) => (
+        <section class="port-frame-section reveal">
+          <figure class="port-frame">
+            <Image
+              src={item.img}
+              alt={item.alt}
+              loading="lazy"
+              widths={[480, 900, 1600]}
+              sizes="100vw"
+              quality={90}
+            />
+          </figure>
           <div class="container">
             <div class="port-caption reveal">
-              <p class="port-label">Family Portraits</p>
-              <p class="port-caption-text">
-                The quieter frames usually end up meaning the most later.
-              </p>
-              <a href="/family-photography-katy-tx.html" class="port-text-link">
-                See Family Work →
+              <p class="port-label">{item.label}</p>
+              <p class="port-caption-text">{item.caption}</p>
+              <a href={item.link} class="port-text-link">
+                {item.linkText} →
               </a>
             </div>
           </div>
-        </figcaption>
-      </figure>
-    </section>
+        </section>
+      ))
+    }
 
-    <!-- Image 3: Events Panel -->
-    <section class="port-frame-section reveal">
-      <figure class="port-figure">
-        <div class="port-frame">
-          <Image
-            src={eventsPanel}
-            alt="Candid guest interaction during corporate event photography coverage in Houston TX"
-            loading="lazy"
-            widths={[480, 900, 1600]}
-            sizes="100vw"
-            quality={90}
-            class="port-image-fill"
-          />
-        </div>
-        <figcaption>
-          <div class="container">
-            <div class="port-caption reveal">
-              <p class="port-label">Corporate Events · Katy TX</p>
-              <p class="port-caption-text">
-                The polished frames matter — and so do the in-between ones.
-              </p>
-              <a href="/event-photography-katy-tx.html" class="port-text-link">
-                Event Photography →
-              </a>
-            </div>
-          </div>
-        </figcaption>
-      </figure>
-    </section>
-
-    <!-- Image 4: Family Panel -->
-    <section class="port-frame-section reveal">
-      <figure class="port-figure">
-        <div class="port-frame">
-          <Image
-            src={familyPanel}
-            alt="Lifestyle family photography with warmth and cinematic light in Katy TX"
-            loading="lazy"
-            widths={[480, 900, 1600]}
-            sizes="100vw"
-            quality={90}
-            class="port-image-fill"
-          />
-        </div>
-        <figcaption>
-          <div class="container">
-            <div class="port-caption reveal">
-              <p class="port-label">Family Sessions · Houston Area</p>
-              <p class="port-caption-text">
-                For families who want warmth, motion, and something that still
-                feels like them.
-              </p>
-              <a href="/family-photography-katy-tx.html" class="port-text-link">
-                Family Photography →
-              </a>
-            </div>
-          </div>
-        </figcaption>
-      </figure>
-    </section>
-
-    <!-- CTA -->
     <section class="port-cta reveal">
       <div class="container">
         <div class="port-cta-inner">

@@ -2,15 +2,7 @@
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-import aboutPortrait from "../assets/images/home/home-hero-2.jpg";
-import aboutMain from "../assets/images/home/home-hero-1.jpg";
-import eventsPanel from "../assets/images/home/home-panel-1.jpg";
-import familyPanel from "../assets/images/home/home-panel-2.jpg";
-import eventsHero from "../assets/images/home/home-hero-3.jpg";
-import familyHero from "../assets/images/home/home-hero-4.jpg";
-import gridEvents from "../assets/images/home/home-grid-1.jpg";
-import gridFamily from "../assets/images/home/home-grid-2.jpg";
-import gridPortrait from "../assets/images/home/home-grid-3.jpg";
+import { homeImages } from "../content/images.config";
 ---
 
 <BaseLayout
@@ -713,7 +705,7 @@ import gridPortrait from "../assets/images/home/home-grid-3.jpg";
       <a href="/event-photography-katy-tx.html" class="service-panel">
         <div
           class="service-panel-bg"
-          style={`background-image: url('${eventsPanel.src}'); background-color: #1a1816;`}
+          style={`background-image: url('${homeImages.eventsPanel.img.src}'); background-color: #1a1816;`}
         >
         </div>
         <div class="service-panel-overlay"></div>
@@ -734,7 +726,7 @@ import gridPortrait from "../assets/images/home/home-grid-3.jpg";
       <a href="/family-photography-katy-tx.html" class="service-panel">
         <div
           class="service-panel-bg"
-          style={`background-image: url('${familyPanel.src}'); background-color: #1c1915;`}
+          style={`background-image: url('${homeImages.familyPanel.img.src}'); background-color: #1c1915;`}
         >
         </div>
         <div class="service-panel-overlay"></div>
@@ -758,8 +750,8 @@ import gridPortrait from "../assets/images/home/home-grid-3.jpg";
         <div class="about-split">
           <div class="about-image-wrap reveal">
             <Image
-              src={aboutPortrait}
-              alt="Palanivel, professional photographer at NiO Pictures, cinematic portrait in Katy TX"
+              src={homeImages.aboutPortrait.img}
+              alt={homeImages.aboutPortrait.alt}
               loading="lazy"
               width={560}
               height={700}
@@ -829,8 +821,8 @@ import gridPortrait from "../assets/images/home/home-grid-3.jpg";
         <div class="featured-grid reveal reveal-delay-1">
           <div class="grid-item">
             <Image
-              src={gridEvents}
-              alt="Professional corporate event photography capturing networking and presentations at business conference in Houston TX with candid moments"
+              src={homeImages.gridEvents.img}
+              alt={homeImages.gridEvents.alt}
               loading="lazy"
               width={800}
               height={600}
@@ -842,8 +834,8 @@ import gridPortrait from "../assets/images/home/home-grid-3.jpg";
           </div>
           <div class="grid-item">
             <Image
-              src={gridFamily}
-              alt="Warm heirloom family portrait photography session with parents and children laughing together outdoors in Katy TX park at sunset"
+              src={homeImages.gridFamily.img}
+              alt={homeImages.gridFamily.alt}
               loading="lazy"
               width={400}
               height={533}
@@ -855,8 +847,8 @@ import gridPortrait from "../assets/images/home/home-grid-3.jpg";
           </div>
           <div class="grid-item">
             <Image
-              src={eventsHero}
-              alt="Candid private event photography documenting celebration moments and guest interactions at elegant gathering in Sugar Land TX venue"
+              src={homeImages.eventsHero.img}
+              alt={homeImages.eventsHero.alt}
               loading="lazy"
               width={400}
               height={533}
@@ -868,8 +860,8 @@ import gridPortrait from "../assets/images/home/home-grid-3.jpg";
           </div>
           <div class="grid-item">
             <Image
-              src={aboutMain}
-              alt="Timeless heirloom family photography session capturing three generations together with genuine smiles and connections in Katy TX outdoor setting"
+              src={homeImages.aboutMain.img}
+              alt={homeImages.aboutMain.alt}
               loading="lazy"
               width={400}
               height={533}
@@ -881,8 +873,8 @@ import gridPortrait from "../assets/images/home/home-grid-3.jpg";
           </div>
           <div class="grid-item">
             <Image
-              src={familyHero}
-              alt="Natural lifestyle family photography session with children playing and parents embracing in authentic everyday moments at Houston TX home"
+              src={homeImages.familyHero.img}
+              alt={homeImages.familyHero.alt}
               loading="lazy"
               width={400}
               height={533}
@@ -894,8 +886,8 @@ import gridPortrait from "../assets/images/home/home-grid-3.jpg";
           </div>
           <div class="grid-item">
             <Image
-              src={gridPortrait}
-              alt="Emotional candid portrait storytelling photography capturing genuine expressions and unscripted moments during family session in Richmond TX location"
+              src={homeImages.gridPortrait.img}
+              alt={homeImages.gridPortrait.alt}
               loading="lazy"
               width={900}
               height={600}
