@@ -290,6 +290,24 @@ import gridPortrait from "../assets/images/home/grid-portrait.jpg";
           font-size: 2rem;
         }
       }
+      .feature-card-group {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        max-width: 920px;
+        margin: 0 auto;
+      }
+      @media (max-width: 768px) {
+        .feature-card-group {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+      }
+      @media (max-width: 480px) {
+        .feature-card-group {
+          gap: 1.5rem;
+        }
+      }
     </style>
     <link
       rel="preload"
@@ -912,10 +930,7 @@ import gridPortrait from "../assets/images/home/grid-portrait.jpg";
           <h2 class="display-md">Why Katy TX Families Choose NiO Pictures</h2>
         </div>
 
-        <div
-          class="feature-card-group reveal reveal-delay-1"
-          style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 920px; margin: 0 auto;"
-        >
+        <div class="feature-card-group reveal reveal-delay-1">
           <div
             style="padding: 2rem; border: 1px solid var(--border-light); border-radius: 2px;"
           >
