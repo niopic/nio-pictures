@@ -14,3 +14,6 @@ dist/_astro/
 !.dev.vars.example
 .env*
 !.env.example
+
+# local tooling artifacts
+.tmp/
