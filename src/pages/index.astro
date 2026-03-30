@@ -8,6 +8,9 @@ import eventsPanel from "../assets/images/home/events-panel.jpg";
 import familyPanel from "../assets/images/home/family-panel.jpg";
 import eventsHero from "../assets/images/home/events-hero.jpg";
 import familyHero from "../assets/images/home/family-hero.jpg";
+import gridEvents from "../assets/images/home/grid-events.jpg";
+import gridFamily from "../assets/images/home/grid-family.jpg";
+import gridPortrait from "../assets/images/home/grid-portrait.jpg";
 ---
 
 <BaseLayout
@@ -808,7 +811,7 @@ import familyHero from "../assets/images/home/family-hero.jpg";
         <div class="featured-grid reveal reveal-delay-1">
           <div class="grid-item">
             <Image
-              src={eventsPanel}
+              src={gridEvents}
               alt="Professional corporate event photography capturing networking and presentations at business conference in Houston TX with candid moments"
               loading="lazy"
               width={800}
@@ -821,7 +824,7 @@ import familyHero from "../assets/images/home/family-hero.jpg";
           </div>
           <div class="grid-item">
             <Image
-              src={familyPanel}
+              src={gridFamily}
               alt="Warm heirloom family portrait photography session with parents and children laughing together outdoors in Katy TX park at sunset"
               loading="lazy"
               width={400}
@@ -873,12 +876,12 @@ import familyHero from "../assets/images/home/family-hero.jpg";
           </div>
           <div class="grid-item">
             <Image
-              src={aboutPortrait}
+              src={gridPortrait}
               alt="Emotional candid portrait storytelling photography capturing genuine expressions and unscripted moments during family session in Richmond TX location"
               loading="lazy"
-              width={800}
+              width={900}
               height={600}
-              widths={[400, 800, 1200]}
+              widths={[450, 900, 1350]}
               sizes="(max-width: 768px) 100vw, 50vw"
               quality={90}
               style="background:var(--surface-2)"

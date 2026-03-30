@@ -1,6 +1,6 @@
 # Image Organization Structure
 
-**Last Updated:** March 28, 2026
+**Last Updated:** March 29, 2026
 
 This document describes the 1-to-1 page-specific image organization for NiO Pictures. Each page has its own unique image set — **no image reuse across pages**.
 
@@ -10,13 +10,16 @@ This document describes the 1-to-1 page-specific image organization for NiO Pict
 
 ```
 src/assets/images/
-├── home/                            (6 images)
+├── home/                            (9 images)
 │   ├── about-portrait.jpg
 │   ├── about-main.jpg
 │   ├── events-panel.jpg
 │   ├── events-hero.jpg
 │   ├── family-panel.jpg
-│   └── family-hero.jpg
+│   ├── family-hero.jpg
+│   ├── grid-events.jpg
+│   ├── grid-family.jpg
+│   └── grid-portrait.jpg
 │
 ├── about/                           (1 image)
 │   └── main.jpg
@@ -58,16 +61,19 @@ src/assets/images/
 ### Home Page (`src/pages/index.astro`)
 
 **Location:** `src/assets/images/home/`  
-**Total Images:** 6
+**Total Images:** 9
 
-| Filename             | Usage                          | Dimensions       |
-| -------------------- | ------------------------------ | ---------------- |
-| `about-portrait.jpg` | About section — tall portrait  | ~3:4 (portrait)  |
-| `about-main.jpg`     | About section — secondary shot | ~4:3 (landscape) |
-| `events-panel.jpg`   | Events service card panel      | ~16:9 (wide)     |
-| `events-hero.jpg`    | Events service card thumbnail  | ~3:4 (portrait)  |
-| `family-panel.jpg`   | Family service card panel      | ~16:9 (wide)     |
-| `family-hero.jpg`    | Family service card thumbnail  | ~3:4 (portrait)  |
+| Filename             | Usage                                   | Dimensions       |
+| -------------------- | --------------------------------------- | ---------------- |
+| `about-portrait.jpg` | About section — tall portrait           | ~3:4 (portrait)  |
+| `about-main.jpg`     | About section — secondary shot          | ~4:3 (landscape) |
+| `events-panel.jpg`   | Events service card panel (background)  | ~16:9 (wide)     |
+| `events-hero.jpg`    | Events service card thumbnail           | ~3:4 (portrait)  |
+| `family-panel.jpg`   | Family service card panel (background)  | ~16:9 (wide)     |
+| `family-hero.jpg`    | Family service card thumbnail           | ~3:4 (portrait)  |
+| `grid-events.jpg`    | Featured grid — events image (large)    | ~4:3 (landscape) |
+| `grid-family.jpg`    | Featured grid — family image (portrait) | ~3:4 (portrait)  |
+| `grid-portrait.jpg`  | Featured grid — portrait image (large)  | ~3:2 (landscape) |
 
 ---
 
@@ -203,7 +209,7 @@ All page `.astro` files have been updated to reference the page-specific folders
 
 ## Quick Checklist
 
-- [ ] Prepare 25 unique JPEG photos (6 + 1 + 6 + 6 + 5 = 24, plus 2 WebP hero backgrounds)
+- [ ] Prepare 28 unique JPEG photos (9 + 1 + 6 + 6 + 5 = 27, plus 2 WebP hero backgrounds)
 - [ ] Drop JPEGs into corresponding `src/assets/images/` page folders
 - [ ] Drop 2 WebP files into `public/assets/images/` (hero-home.webp, hero-home-mobile.webp)
 - [ ] Run `npm run build`

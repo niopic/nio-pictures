@@ -505,7 +505,7 @@ header .reveal {
 .grid-item:nth-child(6) {
   grid-column: 7 / 13;
   grid-row: 2;
-  aspect-ratio: 4/3;
+  aspect-ratio: 3/2;
 }
 
 /* ── Testimonials ──────────────────────────────────────────── */
@@ -1346,7 +1346,12 @@ select.form-control option {
   .grid-item:nth-child(n) {
     grid-column: auto;
     grid-row: auto;
-    aspect-ratio: 1;
+    aspect-ratio: 3/4;
+  }
+  /* Landscape item 1 spans full width */
+  .grid-item:nth-child(1) {
+    grid-column: 1 / -1;
+    aspect-ratio: 16/9;
   }
 
   .testimonials-track {
@@ -1407,6 +1412,10 @@ select.form-control option {
     grid-template-columns: 1fr;
   }
   .grid-item:nth-child(n) {
+    aspect-ratio: 3/4;
+  }
+  /* Landscape item 1 */
+  .grid-item:nth-child(1) {
     aspect-ratio: 4/3;
   }
   .hero-actions {
