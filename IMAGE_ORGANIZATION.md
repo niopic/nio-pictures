@@ -1,218 +1,141 @@
 # Image Organization Structure
 
-**Last Updated:** March 29, 2026
+**Last Updated:** March 30, 2026
 
-This document describes the 1-to-1 page-specific image organization for NiO Pictures. Each page has its own unique image set — **no image reuse across pages**.
+This document tracks image naming and placement for NiO Pictures Astro pages.
 
----
+## Naming Convention
 
-## Folder Structure
+- Canonical format is `page-role-index.jpg`.
+- Allowed roles are `hero`, `panel`, and `grid`.
+- Remove contextual suffixes like `about` and `support` from canonical filenames.
+- Keep names stable. Replace image content by overwriting existing files instead of renaming.
 
-```
+## Current Folder Structure
+
+```text
 src/assets/images/
-├── home/                            (9 images)
-│   ├── about-portrait.jpg
-│   ├── about-main.jpg
-│   ├── events-panel.jpg
-│   ├── events-hero.jpg
-│   ├── family-panel.jpg
-│   ├── family-hero.jpg
-│   ├── grid-events.jpg
-│   ├── grid-family.jpg
-│   └── grid-portrait.jpg
-│
-├── about/                           (1 image)
-│   └── main.jpg
-│
-├── event-photography-katy-tx/       (6 images)
-│   ├── about-portrait.jpg
-│   ├── about-main.jpg
-│   ├── events-panel.jpg
-│   ├── events-hero.jpg
-│   ├── family-panel.jpg
-│   └── family-hero.jpg
-│
-├── family-photography-katy-tx/      (6 images)
-│   ├── about-portrait.jpg
-│   ├── about-main.jpg
-│   ├── events-panel.jpg
-│   ├── events-hero.jpg
-│   ├── family-panel.jpg
-│   └── family-hero.jpg
-│
-├── portfolio/                       (5 images)
-│   ├── about-main.jpg
-│   ├── events-panel.jpg
-│   ├── events-hero.jpg
-│   ├── family-panel.jpg
-│   └── family-hero.jpg
-│
-├── about/                           (legacy, archived)
-├── heroes/                          (legacy, archived)
-├── panels/                          (legacy, archived)
-├── bkp/                             (backup)
-└── [other assets]
+|- home/ (9)
+|  |- home-grid-1.jpg
+|  |- home-grid-2.jpg
+|  |- home-grid-3.jpg
+|  |- home-hero-1.jpg
+|  |- home-hero-2.jpg
+|  |- home-hero-3.jpg
+|  |- home-hero-4.jpg
+|  |- home-panel-1.jpg
+|  |- home-panel-2.jpg
+|- about/ (1)
+|  |- about-hero-1.jpg
+|- event-photography-katy-tx/ (6)
+|  |- event-hero-1.jpg
+|  |- event-hero-2.jpg
+|  |- event-hero-3.jpg
+|  |- event-hero-4.jpg
+|  |- event-panel-1.jpg
+|  |- event-panel-2.jpg
+|- family-photography-katy-tx/ (6)
+|  |- family-hero-1.jpg
+|  |- family-hero-2.jpg
+|  |- family-hero-3.jpg
+|  |- family-hero-4.jpg
+|  |- family-panel-1.jpg
+|  |- family-panel-2.jpg
+|- portfolio/ (5)
+|  |- portfolio-hero-1.jpg
+|  |- portfolio-hero-2.jpg
+|  |- portfolio-hero-3.jpg
+|  |- portfolio-panel-1.jpg
+|  |- portfolio-panel-2.jpg
 ```
 
----
-
-## Page-to-Image Mapping
+## Page Mapping
 
 ### Home Page (`src/pages/index.astro`)
 
-**Location:** `src/assets/images/home/`  
-**Total Images:** 9
+**Location:** `src/assets/images/home/`
 
-| Filename             | Usage                                   | Dimensions       |
-| -------------------- | --------------------------------------- | ---------------- |
-| `about-portrait.jpg` | About section — tall portrait           | ~3:4 (portrait)  |
-| `about-main.jpg`     | About section — secondary shot          | ~4:3 (landscape) |
-| `events-panel.jpg`   | Events service card panel (background)  | ~16:9 (wide)     |
-| `events-hero.jpg`    | Events service card thumbnail           | ~3:4 (portrait)  |
-| `family-panel.jpg`   | Family service card panel (background)  | ~16:9 (wide)     |
-| `family-hero.jpg`    | Family service card thumbnail           | ~3:4 (portrait)  |
-| `grid-events.jpg`    | Featured grid — events image (large)    | ~4:3 (landscape) |
-| `grid-family.jpg`    | Featured grid — family image (portrait) | ~3:4 (portrait)  |
-| `grid-portrait.jpg`  | Featured grid — portrait image (large)  | ~3:2 (landscape) |
-
----
+| Filename | Usage | Target Ratio |
+| --- | --- | --- |
+| `home-hero-1.jpg` | About section landscape image | 4:3 |
+| `home-hero-2.jpg` | About section portrait image | 3:4 |
+| `home-hero-3.jpg` | Events service card hero | 3:4 |
+| `home-hero-4.jpg` | Family service card hero | 3:4 |
+| `home-panel-1.jpg` | Events service panel background | 16:9 |
+| `home-panel-2.jpg` | Family service panel background | 16:9 |
+| `home-grid-1.jpg` | Featured grid image 1 | 4:3 |
+| `home-grid-2.jpg` | Featured grid image 2 | 3:4 |
+| `home-grid-3.jpg` | Featured grid image 3 | 3:2 |
 
 ### About Page (`src/pages/about.astro`)
 
-**Location:** `src/assets/images/about/`  
-**Total Images:** 1
+**Location:** `src/assets/images/about/`
 
-| Filename   | Usage            | Dimensions       |
-| ---------- | ---------------- | ---------------- |
-| `main.jpg` | Main about photo | ~4:3 (landscape) |
+| Filename | Usage | Target Ratio |
+| --- | --- | --- |
+| `about-hero-1.jpg` | Main about image | 4:3 |
 
----
+### Event Page (`src/pages/event-photography-katy-tx.astro`)
 
-### Event Photography Page (`src/pages/event-photography-katy-tx.astro`)
+**Location:** `src/assets/images/event-photography-katy-tx/`
 
-**Location:** `src/assets/images/event-photography-katy-tx/`  
-**Total Images:** 6
+| Filename | Usage | Target Ratio |
+| --- | --- | --- |
+| `event-hero-1.jpg` | Main event hero image | 3:4 |
+| `event-panel-1.jpg` | Main event panel background | 16:9 |
+| `event-hero-2.jpg` | Secondary hero image | 3:4 |
+| `event-panel-2.jpg` | Secondary panel background | 16:9 |
+| `event-hero-3.jpg` | Tertiary hero image | 4:3 |
+| `event-hero-4.jpg` | Quaternary hero image | 3:4 |
 
-| Filename             | Usage                          | Dimensions       |
-| -------------------- | ------------------------------ | ---------------- |
-| `about-portrait.jpg` | About section — tall portrait  | ~3:4 (portrait)  |
-| `about-main.jpg`     | About section — secondary shot | ~4:3 (landscape) |
-| `events-panel.jpg`   | Events service card panel      | ~16:9 (wide)     |
-| `events-hero.jpg`    | Events service card thumbnail  | ~3:4 (portrait)  |
-| `family-panel.jpg`   | Family service card panel      | ~16:9 (wide)     |
-| `family-hero.jpg`    | Family service card thumbnail  | ~3:4 (portrait)  |
+### Family Page (`src/pages/family-photography-katy-tx.astro`)
 
----
+**Location:** `src/assets/images/family-photography-katy-tx/`
 
-### Family Photography Page (`src/pages/family-photography-katy-tx.astro`)
-
-**Location:** `src/assets/images/family-photography-katy-tx/`  
-**Total Images:** 6
-
-| Filename             | Usage                          | Dimensions       |
-| -------------------- | ------------------------------ | ---------------- |
-| `about-portrait.jpg` | About section — tall portrait  | ~3:4 (portrait)  |
-| `about-main.jpg`     | About section — secondary shot | ~4:3 (landscape) |
-| `events-panel.jpg`   | Events service card panel      | ~16:9 (wide)     |
-| `events-hero.jpg`    | Events service card thumbnail  | ~3:4 (portrait)  |
-| `family-panel.jpg`   | Family service card panel      | ~16:9 (wide)     |
-| `family-hero.jpg`    | Family service card thumbnail  | ~3:4 (portrait)  |
-
----
+| Filename | Usage | Target Ratio |
+| --- | --- | --- |
+| `family-hero-1.jpg` | Main family hero image | 3:4 |
+| `family-panel-1.jpg` | Main family panel background | 16:9 |
+| `family-hero-2.jpg` | Secondary hero image | 3:4 |
+| `family-panel-2.jpg` | Secondary panel background | 16:9 |
+| `family-hero-3.jpg` | Tertiary hero image | 4:3 |
+| `family-hero-4.jpg` | Quaternary hero image | 3:4 |
 
 ### Portfolio Page (`src/pages/portfolio.astro`)
 
-**Location:** `src/assets/images/portfolio/`  
-**Total Images:** 5
+**Location:** `src/assets/images/portfolio/`
 
-| Filename           | Usage                         | Dimensions       |
-| ------------------ | ----------------------------- | ---------------- |
-| `about-main.jpg`   | About section photo           | ~4:3 (landscape) |
-| `events-panel.jpg` | Events service card panel     | ~16:9 (wide)     |
-| `events-hero.jpg`  | Events service card thumbnail | ~3:4 (portrait)  |
-| `family-panel.jpg` | Family service card panel     | ~16:9 (wide)     |
-| `family-hero.jpg`  | Family service card thumbnail | ~3:4 (portrait)  |
+| Filename | Usage | Target Ratio |
+| --- | --- | --- |
+| `portfolio-hero-1.jpg` | Main portfolio hero image | 3:4 |
+| `portfolio-panel-1.jpg` | Main portfolio panel background | 16:9 |
+| `portfolio-hero-2.jpg` | Secondary portfolio hero | 3:4 |
+| `portfolio-panel-2.jpg` | Secondary portfolio panel | 16:9 |
+| `portfolio-hero-3.jpg` | Tertiary portfolio hero | 4:3 |
 
----
+## Background Images In Public
 
-## Background Images (Non-Astro Image)
+These files live in `public/assets/images/` and are not Astro-processed:
 
-These are served directly from `public/assets/images/` — **not processed by Astro Image**.
+- `hero-home.webp`
+- `hero-home-mobile.webp`
 
-| File                    | Location                | Page                | Recommended Size |
-| ----------------------- | ----------------------- | ------------------- | ---------------- |
-| `hero-home.webp`        | `public/assets/images/` | Home — desktop hero | 1920×1080 (WebP) |
-| `hero-home-mobile.webp` | `public/assets/images/` | Home — mobile hero  | 768×1080 (WebP)  |
+## Replacement Workflow
 
----
+1. Export source photos as JPEG (`.jpg` or `.jpeg`).
+2. Replace matching files in the correct `src/assets/images/<page>/` folder.
+3. Keep exact filenames to avoid import churn.
+4. Run `npm run build` and verify rendering.
 
-## Replacement Instructions
+## Utility Note
 
-### Step 1: Prepare Source Images
+`npm run image:intake` now uses strict `page-role-index` slots as canonical names.
+Legacy names are accepted through a minimal backward-compatibility alias set.
 
-- Format: **JPEG** (`.jpg` or `.jpeg`)
-- Astro Image will automatically generate optimized WebP variants
-- No need to pre-optimize; Astro Image handles quality/compression
+## Checklist
 
-### Step 2: Replace Stub Files
-
-1. Locate the page folder you want to update (e.g., `src/assets/images/home/`)
-2. Replace each `.jpg` stub file with your real photograph **using the same filename**
-3. Example: `src/assets/images/home/about-portrait.jpg` — just overwrite it
-
-### Step 3: Build and Verify
-
-```bash
-npm run build
-```
-
-- Astro Image will process each JPEG and generate optimized WebP assets
-- Check `dist/_astro/` for generated variants
-- Built site output in `dist/`
-
-### Step 4: Test
-
-```bash
-npm run preview
-# or
-npm run dev
-```
-
-- Verify images render correctly on each page
-- Run Lighthouse audit on affected pages if changing above-fold hero images
-
----
-
-## Image Import References
-
-All page `.astro` files have been updated to reference the page-specific folders:
-
-- `src/pages/index.astro` → imports from `src/assets/images/home/`
-- `src/pages/about.astro` → imports from `src/assets/images/about/`
-- `src/pages/event-photography-katy-tx.astro` → imports from `src/assets/images/event-photography-katy-tx/`
-- `src/pages/family-photography-katy-tx.astro` → imports from `src/assets/images/family-photography-katy-tx/`
-- `src/pages/portfolio.astro` → imports from `src/assets/images/portfolio/`
-
-**No manual import updates needed** — just replace the `.jpg` files at their paths.
-
----
-
-## Notes
-
-- **Stub files:** Current `.jpg` files are 0.6 KB placeholders. Replace them with your real photos.
-- **Legacy folders:** `about/`, `heroes/`, `panels/` are kept for reference but unused. Can be archived or deleted after full migration.
-- **Backup folder:** `bkp/` contains previous WebP versions. Can be deleted after confirming replacements.
-- **SEO:** Filenames in `src/assets/images/` do not appear in final URLs (Astro Image generates hashed names). Only `public/assets/images/` filenames are visible to search engines.
-- **Compression:** Always export JPEGs at reasonable quality (85–90). Astro Image handles further optimization.
-
----
-
-## Quick Checklist
-
-- [ ] Prepare 28 unique JPEG photos (9 + 1 + 6 + 6 + 5 = 27, plus 2 WebP hero backgrounds)
-- [ ] Drop JPEGs into corresponding `src/assets/images/` page folders
-- [ ] Drop 2 WebP files into `public/assets/images/` (hero-home.webp, hero-home-mobile.webp)
-- [ ] Run `npm run build`
-- [ ] Run `npm run preview` and verify all pages render correctly
-- [ ] Run Lighthouse on affected pages
-- [ ] Commit changes
+- [ ] Prepare 27 unique JPEG source images for Astro-managed slots.
+- [ ] Replace files in all page folders without renaming.
+- [ ] Keep `hero-home.webp` and `hero-home-mobile.webp` updated in `public/assets/images/`.
+- [ ] Run `npm run build`.
+- [ ] Run `npm run preview` and spot-check image placements.

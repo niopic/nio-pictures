@@ -2,12 +2,12 @@
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-import familyHero from "../assets/images/family-photography-katy-tx/family-hero.jpg";
-import familyPanel from "../assets/images/family-photography-katy-tx/family-panel.jpg";
-import eventsHero from "../assets/images/family-photography-katy-tx/events-hero.jpg";
-import eventsPanel from "../assets/images/family-photography-katy-tx/events-panel.jpg";
-import aboutMain from "../assets/images/family-photography-katy-tx/about-main.jpg";
-import aboutPortrait from "../assets/images/family-photography-katy-tx/about-portrait.jpg";
+import familyHero from "../assets/images/family-photography-katy-tx/family-hero-1.jpg";
+import familyPanel from "../assets/images/family-photography-katy-tx/family-panel-1.jpg";
+import eventsHero from "../assets/images/family-photography-katy-tx/family-hero-2.jpg";
+import eventsPanel from "../assets/images/family-photography-katy-tx/family-panel-2.jpg";
+import aboutMain from "../assets/images/family-photography-katy-tx/family-hero-3.jpg";
+import aboutPortrait from "../assets/images/family-photography-katy-tx/family-hero-4.jpg";
 ---
 
 <BaseLayout
@@ -222,10 +222,18 @@ import aboutPortrait from "../assets/images/family-photography-katy-tx/about-por
 
   <main id="main-content">
     <div class="page-hero">
-      <div
-        class="page-hero-bg"
-        style="background-image: url('/assets/images/family-hero.webp'); background-color: #1d1a14;"
-      >
+      <div class="page-hero-bg" style="background-color: #1d1a14;">
+        <Image
+          src={familyHero}
+          alt=""
+          aria-hidden="true"
+          loading="eager"
+          fetchpriority="high"
+          widths={[768, 1200, 1600, 1920]}
+          sizes="100vw"
+          quality={90}
+          class="page-hero-bg-image"
+        />
       </div>
       <div class="page-hero-overlay"></div>
       <div class="page-hero-content container">

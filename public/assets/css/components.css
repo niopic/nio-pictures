@@ -344,6 +344,14 @@ header .reveal {
   background-position: center;
 }
 
+.page-hero-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
 .page-hero-overlay {
   position: absolute;
   inset: 0;
@@ -1441,5 +1449,269 @@ select.form-control option {
   }
   .display-md {
     font-size: 1.35rem;
+  }
+}
+/* ============================================================
+   PORTFOLIO — Full-Bleed Editorial Stack (Mobile-First)
+   ============================================================ */
+
+/* ── Page Header ─────────────────────────────────────────── */
+.port-header {
+  padding: calc(var(--section-pad) + 5rem) 0 clamp(2.5rem, 5vw, 4rem);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.port-header-title {
+  max-width: 14ch;
+  margin-bottom: 1.25rem;
+}
+
+.port-header-intro {
+  max-width: 520px;
+}
+
+/* ── Lead Section (Image 1 + Note, side by side) ─────────── */
+.port-lead-section {
+  padding-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.port-lead-grid {
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  gap: 0;
+  align-items: stretch;
+  min-height: 75svh;
+  margin-bottom: 0;
+}
+
+.port-lead-image {
+  margin: 0;
+  overflow: hidden;
+  background: var(--surface-2);
+  /* Image fills the frame entirely */
+}
+
+.port-lead-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--dur-slow) var(--ease);
+}
+
+.port-lead-image:hover img {
+  transform: scale(1.02);
+}
+
+.port-note {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: clamp(2.5rem, 5vw, 4rem) clamp(2rem, 5vw, 4rem);
+  background: var(--surface);
+  border-left: 1px solid var(--border-light);
+}
+
+.port-kicker {
+  font-family: var(--font-accent);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted-dark);
+}
+
+.port-note-title {
+  margin: 0;
+  line-height: 1.15;
+}
+
+.port-note-copy {
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 32ch;
+}
+
+.port-note-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+/* ── Shared text link style ──────────────────────────────── */
+.port-text-link {
+  font-family: var(--font-accent);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition:
+    gap var(--dur-fast) var(--ease),
+    color var(--dur-fast) var(--ease);
+}
+
+.port-text-link:hover {
+  gap: 0.6rem;
+  color: var(--cream);
+}
+
+/* ── Caption below each image ────────────────────────────── */
+.port-caption {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(1rem, 3vw, 3rem);
+  flex-wrap: wrap;
+  padding: 1.1rem 0 0;
+  border-top: 1px solid var(--border-light);
+  margin-top: 0;
+}
+
+.port-label {
+  font-family: var(--font-accent);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.port-caption-text {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+  flex: 1;
+  min-width: 180px;
+}
+
+/* ── Full-bleed image sections ───────────────────────────── */
+.port-frame-section {
+  padding-top: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.port-figure {
+  margin: 0;
+}
+
+.port-frame {
+  margin: 0;
+  overflow: hidden;
+  background: var(--surface-2);
+  /* Height: tall on desktop, full-width crop on mobile */
+  aspect-ratio: 16 / 9;
+}
+
+.port-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--dur-slow) var(--ease);
+}
+
+.port-image-fill {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.port-frame:hover img {
+  transform: scale(1.015);
+}
+
+/* ── CTA ─────────────────────────────────────────────────── */
+.port-cta {
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  border-top: 1px solid var(--border-light);
+  margin-top: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.port-cta-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.port-cta-title {
+  margin: 0;
+}
+
+.port-cta-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.port-cta-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--border-light);
+  padding-top: 1.5rem;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+
+/* Tablet — shrink the note panel */
+@media (max-width: 900px) {
+  .port-lead-grid {
+    grid-template-columns: 1fr 1fr;
+    min-height: 60svh;
+  }
+}
+
+/* Mobile — stack everything, images go full width */
+@media (max-width: 768px) {
+  .port-lead-grid {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .port-lead-image {
+    aspect-ratio: 4 / 3;   /* Tall crop on phone — strong visual impact */
+  }
+
+  .port-note {
+    border-left: none;
+    border-top: 1px solid var(--border-light);
+    padding: 2rem var(--gutter);
+  }
+
+  .port-note-copy {
+    max-width: 100%;
+  }
+
+  .port-frame {
+    aspect-ratio: 4 / 3;   /* Square-ish crop fills the phone width beautifully */
+  }
+
+  .port-caption {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.9rem 0;
+  }
+
+  .port-cta-actions {
+    flex-direction: column;
+  }
+
+  .port-cta-links {
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .port-lead-image {
+    aspect-ratio: 3 / 4;   /* Even taller on small phones — cinematic */
+  }
+
+  .port-frame {
+    aspect-ratio: 3 / 4;
   }
 }

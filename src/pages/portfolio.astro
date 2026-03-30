@@ -1,15 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
-import aboutMain from "../assets/images/portfolio/about-main.jpg";
-import eventsHero from "../assets/images/portfolio/events-hero.jpg";
-import eventsPanel from "../assets/images/portfolio/events-panel.jpg";
-import familyHero from "../assets/images/portfolio/family-hero.jpg";
-import familyPanel from "../assets/images/portfolio/family-panel.jpg";
+import eventsHero from "../assets/images/portfolio/portfolio-hero-1.jpg";
+import familyHero from "../assets/images/portfolio/portfolio-hero-2.jpg";
+import eventsPanel from "../assets/images/portfolio/portfolio-panel-1.jpg";
+import familyPanel from "../assets/images/portfolio/portfolio-panel-2.jpg";
+
 const title =
-  "Portfolio | Event \u0026 Family Photography Gallery | NiO Pictures Katy TX";
+  "Portfolio | Event & Family Photography Gallery | NiO Pictures Katy TX";
 const description =
-  "Browse NiO Pictures\u0027 photography portfolio. Cinematic events and heirloom family portraits from Katy, Houston, Sugar Land \u0026 Richmond TX.";
+  "Browse NiO Pictures' photography portfolio. Cinematic events and heirloom family portraits from Katy, Houston, Sugar Land & Richmond TX.";
 const canonical = "https://niopictures.com/portfolio.html";
 const ogImage = "https://niopictures.com/assets/images/og-home.webp";
 const extraHead = `<script type="application/ld+json">
@@ -26,11 +26,9 @@ const extraHead = `<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ImageGallery",
-    "name": "NiO Pictures Photography Portfolio",
+    "name": "Event & Family Photography Portfolio | NiO Pictures",
     "description": "Curated selection of cinematic event photography and heirloom family portraits from Katy, Houston, Sugar Land, and Richmond TX by photographer Palanivel.",
     "url": "https://niopictures.com/portfolio.html",
-    "author": {"@type": "Person", "name": "Palanivel", "url": "https://niopictures.com/about.html"},
-    "copyrightHolder": {"@id": "https://niopictures.com/#business"},
     "associatedMedia": [
       {
         "@type": "ImageObject",
@@ -72,7 +70,9 @@ const extraHead = `<script type="application/ld+json">
         "license": "https://niopictures.com/terms.html",
         "acquireLicensePage": "https://niopictures.com/contact.html"
       }
-    ]
+    ],
+    "author": {"@type": "Person", "name": "Palanivel", "url": "https://niopictures.com/about.html"},
+    "copyrightHolder": {"@id": "https://niopictures.com/#business"}
   }
   <\/script>`;
 ---
@@ -129,217 +129,210 @@ const extraHead = `<script type="application/ld+json">
   </div>
 
   <main id="main-content">
-    <section class="portfolio-gallery-hero-section">
-      <div class="container portfolio-gallery-hero">
-        <div class="portfolio-gallery-copy">
-          <p class="eyebrow" style="margin-bottom: 1rem;">Selected Work</p>
+    <!-- Page Header -->
+    <section class="port-header">
+      <div class="container">
+        <div class="reveal">
+          <p class="eyebrow" style="margin-bottom:1rem;">
+            Katy TX · Houston · Sugar Land · Richmond TX
+          </p>
           <div class="gold-line gold-line-animate"></div>
-          <h1 class="display-xl portfolio-gallery-title">
-            Event &amp; Family<br /><em
-              style="font-style:italic; color:var(--gold);"
-              >Photography Portfolio</em
-            >
+          <h1 class="display-xl port-header-title">
+            A Few Frames<br />
+            <em style="font-style:italic; color:var(--gold);">Worth Keeping</em>
           </h1>
-          <p class="body-lg portfolio-gallery-intro">
-            A quieter look at the work — a small selection of event photography
-            and family portraits from Katy, Houston, Sugar Land, and Richmond.
-            Kept intentionally light on words so the images can do most of the
-            talking.
+          <p class="body-lg port-header-intro">
+            A small, intentional selection — event photography and family
+            portraits from Katy, Houston, Sugar Land, and Richmond.
           </p>
         </div>
+      </div>
+    </section>
 
-        <figure class="portfolio-gallery-lead">
-          <div class="portfolio-gallery-frame portfolio-gallery-frame-lead">
-            <Image
-              src={eventsHero}
-              alt="Cinematic event photography showing guests and atmosphere during a Katy Texas celebration"
-              loading="eager"
-              fetchpriority="high"
-              width={1200}
-              height={820}
-            />
-          </div>
+    <!-- Image 1: Events Hero + A Small Note -->
+    <!-- First image gets the side-by-side editorial treatment -->
+    <section class="port-lead-section">
+      <div class="port-lead-grid">
+        <!-- Image fills left on desktop, full width on mobile -->
+        <figure class="port-lead-image reveal">
+          <Image
+            src={eventsHero}
+            alt="Cinematic event photography — guests and atmosphere at a celebration in Katy Texas"
+            loading="eager"
+            fetchpriority="high"
+            widths={[480, 800, 1200]}
+            sizes="(max-width: 768px) 100vw, 55vw"
+            quality={90}
+            class="port-image-fill"
+          />
         </figure>
+
+        <!-- Philosophy note — right on desktop, below image on mobile -->
+        <aside class="port-note reveal">
+          <p class="port-kicker">A Small Note</p>
+          <h2 class="display-md port-note-title">
+            Enough to feel<br />the work.
+          </h2>
+          <p class="port-note-copy">
+            I would rather show a few photographs with real weight to them than
+            fill a page to make it look busy. What you see here is a small
+            selection. The full gallery is at Pixieset.
+          </p>
+          <div class="port-note-links">
+            <a
+              href="https://niopictures.pixieset.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="port-text-link"
+            >
+              Full Gallery →
+            </a>
+            <a href="/event-photography-katy-tx.html" class="port-text-link">
+              Event Photography →
+            </a>
+          </div>
+        </aside>
       </div>
-    </section>
 
-    <section class="section" style="padding-top: 0;">
+      <!-- Caption below the lead image -->
       <div class="container">
-        <nav
-          class="portfolio-gallery-service-nav reveal"
-          aria-label="Portfolio pathways"
-        >
-          <span class="portfolio-gallery-service-label">Start with</span>
-          <a href="/event-photography-katy-tx.html">Event Photography</a>
-          <a href="/family-photography-katy-tx.html">Family Sessions</a>
-          <a href="/contact.html">Ask About Your Date</a>
-          <a href="/book.html">Book a Session</a>
-        </nav>
-      </div>
-    </section>
-
-    <section
-      class="section portfolio-gallery-wall-section"
-      style="padding-top: 0;"
-    >
-      <div class="container">
-        <div class="portfolio-gallery-wall">
-          <figure
-            class="portfolio-gallery-piece portfolio-gallery-piece-portrait reveal"
-          >
-            <div
-              class="portfolio-gallery-frame portfolio-gallery-frame-portrait"
-            >
-              <Image
-                src={familyHero}
-                alt="Outdoor family portrait photographed in warm evening light near Katy Texas"
-                loading="lazy"
-                width={820}
-                height={1025}
-              />
-            </div>
-            <figcaption class="portfolio-gallery-caption">
-              <div>
-                <p class="portfolio-gallery-label">Family Portraits</p>
-                <p class="portfolio-gallery-caption-text">
-                  The quieter frames usually end up meaning the most later.
-                </p>
-              </div>
-              <a
-                href="/family-photography-katy-tx.html"
-                class="portfolio-gallery-text-link">See Family Work</a
-              >
-            </figcaption>
-          </figure>
-
-          <aside class="portfolio-gallery-note reveal reveal-delay-1">
-            <p class="portfolio-kicker">A Small Note</p>
-            <h2 class="display-md portfolio-gallery-note-title">
-              Enough to feel the work.
-            </h2>
-            <p class="portfolio-gallery-note-copy">
-              I would rather show a few photographs with some weight to them
-              than fill the page just to make it look busy.
-            </p>
-            <a href="/contact.html" class="portfolio-gallery-text-link"
-              >Ask About Your Session</a
-            >
-          </aside>
-
-          <figure
-            class="portfolio-gallery-piece portfolio-gallery-piece-detail reveal reveal-delay-2"
-          >
-            <div class="portfolio-gallery-frame portfolio-gallery-frame-square">
-              <Image
-                src={aboutMain}
-                alt="Portrait with warm editorial lighting and professional styling during milestone photography session in Katy TX studio with beautiful natural window light"
-                loading="lazy"
-                width={780}
-                height={780}
-              />
-            </div>
-            <figcaption class="portfolio-gallery-caption">
-              <div>
-                <p class="portfolio-gallery-label">Milestones</p>
-                <p class="portfolio-gallery-caption-text">
-                  A little direction, a little room to breathe, and the moment
-                  still stays intact.
-                </p>
-              </div>
-              <a href="/contact.html" class="portfolio-gallery-text-link"
-                >Start a Conversation</a
-              >
-            </figcaption>
-          </figure>
-
-          <figure
-            class="portfolio-gallery-piece portfolio-gallery-piece-landscape reveal"
-          >
-            <div
-              class="portfolio-gallery-frame portfolio-gallery-frame-landscape"
-            >
-              <Image
-                src={familyPanel}
-                alt="Lifestyle family photography with movement and cinematic light in Katy TX"
-                loading="lazy"
-                width={980}
-                height={680}
-              />
-            </div>
-            <figcaption class="portfolio-gallery-caption">
-              <div>
-                <p class="portfolio-gallery-label">Family Sessions</p>
-                <p class="portfolio-gallery-caption-text">
-                  For families who want warmth, motion, and something that still
-                  feels like them.
-                </p>
-              </div>
-              <a href="/book.html" class="portfolio-gallery-text-link"
-                >Book a Session</a
-              >
-            </figcaption>
-          </figure>
-
-          <figure
-            class="portfolio-gallery-piece portfolio-gallery-piece-landscape reveal reveal-delay-1"
-          >
-            <div
-              class="portfolio-gallery-frame portfolio-gallery-frame-landscape"
-            >
-              <Image
-                src={eventsPanel}
-                alt="Candid guest interaction during corporate event photography coverage in Houston"
-                loading="lazy"
-                width={980}
-                height={680}
-              />
-            </div>
-            <figcaption class="portfolio-gallery-caption">
-              <div>
-                <p class="portfolio-gallery-label">Event Coverage</p>
-                <p class="portfolio-gallery-caption-text">
-                  The polished frames matter, but so do the in-between ones that
-                  make the room feel real.
-                </p>
-              </div>
-              <a
-                href="/event-photography-katy-tx.html"
-                class="portfolio-gallery-text-link">See Event Work</a
-              >
-            </figcaption>
-          </figure>
+        <div class="port-caption reveal">
+          <p class="port-label">Event Coverage</p>
+          <p class="port-caption-text">
+            The energy in the room — and the quiet moments no one planned.
+          </p>
+          <a href="/event-photography-katy-tx.html" class="port-text-link">
+            See Event Work →
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="section" style="padding-top: 0;">
-      <div class="container">
-        <div class="portfolio-gallery-cta reveal">
-          <div>
-            <p class="portfolio-kicker">If This Feels Like Your Kind of Work</p>
-            <h2 class="display-md portfolio-gallery-cta-title">
-              The next step is simple.
-            </h2>
-          </div>
-          <div>
-            <p class="body-lg portfolio-gallery-cta-copy">
-              Start with the page that fits your session, or open the full
-              gallery if you want to keep looking a little longer.
-            </p>
-            <div class="portfolio-gallery-cta-links">
-              <a href="/event-photography-katy-tx.html">Event Photography</a>
-              <a href="/family-photography-katy-tx.html">Family Sessions</a>
-              <a
-                href="https://niopictures.pixieset.com/booking/"
-                target="_blank"
-                rel="noopener noreferrer">Book Now</a
-              >
-              <a
-                href="https://niopictures.pixieset.com/"
-                target="_blank"
-                rel="noopener noreferrer">Full Gallery</a
-              >
+    <!-- Image 2: Family Hero -->
+    <section class="port-frame-section reveal">
+      <figure class="port-figure">
+        <div class="port-frame">
+          <Image
+            src={familyHero}
+            alt="Outdoor family portrait in warm golden evening light near Katy Texas"
+            loading="lazy"
+            widths={[480, 900, 1600]}
+            sizes="100vw"
+            quality={90}
+            class="port-image-fill"
+          />
+        </div>
+        <figcaption>
+          <div class="container">
+            <div class="port-caption reveal">
+              <p class="port-label">Family Portraits</p>
+              <p class="port-caption-text">
+                The quieter frames usually end up meaning the most later.
+              </p>
+              <a href="/family-photography-katy-tx.html" class="port-text-link">
+                See Family Work →
+              </a>
             </div>
+          </div>
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- Image 3: Events Panel -->
+    <section class="port-frame-section reveal">
+      <figure class="port-figure">
+        <div class="port-frame">
+          <Image
+            src={eventsPanel}
+            alt="Candid guest interaction during corporate event photography coverage in Houston TX"
+            loading="lazy"
+            widths={[480, 900, 1600]}
+            sizes="100vw"
+            quality={90}
+            class="port-image-fill"
+          />
+        </div>
+        <figcaption>
+          <div class="container">
+            <div class="port-caption reveal">
+              <p class="port-label">Corporate Events · Katy TX</p>
+              <p class="port-caption-text">
+                The polished frames matter — and so do the in-between ones.
+              </p>
+              <a href="/event-photography-katy-tx.html" class="port-text-link">
+                Event Photography →
+              </a>
+            </div>
+          </div>
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- Image 4: Family Panel -->
+    <section class="port-frame-section reveal">
+      <figure class="port-figure">
+        <div class="port-frame">
+          <Image
+            src={familyPanel}
+            alt="Lifestyle family photography with warmth and cinematic light in Katy TX"
+            loading="lazy"
+            widths={[480, 900, 1600]}
+            sizes="100vw"
+            quality={90}
+            class="port-image-fill"
+          />
+        </div>
+        <figcaption>
+          <div class="container">
+            <div class="port-caption reveal">
+              <p class="port-label">Family Sessions · Houston Area</p>
+              <p class="port-caption-text">
+                For families who want warmth, motion, and something that still
+                feels like them.
+              </p>
+              <a href="/family-photography-katy-tx.html" class="port-text-link">
+                Family Photography →
+              </a>
+            </div>
+          </div>
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- CTA -->
+    <section class="port-cta reveal">
+      <div class="container">
+        <div class="port-cta-inner">
+          <div>
+            <p class="eyebrow" style="margin-bottom:0.75rem;">
+              If This Feels Like Your Kind of Work
+            </p>
+            <h2 class="display-md port-cta-title">The next step is simple.</h2>
+          </div>
+          <div class="port-cta-actions">
+            <a
+              href="https://niopictures.pixieset.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-outline">Full Gallery</a
+            >
+            <a
+              href="https://niopictures.pixieset.com/booking/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary btn-arrow">Book a Session</a
+            >
+          </div>
+          <div class="port-cta-links">
+            <a href="/event-photography-katy-tx.html" class="port-text-link"
+              >Event Photography →</a
+            >
+            <a href="/family-photography-katy-tx.html" class="port-text-link"
+              >Family Sessions →</a
+            >
+            <a href="/contact.html" class="port-text-link"
+              >Ask About Your Date →</a
+            >
           </div>
         </div>
       </div>
