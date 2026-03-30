@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NiO Pictures — Image Prep Tool</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&family=Cinzel:wght@400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black:   #161412;
+    --surface: #1f1c1a;
+    --surface2:#2a2623;
+    --gold:    #C5A572;
+    --gold-dim:rgba(197,165,114,0.15);
+    --cream:   #F0E8D8;
+    --muted:   #A89880;
+    --muted2:  #6B5F52;
+    --border:  rgba(197,165,114,0.18);
+    --border2: rgba(197,165,114,0.08);
+    --green:   #4caf7d;
+    --amber:   #f0a050;
+    --red:     #e05555;
+    --radius:  3px;
+    --font-d:  'Cormorant Garamond', Georgia, serif;
+    --font-b:  'DM Sans', system-ui, sans-serif;
+    --font-a:  'Cinzel', serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: var(--font-b);
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── Header ── */
+  .app-header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--border2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background: rgba(22,20,18,0.96);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+  }
+
+  .logo {
+    font-family: var(--font-a);
+    font-size: 1rem;
+    letter-spacing: 0.18em;
+    color: var(--cream);
+  }
+
+  .logo span { color: var(--gold); }
+
+  .header-sub {
+    font-family: var(--font-a);
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted2);
+  }
+
+  /* ── Main layout ── */
+  .app-body {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  /* ── Section headers ── */
+  .section-label {
+    font-family: var(--font-a);
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 2.5rem 0 1rem;
+    border-bottom: 1px solid var(--border2);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border2);
+  }
+
+  /* ── Slot grid ── */
+  .slot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* ── Slot card ── */
+  .slot {
+    background: var(--surface);
+    border: 1px solid var(--border2);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: border-color 0.2s;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .slot:hover { border-color: var(--border); }
+  .slot.drag-over { border-color: var(--gold); background: rgba(197,165,114,0.06); }
+  .slot.has-image { border-color: rgba(76,175,125,0.4); }
+
+  /* Drop zone */
+  .slot-drop {
+    aspect-ratio: var(--ar, 4/3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    background: var(--surface2);
+  }
+
+  .slot-drop-icon {
+    width: 28px;
+    height: 28px;
+    color: var(--muted2);
+    transition: color 0.2s;
+  }
+
+  .slot:hover .slot-drop-icon { color: var(--gold); }
+
+  .slot-drop-label {
+    font-size: 0.7rem;
+    color: var(--muted2);
+    text-align: center;
+    padding: 0 0.75rem;
+  }
+
+  /* Preview image inside slot */
+  .slot-preview {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+  }
+
+  .slot.has-image .slot-preview { display: block; }
+  .slot.has-image .slot-drop-icon,
+  .slot.has-image .slot-drop-label { display: none; }
+
+  /* Slot meta below drop zone */
+  .slot-meta {
+    padding: 0.6rem 0.75rem;
+    border-top: 1px solid var(--border2);
+  }
+
+  .slot-name {
+    font-family: var(--font-a);
+    font-size: 0.58rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cream);
+    margin-bottom: 0.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .slot-specs {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .spec-chip {
+    font-size: 0.62rem;
+    color: var(--muted2);
+    background: var(--surface2);
+    padding: 0.15rem 0.4rem;
+    border-radius: 2px;
+  }
+
+  /* Status bar inside slot */
+  .slot-status {
+    display: none;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.68rem;
+    align-items: center;
+    gap: 0.4rem;
+    border-top: 1px solid var(--border2);
+  }
+
+  .slot.has-image .slot-status { display: flex; }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .status-ok   .status-dot { background: var(--green); }
+  .status-warn .status-dot { background: var(--amber); }
+  .status-bad  .status-dot { background: var(--red); }
+
+  .status-text { color: var(--muted); flex: 1; }
+
+  .export-btn {
+    font-family: var(--font-a);
+    font-size: 0.55rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: opacity 0.15s;
+    flex-shrink: 0;
+  }
+
+  .export-btn:hover { opacity: 0.85; }
+
+  /* ── Modal (crop + quality) ── */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(22,20,18,0.92);
+    backdrop-filter: blur(8px);
+    z-index: 200;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .modal-overlay.open { display: flex; }
+
+  .modal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    width: 100%;
+    max-width: 760px;
+    max-height: 90svh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal-header {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background: var(--surface);
+    z-index: 1;
+  }
+
+  .modal-title {
+    font-family: var(--font-d);
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--cream);
+  }
+
+  .modal-close {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    width: 28px;
+    height: 28px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+  }
+
+  .modal-close:hover { border-color: var(--gold); color: var(--gold); }
+
+  .modal-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
+
+  /* Crop preview */
+  .crop-wrapper {
+    position: relative;
+    background: var(--surface2);
+    border-radius: var(--radius);
+    overflow: hidden;
+    user-select: none;
+    cursor: grab;
+  }
+
+  .crop-wrapper:active { cursor: grabbing; }
+
+  .crop-canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 380px;
+    object-fit: contain;
+  }
+
+  .crop-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  /* Controls row */
+  .controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .control-group label {
+    display: block;
+    font-family: var(--font-a);
+    font-size: 0.58rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted2);
+    margin-bottom: 0.4rem;
+  }
+
+  .control-group input[type=range] {
+    width: 100%;
+    accent-color: var(--gold);
+    cursor: pointer;
+  }
+
+  .control-val {
+    font-size: 0.75rem;
+    color: var(--gold);
+    float: right;
+  }
+
+  /* File size indicator */
+  .size-bar-wrap {
+    background: var(--surface2);
+    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .size-bar-track {
+    flex: 1;
+    height: 4px;
+    background: var(--border2);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .size-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.2s, background 0.2s;
+  }
+
+  .size-label {
+    font-family: var(--font-a);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .size-current {
+    font-size: 0.8rem;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .modal-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--border2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .output-name {
+    font-family: var(--font-a);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    color: var(--muted2);
+  }
+
+  .output-name span { color: var(--gold); }
+
+  .btn-export {
+    font-family: var(--font-a);
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    padding: 0.65rem 1.5rem;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+
+  .btn-export:hover { opacity: 0.85; }
+
+  /* hidden input */
+  #file-input { display: none; }
+
+  /* ── Toast ── */
+  .toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--surface2);
+    border: 1px solid var(--green);
+    color: var(--cream);
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius);
+    font-size: 0.8rem;
+    z-index: 300;
+    transform: translateY(1rem);
+    opacity: 0;
+    transition: all 0.25s;
+    pointer-events: none;
+  }
+
+  .toast.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  /* ── Intro strip ── */
+  .intro {
+    background: var(--surface);
+    border: 1px solid var(--border2);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .intro-title {
+    font-family: var(--font-d);
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--cream);
+    flex-shrink: 0;
+  }
+
+  .intro-steps {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .intro-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  .step-n {
+    font-family: var(--font-a);
+    font-size: 0.6rem;
+    color: var(--gold);
+    padding-top: 2px;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<header class="app-header">
+  <div class="logo">Ni<span>O</span> Pictures</div>
+  <div class="header-sub">Image Prep Tool</div>
+</header>
+
+<div class="app-body">
+
+  <div class="intro">
+    <div class="intro-title">Prepare photos for the site</div>
+    <div class="intro-steps">
+      <div class="intro-step">
+        <span class="step-n">01</span>
+        <span>Drop a photo onto any slot below</span>
+      </div>
+      <div class="intro-step">
+        <span class="step-n">02</span>
+        <span>Adjust crop and quality in the editor</span>
+      </div>
+      <div class="intro-step">
+        <span class="step-n">03</span>
+        <span>Export — saves with the correct filename</span>
+      </div>
+      <div class="intro-step">
+        <span class="step-n">04</span>
+        <span>Move the file into the destination folder shown in the export label</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="sections"></div>
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="modal-title">Edit Photo</div>
+      <button class="modal-close" id="modal-close">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="crop-wrapper" id="crop-wrapper">
+        <canvas id="crop-canvas" class="crop-canvas"></canvas>
+      </div>
+
+      <div class="size-bar-wrap">
+        <div class="size-bar-track">
+          <div class="size-bar-fill" id="size-bar"></div>
+        </div>
+        <div class="size-current" id="size-current">—</div>
+        <div class="size-label" id="size-target">Target: —</div>
+      </div>
+
+      <div class="controls">
+        <div class="control-group">
+          <label>Quality <span class="control-val" id="quality-val">82%</span></label>
+          <input type="range" id="quality-slider" min="40" max="95" value="82">
+        </div>
+        <div class="control-group">
+          <label>Zoom <span class="control-val" id="zoom-val">1.0×</span></label>
+          <input type="range" id="zoom-slider" min="100" max="300" value="100">
+        </div>
+      </div>
+
+      <div style="font-size:0.72rem;color:var(--muted2);padding:0.25rem 0;">
+        Drag the preview to reframe the crop. Lower quality = smaller file. Aim for green.
+      </div>
+    </div>
+    <div class="modal-footer">
+      <div class="output-name">Saves as: <span id="output-filename">—</span></div>
+      <button class="btn-export" id="btn-export">Export WebP →</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<input type="file" id="file-input" accept="image/*">
+
+<script>
+// ── Slot definitions ─────────────────────────────────────────
+const SLOTS = [
+  {
+    section: "Portfolio",
+    slots: [
+      { id: "portfolio-events-1",    label: "Events — Primary",    ar: [4,5],   targetKB: 180, dest: "src/assets/images/" },
+      { id: "portfolio-events-2",    label: "Events — Secondary",  ar: [4,5],   targetKB: 180, dest: "src/assets/images/" },
+      { id: "portfolio-family-1",    label: "Family — Primary",    ar: [4,5],   targetKB: 180, dest: "src/assets/images/" },
+      { id: "portfolio-family-2",    label: "Family — Secondary",  ar: [4,5],   targetKB: 180, dest: "src/assets/images/" },
+      { id: "portfolio-editorial-1", label: "Editorial / Portrait", ar: [4,5],  targetKB: 180, dest: "src/assets/images/" },
+    ]
+  },
+  {
+    section: "Home Page",
+    slots: [
+      { id: "home-hero",          label: "Hero (desktop)",      ar: [16,9],  targetKB: 350, dest: "src/assets/images/home/" },
+      { id: "home-hero-mobile",   label: "Hero (mobile)",       ar: [9,16],  targetKB: 200, dest: "public/assets/images/", ext: ".webp", note: "→ public/" },
+      { id: "home-events-panel",  label: "Events Panel",        ar: [3,4],   targetKB: 200, dest: "src/assets/images/home/" },
+      { id: "home-family-panel",  label: "Family Panel",        ar: [3,4],   targetKB: 200, dest: "src/assets/images/home/" },
+      { id: "home-about-portrait",label: "About Portrait",      ar: [3,4],   targetKB: 150, dest: "src/assets/images/home/" },
+      { id: "home-about-main",    label: "About Secondary",     ar: [4,3],   targetKB: 150, dest: "src/assets/images/home/" },
+      { id: "home-grid-events",   label: "Grid — Events",       ar: [4,3],   targetKB: 150, dest: "src/assets/images/home/" },
+      { id: "home-grid-family",   label: "Grid — Family",       ar: [3,4],   targetKB: 150, dest: "src/assets/images/home/" },
+      { id: "home-grid-portrait", label: "Grid — Portrait",     ar: [3,2],   targetKB: 150, dest: "src/assets/images/home/" },
+    ]
+  },
+  {
+    section: "Events Page",
+    slots: [
+      { id: "events-hero",          label: "Hero",              ar: [16,9],  targetKB: 300, dest: "src/assets/images/event-photography-katy-tx/" },
+      { id: "events-about-portrait",label: "About Portrait",   ar: [3,4],   targetKB: 150, dest: "src/assets/images/event-photography-katy-tx/" },
+      { id: "events-about-main",    label: "About Secondary",  ar: [4,3],   targetKB: 150, dest: "src/assets/images/event-photography-katy-tx/" },
+      { id: "events-panel",         label: "Panel",            ar: [3,4],   targetKB: 200, dest: "src/assets/images/event-photography-katy-tx/" },
+      { id: "events-family-hero",   label: "Family Thumbnail", ar: [3,4],   targetKB: 150, dest: "src/assets/images/event-photography-katy-tx/" },
+      { id: "events-family-panel",  label: "Family Panel",     ar: [16,9],  targetKB: 150, dest: "src/assets/images/event-photography-katy-tx/" },
+    ]
+  },
+  {
+    section: "Family Page",
+    slots: [
+      { id: "family-hero",           label: "Hero",             ar: [16,9],  targetKB: 300, dest: "src/assets/images/family-photography-katy-tx/" },
+      { id: "family-about-portrait", label: "About Portrait",  ar: [3,4],   targetKB: 150, dest: "src/assets/images/family-photography-katy-tx/" },
+      { id: "family-about-main",     label: "About Secondary", ar: [4,3],   targetKB: 150, dest: "src/assets/images/family-photography-katy-tx/" },
+      { id: "family-panel",          label: "Panel",           ar: [3,4],   targetKB: 200, dest: "src/assets/images/family-photography-katy-tx/" },
+      { id: "family-events-hero",    label: "Events Thumbnail",ar: [3,4],   targetKB: 150, dest: "src/assets/images/family-photography-katy-tx/" },
+      { id: "family-events-panel",   label: "Events Panel",    ar: [16,9],  targetKB: 150, dest: "src/assets/images/family-photography-katy-tx/" },
+    ]
+  },
+  {
+    section: "About Page",
+    slots: [
+      { id: "about-main", label: "Main Photo", ar: [4,3], targetKB: 150, dest: "src/assets/images/about/" },
+    ]
+  },
+  {
+    section: "Blog Posts",
+    slots: [
+      { id: "blog-prepare",        label: "How to Prepare — Cover",      ar: [16,9], targetKB: 120, dest: "public/assets/images/", note: "→ public/" },
+      { id: "blog-journey",        label: "Journey — Cover",             ar: [16,9], targetKB: 120, dest: "public/assets/images/", note: "→ public/" },
+      { id: "blog-journey-2",      label: "Journey — Mid-article",       ar: [16,9], targetKB: 120, dest: "public/assets/images/", note: "→ public/" },
+      { id: "blog-bluehour",       label: "Blue Hour — Cover",           ar: [16,9], targetKB: 120, dest: "public/assets/images/", note: "→ public/" },
+      { id: "blog-editorial-hero", label: "Shaping Light — Cover",       ar: [16,9], targetKB: 120, dest: "public/assets/images/", note: "→ public/" },
+      { id: "blog-editorial-2",    label: "Shaping Light — Mid-article", ar: [16,9], targetKB: 120, dest: "public/assets/images/", note: "→ public/" },
+    ]
+  },
+  {
+    section: "Social / OG",
+    slots: [
+      { id: "og-home", label: "OG Card (all pages)", ar: [1200, 630], targetKB: 120, dest: "src/assets/images/", note: "Fixed 1200×630px" },
+    ]
+  },
+];
+
+// ── State ────────────────────────────────────────────────────
+let activeSlotId = null;
+let activeSlotDef = null;
+let sourceImg = null;      // HTMLImageElement of original
+let panX = 0, panY = 0;
+let isDragging = false;
+let dragStartX = 0, dragStartY = 0;
+let panStartX = 0, panStartY = 0;
+let quality = 0.82;
+let zoom = 1.0;
+const slotExports = new Map();
+
+const canvas = document.getElementById('crop-canvas');
+const ctx = canvas.getContext('2d');
+
+function getOutputExt(slot) {
+  return slot?.ext || '.webp';
+}
+
+function downloadBlob(blob, filename) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 0);
+}
+
+// ── Build UI ─────────────────────────────────────────────────
+function buildUI() {
+  const container = document.getElementById('sections');
+  SLOTS.forEach(group => {
+    const sec = document.createElement('div');
+
+    const lbl = document.createElement('div');
+    lbl.className = 'section-label';
+    lbl.textContent = group.section;
+    sec.appendChild(lbl);
+
+    const grid = document.createElement('div');
+    grid.className = 'slot-grid';
+
+    group.slots.forEach(slot => {
+      const [aw, ah] = slot.ar;
+      const arStr = `${aw}/${ah}`;
+      const arLabel = aw === 1200 ? '1200×630' : `${aw}:${ah}`;
+
+      const card = document.createElement('div');
+      card.className = 'slot';
+      card.dataset.id = slot.id;
+      card.innerHTML = `
+        <div class="slot-drop" style="--ar:${arStr};">
+          <svg class="slot-drop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+          <div class="slot-drop-label">Drop photo or click</div>
+          <img class="slot-preview" alt="">
+        </div>
+        <div class="slot-meta">
+          <div class="slot-name">${slot.label}</div>
+          <div class="slot-specs">
+            <span class="spec-chip">${arLabel}</span>
+            <span class="spec-chip">≤${slot.targetKB}KB</span>
+            <span class="spec-chip">WebP</span>
+            ${slot.note ? `<span class="spec-chip" style="color:var(--gold);">${slot.note}</span>` : ''}
+          </div>
+        </div>
+        <div class="slot-status">
+          <div class="status-dot"></div>
+          <div class="status-text">—</div>
+          <button class="export-btn">Export</button>
+        </div>`;
+
+      // Events
+      card.addEventListener('click', (e) => {
+        if (e.target.classList.contains('export-btn')) {
+          exportSlot(slot.id);
+          return;
+        }
+        triggerFileInput(slot.id);
+      });
+
+      card.addEventListener('dragover', e => { e.preventDefault(); card.classList.add('drag-over'); });
+      card.addEventListener('dragleave', () => card.classList.remove('drag-over'));
+      card.addEventListener('drop', e => {
+        e.preventDefault();
+        card.classList.remove('drag-over');
+        const file = e.dataTransfer.files[0];
+        if (file && file.type.startsWith('image/')) loadImageToSlot(slot.id, file);
+      });
+
+      grid.appendChild(card);
+    });
+
+    sec.appendChild(grid);
+    container.appendChild(sec);
+  });
+}
+
+// ── File input ───────────────────────────────────────────────
+const fileInput = document.getElementById('file-input');
+fileInput.addEventListener('change', () => {
+  if (fileInput.files[0] && activeSlotId) {
+    loadImageToSlot(activeSlotId, fileInput.files[0]);
+  }
+  fileInput.value = '';
+});
+
+function triggerFileInput(slotId) {
+  activeSlotId = slotId;
+  fileInput.click();
+}
+
+// ── Load image → open modal ───────────────────────────────────
+function findSlot(id) {
+  for (const g of SLOTS) {
+    const s = g.slots.find(s => s.id === id);
+    if (s) return s;
+  }
+  return null;
+}
+
+function loadImageToSlot(slotId, file) {
+  const slot = findSlot(slotId);
+  if (!slot) return;
+
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const img = new Image();
+    img.onload = () => {
+      sourceImg = img;
+      activeSlotId = slotId;
+      activeSlotDef = slot;
+      panX = 0; panY = 0; zoom = 1.0;
+      quality = 0.82;
+      document.getElementById('quality-slider').value = 82;
+      document.getElementById('zoom-slider').value = 100;
+      openModal(slot, img);
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+// ── Modal ────────────────────────────────────────────────────
+function openModal(slot, img) {
+  const [aw, ah] = slot.ar;
+  document.getElementById('modal-title').textContent = slot.label;
+  document.getElementById('output-filename').textContent = `${slot.id}${getOutputExt(slot)} (→ ${slot.dest})`;
+  document.getElementById('size-target').textContent = `Target: ${slot.targetKB}KB`;
+  document.getElementById('modal').classList.add('open');
+  document.getElementById('quality-val').textContent = `${quality*100|0}%`;
+  document.getElementById('zoom-val').textContent = `${zoom.toFixed(1)}×`;
+  drawCrop();
+  estimateSize();
+}
+
+document.getElementById('modal-close').addEventListener('click', closeModal);
+document.getElementById('modal').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('modal')) closeModal();
+});
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  sourceImg = null;
+}
+
+// ── Canvas draw ──────────────────────────────────────────────
+function drawCrop() {
+  if (!sourceImg || !activeSlotDef) return;
+  const [aw, ah] = activeSlotDef.ar;
+
+  // Fixed output resolution
+  let outW, outH;
+  if (aw === 1200) { outW = 1200; outH = 630; }
+  else {
+    outW = 1200;
+    outH = Math.round(outW * ah / aw);
+  }
+
+  canvas.width = outW;
+  canvas.height = outH;
+
+  const wrapper = document.getElementById('crop-wrapper');
+  const displayH = Math.round(wrapper.clientWidth * ah / aw);
+  canvas.style.height = displayH + 'px';
+
+  ctx.clearRect(0, 0, outW, outH);
+
+  const srcW = sourceImg.width;
+  const srcH = sourceImg.height;
+  const targetAR = aw / ah;
+  const srcAR = srcW / srcH;
+
+  let cropW, cropH;
+  if (srcAR > targetAR) {
+    cropH = srcH / zoom;
+    cropW = cropH * targetAR;
+  } else {
+    cropW = srcW / zoom;
+    cropH = cropW / targetAR;
+  }
+
+  // Center + pan
+  const maxPanX = (srcW - cropW) / 2;
+  const maxPanY = (srcH - cropH) / 2;
+  const cx = Math.max(-maxPanX, Math.min(maxPanX, panX));
+  const cy = Math.max(-maxPanY, Math.min(maxPanY, panY));
+  const sx = (srcW - cropW) / 2 + cx;
+  const sy = (srcH - cropH) / 2 + cy;
+
+  ctx.drawImage(sourceImg, sx, sy, cropW, cropH, 0, 0, outW, outH);
+}
+
+// ── Drag to pan ──────────────────────────────────────────────
+const wrapper = document.getElementById('crop-wrapper');
+wrapper.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  dragStartX = e.clientX; dragStartY = e.clientY;
+  panStartX = panX; panStartY = panY;
+});
+window.addEventListener('mousemove', (e) => {
+  if (!isDragging || !sourceImg || !activeSlotDef) return;
+  const [aw, ah] = activeSlotDef.ar;
+  const scale = sourceImg.width / canvas.width;
+  const dx = (e.clientX - dragStartX) * scale;
+  const dy = (e.clientY - dragStartY) * scale;
+  panX = panStartX - dx;
+  panY = panStartY - dy;
+  drawCrop();
+  estimateSize();
+});
+window.addEventListener('mouseup', () => { isDragging = false; });
+
+// ── Sliders ──────────────────────────────────────────────────
+document.getElementById('quality-slider').addEventListener('input', (e) => {
+  quality = e.target.value / 100;
+  document.getElementById('quality-val').textContent = `${e.target.value}%`;
+  estimateSize();
+});
+
+document.getElementById('zoom-slider').addEventListener('input', (e) => {
+  zoom = e.target.value / 100;
+  document.getElementById('zoom-val').textContent = `${zoom.toFixed(1)}×`;
+  drawCrop();
+  estimateSize();
+});
+
+// ── Estimate file size ───────────────────────────────────────
+let sizeTimer = null;
+function estimateSize() {
+  clearTimeout(sizeTimer);
+  sizeTimer = setTimeout(() => {
+    canvas.toBlob((blob) => {
+      if (!blob || !activeSlotDef) return;
+      const kb = Math.round(blob.size / 1024);
+      const target = activeSlotDef.targetKB;
+      const pct = Math.min(100, (kb / target) * 100);
+
+      document.getElementById('size-current').textContent = `${kb} KB`;
+      document.getElementById('size-current').style.color =
+        kb <= target ? 'var(--green)' : kb <= target * 1.4 ? 'var(--amber)' : 'var(--red)';
+
+      const bar = document.getElementById('size-bar');
+      bar.style.width = pct + '%';
+      bar.style.background =
+        kb <= target ? 'var(--green)' : kb <= target * 1.4 ? 'var(--amber)' : 'var(--red)';
+    }, 'image/webp', quality);
+  }, 120);
+}
+
+// ── Export from modal ─────────────────────────────────────────
+document.getElementById('btn-export').addEventListener('click', () => {
+  exportFromModal();
+});
+
+function exportFromModal() {
+  if (!activeSlotId || !activeSlotDef) return;
+  drawCrop();
+  const filename = `${activeSlotId}${getOutputExt(activeSlotDef)}`;
+  canvas.toBlob((blob) => {
+    if (!blob) return;
+    downloadBlob(blob, filename);
+
+    // Update slot card
+    updateSlotCard(activeSlotId, blob, filename);
+    showToast(`Exported: ${filename}`);
+    closeModal();
+  }, 'image/webp', quality);
+}
+
+// Quick export from card button (re-exports last settings)
+function exportSlot(slotId) {
+  const exported = slotExports.get(slotId);
+  if (!exported) {
+    showToast('Export a version from the editor first');
+    return;
+  }
+
+  downloadBlob(exported.blob, exported.filename);
+  showToast(`Exported: ${exported.filename}`);
+}
+
+function updateSlotCard(slotId, blob, filename) {
+  const card = document.querySelector(`.slot[data-id="${slotId}"]`);
+  if (!card) return;
+  const kb = Math.round(blob.size / 1024);
+  const slot = findSlot(slotId);
+  const target = slot?.targetKB || 200;
+
+  // Update preview
+  const preview = card.querySelector('.slot-preview');
+  const previous = slotExports.get(slotId);
+  if (previous?.previewUrl) URL.revokeObjectURL(previous.previewUrl);
+
+  const previewUrl = URL.createObjectURL(blob);
+  preview.src = previewUrl;
+  card.classList.add('has-image');
+  slotExports.set(slotId, { blob, filename, previewUrl });
+
+  // Update status
+  const statusEl = card.querySelector('.slot-status');
+  const dot = card.querySelector('.status-dot');
+  const text = card.querySelector('.status-text');
+
+  statusEl.className = 'slot-status ' + (kb <= target ? 'status-ok' : kb <= target * 1.4 ? 'status-warn' : 'status-bad');
+  text.textContent = `${kb} KB ${kb <= target ? '✓' : '↑ over target'}`;
+}
+
+// ── Toast ─────────────────────────────────────────────────────
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// ── Init ──────────────────────────────────────────────────────
+buildUI();
+</script>
+</body>
+</html>
