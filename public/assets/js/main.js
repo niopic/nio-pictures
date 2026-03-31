@@ -71,7 +71,7 @@
       const open = toggle.classList.toggle("open");
       mobileNav.classList.toggle("open", open);
       toggle.setAttribute("aria-expanded", String(open));
-      document.body.style.overflow = open ? "hidden" : "";
+      document.body.classList.toggle("nav-open", open);
     });
 
     mobileNav.querySelectorAll("a").forEach((a) => {
@@ -79,7 +79,7 @@
         toggle.classList.remove("open");
         mobileNav.classList.remove("open");
         toggle.setAttribute("aria-expanded", "false");
-        document.body.style.overflow = "";
+        document.body.classList.remove("nav-open");
       });
     });
   }
@@ -132,14 +132,14 @@
     /* ── Smooth scroll for anchor links ─────────────────────── */
     document.querySelectorAll('a[href^="#"]').forEach((a) => {
       a.addEventListener("click", (e) => {
-        const id = a.getAttribute("href").slice(1);
+        const rawHref = a.getAttribute("href") || "";
+        if (rawHref.length <= 1) return;
+
+        const id = rawHref.slice(1);
         const target = document.getElementById(id);
         if (target) {
           e.preventDefault();
-          const offset = 80;
-          const top =
-            target.getBoundingClientRect().top + window.scrollY - offset;
-          window.scrollTo({ top, behavior: "smooth" });
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
         }
       });
     });

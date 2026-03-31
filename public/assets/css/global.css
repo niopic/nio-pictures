@@ -60,6 +60,7 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -71,6 +72,10 @@ body {
   font-weight: 300;
   line-height: 1.7;
   overflow-x: hidden;
+}
+
+body.nav-open {
+  overflow: hidden;
 }
 
 img {
