@@ -12,9 +12,7 @@
 
   const ensureHomeLink = (container) => {
     if (!container) return;
-    const hasHome = container.querySelector(
-      'a[href="/"], a[href="/index.html"]',
-    );
+    const hasHome = container.querySelector('a[href="/"]');
     if (hasHome) return;
     if (normalizePath(window.location.pathname) === "/") return;
 

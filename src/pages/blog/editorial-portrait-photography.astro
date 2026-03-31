@@ -4,11 +4,10 @@ const title =
   "Shaping Light — Editorial Portrait Photography | NiO Pictures Katy TX";
 const description =
   "A lighting study in editorial portrait photography. Strong shape, controlled shadows, a touch of color — how intentional light creates portraits with presence.";
-const canonical =
-  "https://niopictures.com/blog/editorial-portrait-photography.html";
+const canonical = "https://niopictures.com/blog/editorial-portrait-photography";
 const ogImage = "https://niopictures.com/assets/images/og-home.webp";
 const extraHead =
-  '\u003cscript type="application/ld+json"\u003e\n  {\n    "@context": "https://schema.org",\n    "@type": "BlogPosting",\n    "headline": "Shaping Light: A Personal Study in Editorial Portrait Photography",\n    "description": "Strong shape, controlled shadows, and a touch of color — a personal exploration of editorial lighting and what it means to make a portrait that commands presence and impact.",\n    "datePublished": "2026-01-09",\n    "dateModified": "2026-01-09",\n    "author": {"@type": "Person", "name": "Palanivel", "url": "https://niopictures.com/about.html"},\n    "publisher": {"@id": "https://niopictures.com/#business"},\n    "url": "https://niopictures.com/blog/editorial-portrait-photography.html",\n    "keywords": ["editorial portrait photography Houston", "personal branding photographer Katy TX", "portrait photography lighting", "branding photographer Houston TX"],\n    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://niopictures.com/blog/editorial-portrait-photography.html"}\n  }\n  \u003c/script\u003e\n\u003cscript type="application/ld+json"\u003e\n  {\n    "@context": "https://schema.org",\n    "@type": "BreadcrumbList",\n    "itemListElement": [\n      {"@type":"ListItem","position":1,"name":"Home","item":"https://niopictures.com/"},\n      {"@type":"ListItem","position":2,"name":"Blog","item":"https://niopictures.com/blog.html"},\n      {"@type":"ListItem","position":3,"name":"Shaping Light — Editorial Portrait Photography","item":"https://niopictures.com/blog/editorial-portrait-photography.html"}\n    ]\n  }\n  \u003c/script\u003e';
+  '\u003cscript type="application/ld+json"\u003e\n  {\n    "@context": "https://schema.org",\n    "@type": "BlogPosting",\n    "headline": "Shaping Light: A Personal Study in Editorial Portrait Photography",\n    "description": "Strong shape, controlled shadows, and a touch of color — a personal exploration of editorial lighting and what it means to make a portrait that commands presence and impact.",\n    "datePublished": "2026-01-09",\n    "dateModified": "2026-01-09",\n    "author": {"@type": "Person", "name": "Palanivel", "url": "https://niopictures.com/about"},\n    "publisher": {"@id": "https://niopictures.com/#business"},\n    "url": "https://niopictures.com/blog/editorial-portrait-photography",\n    "keywords": ["editorial portrait photography Houston", "personal branding photographer Katy TX", "portrait photography lighting", "branding photographer Houston TX"],\n    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://niopictures.com/blog/editorial-portrait-photography"}\n  }\n  \u003c/script\u003e\n\u003cscript type="application/ld+json"\u003e\n  {\n    "@context": "https://schema.org",\n    "@type": "BreadcrumbList",\n    "itemListElement": [\n      {"@type":"ListItem","position":1,"name":"Home","item":"https://niopictures.com/"},\n      {"@type":"ListItem","position":2,"name":"Blog","item":"https://niopictures.com/blog"},\n      {"@type":"ListItem","position":3,"name":"Shaping Light — Editorial Portrait Photography","item":"https://niopictures.com/blog/editorial-portrait-photography"}\n    ]\n  }\n  \u003c/script\u003e';
 ---
 
 <BaseLayout
@@ -30,12 +29,12 @@ const extraHead =
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <a href="/" class="nav-logo">Ni<span>O</span> Pictures</a>
     <div class="nav-links">
-      <a href="/event-photography-katy-tx.html">Events</a>
-      <a href="/family-photography-katy-tx.html">Family</a>
-      <a href="/portfolio.html">Portfolio</a>
-      <a href="/about.html">About</a>
-      <a href="/blog.html" class="active">Blog</a>
-      <a href="/contact.html">Contact</a>
+      <a href="/event-photography-katy-tx">Events</a>
+      <a href="/family-photography-katy-tx">Family</a>
+      <a href="/portfolio">Portfolio</a>
+      <a href="/about">About</a>
+      <a href="/blog" class="active">Blog</a>
+      <a href="/contact">Contact</a>
     </div>
     <a
       href="https://niopictures.pixieset.com/booking/"
@@ -49,12 +48,12 @@ const extraHead =
   </nav>
 
   <div class="nav-mobile" role="dialog" aria-label="Mobile navigation">
-    <a href="/event-photography-katy-tx.html">Events</a>
-    <a href="/family-photography-katy-tx.html">Family</a>
-    <a href="/portfolio.html">Portfolio</a>
-    <a href="/about.html">About</a>
-    <a href="/blog.html">Blog</a>
-    <a href="/contact.html">Contact</a>
+    <a href="/event-photography-katy-tx">Events</a>
+    <a href="/family-photography-katy-tx">Family</a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="/about">About</a>
+    <a href="/blog">Blog</a>
+    <a href="/contact">Contact</a>
     <a
       href="https://niopictures.pixieset.com/booking/"
       target="_blank"
@@ -66,7 +65,7 @@ const extraHead =
   <!-- ── Post Header ─────────────────────────────────────────── -->
   <div class="post-hero">
     <nav class="post-breadcrumb" aria-label="Breadcrumb">
-      <a href="/blog.html">Blog</a>
+      <a href="/blog">Blog</a>
       <span class="post-breadcrumb-sep">›</span>
       <span>Shaping Light</span>
     </nav>
@@ -210,11 +209,9 @@ const extraHead =
         Personal branding and editorial portrait sessions available in Katy,
         Houston & the greater Houston area.
       </p>
-      <a href="/contact.html" class="btn btn-primary btn-arrow">Get in Touch</a>
-      <a
-        href="/portfolio.html"
-        class="btn btn-outline"
-        style="margin-left:0.5rem;">View Portfolio</a
+      <a href="/contact" class="btn btn-primary btn-arrow">Get in Touch</a>
+      <a href="/portfolio" class="btn btn-outline" style="margin-left:0.5rem;"
+        >View Portfolio</a
       >
     </div>
   </article>
@@ -223,14 +220,14 @@ const extraHead =
   <div class="related-posts">
     <p class="eyebrow">Read Next</p>
     <div class="related-grid">
-      <a href="/blog/family-photography-journey.html" class="related-card">
+      <a href="/blog/family-photography-journey" class="related-card">
         <p class="related-tag">Process</p>
         <p class="related-title">
           Your Family Photography Journey with NiO Pictures
         </p>
       </a>
       <a
-        href="/blog/how-to-prepare-family-portrait-session.html"
+        href="/blog/how-to-prepare-family-portrait-session"
         class="related-card"
       >
         <p class="related-tag">Tips & Guides</p>

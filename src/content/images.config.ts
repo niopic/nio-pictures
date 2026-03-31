@@ -64,7 +64,7 @@ export const portfolioImages: PortfolioImage[] = [
     label: "Event Coverage",
     caption:
       "Cinematic event photography built for the big atmosphere and the smaller moments that give a Houston celebration its shape.",
-    link: "/event-photography-katy-tx.html",
+    link: "/event-photography-katy-tx",
     linkText: "See Event Work",
   },
   {
@@ -74,7 +74,7 @@ export const portfolioImages: PortfolioImage[] = [
     label: "Corporate Events",
     caption:
       "Clean coverage, candid reactions, and room details that help a Katy TX event gallery feel complete instead of generic.",
-    link: "/event-photography-katy-tx.html",
+    link: "/event-photography-katy-tx",
     linkText: "Event Photography",
   },
   {
@@ -84,7 +84,7 @@ export const portfolioImages: PortfolioImage[] = [
     label: "Family Portraits",
     caption:
       "Family photography that keeps the warmth, movement, and calm connection families in Katy TX want to remember later.",
-    link: "/family-photography-katy-tx.html",
+    link: "/family-photography-katy-tx",
     linkText: "See Family Work",
   },
   {
@@ -94,7 +94,7 @@ export const portfolioImages: PortfolioImage[] = [
     label: "Lifestyle Sessions",
     caption:
       "Heirloom-minded family photography for Houston and Katy families who want images that still feel true to them.",
-    link: "/family-photography-katy-tx.html",
+    link: "/family-photography-katy-tx",
     linkText: "Family Photography",
   },
   {
@@ -104,7 +104,7 @@ export const portfolioImages: PortfolioImage[] = [
     label: "Editorial Portraits",
     caption:
       "Editorial portraiture with the same restraint and presence that runs through every event and family photography session.",
-    link: "/about.html",
+    link: "/about",
     linkText: "Meet the Photographer",
   },
 ];
