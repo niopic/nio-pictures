@@ -588,22 +588,22 @@ const SLOTS = [
   {
     section: "Portfolio",
     slots: [
-      { id: "portfolio-events-1",    label: "Events — Primary",    ar: [4,5],   targetKB: 180, dest: "src/assets/images/" },
-      { id: "portfolio-events-2",    label: "Events — Secondary",  ar: [4,5],   targetKB: 180, dest: "src/assets/images/" },
-      { id: "portfolio-family-1",    label: "Family — Primary",    ar: [4,5],   targetKB: 180, dest: "src/assets/images/" },
-      { id: "portfolio-family-2",    label: "Family — Secondary",  ar: [4,5],   targetKB: 180, dest: "src/assets/images/" },
-      { id: "portfolio-editorial-1", label: "Editorial / Portrait", ar: [4,5],  targetKB: 180, dest: "src/assets/images/" },
+      { id: "portfolio-events-1",    label: "Events — Primary",    ar: [4,5],   targetKB: 180, dest: "src/assets/images/", ext: ".webp" },
+      { id: "portfolio-events-2",    label: "Events — Secondary",  ar: [4,5],   targetKB: 180, dest: "src/assets/images/", ext: ".webp" },
+      { id: "portfolio-family-1",    label: "Family — Primary",    ar: [4,5],   targetKB: 180, dest: "src/assets/images/", ext: ".webp" },
+      { id: "portfolio-family-2",    label: "Family — Secondary",  ar: [4,5],   targetKB: 180, dest: "src/assets/images/", ext: ".webp" },
+      { id: "portfolio-editorial-1", label: "Editorial / Portrait", ar: [4,5],  targetKB: 180, dest: "src/assets/images/", ext: ".webp" },
     ]
   },
   {
     section: "Home Page",
     slots: [
-      { id: "home-hero",          label: "Hero (desktop)",      ar: [16,9],  targetKB: 350, dest: "src/assets/images/home/" },
+      { id: "home-hero",          label: "Hero (desktop)",      ar: [16,9],  targetKB: 350, dest: "src/assets/images/home/", ext: ".jpg" },
       { id: "home-hero-mobile",   label: "Hero (mobile)",       ar: [9,16],  targetKB: 200, dest: "public/assets/images/", ext: ".webp", note: "→ public/" },
-      { id: "home-events-panel",  label: "Events Panel",        ar: [3,4],   targetKB: 200, dest: "src/assets/images/home/" },
-      { id: "home-family-panel",  label: "Family Panel",        ar: [3,4],   targetKB: 200, dest: "src/assets/images/home/" },
-      { id: "home-about-portrait",label: "About Portrait",      ar: [3,4],   targetKB: 150, dest: "src/assets/images/home/" },
-      { id: "home-about-main",    label: "About Secondary",     ar: [4,3],   targetKB: 150, dest: "src/assets/images/home/" },
+      { id: "home-events-panel",  label: "Events Panel",        ar: [3,4],   targetKB: 200, dest: "src/assets/images/home/", ext: ".jpg" },
+      { id: "home-family-panel",  label: "Family Panel",        ar: [3,4],   targetKB: 200, dest: "src/assets/images/home/", ext: ".jpg" },
+      { id: "home-about-portrait",label: "About Portrait",      ar: [4,5],   targetKB: 150, dest: "src/assets/images/home/", ext: ".jpg" },
+      { id: "home-about-main",    label: "About Secondary",     ar: [4,5],   targetKB: 150, dest: "src/assets/images/home/", ext: ".jpg" },
       { id: "home-grid-events",   label: "Grid — Events",       ar: [4,3],   targetKB: 150, dest: "src/assets/images/home/" },
       { id: "home-grid-family",   label: "Grid — Family",       ar: [3,4],   targetKB: 150, dest: "src/assets/images/home/" },
       { id: "home-grid-portrait", label: "Grid — Portrait",     ar: [3,2],   targetKB: 150, dest: "src/assets/images/home/" },
@@ -612,29 +612,29 @@ const SLOTS = [
   {
     section: "Events Page",
     slots: [
-      { id: "events-hero",          label: "Hero",              ar: [16,9],  targetKB: 300, dest: "src/assets/images/event-photography-katy-tx/" },
-      { id: "events-about-portrait",label: "About Portrait",   ar: [3,4],   targetKB: 150, dest: "src/assets/images/event-photography-katy-tx/" },
-      { id: "events-about-main",    label: "About Secondary",  ar: [4,3],   targetKB: 150, dest: "src/assets/images/event-photography-katy-tx/" },
-      { id: "events-panel",         label: "Panel",            ar: [3,4],   targetKB: 200, dest: "src/assets/images/event-photography-katy-tx/" },
-      { id: "events-family-hero",   label: "Family Thumbnail", ar: [3,4],   targetKB: 150, dest: "src/assets/images/event-photography-katy-tx/" },
-      { id: "events-family-panel",  label: "Family Panel",     ar: [16,9],  targetKB: 150, dest: "src/assets/images/event-photography-katy-tx/" },
+      { id: "events-hero",          label: "Hero",              ar: [3,4],   targetKB: 300, dest: "src/assets/images/event-photography-katy-tx/", ext: ".jpg" },
+      { id: "events-about-portrait",label: "About Portrait",   ar: [3,4],   targetKB: 150, dest: "src/assets/images/event-photography-katy-tx/", ext: ".jpg" },
+      { id: "events-about-main",    label: "About Secondary",  ar: [4,3],   targetKB: 150, dest: "src/assets/images/event-photography-katy-tx/", ext: ".jpg" },
+      { id: "events-panel",         label: "Panel",            ar: [16,9],  targetKB: 200, dest: "src/assets/images/event-photography-katy-tx/", ext: ".jpg" },
+      { id: "events-family-hero",   label: "Family Thumbnail", ar: [3,4],   targetKB: 150, dest: "src/assets/images/event-photography-katy-tx/", ext: ".jpg" },
+      { id: "events-family-panel",  label: "Family Panel",     ar: [16,9],  targetKB: 150, dest: "src/assets/images/event-photography-katy-tx/", ext: ".jpg" },
     ]
   },
   {
     section: "Family Page",
     slots: [
-      { id: "family-hero",           label: "Hero",             ar: [16,9],  targetKB: 300, dest: "src/assets/images/family-photography-katy-tx/" },
-      { id: "family-about-portrait", label: "About Portrait",  ar: [3,4],   targetKB: 150, dest: "src/assets/images/family-photography-katy-tx/" },
-      { id: "family-about-main",     label: "About Secondary", ar: [4,3],   targetKB: 150, dest: "src/assets/images/family-photography-katy-tx/" },
-      { id: "family-panel",          label: "Panel",           ar: [3,4],   targetKB: 200, dest: "src/assets/images/family-photography-katy-tx/" },
-      { id: "family-events-hero",    label: "Events Thumbnail",ar: [3,4],   targetKB: 150, dest: "src/assets/images/family-photography-katy-tx/" },
-      { id: "family-events-panel",   label: "Events Panel",    ar: [16,9],  targetKB: 150, dest: "src/assets/images/family-photography-katy-tx/" },
+      { id: "family-hero",           label: "Hero",             ar: [3,4],   targetKB: 300, dest: "src/assets/images/family-photography-katy-tx/", ext: ".jpg" },
+      { id: "family-about-portrait", label: "About Portrait",  ar: [3,4],   targetKB: 150, dest: "src/assets/images/family-photography-katy-tx/", ext: ".jpg" },
+      { id: "family-about-main",     label: "About Secondary", ar: [4,3],   targetKB: 150, dest: "src/assets/images/family-photography-katy-tx/", ext: ".jpg" },
+      { id: "family-panel",          label: "Panel",           ar: [16,9],  targetKB: 200, dest: "src/assets/images/family-photography-katy-tx/", ext: ".jpg" },
+      { id: "family-events-hero",    label: "Events Thumbnail",ar: [3,4],   targetKB: 150, dest: "src/assets/images/family-photography-katy-tx/", ext: ".jpg" },
+      { id: "family-events-panel",   label: "Events Panel",    ar: [16,9],  targetKB: 150, dest: "src/assets/images/family-photography-katy-tx/", ext: ".jpg" },
     ]
   },
   {
     section: "About Page",
     slots: [
-      { id: "about-main", label: "Main Photo", ar: [4,3], targetKB: 150, dest: "src/assets/images/about/" },
+      { id: "about-main", label: "Main Photo", ar: [4,3], targetKB: 150, dest: "src/assets/images/about/", ext: ".jpg" },
     ]
   },
   {

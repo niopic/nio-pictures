@@ -1,36 +1,36 @@
 import type { ImageMetadata } from "astro";
 
-import portfolioEvents1 from "../assets/images/portfolio-events-1.jpg";
-import portfolioEvents2 from "../assets/images/portfolio-events-2.jpg";
-import portfolioFamily1 from "../assets/images/portfolio-family-1.jpg";
-import portfolioFamily2 from "../assets/images/portfolio-family-2.jpg";
-import portfolioEditorial1 from "../assets/images/portfolio-editorial-1.jpg";
+import portfolioEvents1 from "../assets/images/portfolio-events-1.webp";
+import portfolioEvents2 from "../assets/images/portfolio-events-2.webp";
+import portfolioFamily1 from "../assets/images/portfolio-family-1.webp";
+import portfolioFamily2 from "../assets/images/portfolio-family-2.webp";
+import portfolioEditorial1 from "../assets/images/portfolio-editorial-1.webp";
 
-import homeAboutPortrait from "../assets/images/home-about-portrait.jpg";
-import homeAboutMain from "../assets/images/home-about-main.jpg";
-import homeEventsPanel from "../assets/images/home-events-panel.jpg";
-import homeFamilyPanel from "../assets/images/home-family-panel.jpg";
-import homeEventsHero from "../assets/images/home-events-hero.jpg";
-import homeFamilyHero from "../assets/images/home-family-hero.jpg";
-import homeGridEvents from "../assets/images/home-grid-events.jpg";
-import homeGridFamily from "../assets/images/home-grid-family.jpg";
-import homeGridPortrait from "../assets/images/home-grid-portrait.jpg";
+import homeAboutPortrait from "../assets/images/home-about-portrait.webp";
+import homeAboutMain from "../assets/images/home-about-main.webp";
+import homeEventsPanel from "../assets/images/home-events-panel.webp";
+import homeFamilyPanel from "../assets/images/home-family-panel.webp";
+import homeEventsHero from "../assets/images/home-events-hero.webp";
+import homeFamilyHero from "../assets/images/home-family-hero.webp";
+import homeGridEvents from "../assets/images/home-grid-events.webp";
+import homeGridFamily from "../assets/images/home-grid-family.webp";
+import homeGridPortrait from "../assets/images/home-grid-portrait.webp";
 
-import eventsHero from "../assets/images/events-hero.jpg";
-import eventsPanel from "../assets/images/events-panel.jpg";
-import eventsAboutPortrait from "../assets/images/events-about-portrait.jpg";
-import eventsAboutMain from "../assets/images/events-about-main.jpg";
-import eventsFamilyHero from "../assets/images/events-family-hero.jpg";
-import eventsFamilyPanel from "../assets/images/events-family-panel.jpg";
+import eventsHero from "../assets/images/events-hero.webp";
+import eventsPanel from "../assets/images/events-panel.webp";
+import eventsAboutPortrait from "../assets/images/events-about-portrait.webp";
+import eventsAboutMain from "../assets/images/events-about-main.webp";
+import eventsFamilyHero from "../assets/images/events-family-hero.webp";
+import eventsFamilyPanel from "../assets/images/events-family-panel.webp";
 
-import familyHero from "../assets/images/family-hero.jpg";
-import familyPanel from "../assets/images/family-panel.jpg";
-import familyAboutPortrait from "../assets/images/family-about-portrait.jpg";
-import familyAboutMain from "../assets/images/family-about-main.jpg";
-import familyEventsHero from "../assets/images/family-events-hero.jpg";
-import familyEventsPanel from "../assets/images/family-events-panel.jpg";
+import familyHero from "../assets/images/family-hero.webp";
+import familyPanel from "../assets/images/family-panel.webp";
+import familyAboutPortrait from "../assets/images/family-about-portrait.webp";
+import familyAboutMain from "../assets/images/family-about-main.webp";
+import familyEventsHero from "../assets/images/family-events-hero.webp";
+import familyEventsPanel from "../assets/images/family-events-panel.webp";
 
-import aboutMain from "../assets/images/about-main.jpg";
+import aboutMain from "../assets/images/about-main.webp";
 
 type PortfolioImage = {
   img: ImageMetadata;
