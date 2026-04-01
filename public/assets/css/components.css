@@ -1480,7 +1480,7 @@ select.form-control option {
   grid-template-columns: 55fr 45fr;
   gap: 0;
   align-items: stretch;
-  min-height: 75svh;
+  min-height: 60svh;
   margin-bottom: 0;
 }
 
@@ -1591,6 +1591,7 @@ select.form-control option {
 /* ── Full-bleed image sections ───────────────────────────── */
 .port-frame-section {
   padding-top: clamp(2.5rem, 5vw, 4.5rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4.5rem);
 }
 
 .port-figure {
@@ -1598,11 +1599,12 @@ select.form-control option {
 }
 
 .port-frame {
-  margin: 0;
+  margin: 0 auto;
   overflow: hidden;
   background: var(--surface-2);
-  /* Keep desktop framing aligned with portrait-first portfolio assets */
   aspect-ratio: 4 / 5;
+  max-width: 560px;
+  border-radius: 2px;
 }
 
 .port-frame img {
@@ -1653,6 +1655,23 @@ select.form-control option {
   flex-wrap: wrap;
   border-top: 1px solid var(--border-light);
   padding-top: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .port-frame-section .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(3rem, 5vw, 5rem);
+    align-items: center;
+  }
+  .port-frame {
+    margin: 0;
+    max-width: 100%;
+  }
+  .port-frame-section:nth-child(odd) .port-frame { order: 1; }
+  .port-frame-section:nth-child(odd) .port-caption { order: 2; }
+  .port-frame-section:nth-child(even) .port-frame { order: 2; }
+  .port-frame-section:nth-child(even) .port-caption { order: 1; }
 }
 
 /* ── Responsive ──────────────────────────────────────────── */

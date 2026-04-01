@@ -198,17 +198,17 @@ const extraHead = `<script type="application/ld+json">
     {
       stackImages.map((item) => (
         <section class="port-frame-section reveal">
-          <figure class="port-frame">
-            <Image
-              src={item.img}
-              alt={item.alt}
-              loading="lazy"
-              widths={[480, 900, 1600]}
-              sizes="100vw"
-              quality={90}
-            />
-          </figure>
           <div class="container">
+            <figure class="port-frame">
+              <Image
+                src={item.img}
+                alt={item.alt}
+                loading="lazy"
+                widths={[480, 900, 1600]}
+                sizes="100vw"
+                quality={90}
+              />
+            </figure>
             <div class="port-caption reveal">
               <p class="port-label">{item.label}</p>
               <p class="port-caption-text">{item.caption}</p>
