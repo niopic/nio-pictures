@@ -584,74 +584,110 @@
 
 <script>
 // ── Slot definitions ─────────────────────────────────────────
+// ── SLOT DEFINITIONS ─────────────────────────────────────────
+// ar: [width, height] aspect ratio — must match CSS exactly
+// dest: where to drop the exported file in the repo
+// All src/assets/images/ files are processed by Astro Sharp at build time
+// All public/assets/images/ files are served as-is (blog, OG, hero bg)
+
 const SLOTS = [
   {
-    section: "Portfolio",
+    section: "Portfolio (all 4:5 portrait)",
     slots: [
-      { id: "portfolio-events-1",    label: "Events — Primary",    ar: [4,5],   targetKB: 180, dest: "src/assets/images/", ext: ".webp" },
-      { id: "portfolio-events-2",    label: "Events — Secondary",  ar: [4,5],   targetKB: 180, dest: "src/assets/images/", ext: ".webp" },
-      { id: "portfolio-family-1",    label: "Family — Primary",    ar: [4,5],   targetKB: 180, dest: "src/assets/images/", ext: ".webp" },
-      { id: "portfolio-family-2",    label: "Family — Secondary",  ar: [4,5],   targetKB: 180, dest: "src/assets/images/", ext: ".webp" },
-      { id: "portfolio-editorial-1", label: "Editorial / Portrait", ar: [4,5],  targetKB: 180, dest: "src/assets/images/", ext: ".webp" },
+      { id: "portfolio-events-1",    label: "Events — Image 1",   ar: [4,5], targetKB: 180, dest: "src/assets/images/" },
+      { id: "portfolio-events-2",    label: "Events — Image 2",   ar: [4,5], targetKB: 180, dest: "src/assets/images/" },
+      { id: "portfolio-family-1",    label: "Family — Image 1",   ar: [4,5], targetKB: 180, dest: "src/assets/images/" },
+      { id: "portfolio-family-2",    label: "Family — Image 2",   ar: [4,5], targetKB: 180, dest: "src/assets/images/" },
+      { id: "portfolio-editorial-1", label: "Editorial — Image 1",ar: [4,5], targetKB: 180, dest: "src/assets/images/" },
     ]
   },
   {
-    section: "Home Page",
+    section: "Home Page — Hero (CSS background, goes to public/)",
     slots: [
-      { id: "home-hero",          label: "Hero (desktop)",      ar: [16,9],  targetKB: 350, dest: "src/assets/images/home/", ext: ".jpg" },
-      { id: "home-hero-mobile",   label: "Hero (mobile)",       ar: [9,16],  targetKB: 200, dest: "public/assets/images/", ext: ".webp", note: "→ public/" },
-      { id: "home-events-panel",  label: "Events Panel",        ar: [3,4],   targetKB: 200, dest: "src/assets/images/home/", ext: ".jpg" },
-      { id: "home-family-panel",  label: "Family Panel",        ar: [3,4],   targetKB: 200, dest: "src/assets/images/home/", ext: ".jpg" },
-      { id: "home-about-portrait",label: "About Portrait",      ar: [4,5],   targetKB: 150, dest: "src/assets/images/home/", ext: ".jpg" },
-      { id: "home-about-main",    label: "About Secondary",     ar: [4,5],   targetKB: 150, dest: "src/assets/images/home/", ext: ".jpg" },
-      { id: "home-grid-events",   label: "Grid — Events",       ar: [4,3],   targetKB: 150, dest: "src/assets/images/home/" },
-      { id: "home-grid-family",   label: "Grid — Family",       ar: [3,4],   targetKB: 150, dest: "src/assets/images/home/" },
-      { id: "home-grid-portrait", label: "Grid — Portrait",     ar: [3,2],   targetKB: 150, dest: "src/assets/images/home/" },
+      { id: "home-hero",        label: "Hero desktop (16:9)", ar: [16,9], targetKB: 350, dest: "public/assets/images/", note: "→ public/" },
+      { id: "home-hero-mobile", label: "Hero mobile (9:16)",  ar: [9,16], targetKB: 200, dest: "public/assets/images/", note: "→ public/" },
     ]
   },
   {
-    section: "Events Page",
+    section: "Home Page — Service Panels",
     slots: [
-      { id: "events-hero",          label: "Hero",              ar: [3,4],   targetKB: 300, dest: "src/assets/images/event-photography-katy-tx/", ext: ".jpg" },
-      { id: "events-about-portrait",label: "About Portrait",   ar: [3,4],   targetKB: 150, dest: "src/assets/images/event-photography-katy-tx/", ext: ".jpg" },
-      { id: "events-about-main",    label: "About Secondary",  ar: [4,3],   targetKB: 150, dest: "src/assets/images/event-photography-katy-tx/", ext: ".jpg" },
-      { id: "events-panel",         label: "Panel",            ar: [16,9],  targetKB: 200, dest: "src/assets/images/event-photography-katy-tx/", ext: ".jpg" },
-      { id: "events-family-hero",   label: "Family Thumbnail", ar: [3,4],   targetKB: 150, dest: "src/assets/images/event-photography-katy-tx/", ext: ".jpg" },
-      { id: "events-family-panel",  label: "Family Panel",     ar: [16,9],  targetKB: 150, dest: "src/assets/images/event-photography-katy-tx/", ext: ".jpg" },
+      { id: "home-events-panel",   label: "Events service panel (3:4)",  ar: [3,4], targetKB: 200, dest: "src/assets/images/" },
+      { id: "home-family-panel",   label: "Family service panel (3:4)",  ar: [3,4], targetKB: 200, dest: "src/assets/images/" },
     ]
   },
   {
-    section: "Family Page",
+    section: "Home Page — About Section",
     slots: [
-      { id: "family-hero",           label: "Hero",             ar: [3,4],   targetKB: 300, dest: "src/assets/images/family-photography-katy-tx/", ext: ".jpg" },
-      { id: "family-about-portrait", label: "About Portrait",  ar: [3,4],   targetKB: 150, dest: "src/assets/images/family-photography-katy-tx/", ext: ".jpg" },
-      { id: "family-about-main",     label: "About Secondary", ar: [4,3],   targetKB: 150, dest: "src/assets/images/family-photography-katy-tx/", ext: ".jpg" },
-      { id: "family-panel",          label: "Panel",           ar: [16,9],  targetKB: 200, dest: "src/assets/images/family-photography-katy-tx/", ext: ".jpg" },
-      { id: "family-events-hero",    label: "Events Thumbnail",ar: [3,4],   targetKB: 150, dest: "src/assets/images/family-photography-katy-tx/", ext: ".jpg" },
-      { id: "family-events-panel",   label: "Events Panel",    ar: [16,9],  targetKB: 150, dest: "src/assets/images/family-photography-katy-tx/", ext: ".jpg" },
+      { id: "home-about-portrait", label: "About portrait left (3:4)",   ar: [3,4], targetKB: 150, dest: "src/assets/images/" },
+      { id: "home-about-main",     label: "About secondary right (4:3)", ar: [4,3], targetKB: 150, dest: "src/assets/images/" },
+    ]
+  },
+  {
+    section: "Home Page — Gallery Grid (ratios MUST match CSS grid-item rules)",
+    slots: [
+      { id: "home-grid-events",   label: "Grid slot 1 — large left (4:3 landscape)",    ar: [4,3], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(1)" },
+      { id: "home-grid-family",   label: "Grid slot 2 — top right narrow (3:4 portrait)",ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(2)" },
+      { id: "home-events-hero",   label: "Grid slot 3 — top right narrow (3:4 portrait)",ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(3)" },
+      { id: "home-about-main-g",  label: "Grid slot 4 — bottom left (3:4 portrait)",    ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(4) — separate from about section" },
+      { id: "home-family-hero",   label: "Grid slot 5 — bottom centre (3:4 portrait)",  ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(5)" },
+      { id: "home-grid-portrait", label: "Grid slot 6 — large right (3:2 landscape)",   ar: [3,2], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(6)" },
+    ]
+  },
+  {
+    section: "Events Page — Hero (CSS background, goes to public/)",
+    slots: [
+      { id: "events-hero", label: "Events page hero (16:9 landscape)", ar: [16,9], targetKB: 300, dest: "public/assets/images/", note: "→ public/ as events-hero.webp" },
+    ]
+  },
+  {
+    section: "Events Page — Gallery Grid (ratios MUST match CSS grid-item rules)",
+    slots: [
+      { id: "events-panel",        label: "Grid slot 1 — large left (4:3 landscape)",     ar: [4,3], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(1)" },
+      { id: "events-family-panel", label: "Grid slot 2 — top right narrow (3:4 portrait)",ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(2)" },
+      { id: "events-hero-grid",    label: "Grid slot 3 — top right narrow (3:4 portrait)",ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(3) — different photo from hero" },
+      { id: "events-about-main",   label: "Grid slot 4 — bottom left (3:4 portrait)",     ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(4)" },
+      { id: "events-family-hero",  label: "Grid slot 5 — bottom centre (3:4 portrait)",   ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(5)" },
+      { id: "events-about-portrait",label:"Grid slot 6 — large right (3:2 landscape)",    ar: [3,2], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(6)" },
+    ]
+  },
+  {
+    section: "Family Page — Hero (CSS background, goes to public/)",
+    slots: [
+      { id: "family-hero", label: "Family page hero (16:9 landscape)", ar: [16,9], targetKB: 300, dest: "public/assets/images/", note: "→ public/ as family-hero.webp" },
+    ]
+  },
+  {
+    section: "Family Page — Gallery Grid (ratios MUST match CSS grid-item rules)",
+    slots: [
+      { id: "family-hero-grid",    label: "Grid slot 1 — large left (4:3 landscape)",     ar: [4,3], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(1)" },
+      { id: "family-panel",        label: "Grid slot 2 — top right narrow (3:4 portrait)",ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(2)" },
+      { id: "family-about-portrait",label:"Grid slot 3 — top right narrow (3:4 portrait)",ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(3)" },
+      { id: "family-about-main",   label: "Grid slot 4 — bottom left (3:4 portrait)",     ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(4)" },
+      { id: "family-events-panel", label: "Grid slot 5 — bottom centre (3:4 portrait)",   ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(5)" },
+      { id: "family-events-hero",  label: "Grid slot 6 — large right (3:2 landscape)",    ar: [3,2], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(6)" },
     ]
   },
   {
     section: "About Page",
     slots: [
-      { id: "about-main", label: "Main Photo", ar: [4,3], targetKB: 150, dest: "src/assets/images/about/", ext: ".jpg" },
+      { id: "about-main", label: "About main photo (4:3)", ar: [4,3], targetKB: 150, dest: "src/assets/images/" },
     ]
   },
   {
-    section: "Blog Posts",
+    section: "Blog Posts (go to public/)",
     slots: [
-      { id: "blog-prepare",        label: "How to Prepare — Cover",      ar: [16,9], targetKB: 120, dest: "public/assets/images/", note: "→ public/" },
-      { id: "blog-journey",        label: "Journey — Cover",             ar: [16,9], targetKB: 120, dest: "public/assets/images/", note: "→ public/" },
-      { id: "blog-journey-2",      label: "Journey — Mid-article",       ar: [16,9], targetKB: 120, dest: "public/assets/images/", note: "→ public/" },
-      { id: "blog-bluehour",       label: "Blue Hour — Cover",           ar: [16,9], targetKB: 120, dest: "public/assets/images/", note: "→ public/" },
-      { id: "blog-editorial-hero", label: "Shaping Light — Cover",       ar: [16,9], targetKB: 120, dest: "public/assets/images/", note: "→ public/" },
-      { id: "blog-editorial-2",    label: "Shaping Light — Mid-article", ar: [16,9], targetKB: 120, dest: "public/assets/images/", note: "→ public/" },
+      { id: "blog-prepare",        label: "How to Prepare — cover (16:9)",        ar: [16,9], targetKB: 120, dest: "public/assets/images/", note: "→ public/" },
+      { id: "blog-journey",        label: "Journey — cover (16:9)",               ar: [16,9], targetKB: 120, dest: "public/assets/images/", note: "→ public/" },
+      { id: "blog-journey-2",      label: "Journey — mid-article (16:9)",         ar: [16,9], targetKB: 120, dest: "public/assets/images/", note: "→ public/" },
+      { id: "blog-bluehour",       label: "Blue Hour — cover (16:9)",             ar: [16,9], targetKB: 120, dest: "public/assets/images/", note: "→ public/" },
+      { id: "blog-editorial-hero", label: "Shaping Light — cover (16:9)",         ar: [16,9], targetKB: 120, dest: "public/assets/images/", note: "→ public/" },
+      { id: "blog-editorial-2",    label: "Shaping Light — mid-article (16:9)",   ar: [16,9], targetKB: 120, dest: "public/assets/images/", note: "→ public/" },
     ]
   },
   {
     section: "Social / OG",
     slots: [
-      { id: "og-home", label: "OG Card (all pages)", ar: [1200, 630], targetKB: 120, dest: "src/assets/images/", note: "Fixed 1200×630px" },
+      { id: "og-home", label: "OG card — all pages (1200×630 fixed)", ar: [1200,630], targetKB: 120, dest: "public/assets/images/", note: "Fixed 1200×630px" },
     ]
   },
 ];
@@ -671,8 +707,8 @@ const slotExports = new Map();
 const canvas = document.getElementById('crop-canvas');
 const ctx = canvas.getContext('2d');
 
-function getOutputExt(slot) {
-  return slot?.ext || '.webp';
+function getOutputExt() {
+  return '.webp';
 }
 
 function downloadBlob(blob, filename) {
@@ -806,7 +842,7 @@ function loadImageToSlot(slotId, file) {
 function openModal(slot, img) {
   const [aw, ah] = slot.ar;
   document.getElementById('modal-title').textContent = slot.label;
-  document.getElementById('output-filename').textContent = `${slot.id}${getOutputExt(slot)} (→ ${slot.dest})`;
+  document.getElementById('output-filename').textContent = `${slot.id}${getOutputExt()} (→ ${slot.dest})`;
   document.getElementById('size-target').textContent = `Target: ${slot.targetKB}KB`;
   document.getElementById('modal').classList.add('open');
   document.getElementById('quality-val').textContent = `${quality*100|0}%`;
@@ -937,7 +973,7 @@ document.getElementById('btn-export').addEventListener('click', () => {
 function exportFromModal() {
   if (!activeSlotId || !activeSlotDef) return;
   drawCrop();
-  const filename = `${activeSlotId}${getOutputExt(activeSlotDef)}`;
+  const filename = `${activeSlotId}${getOutputExt()}`;
   canvas.toBlob((blob) => {
     if (!blob) return;
     downloadBlob(blob, filename);
