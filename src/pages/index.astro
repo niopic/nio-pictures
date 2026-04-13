@@ -3,6 +3,27 @@ import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 import { homeImages } from "../content/images.config";
+
+const siteUrl = "https://niopictures.com";
+const homeHeroDesktopPath = "/assets/images/hero-home.webp";
+const homeHeroMobilePath = "/assets/images/hero-home-mobile.webp";
+const homeHeroDesktopUrl = `${siteUrl}${homeHeroDesktopPath}`;
+const homeHeroImageLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  name: "NiO Pictures home hero image",
+  description:
+    "Cinematic event and family photography in Katy, Texas by NiO Pictures.",
+  contentUrl: homeHeroDesktopUrl,
+  url: homeHeroDesktopUrl,
+  creditText: "NiO Pictures",
+  creator: {
+    "@type": "Person",
+    name: "Palanivel",
+  },
+  license: "https://niopictures.com/terms",
+  acquireLicensePage: "https://niopictures.com/contact",
+});
 ---
 
 <BaseLayout
@@ -304,34 +325,18 @@ import { homeImages } from "../content/images.config";
     <link
       rel="preload"
       as="image"
-      href="/assets/images/hero-home-mobile.webp"
+      href={homeHeroMobilePath}
       media="(max-width: 768px)"
       fetchpriority="high"
     />
     <link
       rel="preload"
       as="image"
-      href="/assets/images/hero-home.webp"
+      href={homeHeroDesktopPath}
       media="(min-width: 769px)"
       fetchpriority="high"
     />
-    <script type="application/ld+json" is:inline>
-      {
-        "@context": "https://schema.org",
-        "@type": "ImageObject",
-        "name": "NiO Pictures home hero image",
-        "description": "Cinematic event and family photography in Katy, Texas by NiO Pictures.",
-        "contentUrl": "https://niopictures.com/assets/images/hero-home.webp",
-        "url": "https://niopictures.com/assets/images/hero-home.webp",
-        "creditText": "NiO Pictures",
-        "creator": {
-          "@type": "Person",
-          "name": "Palanivel"
-        },
-        "license": "https://niopictures.com/terms",
-        "acquireLicensePage": "https://niopictures.com/contact"
-      }
-    </script>
+    <script type="application/ld+json" is:inline set:html={homeHeroImageLd} />
     <script type="application/ld+json" is:inline>
       {
         "@context": "https://schema.org",
@@ -705,7 +710,7 @@ import { homeImages } from "../content/images.config";
       <a href="/event-photography-katy-tx" class="service-panel">
         <div
           class="service-panel-bg"
-          style={`background-image: url('${homeImages.eventsPanel.img.src}'); background-color: #1a1816;`}
+          style={`background-image: url('${homeImages.servicePanelEvents.img.src}'); background-color: #1a1816;`}
         >
         </div>
         <div class="service-panel-overlay"></div>
@@ -726,7 +731,7 @@ import { homeImages } from "../content/images.config";
       <a href="/family-photography-katy-tx" class="service-panel">
         <div
           class="service-panel-bg"
-          style={`background-image: url('${homeImages.familyPanel.img.src}'); background-color: #1c1915;`}
+          style={`background-image: url('${homeImages.servicePanelFamily.img.src}'); background-color: #1c1915;`}
         >
         </div>
         <div class="service-panel-overlay"></div>
@@ -820,8 +825,8 @@ import { homeImages } from "../content/images.config";
         <div class="featured-grid reveal reveal-delay-1">
           <div class="grid-item">
             <Image
-              src={homeImages.gridEvents.img}
-              alt={homeImages.gridEvents.alt}
+              src={homeImages.gridSlot1.img}
+              alt={homeImages.gridSlot1.alt}
               loading="lazy"
               width={800}
               height={600}
@@ -833,8 +838,8 @@ import { homeImages } from "../content/images.config";
           </div>
           <div class="grid-item">
             <Image
-              src={homeImages.gridFamily.img}
-              alt={homeImages.gridFamily.alt}
+              src={homeImages.gridSlot2.img}
+              alt={homeImages.gridSlot2.alt}
               loading="lazy"
               width={400}
               height={533}
@@ -846,8 +851,8 @@ import { homeImages } from "../content/images.config";
           </div>
           <div class="grid-item">
             <Image
-              src={homeImages.eventsHero.img}
-              alt={homeImages.eventsHero.alt}
+              src={homeImages.gridSlot3.img}
+              alt={homeImages.gridSlot3.alt}
               loading="lazy"
               width={400}
               height={533}
@@ -859,8 +864,8 @@ import { homeImages } from "../content/images.config";
           </div>
           <div class="grid-item">
             <Image
-              src={homeImages.aboutMain.img}
-              alt={homeImages.aboutMain.alt}
+              src={homeImages.gridSlot4.img}
+              alt={homeImages.gridSlot4.alt}
               loading="lazy"
               width={400}
               height={533}
@@ -872,8 +877,8 @@ import { homeImages } from "../content/images.config";
           </div>
           <div class="grid-item">
             <Image
-              src={homeImages.familyHero.img}
-              alt={homeImages.familyHero.alt}
+              src={homeImages.gridSlot5.img}
+              alt={homeImages.gridSlot5.alt}
               loading="lazy"
               width={400}
               height={533}
@@ -885,8 +890,8 @@ import { homeImages } from "../content/images.config";
           </div>
           <div class="grid-item">
             <Image
-              src={homeImages.gridPortrait.img}
-              alt={homeImages.gridPortrait.alt}
+              src={homeImages.gridSlot6.img}
+              alt={homeImages.gridSlot6.alt}
               loading="lazy"
               width={900}
               height={600}

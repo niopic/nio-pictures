@@ -1,5 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import blogJourney from "../assets/images/blog-journey.webp";
+import blogPrepare from "../assets/images/blog-prepare.webp";
+import blogBluehour from "../assets/images/blog-bluehour.webp";
+import blogEditorialHero from "../assets/images/blog-editorial-hero.webp";
 const title =
   "Blog | Photography Tips, Stories \u0026 Guides | NiO Pictures Katy TX";
 const description =
@@ -116,11 +121,11 @@ const extraHead = `<script type="application/ld+json">
         data-cat="process family"
       >
         <div class="blog-featured-img">
-          <img
-            src="/assets/images/blog-journey.webp"
+          <Image
+            src={blogJourney}
             alt="Family photography session journey from booking through heirloom keepsake delivery with NiO Pictures Katy TX"
-            width="700"
-            height="500"
+            width={700}
+            height={500}
             loading="lazy"
             style="width:100%;height:100%;object-fit:cover;background:var(--surface-2);"
           />
@@ -154,11 +159,11 @@ const extraHead = `<script type="application/ld+json">
           data-cat="tips family"
         >
           <div class="blog-card-img">
-            <img
-              src="/assets/images/blog-prepare.webp"
+            <Image
+              src={blogPrepare}
               alt="Family preparing outfits and styling for a portrait session in Katy TX — tips for what to wear to family photos"
-              width="600"
-              height="338"
+              width={600}
+              height={338}
               loading="lazy"
               style="width:100%;height:100%;object-fit:cover;background:var(--surface-2);"
             />
@@ -188,11 +193,11 @@ const extraHead = `<script type="application/ld+json">
           data-cat="family tips"
         >
           <div class="blog-card-img">
-            <img
-              src="/assets/images/blog-bluehour.webp"
+            <Image
+              src={blogBluehour}
               alt="Blue hour holiday family portraits in front yard with string lights during dusk in Katy TX"
-              width="600"
-              height="338"
+              width={600}
+              height={338}
               loading="lazy"
               style="width:100%;height:100%;object-fit:cover;background:var(--surface-2);"
             />
@@ -222,11 +227,11 @@ const extraHead = `<script type="application/ld+json">
           data-cat="editorial"
         >
           <div class="blog-card-img">
-            <img
-              src="/assets/images/blog-editorial-hero.webp"
+            <Image
+              src={blogEditorialHero}
               alt="Editorial portrait photography session with bold controlled-shadow lighting for personal branding Katy TX Houston"
-              width="600"
-              height="338"
+              width={600}
+              height={338}
               loading="lazy"
               style="width:100%;height:100%;object-fit:cover;background:var(--surface-2);"
             />

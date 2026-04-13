@@ -114,89 +114,89 @@ export const homeImages = {
     homeAboutPortrait,
     "Katy TX family photographer portrait detail for NiO Pictures home about section"
   ),
-  aboutMain: withDimensions(
-    homeAboutMain,
-    "Houston TX photographer portrait for NiO Pictures home page introduction"
-  ),
-  eventsPanel: withDimensions(
+  servicePanelEvents: withDimensions(
     homeEventsPanel,
     "Katy TX event photography panel image featuring polished celebration coverage"
   ),
-  familyPanel: withDimensions(
+  servicePanelFamily: withDimensions(
     homeFamilyPanel,
     "Katy TX family photography panel image with warm connection and movement"
   ),
-  eventsHero: withDimensions(
-    homeEventsHero,
-    "Houston TX event photography hero image highlighting cinematic celebration coverage"
-  ),
-  familyHero: withDimensions(
-    homeFamilyHero,
-    "Katy TX family photography hero image with heirloom portrait warmth"
-  ),
-  gridEvents: withDimensions(
+  gridSlot1: withDimensions(
     homeGridEvents,
     "Katy TX event photography grid image from a Houston-area celebration"
   ),
-  gridFamily: withDimensions(
+  gridSlot2: withDimensions(
     homeGridFamily,
     "Houston area family photography grid image featuring a connected portrait moment"
   ),
-  gridPortrait: withDimensions(
+  gridSlot3: withDimensions(
+    homeEventsHero,
+    "Houston TX event photography hero image highlighting cinematic celebration coverage"
+  ),
+  gridSlot4: withDimensions(
+    homeAboutMain,
+    "Houston TX photographer portrait for NiO Pictures home page introduction"
+  ),
+  gridSlot5: withDimensions(
+    homeFamilyHero,
+    "Katy TX family photography hero image with heirloom portrait warmth"
+  ),
+  gridSlot6: withDimensions(
     homeGridPortrait,
     "Editorial portrait photography grid image by a Katy TX photographer"
   ),
 };
 
 export const eventsImages = {
-  hero: withDimensions(
-    eventsHero,
-    "Katy TX event photography hero image showing cinematic celebration coverage"
-  ),
-  panel: withDimensions(
+  pageHero: withDimensions(
     eventsPanel,
     "Houston TX event photography panel image with candid guest interaction"
   ),
-  aboutPortrait: withDimensions(
-    eventsAboutPortrait,
-    "Katy TX event photographer portrait detail for Houston celebration coverage"
+  gridSlot2: withDimensions(
+    eventsFamilyPanel,
+    "Houston area family photography panel image referenced from the events page"
   ),
-  aboutMain: withDimensions(
+  gridSlot3: withDimensions(
+    eventsHero,
+    "Katy TX event photography hero image showing cinematic celebration coverage"
+  ),
+  gridSlot4: withDimensions(
     eventsAboutMain,
     "Houston TX event photography about image with editorial portrait styling"
   ),
-  familyHero: withDimensions(
+  gridSlot5: withDimensions(
     eventsFamilyHero,
     "Katy TX family photography crossover image used on the events page"
   ),
-  familyPanel: withDimensions(
-    eventsFamilyPanel,
-    "Houston area family photography panel image referenced from the events page"
+  gridSlot6: withDimensions(
+    eventsAboutPortrait,
+    "Katy TX event photographer portrait detail for Houston celebration coverage"
   ),
 };
 
 export const familyImages = {
-  hero: withDimensions(
+  pageHero: withDimensions(
     familyHero,
     "Katy TX family photography hero portrait in warm evening light"
   ),
-  panel: withDimensions(
+  gridSlot2: withDimensions(
     familyPanel,
     "Houston TX family photography panel image with natural connection and movement"
   ),
-  aboutPortrait: withDimensions(
+  gridSlot3: withDimensions(
     familyAboutPortrait,
     "Katy TX family photographer portrait detail for heirloom family sessions"
   ),
-  aboutMain: withDimensions(
+  gridSlot4: withDimensions(
     familyAboutMain,
     "Houston area family photography about image with refined portrait styling"
   ),
-  eventsHero: withDimensions(
+  gridSlot6: withDimensions(
     familyEventsHero,
     "Katy TX event photography crossover image featured on the family page"
   ),
-  eventsPanel: withDimensions(
+  gridSlot5: withDimensions(
     familyEventsPanel,
     "Houston TX event photography panel image referenced from the family page"
   ),

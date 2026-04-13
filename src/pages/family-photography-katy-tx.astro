@@ -3,6 +3,26 @@ import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 import { familyImages } from "../content/images.config";
+
+const siteUrl = "https://niopictures.com";
+const familyHeroImagePath = familyImages.pageHero.img.src;
+const familyHeroImageUrl = `${siteUrl}${familyHeroImagePath}`;
+const familyHeroImageLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  name: "Family photography hero image",
+  description:
+    "Heirloom family photography in Katy, Houston, Sugar Land, and Richmond by NiO Pictures.",
+  contentUrl: familyHeroImageUrl,
+  url: familyHeroImageUrl,
+  creditText: "NiO Pictures",
+  creator: {
+    "@type": "Person",
+    name: "Palanivel",
+  },
+  license: "https://niopictures.com/terms",
+  acquireLicensePage: "https://niopictures.com/contact",
+});
 ---
 
 <BaseLayout
@@ -15,27 +35,11 @@ import { familyImages } from "../content/images.config";
     <link
       rel="preload"
       as="image"
-      href="/assets/images/family-hero.webp"
+      href={familyHeroImagePath}
       fetchpriority="high"
     />
 
-    <script type="application/ld+json" is:inline>
-      {
-        "@context": "https://schema.org",
-        "@type": "ImageObject",
-        "name": "Family photography hero image",
-        "description": "Heirloom family photography in Katy, Houston, Sugar Land, and Richmond by NiO Pictures.",
-        "contentUrl": "https://niopictures.com/assets/images/family-hero.webp",
-        "url": "https://niopictures.com/assets/images/family-hero.webp",
-        "creditText": "NiO Pictures",
-        "creator": {
-          "@type": "Person",
-          "name": "Palanivel"
-        },
-        "license": "https://niopictures.com/terms",
-        "acquireLicensePage": "https://niopictures.com/contact"
-      }
-    </script>
+    <script type="application/ld+json" is:inline set:html={familyHeroImageLd} />
 
     <script type="application/ld+json" is:inline>
       {
@@ -219,8 +223,8 @@ import { familyImages } from "../content/images.config";
     <div class="page-hero">
       <div class="page-hero-bg" style="background-color: #1d1a14;">
         <Image
-          src={familyImages.hero.img}
-          alt={familyImages.hero.alt}
+          src={familyImages.pageHero.img}
+          alt={familyImages.pageHero.alt}
           aria-hidden="true"
           loading="eager"
           fetchpriority="high"
@@ -411,8 +415,8 @@ import { familyImages } from "../content/images.config";
               style="aspect-ratio: 3/4; overflow: hidden; border-radius: 2px;"
             >
               <Image
-                src={familyImages.panel.img}
-                alt={familyImages.panel.alt}
+                src={familyImages.gridSlot2.img}
+                alt={familyImages.gridSlot2.alt}
                 loading="lazy"
                 width={400}
                 height={533}
@@ -422,8 +426,8 @@ import { familyImages } from "../content/images.config";
             <div style="display:flex; flex-direction:column; gap:0.75rem;">
               <div style="flex:1; overflow:hidden; border-radius:2px;">
                 <Image
-                  src={familyImages.aboutMain.img}
-                  alt={familyImages.aboutMain.alt}
+                  src={familyImages.gridSlot4.img}
+                  alt={familyImages.gridSlot4.alt}
                   loading="lazy"
                   width={400}
                   height={300}
@@ -432,8 +436,8 @@ import { familyImages } from "../content/images.config";
               </div>
               <div style="flex:1; overflow:hidden; border-radius:2px;">
                 <Image
-                  src={familyImages.hero.img}
-                  alt={familyImages.hero.alt}
+                  src={familyImages.pageHero.img}
+                  alt={familyImages.pageHero.alt}
                   loading="lazy"
                   width={400}
                   height={300}
@@ -491,8 +495,8 @@ import { familyImages } from "../content/images.config";
         <div class="featured-grid reveal reveal-delay-1">
           <div class="grid-item">
             <Image
-              src={familyImages.hero.img}
-              alt={familyImages.hero.alt}
+              src={familyImages.pageHero.img}
+              alt={familyImages.pageHero.alt}
               loading="lazy"
               width={800}
               height={600}
@@ -502,8 +506,8 @@ import { familyImages } from "../content/images.config";
           </div>
           <div class="grid-item">
             <Image
-              src={familyImages.panel.img}
-              alt={familyImages.panel.alt}
+              src={familyImages.gridSlot2.img}
+              alt={familyImages.gridSlot2.alt}
               loading="lazy"
               width={400}
               height={533}
@@ -513,8 +517,8 @@ import { familyImages } from "../content/images.config";
           </div>
           <div class="grid-item">
             <Image
-              src={familyImages.aboutPortrait.img}
-              alt={familyImages.aboutPortrait.alt}
+              src={familyImages.gridSlot3.img}
+              alt={familyImages.gridSlot3.alt}
               loading="lazy"
               width={400}
               height={533}
@@ -524,8 +528,8 @@ import { familyImages } from "../content/images.config";
           </div>
           <div class="grid-item">
             <Image
-              src={familyImages.aboutMain.img}
-              alt={familyImages.aboutMain.alt}
+              src={familyImages.gridSlot4.img}
+              alt={familyImages.gridSlot4.alt}
               loading="lazy"
               width={400}
               height={533}
@@ -535,8 +539,8 @@ import { familyImages } from "../content/images.config";
           </div>
           <div class="grid-item">
             <Image
-              src={familyImages.eventsPanel.img}
-              alt={familyImages.eventsPanel.alt}
+              src={familyImages.gridSlot5.img}
+              alt={familyImages.gridSlot5.alt}
               loading="lazy"
               width={400}
               height={533}
@@ -546,8 +550,8 @@ import { familyImages } from "../content/images.config";
           </div>
           <div class="grid-item">
             <Image
-              src={familyImages.eventsHero.img}
-              alt={familyImages.eventsHero.alt}
+              src={familyImages.gridSlot6.img}
+              alt={familyImages.gridSlot6.alt}
               loading="lazy"
               width={800}
               height={600}

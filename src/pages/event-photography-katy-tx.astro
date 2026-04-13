@@ -3,6 +3,26 @@ import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 import { eventsImages } from "../content/images.config";
+
+const siteUrl = "https://niopictures.com";
+const eventHeroImagePath = eventsImages.pageHero.img.src;
+const eventHeroImageUrl = `${siteUrl}${eventHeroImagePath}`;
+const eventHeroImageLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  name: "Event photography hero image",
+  description:
+    "Cinematic event photography in Katy, Houston, Sugar Land, and Richmond by NiO Pictures.",
+  contentUrl: eventHeroImageUrl,
+  url: eventHeroImageUrl,
+  creditText: "NiO Pictures",
+  creator: {
+    "@type": "Person",
+    name: "Palanivel",
+  },
+  license: "https://niopictures.com/terms",
+  acquireLicensePage: "https://niopictures.com/contact",
+});
 ---
 
 <BaseLayout
@@ -15,27 +35,11 @@ import { eventsImages } from "../content/images.config";
     <link
       rel="preload"
       as="image"
-      href="/assets/images/events-hero.webp"
+      href={eventHeroImagePath}
       fetchpriority="high"
     />
 
-    <script type="application/ld+json" is:inline>
-      {
-        "@context": "https://schema.org",
-        "@type": "ImageObject",
-        "name": "Event photography hero image",
-        "description": "Cinematic event photography in Katy, Houston, Sugar Land, and Richmond by NiO Pictures.",
-        "contentUrl": "https://niopictures.com/assets/images/events-hero.webp",
-        "url": "https://niopictures.com/assets/images/events-hero.webp",
-        "creditText": "NiO Pictures",
-        "creator": {
-          "@type": "Person",
-          "name": "Palanivel"
-        },
-        "license": "https://niopictures.com/terms",
-        "acquireLicensePage": "https://niopictures.com/contact"
-      }
-    </script>
+    <script type="application/ld+json" is:inline set:html={eventHeroImageLd} />
 
     <script type="application/ld+json" is:inline>
       {
@@ -195,8 +199,8 @@ import { eventsImages } from "../content/images.config";
     <div class="page-hero" style="margin-top: 0; padding-top: 0;">
       <div class="page-hero-bg" style="background-color: #18161a;">
         <Image
-          src={eventsImages.panel.img}
-          alt={eventsImages.panel.alt}
+          src={eventsImages.pageHero.img}
+          alt={eventsImages.pageHero.alt}
           aria-hidden="true"
           loading="eager"
           fetchpriority="high"
@@ -352,8 +356,8 @@ import { eventsImages } from "../content/images.config";
         <div class="featured-grid reveal reveal-delay-1">
           <div class="grid-item">
             <Image
-              src={eventsImages.panel.img}
-              alt={eventsImages.panel.alt}
+              src={eventsImages.pageHero.img}
+              alt={eventsImages.pageHero.alt}
               loading="lazy"
               width={800}
               height={600}
@@ -363,8 +367,8 @@ import { eventsImages } from "../content/images.config";
           </div>
           <div class="grid-item">
             <Image
-              src={eventsImages.familyPanel.img}
-              alt={eventsImages.familyPanel.alt}
+              src={eventsImages.gridSlot2.img}
+              alt={eventsImages.gridSlot2.alt}
               loading="lazy"
               width={400}
               height={533}
@@ -374,8 +378,8 @@ import { eventsImages } from "../content/images.config";
           </div>
           <div class="grid-item">
             <Image
-              src={eventsImages.hero.img}
-              alt={eventsImages.hero.alt}
+              src={eventsImages.gridSlot3.img}
+              alt={eventsImages.gridSlot3.alt}
               loading="lazy"
               width={400}
               height={533}
@@ -385,8 +389,8 @@ import { eventsImages } from "../content/images.config";
           </div>
           <div class="grid-item">
             <Image
-              src={eventsImages.aboutMain.img}
-              alt={eventsImages.aboutMain.alt}
+              src={eventsImages.gridSlot4.img}
+              alt={eventsImages.gridSlot4.alt}
               loading="lazy"
               width={400}
               height={533}
@@ -396,8 +400,8 @@ import { eventsImages } from "../content/images.config";
           </div>
           <div class="grid-item">
             <Image
-              src={eventsImages.familyHero.img}
-              alt={eventsImages.familyHero.alt}
+              src={eventsImages.gridSlot5.img}
+              alt={eventsImages.gridSlot5.alt}
               loading="lazy"
               width={400}
               height={533}
@@ -407,8 +411,8 @@ import { eventsImages } from "../content/images.config";
           </div>
           <div class="grid-item">
             <Image
-              src={eventsImages.aboutPortrait.img}
-              alt={eventsImages.aboutPortrait.alt}
+              src={eventsImages.gridSlot6.img}
+              alt={eventsImages.gridSlot6.alt}
               loading="lazy"
               width={800}
               height={600}

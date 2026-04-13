@@ -1,12 +1,66 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import blogJourneyHero from "../../assets/images/blog-journey.webp";
+import blogJourneyMid from "../../assets/images/blog-journey-2.webp";
+const siteUrl = "https://niopictures.com";
+const heroImagePath = blogJourneyHero.src;
+const heroImageUrl = `${siteUrl}${heroImagePath}`;
 const title = "Your Family Photography Journey with NiO Pictures | Katy TX";
 const description =
   "What to expect from your NiO Pictures family photography session in Katy TX — booking to delivery, with albums, wall art, prints, and digital downloads.";
 const canonical = "https://niopictures.com/blog/family-photography-journey";
-const ogImage = "https://niopictures.com/assets/images/blog-journey.webp";
-const extraHead =
-  '\u003clink rel="preload" as="image" href="/assets/images/blog-journey.webp" fetchpriority="high"\u003e\u003cscript type="application/ld+json"\u003e\n  {\n    "@context": "https://schema.org",\n    "@type": "BlogPosting",\n    "headline": "Your Family Photography Journey with NiO Pictures",\n    "description": "From easy online booking to beautiful keepsakes — what to expect from your family portrait session with NiO Pictures in Katy TX. Albums, wall art, prints and digital gallery delivery.",\n    "image": "https://niopictures.com/assets/images/blog-journey.webp",\n    "datePublished": "2026-02-11",\n    "dateModified": "2026-02-11",\n    "author": {"@type": "Person", "name": "Palanivel", "url": "https://niopictures.com/about"},\n    "publisher": {"@id": "https://niopictures.com/#business"},\n    "url": "https://niopictures.com/blog/family-photography-journey",\n    "keywords": ["family photography Katy TX", "family portrait session process", "photography booking process", "heirloom family portraits", "photo albums Katy TX"],\n    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://niopictures.com/blog/family-photography-journey"}\n  }\n  \u003c/script\u003e \u003cscript type="application/ld+json"\u003e\n  {\n    "@context": "https://schema.org",\n    "@type": "BreadcrumbList",\n    "itemListElement": [\n      {"@type":"ListItem","position":1,"name":"Home","item":"https://niopictures.com/"},\n      {"@type":"ListItem","position":2,"name":"Blog","item":"https://niopictures.com/blog"},\n      {"@type":"ListItem","position":3,"name":"Your Family Photography Journey","item":"https://niopictures.com/blog/family-photography-journey"}\n    ]\n  }\n  \u003c/script\u003e';
+const ogImage = heroImageUrl;
+const blogPostingLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: "Your Family Photography Journey with NiO Pictures",
+  description:
+    "From easy online booking to beautiful keepsakes — what to expect from your family portrait session with NiO Pictures in Katy TX. Albums, wall art, prints and digital gallery delivery.",
+  image: heroImageUrl,
+  datePublished: "2026-02-11",
+  dateModified: "2026-02-11",
+  author: {
+    "@type": "Person",
+    name: "Palanivel",
+    url: "https://niopictures.com/about",
+  },
+  publisher: { "@id": "https://niopictures.com/#business" },
+  url: canonical,
+  keywords: [
+    "family photography Katy TX",
+    "family portrait session process",
+    "photography booking process",
+    "heirloom family portraits",
+    "photo albums Katy TX",
+  ],
+  mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+});
+
+const breadcrumbLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://niopictures.com/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Blog",
+      item: "https://niopictures.com/blog",
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: "Your Family Photography Journey",
+      item: canonical,
+    },
+  ],
+});
 ---
 
 <BaseLayout
@@ -16,7 +70,11 @@ const extraHead =
   ogImage={ogImage}
   extraStyles={["/assets/css/blog.css"]}
 >
-  <Fragment slot="head" set:html={extraHead} />
+  <Fragment slot="head">
+    <link rel="preload" as="image" href={heroImagePath} fetchpriority="high" />
+    <script type="application/ld+json" is:inline set:html={blogPostingLd} />
+    <script type="application/ld+json" is:inline set:html={breadcrumbLd} />
+  </Fragment>
   <a
     href="#main-content"
     class="skip-link"
@@ -90,11 +148,11 @@ const extraHead =
   <!-- ── Hero Image ───────────────────────────────────────── -->
   <div style="max-width:900px; margin:0 auto; padding:0 var(--gutter);">
     <div class="post-img">
-      <img
-        src="/assets/images/blog-journey.webp"
+      <Image
+        src={blogJourneyHero}
         alt="Family photography experience from booking to heirloom keepsakes with NiO Pictures Katy TX"
-        width="900"
-        height="506"
+        width={900}
+        height={506}
         loading="eager"
         fetchpriority="high"
         style="width:100%;height:auto;display:block;background:var(--surface-2);"
@@ -188,11 +246,11 @@ const extraHead =
 
     <!-- Image — mid post -->
     <div class="post-img">
-      <img
-        src="/assets/images/blog-journey-2.webp"
+      <Image
+        src={blogJourneyMid}
         alt="Heirloom family portrait session delivery from NiO Pictures — online gallery and album keepsakes for Katy TX families"
-        width="900"
-        height="506"
+        width={900}
+        height={506}
         loading="lazy"
         style="width:100%;height:auto;display:block;background:var(--surface-2);"
       />
