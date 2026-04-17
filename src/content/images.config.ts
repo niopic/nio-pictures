@@ -150,6 +150,10 @@ export const homeImages = {
 
 export const eventsImages = {
   pageHero: withDimensions(
+    eventsHero,
+    "Katy TX event photography hero image showing cinematic celebration coverage"
+  ),
+  gridSlot1: withDimensions(
     eventsPanel,
     "Houston TX event photography panel image with candid guest interaction"
   ),
@@ -158,8 +162,8 @@ export const eventsImages = {
     "Houston area family photography panel image referenced from the events page"
   ),
   gridSlot3: withDimensions(
-    eventsHero,
-    "Katy TX event photography hero image showing cinematic celebration coverage"
+    eventsAboutPortrait,
+    "Katy TX event photographer portrait detail for Houston celebration coverage"
   ),
   gridSlot4: withDimensions(
     eventsAboutMain,
@@ -170,8 +174,8 @@ export const eventsImages = {
     "Katy TX family photography crossover image used on the events page"
   ),
   gridSlot6: withDimensions(
-    eventsAboutPortrait,
-    "Katy TX event photographer portrait detail for Houston celebration coverage"
+    eventsAboutMain,
+    "Houston TX event photography about image with editorial portrait styling"
   ),
 };
 
@@ -180,25 +184,29 @@ export const familyImages = {
     familyHero,
     "Katy TX family photography hero portrait in warm evening light"
   ),
-  gridSlot2: withDimensions(
+  gridSlot1: withDimensions(
     familyPanel,
     "Houston TX family photography panel image with natural connection and movement"
   ),
-  gridSlot3: withDimensions(
+  gridSlot2: withDimensions(
     familyAboutPortrait,
     "Katy TX family photographer portrait detail for heirloom family sessions"
   ),
-  gridSlot4: withDimensions(
+  gridSlot3: withDimensions(
     familyAboutMain,
     "Houston area family photography about image with refined portrait styling"
   ),
-  gridSlot6: withDimensions(
+  gridSlot4: withDimensions(
+    familyEventsPanel,
+    "Houston TX event photography panel image referenced from the family page"
+  ),
+  gridSlot5: withDimensions(
     familyEventsHero,
     "Katy TX event photography crossover image featured on the family page"
   ),
-  gridSlot5: withDimensions(
-    familyEventsPanel,
-    "Houston TX event photography panel image referenced from the family page"
+  gridSlot6: withDimensions(
+    familyAboutMain,
+    "Houston area family photography about image with refined portrait styling"
   ),
 };
 
