@@ -1,0 +1,323 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import springFlingHero from "../../assets/images/blog-spring-fling-2026-1.webp";
+import springFlingMid from "../../assets/images/blog-spring-fling-2026-2.webp";
+import springFlingEnd from "../../assets/images/blog-spring-fling-2026-3.webp";
+
+const siteUrl = "https://niopictures.com";
+const heroImagePath = springFlingHero.src;
+const heroImageUrl = `${siteUrl}${heroImagePath}`;
+const title =
+  "Capturing Community: Spring Fling at St. Peter's ECDC, Katy TX | Event Photography";
+const description =
+  "NiO Pictures photographed the Spring Fling community event at St. Peter's ECDC on Kingsland Blvd in Katy, TX — families, kids, and joyful moments captured on location.";
+const canonical =
+  "https://niopictures.com/blog/spring-fling-st-peters-ecdc-katy-tx";
+const ogImage = heroImageUrl;
+const blogPostingLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: "Capturing Community: Spring Fling at St. Peter's ECDC, Katy TX",
+  description:
+    "NiO Pictures photographed the Spring Fling community event at St. Peter's ECDC on Kingsland Blvd in Katy, TX — families, kids, and joyful moments captured on location.",
+  image: heroImageUrl,
+  datePublished: "2026-04-21",
+  dateModified: "2026-04-21",
+  author: {
+    "@type": "Person",
+    name: "Palanivel",
+    url: "https://niopictures.com/about",
+  },
+  publisher: { "@id": "https://niopictures.com/#business" },
+  url: canonical,
+  keywords: [
+    "Katy TX photographer",
+    "event photography Katy",
+    "Fort Bend event photographer",
+    "St Peters ECDC",
+    "Spring Fling Katy",
+    "community photographer Katy TX",
+    "family photographer Katy TX",
+    "Kingsland Blvd Katy",
+  ],
+  mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+});
+
+const breadcrumbLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://niopictures.com/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Blog",
+      item: "https://niopictures.com/blog",
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: "Capturing Community: Spring Fling at St. Peter's ECDC, Katy TX",
+      item: canonical,
+    },
+  ],
+});
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  extraStyles={["/assets/css/blog.css"]}
+>
+  <Fragment slot="head">
+    <link rel="preload" as="image" href={heroImagePath} fetchpriority="high" />
+    <script type="application/ld+json" is:inline set:html={blogPostingLd} />
+    <script type="application/ld+json" is:inline set:html={breadcrumbLd} />
+  </Fragment>
+  <a
+    href="#main-content"
+    class="skip-link"
+    style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);"
+    onfocus="this.style.top='1rem'"
+    onblur="this.style.top='-40px'">Skip to main content</a
+  >
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-logo">Ni<span>O</span> Pictures</a>
+    <div class="nav-links">
+      <a href="/event-photography-katy-tx">Events</a>
+      <a href="/family-photography-katy-tx">Family</a>
+      <a href="/portfolio">Portfolio</a>
+      <a href="/about">About</a>
+      <a href="/blog" class="active">Blog</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <a
+      href="https://niopictures.pixieset.com/booking/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn btn-primary nav-cta">Book Now</a
+    >
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"
+      ><span></span><span></span><span></span></button
+    >
+  </nav>
+
+  <div class="nav-mobile" role="dialog" aria-label="Mobile navigation">
+    <a href="/event-photography-katy-tx">Events</a>
+    <a href="/family-photography-katy-tx">Family</a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="/about">About</a>
+    <a href="/blog">Blog</a>
+    <a href="/contact">Contact</a>
+    <a
+      href="https://niopictures.pixieset.com/booking/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="nav-mobile-cta">Book a Session →</a
+    >
+  </div>
+
+  <!-- ── Post Header ─────────────────────────────────────────── -->
+  <div class="post-hero">
+    <nav class="post-breadcrumb" aria-label="Breadcrumb">
+      <a href="/blog">Blog</a>
+      <span class="post-breadcrumb-sep">›</span>
+      <span>Capturing Community: Spring Fling</span>
+    </nav>
+    <span class="post-tag">Event Photography · Community · Katy TX</span>
+    <h1 class="post-title">
+      Capturing Community:<br />Spring Fling at St. Peter's ECDC
+    </h1>
+    <p
+      style="font-family:var(--font-display);font-size:1.2rem;font-weight:300;font-style:italic;color:var(--muted);margin-top:0.5rem;margin-bottom:1.5rem;"
+    >
+      Families, face painting, and joyful moments in Kingsland Blvd, Katy TX
+    </p>
+    <div class="post-meta">
+      <span>Palanivel</span>
+      <span
+        class="blog-meta-dot"
+        style="width:3px;height:3px;border-radius:50%;background:var(--muted-dark);"
+      ></span>
+      <span>April 21, 2026</span>
+      <span
+        class="blog-meta-dot"
+        style="width:3px;height:3px;border-radius:50%;background:var(--muted-dark);"
+      ></span>
+      <span>4 min read</span>
+    </div>
+  </div>
+
+  <!-- ── Hero Image ───────────────────────────────────────── -->
+  <div style="max-width:900px; margin:0 auto; padding:0 var(--gutter);">
+    <div class="post-img">
+      <Image
+        src={springFlingHero}
+        alt="Family portrait at Spring Fling, St. Peter's ECDC, Katy TX"
+        width={900}
+        height={506}
+        loading="eager"
+        fetchpriority="high"
+        style="width:100%;height:auto;display:block;background:var(--surface-2);"
+      />
+      <p class="post-img-caption">
+        A family celebrates together at St. Peter's ECDC Spring Fling
+      </p>
+    </div>
+  </div>
+
+  <!-- ── Post Body ───────────────────────────────────────────── -->
+  <article class="post-body">
+    <p>
+      There's something special about a community event done right. On April 19,
+      2026, St. Peter's ECDC on Kingsland Blvd in Katy, TX hosted their annual
+      Spring Fling — and it delivered exactly that kind of magic. Families from
+      across the Katy and Fort Bend area came together for an afternoon of face
+      painting, balloon animals, crafts, bounce houses, and genuine human
+      connection.
+    </p>
+
+    <p>
+      Kids ran between activity stations with balloon dogs and flower crowns in
+      their hands. Parents laughed at the chaos. Grandparents watched with quiet
+      smiles. And for a few hours, the world slowed down just enough to notice
+      the good stuff — the moments that actually matter.
+    </p>
+
+    <div class="post-pullquote">
+      <p>
+        Community events like this remind us why photography matters — not as a
+        service, but as a way to hold onto moments we might otherwise forget.
+      </p>
+    </div>
+
+    <h2>Being the Volunteer Photographer</h2>
+    <p>
+      I had the privilege of being the volunteer photographer for the event,
+      which meant something different than a typical event booking. This was
+      about capturing candid moments, family portraits, and the joyful chaos in
+      between — not for a client list, but for the families who were there to
+      simply enjoy themselves and remember the day.
+    </p>
+    <p>
+      From a little girl clutching her balloon animal outside in the soft
+      afternoon light, to a family of four beaming together by the craft tables,
+      to siblings comparing their face paint in the mirror — every frame told a
+      story worth keeping. The photos weren't posed or stiff. They were real,
+      unguarded, and full of the kind of joy that only comes when people stop
+      worrying about the camera and just live.
+    </p>
+
+    <!-- Image — mid post -->
+    <div class="post-img">
+      <Image
+        src={springFlingMid}
+        alt="Children with balloon animals at Spring Fling event, St. Peter's ECDC"
+        width={900}
+        height={506}
+        loading="lazy"
+        style="width:100%;height:auto;display:block;background:var(--surface-2);"
+      />
+      <p class="post-img-caption">
+        Moments of childhood wonder — balloon animals and pure happiness
+      </p>
+    </div>
+
+    <h2>Why Community Events Matter</h2>
+    <p>
+      In a world that often feels fragmented, events like Spring Fling remind us
+      of the value of in-person gathering. They're not slick or polished.
+      They're sweaty, loud, messy, and absolutely authentic. As a photographer,
+      these are the events that fuel my work — they remind me why I do this.
+    </p>
+    <p>
+      Community events are also where real stories live. These aren't the
+      carefully curated moments of professional sessions. These are genuine
+      interactions, unexpected connections, and the kind of unfiltered joy that
+      makes photographs meaningful.
+    </p>
+
+    <!-- Image — end of post -->
+    <div class="post-img">
+      <Image
+        src={springFlingEnd}
+        alt="Group portrait of families at Spring Fling, St. Peter's ECDC, Kingsland Blvd"
+        width={900}
+        height={506}
+        loading="lazy"
+        style="width:100%;height:auto;display:block;background:var(--surface-2);"
+      />
+      <p class="post-img-caption">
+        Community gathered — the heart of what Spring Fling is all about
+      </p>
+    </div>
+
+    <h2>If You're Planning an Event</h2>
+    <p>
+      If your organization, church, or community in Katy, Fulshear, Sugar Land,
+      or the greater Fort Bend area is planning an event and needs a
+      photographer, I'd love to be there. Whether it's a volunteer position or a
+      paid booking, community events are exactly the kind of work that reminds
+      me why photography matters.
+    </p>
+    <p>I offer:</p>
+    <ul>
+      <li>Fast turnaround on edited galleries</li>
+      <li>High-resolution files ready for sharing and printing</li>
+      <li>On-location coverage with no studio required</li>
+      <li>Experience photographing families, events, and large gatherings</li>
+    </ul>
+
+    <div class="post-divider"></div>
+
+    <div class="post-cta">
+      <h3>Planning an Event?</h3>
+      <p>
+        Let's create photographs that capture the real moments, real
+        connections, and real joy of your community gathering.
+      </p>
+      <a href="/event-photography-katy-tx" class="btn btn-primary btn-arrow"
+        >Learn More</a
+      >
+      <a href="/contact" class="btn btn-outline" style="margin-left:0.5rem;"
+        >Get in Touch</a
+      >
+    </div>
+  </article>
+
+  <!-- ── Related Posts ───────────────────────────────────────── -->
+  <div class="related-posts">
+    <p class="eyebrow">Read Next</p>
+    <div class="related-grid">
+      <a href="/blog/family-photography-journey" class="related-card">
+        <p class="related-tag">Process</p>
+        <p class="related-title">
+          Your Family Photography Journey with NiO Pictures
+        </p>
+      </a>
+      <a href="/blog/editorial-portrait-photography" class="related-card">
+        <p class="related-tag">Editorial</p>
+        <p class="related-title">
+          Shaping Light — Editorial Portrait Photography
+        </p>
+      </a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style is:global>
+  body {
+    background: var(--surface);
+    color: var(--text);
+    font-family: var(--font-body);
+  }
+</style>

@@ -38,6 +38,7 @@ const SLOT_PROFILES = {
   "portfolio-hero-2": { width: 1200, height: 1600, kind: "portrait" },
   "portfolio-panel-2": { width: 1920, height: 1080, kind: "landscape" },
   "portfolio-hero-3": { width: 1600, height: 1200, kind: "landscape" },
+  "blog-image": { width: 1800, height: 1012, kind: "landscape" },
 };
 
 const SLOT_BUDGETS_KB = {
@@ -68,6 +69,7 @@ const SLOT_BUDGETS_KB = {
   "home-panel-2": 380,
   "portfolio-panel-1": 380,
   "portfolio-panel-2": 380,
+  "blog-image": 300,
 };
 
 const DEFAULT_BUDGET_KB = 350;

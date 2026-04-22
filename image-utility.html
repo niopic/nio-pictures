@@ -76,7 +76,87 @@
     max-width: 1400px;
     margin: 0 auto;
     padding: 2rem;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 2rem;
   }
+
+  /* ── Left Navigation Sidebar ── */
+  .app-sidebar {
+    position: sticky;
+    top: 80px;
+    height: fit-content;
+    max-height: calc(100svh - 100px);
+    overflow-y: auto;
+    border-right: 1px solid var(--border2);
+    padding-right: 1.5rem;
+  }
+
+  .sidebar-title {
+    font-family: var(--font-a);
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    padding: 0;
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .sidebar-nav a {
+    display: block;
+    padding: 0.5rem 0;
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s, border-color 0.2s;
+    border-left: 2px solid transparent;
+    padding-left: 0.75rem;
+  }
+
+  .sidebar-nav a:hover {
+    color: var(--gold);
+    border-left-color: var(--gold);
+  }
+
+  .sidebar-nav a.active {
+    color: var(--cream);
+    border-left-color: var(--gold);
+  }
+
+  /* ── Main content ── */
+  .app-main {
+    min-width: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .app-body {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .app-sidebar {
+      position: static;
+      border-right: none;
+      border-bottom: 1px solid var(--border2);
+      padding-right: 0;
+      padding-bottom: 1rem;
+      max-height: none;
+    }
+
+    .sidebar-nav {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  }
+  
 
   /* ── Section headers ── */
   .section-label {
@@ -512,6 +592,13 @@
 
 <div class="app-body">
 
+  <nav class="app-sidebar">
+    <div class="sidebar-title">Sections</div>
+    <ul class="sidebar-nav" id="sidebar-nav"></ul>
+  </nav>
+
+  <div class="app-main">
+
   <div class="intro">
     <div class="intro-title">Prepare photos for the site</div>
     <div class="intro-steps">
@@ -535,6 +622,8 @@
   </div>
 
   <div id="sections"></div>
+  </div>
+
 </div>
 
 <!-- Modal -->
@@ -682,6 +771,9 @@ const SLOTS = [
       { id: "blog-bluehour",       label: "Blue Hour — cover (16:9)",             ar: [16,9], targetKB: 120, dest: "public/assets/images/", note: "→ public/" },
       { id: "blog-editorial-hero", label: "Shaping Light — cover (16:9)",         ar: [16,9], targetKB: 120, dest: "public/assets/images/", note: "→ public/" },
       { id: "blog-editorial-2",    label: "Shaping Light — mid-article (16:9)",   ar: [16,9], targetKB: 120, dest: "public/assets/images/", note: "→ public/" },
+      { id: "blog-spring-fling-2026-1", label: "Spring Fling — hero (16:9)",                  ar: [16,9], targetKB: 120, dest: "src/assets/images/", note: "Astro Image" },
+      { id: "blog-spring-fling-2026-2", label: "Spring Fling — mid-article (16:9)",          ar: [16,9], targetKB: 120, dest: "src/assets/images/", note: "Astro Image" },
+      { id: "blog-spring-fling-2026-3", label: "Spring Fling — end-article (16:9)",          ar: [16,9], targetKB: 120, dest: "src/assets/images/", note: "Astro Image" },
     ]
   },
   {
@@ -721,10 +813,46 @@ function downloadBlob(blob, filename) {
 }
 
 // ── Build UI ─────────────────────────────────────────────────
+function slugify(str) {
+  return str.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+}
+
+function buildSidebar() {
+  const nav = document.getElementById('sidebar-nav');
+  nav.innerHTML = '';
+  
+  SLOTS.forEach((group, idx) => {
+    const li = document.createElement('li');
+    const slug = slugify(group.section);
+    const a = document.createElement('a');
+    a.href = `#section-${idx}`;
+    a.textContent = group.section;
+    a.dataset.slug = slug;
+    li.appendChild(a);
+    nav.appendChild(li);
+  });
+
+  // Add scroll spy behavior
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const navLink = document.querySelector(`a[href="#${entry.target.id}"]`);
+      if (navLink) {
+        document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
+        if (entry.isIntersecting) {
+          navLink.classList.add('active');
+        }
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('[id^="section-"]').forEach(el => observer.observe(el));
+}
+
 function buildUI() {
   const container = document.getElementById('sections');
-  SLOTS.forEach(group => {
+  SLOTS.forEach((group, idx) => {
     const sec = document.createElement('div');
+    sec.id = `section-${idx}`;
 
     const lbl = document.createElement('div');
     lbl.className = 'section-label';
@@ -1033,6 +1161,7 @@ function showToast(msg) {
 
 // ── Init ──────────────────────────────────────────────────────
 buildUI();
+buildSidebar();
 </script>
 </body>
 </html>
