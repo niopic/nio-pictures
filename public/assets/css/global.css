@@ -19,6 +19,16 @@
   --border: rgba(197, 165, 114, 0.15);
   --border-light: rgba(197, 165, 114, 0.08);
 
+  /* Overlay tokens — used for gradients & mobile nav instead of hardcoded rgba */
+  --black-a95: rgba(22, 20, 18, 0.95);
+  --black-a98: rgba(22, 20, 18, 0.98);
+  --black-a72: rgba(22, 20, 18, 0.72);
+  --black-a55: rgba(22, 20, 18, 0.55);
+  --black-a75: rgba(22, 20, 18, 0.75);
+
+  /* Cream border token for btn-outline */
+  --cream-border: rgba(240, 232, 216, 0.35);
+
   /* Typography */
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-body: system-ui, sans-serif;
@@ -226,7 +236,7 @@ select:focus-visible {
 .btn-outline {
   background: transparent;
   color: var(--cream);
-  border-color: rgba(240, 232, 216, 0.35);
+  border-color: var(--cream-border);
 }
 
 .btn-outline:hover {

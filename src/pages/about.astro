@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 import { aboutImages } from "../content/images.config";
 const title = "About Palanivel | NiO Pictures Photographer — Katy TX";
 const description =
-  "Meet Palanivel, photographer at NiO Pictures in Katy TX. Events, Indian celebrations, and heirloom family portraits across Houston since 2017.";
+  "Meet Palanivel — Katy TX photographer at NiO Pictures. Cinematic event photography, South Asian celebrations, and heirloom family portraits across Houston since 2017.";
 const canonical = "https://niopictures.com/about";
 const ogImage = "https://niopictures.com/assets/images/og-home.webp";
 const extraHead = `<script type="application/ld+json">
@@ -102,7 +102,7 @@ const extraHead = `<script type="application/ld+json">
       <div>
         <p class="eyebrow" style="margin-bottom: 1rem;">The Photographer</p>
         <div class="gold-line gold-line-animate"></div>
-        <h1 class="display-xl">My Story</h1>
+        <h1 class="display-xl">Katy TX Photographer —<br /><em style="font-style:italic; color:var(--gold);">Palanivel of NiO Pictures</em></h1>
       </div>
     </div>
   </div>
@@ -128,6 +128,8 @@ const extraHead = `<script type="application/ld+json">
             alt={aboutImages.main.alt}
             loading="lazy"
             style="background: var(--surface);"
+            widths={[380, 560, 800]}
+            sizes="(max-width: 768px) 100vw, 50vw"
             width={560}
             height={700}
           />
@@ -169,7 +171,7 @@ const extraHead = `<script type="application/ld+json">
           >
             <div class="stat-item">
               <div class="stat-number">50+</div>
-              <div class="stat-label">Sessions Delivered</div>
+              <div class="stat-label">Curated Sessions</div>
             </div>
             <div class="stat-item">
               <div class="stat-number">Since 2017</div>

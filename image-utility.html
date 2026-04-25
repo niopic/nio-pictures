@@ -677,7 +677,8 @@
 // ar: [width, height] aspect ratio — must match CSS exactly
 // dest: where to drop the exported file in the repo
 // All src/assets/images/ files are processed by Astro Sharp at build time
-// All public/assets/images/ files are served as-is (blog, OG, hero bg)
+// public/assets/images/: OG card + home hero background (CSS bg, not Astro Image)
+// src/assets/images/: everything else — Astro Image component processes these
 
 const SLOTS = [
   {
@@ -693,8 +694,8 @@ const SLOTS = [
   {
     section: "Home Page — Hero (CSS background, goes to public/)",
     slots: [
-      { id: "home-hero",        label: "Hero desktop (16:9)", ar: [16,9], targetKB: 350, dest: "public/assets/images/", note: "→ public/" },
-      { id: "home-hero-mobile", label: "Hero mobile (9:16)",  ar: [9,16], targetKB: 200, dest: "public/assets/images/", note: "→ public/" },
+      { id: "hero-home",        label: "Hero desktop (16:9)", ar: [16,9], targetKB: 350, dest: "public/assets/images/", note: "→ public/" },
+      { id: "hero-home-mobile", label: "Hero mobile (9:16)",  ar: [9,16], targetKB: 200, dest: "public/assets/images/", note: "→ public/" },
     ]
   },
   {
@@ -707,53 +708,50 @@ const SLOTS = [
   {
     section: "Home Page — About Section",
     slots: [
-      { id: "home-about-portrait", label: "About portrait left (3:4)",   ar: [3,4], targetKB: 150, dest: "src/assets/images/" },
-      { id: "home-about-main",     label: "About secondary right (4:3)", ar: [4,3], targetKB: 150, dest: "src/assets/images/" },
+      { id: "home-about-portrait", label: "About portrait (4:5)", ar: [4,5], targetKB: 150, dest: "src/assets/images/" },
     ]
   },
   {
     section: "Home Page — Gallery Grid (ratios MUST match CSS grid-item rules)",
     slots: [
-      { id: "home-grid-events",   label: "Grid slot 1 — large left (4:3 landscape)",    ar: [4,3], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(1)" },
-      { id: "home-grid-family",   label: "Grid slot 2 — top right narrow (3:4 portrait)",ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(2)" },
-      { id: "home-events-hero",   label: "Grid slot 3 — top right narrow (3:4 portrait)",ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(3)" },
-      { id: "home-about-main-g",  label: "Grid slot 4 — bottom left (3:4 portrait)",    ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(4) — separate from about section" },
-      { id: "home-family-hero",   label: "Grid slot 5 — bottom centre (3:4 portrait)",  ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(5)" },
-      { id: "home-grid-portrait", label: "Grid slot 6 — large right (3:2 landscape)",   ar: [3,2], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(6)" },
+      { id: "home-grid-events",   label: "Grid slot 1 — large left (4:3 landscape)",     ar: [4,3], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(1)" },
+      { id: "home-grid-family",   label: "Grid slot 2 — top right narrow (3:4 portrait)", ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(2)" },
+      { id: "home-events-hero",   label: "Grid slot 3 — top right narrow (3:4 portrait)", ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(3)" },
+      { id: "home-about-main",    label: "Grid slot 4 — bottom left (3:4 portrait)",      ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(4)" },
+      { id: "home-family-hero",   label: "Grid slot 5 — bottom centre (3:4 portrait)",    ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(5)" },
+      { id: "home-grid-portrait", label: "Grid slot 6 — large right (3:2 landscape)",     ar: [3,2], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(6)" },
     ]
   },
   {
-    section: "Events Page — Hero (CSS background, goes to public/)",
+    section: "Events Page — Hero (Astro Image, goes to src/)",
     slots: [
-      { id: "events-hero", label: "Events page hero (16:9 landscape)", ar: [16,9], targetKB: 300, dest: "public/assets/images/", note: "→ public/ as events-hero.webp" },
+      { id: "events-hero", label: "Events page hero (16:9 landscape)", ar: [16,9], targetKB: 300, dest: "src/assets/images/", note: "Astro Image" },
     ]
   },
   {
     section: "Events Page — Gallery Grid (ratios MUST match CSS grid-item rules)",
     slots: [
-      { id: "events-panel",        label: "Grid slot 1 — large left (4:3 landscape)",     ar: [4,3], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(1)" },
-      { id: "events-family-panel", label: "Grid slot 2 — top right narrow (3:4 portrait)",ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(2)" },
-      { id: "events-hero-grid",    label: "Grid slot 3 — top right narrow (3:4 portrait)",ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(3) — different photo from hero" },
-      { id: "events-about-main",   label: "Grid slot 4 — bottom left (3:4 portrait)",     ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(4)" },
-      { id: "events-family-hero",  label: "Grid slot 5 — bottom centre (3:4 portrait)",   ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(5)" },
-      { id: "events-about-portrait",label:"Grid slot 6 — large right (3:2 landscape)",    ar: [3,2], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(6)" },
+      { id: "events-panel",          label: "Grid slot 1 — large left (4:3 landscape)",       ar: [4,3], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(1)" },
+      { id: "events-family-panel",   label: "Grid slot 2 — portrait (3:4)",                   ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(2)" },
+      { id: "events-about-portrait", label: "Grid slot 3 — portrait (3:4)",                   ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(3)" },
+      { id: "events-about-main",     label: "Grid slot 4+6 — portrait (3:4, reused in slot 6)",ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(4) and nth-child(6)" },
+      { id: "events-family-hero",    label: "Grid slot 5 — large right (3:2 landscape)",      ar: [3,2], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(5)" },
     ]
   },
   {
-    section: "Family Page — Hero (CSS background, goes to public/)",
+    section: "Family Page — Hero (Astro Image, goes to src/)",
     slots: [
-      { id: "family-hero", label: "Family page hero (16:9 landscape)", ar: [16,9], targetKB: 300, dest: "public/assets/images/", note: "→ public/ as family-hero.webp" },
+      { id: "family-hero", label: "Family page hero (16:9 landscape)", ar: [16,9], targetKB: 300, dest: "src/assets/images/", note: "Astro Image" },
     ]
   },
   {
     section: "Family Page — Gallery Grid (ratios MUST match CSS grid-item rules)",
     slots: [
-      { id: "family-hero-grid",    label: "Grid slot 1 — large left (4:3 landscape)",     ar: [4,3], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(1)" },
-      { id: "family-panel",        label: "Grid slot 2 — top right narrow (3:4 portrait)",ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(2)" },
-      { id: "family-about-portrait",label:"Grid slot 3 — top right narrow (3:4 portrait)",ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(3)" },
-      { id: "family-about-main",   label: "Grid slot 4 — bottom left (3:4 portrait)",     ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(4)" },
-      { id: "family-events-panel", label: "Grid slot 5 — bottom centre (3:4 portrait)",   ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(5)" },
-      { id: "family-events-hero",  label: "Grid slot 6 — large right (3:2 landscape)",    ar: [3,2], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(6)" },
+      { id: "family-panel",          label: "Grid slot 1 — large left (3:4 portrait)",         ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(1)" },
+      { id: "family-about-portrait", label: "Grid slot 2 — portrait (3:4)",                    ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(2)" },
+      { id: "family-about-main",     label: "Grid slot 3+6 — portrait (3:4, reused in slot 6)", ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(3) and nth-child(6)" },
+      { id: "family-events-panel",   label: "Grid slot 4 — portrait (3:4)",                    ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(4)" },
+      { id: "family-events-hero",    label: "Grid slot 5 — large right (3:2 landscape)",       ar: [3,2], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(5)" },
     ]
   },
   {
@@ -763,17 +761,17 @@ const SLOTS = [
     ]
   },
   {
-    section: "Blog Posts (go to public/)",
+    section: "Blog Posts — Astro Images (go to src/)",
     slots: [
-      { id: "blog-prepare",        label: "How to Prepare — cover (16:9)",        ar: [16,9], targetKB: 120, dest: "public/assets/images/", note: "→ public/" },
-      { id: "blog-journey",        label: "Journey — cover (16:9)",               ar: [16,9], targetKB: 120, dest: "public/assets/images/", note: "→ public/" },
-      { id: "blog-journey-2",      label: "Journey — mid-article (16:9)",         ar: [16,9], targetKB: 120, dest: "public/assets/images/", note: "→ public/" },
-      { id: "blog-bluehour",       label: "Blue Hour — cover (16:9)",             ar: [16,9], targetKB: 120, dest: "public/assets/images/", note: "→ public/" },
-      { id: "blog-editorial-hero", label: "Shaping Light — cover (16:9)",         ar: [16,9], targetKB: 120, dest: "public/assets/images/", note: "→ public/" },
-      { id: "blog-editorial-2",    label: "Shaping Light — mid-article (16:9)",   ar: [16,9], targetKB: 120, dest: "public/assets/images/", note: "→ public/" },
-      { id: "blog-spring-fling-2026-1", label: "Spring Fling — hero (16:9)",                  ar: [16,9], targetKB: 120, dest: "src/assets/images/", note: "Astro Image" },
-      { id: "blog-spring-fling-2026-2", label: "Spring Fling — mid-article (16:9)",          ar: [16,9], targetKB: 120, dest: "src/assets/images/", note: "Astro Image" },
-      { id: "blog-spring-fling-2026-3", label: "Spring Fling — end-article (16:9)",          ar: [16,9], targetKB: 120, dest: "src/assets/images/", note: "Astro Image" },
+      { id: "blog-prepare",             label: "How to Prepare — cover (16:9)",       ar: [16,9], targetKB: 120, dest: "src/assets/images/", note: "Astro Image" },
+      { id: "blog-journey",             label: "Journey — cover (16:9)",              ar: [16,9], targetKB: 120, dest: "src/assets/images/", note: "Astro Image" },
+      { id: "blog-journey-2",           label: "Journey — mid-article (16:9)",        ar: [16,9], targetKB: 120, dest: "src/assets/images/", note: "Astro Image" },
+      { id: "blog-bluehour",            label: "Blue Hour — cover (16:9)",            ar: [16,9], targetKB: 120, dest: "src/assets/images/", note: "Astro Image" },
+      { id: "blog-editorial-hero",      label: "Shaping Light — cover (16:9)",        ar: [16,9], targetKB: 120, dest: "src/assets/images/", note: "Astro Image" },
+      { id: "blog-editorial-2",         label: "Shaping Light — mid-article (16:9)",  ar: [16,9], targetKB: 120, dest: "src/assets/images/", note: "Astro Image" },
+      { id: "blog-spring-fling-2026-1", label: "Spring Fling — hero (16:9)",          ar: [16,9], targetKB: 120, dest: "src/assets/images/", note: "Astro Image" },
+      { id: "blog-spring-fling-2026-2", label: "Spring Fling — mid-article (16:9)",  ar: [16,9], targetKB: 120, dest: "src/assets/images/", note: "Astro Image" },
+      { id: "blog-spring-fling-2026-3", label: "Spring Fling — end-article (16:9)",  ar: [16,9], targetKB: 120, dest: "src/assets/images/", note: "Astro Image" },
     ]
   },
   {

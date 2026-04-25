@@ -92,12 +92,11 @@ const extraHead = `<script type="application/ld+json">
       <div>
         <p class="eyebrow" style="margin-bottom:1rem;">From the Studio</p>
         <div class="gold-line gold-line-animate"></div>
-        <h1 class="display-xl" style="max-width:600px; margin-bottom:1rem;">
-          Photography Tips &amp; Session Guides
+        <h1 class="display-xl" style="max-width:700px; margin-bottom:1rem;">
+          Behind the Lens — Tips, Stories &amp; Session Guides
         </h1>
         <p class="body-lg" style="max-width:520px;">
-          Session guides, photography tips, and stories from Palanivel —
-          photographer and storyteller based in Katy, TX.
+          Session guides and photography stories from Palanivel, based in Katy, TX.
         </p>
       </div>
     </div>
@@ -125,6 +124,8 @@ const extraHead = `<script type="application/ld+json">
           <Image
             src={blogJourney}
             alt="Family photography session journey from booking through heirloom keepsake delivery with NiO Pictures Katy TX"
+            widths={[400, 700, 1200]}
+            sizes="(max-width: 768px) 100vw, 55vw"
             width={700}
             height={500}
             loading="lazy"
@@ -163,6 +164,8 @@ const extraHead = `<script type="application/ld+json">
             <Image
               src={blogPrepare}
               alt="Family preparing outfits and styling for a portrait session in Katy TX — tips for what to wear to family photos"
+              widths={[300, 600, 900]}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, calc(50% - 1rem)"
               width={600}
               height={338}
               loading="lazy"
@@ -197,6 +200,8 @@ const extraHead = `<script type="application/ld+json">
             <Image
               src={blogBluehour}
               alt="Blue hour holiday family portraits in front yard with string lights during dusk in Katy TX"
+              widths={[300, 600, 900]}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, calc(50% - 1rem)"
               width={600}
               height={338}
               loading="lazy"
@@ -231,6 +236,8 @@ const extraHead = `<script type="application/ld+json">
             <Image
               src={blogEditorialHero}
               alt="Editorial portrait photography session with bold controlled-shadow lighting for personal branding Katy TX Houston"
+              widths={[300, 600, 900]}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, calc(50% - 1rem)"
               width={600}
               height={338}
               loading="lazy"
@@ -265,6 +272,8 @@ const extraHead = `<script type="application/ld+json">
             <Image
               src={blogSpringFling}
               alt="Spring Fling community event at St. Peter's ECDC in Katy TX — families, children, and joyful moments"
+              widths={[300, 600, 900]}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, calc(50% - 1rem)"
               width={600}
               height={338}
               loading="lazy"
