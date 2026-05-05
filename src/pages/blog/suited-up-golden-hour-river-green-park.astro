@@ -1,0 +1,361 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import photo1 from "../../assets/images/blog-suited-up-golden-hour-1.webp";
+import photo2 from "../../assets/images/blog-suited-up-golden-hour-2.webp";
+import photo3 from "../../assets/images/blog-suited-up-golden-hour-3.webp";
+import photo4 from "../../assets/images/blog-suited-up-golden-hour-4.webp";
+
+const siteUrl = "https://niopictures.com";
+const title =
+  "Suited Up at Golden Hour: Grad Boys Portraits at River Green Park, Katy TX | NiO Pictures";
+const description =
+  "Katy TX photographer captures grad boys in suits at River Green Park golden hour with community portraits and family session storytelling.";
+const canonical =
+  "https://niopictures.com/blog/suited-up-golden-hour-river-green-park";
+const ogImage = `${siteUrl}${photo1.src}`;
+const blogPostingLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline:
+    "Suited Up at Golden Hour: Grad Boys Portraits at River Green Park, Katy TX",
+  description,
+  image: ogImage,
+  datePublished: "2026-05-02",
+  dateModified: "2026-05-02",
+  author: {
+    "@type": "Person",
+    name: "Palanivel Poornam",
+    url: "https://niopictures.com/about",
+  },
+  publisher: { "@id": "https://niopictures.com/#business" },
+  url: canonical,
+  keywords: [
+    "Katy TX photographer",
+    "River Green Park portraits",
+    "Cinco Ranch family photographer",
+    "Fort Bend portrait photographer",
+    "golden hour photography Katy",
+    "junior high dance photos",
+    "community photographer Katy",
+  ],
+  mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+});
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  extraStyles={["/assets/css/blog.css"]}
+>
+  <Fragment slot="head">
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content={ogImage} />
+
+    <script type="application/ld+json" is:inline set:html={blogPostingLd} />
+  </Fragment>
+
+  <a
+    href="#main-content"
+    class="skip-link"
+    style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);"
+    onfocus="this.style.top='1rem'"
+    onblur="this.style.top='-40px'">Skip to main content</a
+  >
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-logo">Ni<span>O</span> Pictures</a>
+    <div class="nav-links">
+      <a href="/event-photography-katy-tx">Events</a>
+      <a href="/family-photography-katy-tx">Family</a>
+      <a href="/portfolio">Portfolio</a>
+      <a href="/about">About</a>
+      <a href="/blog" class="active">Blog</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <a
+      href="https://niopictures.pixieset.com/booking/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn btn-primary nav-cta">Book Now</a
+    >
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"
+      ><span></span><span></span><span></span></button
+    >
+  </nav>
+
+  <div class="nav-mobile" role="dialog" aria-label="Mobile navigation">
+    <a href="/event-photography-katy-tx">Events</a>
+    <a href="/family-photography-katy-tx">Family</a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="/about">About</a>
+    <a href="/blog">Blog</a>
+    <a href="/contact">Contact</a>
+    <a
+      href="https://niopictures.pixieset.com/booking/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="nav-mobile-cta">Book a Session →</a
+    >
+  </div>
+
+  <div class="post-hero">
+    <nav class="post-breadcrumb" aria-label="Breadcrumb">
+      <a href="/blog">Blog</a>
+      <span class="post-breadcrumb-sep">›</span>
+      <span>Suited Up at Golden Hour</span>
+    </nav>
+    <span class="post-tag">Community · Family · Grad Portraits</span>
+    <h1 class="post-title">
+      Suited Up at Golden Hour: Grad Boys Portraits at River Green Park, Katy TX
+    </h1>
+    <p
+      style="font-family:var(--font-display);font-size:1.2rem;font-weight:300;font-style:italic;color:var(--muted);margin-top:0.5rem;margin-bottom:1.5rem;"
+    >
+      Eight boys in suits, a neighborhood portrait session, and the golden glow
+      of River Green Park.
+    </p>
+    <div class="post-meta">
+      <span>Palanivel</span>
+      <span class="blog-meta-dot"></span>
+      <span>May 2, 2026</span>
+      <span class="blog-meta-dot"></span>
+      <span>4 min read</span>
+    </div>
+  </div>
+
+  <div
+    style="max-width:900px; margin:0 auto; padding:0 var(--gutter);"
+    id="main-content"
+  >
+    <div class="post-img">
+      <Image
+        src={photo1}
+        alt="Group of boys in suits with golden backlight at River Green Park, photographed by a Katy TX photographer"
+        width={1200}
+        height={800}
+        loading="eager"
+        fetchpriority="high"
+        style="width:100%;height:auto;display:block;background:var(--surface-2);"
+      />
+      <p class="post-img-caption">
+        A golden hour portrait session for grad boys at River Green Park in
+        Katy, TX.
+      </p>
+    </div>
+  </div>
+
+  <article class="post-body">
+    <p>
+      There's a specific kind of energy that only happens when a group of
+      13-year-old boys is dressed in suits for the first time. Part excitement,
+      part nerves, part "I can't believe we're actually doing this." On the
+      evening of May 2, 2026, I got to photograph exactly that — eight Cinco
+      Ranch Junior High students from the King Lakes and Cinco Ranch
+      neighborhoods in Katy, TX, right before their school dance.
+    </p>
+
+    <p>
+      The session was a community effort — five families who live near each
+      other, coordinating something special for their kids together.
+      Collaborative, neighborhood-driven, the kind of goodwill shoot that
+      reminds you why community matters. Exactly the kind of work I love.
+    </p>
+
+    <p>
+      We gathered at River Green Park in Katy at 5:45 PM. Perfect timing —
+      golden hour was just starting to do its thing.
+    </p>
+
+    <h2>Why River Green Park Works So Well for Portraits</h2>
+    <p>
+      River Green Park sits along the Katy Hike and Bike Trail near the Cinco
+      Ranch area, with open green space, natural shade, and soft background
+      lines that don't compete with your subjects. For a group this size — eight
+      boys plus five families — you need room to breathe and flexibility to
+      move.
+    </p>
+    <p>
+      The 5:45–6:30 PM window in early May gave us something special: <strong
+        >warm golden backlight</strong
+      > coming in low and soft from the west. For the family portraits especially,
+      that backlight created a natural glow around the group — the kind of light you
+      can't recreate in a studio and can't plan unless you know your timing.
+    </p>
+
+    <div class="post-img">
+      <Image
+        src={photo2}
+        alt="Solo portrait of a boy in a suit with warm golden hour backlight at River Green Park"
+        width={1200}
+        height={800}
+        loading="lazy"
+        style="width:100%;height:auto;display:block;background:var(--surface-2);"
+      />
+      <p class="post-img-caption">
+        A warm, solo portrait from the River Green Park graduate session.
+      </p>
+    </div>
+
+    <h2>What We Shot</h2>
+    <p>The session covered a lot of ground in 45 minutes:</p>
+    <ul>
+      <li>
+        <strong>Solo portraits</strong> — Each boy got his moment. Suit, tie, a little
+        swagger. The individual shots are the ones parents frame.
+      </li>
+      <li>
+        <strong>Casual walking shots</strong> — Candid-style movement along the park
+        path. Boys this age don't love standing still. Give them something to do and
+        the poses come naturally.
+      </li>
+      <li>
+        <strong>Group shots</strong> — All eight together. Getting eight teenagers
+        to look at the same lens at the same time is a skill set in itself. We got
+        it.
+      </li>
+      <li>
+        <strong>Candid moments</strong> — The laughing between takes, the tie adjustments,
+        the "wait let me fix my collar" moments. These end up being family favorites
+        years later.
+      </li>
+      <li>
+        <strong>Family portraits</strong> — Each boy with his own family, backlit
+        by that golden hour glow. These were some of the best frames of the evening.
+      </li>
+    </ul>
+
+    <div class="post-img">
+      <Image
+        src={photo3}
+        alt="Boys laughing together during a community portrait session at River Green Park in Katy TX"
+        width={1200}
+        height={800}
+        loading="lazy"
+        style="width:100%;height:auto;display:block;background:var(--surface-2);"
+      />
+      <p class="post-img-caption">
+        Candid energy from the group portrait session at River Green Park.
+      </p>
+    </div>
+
+    <h2>The Energy of a Community Shoot</h2>
+    <p>
+      What made this session memorable wasn't just the light or the location —
+      it was the neighborhood dynamic. These families know each other. The kids
+      have grown up together. There's a comfort and a looseness that you don't
+      get with strangers, and it shows in the photographs.
+    </p>
+    <p>
+      When a parent is cheering from the sideline and the other boys start
+      laughing at something only they understand, and you catch that frame —
+      that's the picture nobody planned for but everyone's going to love.
+    </p>
+    <p>
+      Community shoots like this are a reminder that photography is rarely just
+      about the subjects in front of the lens. It's about the relationships
+      between them.
+    </p>
+
+    <h2>For Katy and Fort Bend Families: These Moments Don't Last</h2>
+    <p>
+      Junior high dances. Pre-prom nights. Family gatherings before everyone
+      heads off to different schools. These seasons are short, and they move
+      faster than you expect.
+    </p>
+    <p>
+      If you're in Katy, King Lakes, Cinco Ranch, Fulshear, or the greater Fort
+      Bend area and you want portraits that actually capture the moment — not
+      just everyone lined up squinting at the sun — I'd love to hear from you.
+    </p>
+    <p>
+      I come to you. I know the parks, the light timing, and how to work with
+      groups that have more energy than patience.
+    </p>
+
+    <div class="post-img">
+      <Image
+        src={photo4}
+        alt="Backlit family portrait at River Green Park with golden hour glow and outdoor portrait styling"
+        width={1200}
+        height={800}
+        loading="lazy"
+        style="width:100%;height:auto;display:block;background:var(--surface-2);"
+      />
+      <p class="post-img-caption">
+        Family portraits backlit by golden hour light at River Green Park.
+      </p>
+    </div>
+
+    <h2>What I Offer for Family and Community Sessions</h2>
+    <ul>
+      <li>
+        <strong>On-location sessions</strong> across Katy, Sugar Land, Fulshear, and
+        Richmond TX
+      </li>
+      <li>
+        <strong>Fast turnaround</strong> on edited galleries — no waiting weeks for
+        your photos
+      </li>
+      <li>
+        <strong>High-resolution files</strong> ready for printing and sharing
+      </li>
+      <li>
+        <strong>Group and multi-family coordination</strong> — I've done it, it works
+      </li>
+      <li>
+        <strong>Community and neighborhood shoots</strong> — coordinated, fairly priced,
+        worth it
+      </li>
+    </ul>
+
+    <p>
+      <strong>Ready to book?</strong> Visit <a href="https://niopictures.com"
+        >niopictures.com</a
+      > or reach out directly. Evening and weekend availability.
+    </p>
+
+    <div class="post-divider"></div>
+
+    <div class="post-cta">
+      <h3>Planning an Event?</h3>
+      <p>
+        Let's create photographs that capture the real moments, real
+        connections, and real joy of your community gathering.
+      </p>
+      <a href="/event-photography-katy-tx" class="btn btn-primary btn-arrow"
+        >Learn More</a
+      >
+      <a href="/contact" class="btn btn-outline" style="margin-left:0.5rem;"
+        >Get in Touch</a
+      >
+    </div>
+
+    <div class="related-posts">
+      <p class="eyebrow">Read Next</p>
+      <div class="related-grid">
+        <a href="/blog/family-photography-journey" class="related-card">
+          <p class="related-tag">Process</p>
+          <p class="related-title">
+            Your Family Photography Journey with NiO Pictures
+          </p>
+        </a>
+        <a href="/blog/editorial-portrait-photography" class="related-card">
+          <p class="related-tag">Editorial</p>
+          <p class="related-title">
+            Shaping Light — Editorial Portrait Photography
+          </p>
+        </a>
+      </div>
+    </div>
+
+    <p style="font-style:italic; margin-top:2rem;">
+      Palanivel Poornam — NiO Pictures (நிழல் ஓவியம்) · Art of Shadows · Katy,
+      TX · Est. 2017
+    </p>
+  </article>
+</BaseLayout>

@@ -5,6 +5,7 @@ import blogJourney from "../assets/images/blog-journey.webp";
 import blogPrepare from "../assets/images/blog-prepare.webp";
 import blogBluehour from "../assets/images/blog-bluehour.webp";
 import blogEditorialHero from "../assets/images/blog-editorial-hero.webp";
+import blogSuitUp from "../assets/images/blog-spring-fling-2026-2.webp";
 import blogSpringFling from "../assets/images/blog-spring-fling-2026-1.webp";
 const title =
   "Blog | Photography Tips, Stories \u0026 Guides | NiO Pictures Katy TX";
@@ -96,7 +97,8 @@ const extraHead = `<script type="application/ld+json">
           Behind the Lens — Tips, Stories &amp; Session Guides
         </h1>
         <p class="body-lg" style="max-width:520px;">
-          Session guides and photography stories from Palanivel, based in Katy, TX.
+          Session guides and photography stories from Palanivel, based in Katy,
+          TX.
         </p>
       </div>
     </div>
@@ -264,8 +266,44 @@ const extraHead = `<script type="application/ld+json">
         </a>
 
         <a
-          href="/blog/spring-fling-st-peters-ecdc-katy-tx"
+          href="/blog/suited-up-golden-hour-river-green-park"
           class="blog-card reveal reveal-delay-4"
+          data-cat="family community event"
+        >
+          <div class="blog-card-img">
+            <Image
+              src={blogSuitUp}
+              alt="Boys in suits at River Green Park during golden hour, community portrait photography in Katy TX"
+              widths={[300, 600, 900]}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, calc(50% - 1rem)"
+              width={600}
+              height={338}
+              loading="lazy"
+              style="width:100%;height:100%;object-fit:cover;background:var(--surface-2);"
+            />
+          </div>
+          <div class="blog-card-body">
+            <p class="blog-tag">Family · Community · Event</p>
+            <h2 class="blog-card-title">
+              Suited Up at Golden Hour: Grad Boys Portraits at River Green Park
+            </h2>
+            <p class="blog-card-excerpt">
+              A community-driven portrait session for eight grad boys from Cinco
+              Ranch and King Lakes, captured in warm golden hour light at River
+              Green Park.
+            </p>
+            <div class="blog-meta" style="margin-bottom:0.75rem;">
+              <span>May 2, 2026</span>
+              <span class="blog-meta-dot"></span>
+              <span>4 min read</span>
+            </div>
+            <div class="read-more">Read more →</div>
+          </div>
+        </a>
+
+        <a
+          href="/blog/spring-fling-st-peters-ecdc-katy-tx"
+          class="blog-card reveal reveal-delay-5"
           data-cat="event community"
         >
           <div class="blog-card-img">
@@ -298,37 +336,6 @@ const extraHead = `<script type="application/ld+json">
             <div class="read-more">Read more →</div>
           </div>
         </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Bottom CTA ──────────────────────────────────────────── -->
-  <section class="cta-banner reveal">
-    <div class="container">
-      <p class="eyebrow" style="margin-bottom:1.25rem;">Ready to Book?</p>
-      <h2
-        class="display-md"
-        style="margin-bottom:1rem; max-width:480px; margin-left:auto; margin-right:auto;"
-      >
-        Let's Create Something<br /><em
-          style="font-style:italic; color:var(--gold);">Worth Keeping</em
-        >
-      </h2>
-      <p class="body-lg" style="max-width:380px; margin:0 auto 2.5rem;">
-        Sessions available in Katy, Houston, Sugar Land, Cypress & Richmond TX.
-      </p>
-      <div
-        style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;"
-      >
-        <a
-          href="https://niopictures.pixieset.com/booking/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-primary btn-arrow">Book a Session</a
-        >
-        <a href="/family-photography-katy-tx" class="btn btn-outline"
-          >Family Photography</a
-        >
       </div>
     </div>
   </section>
