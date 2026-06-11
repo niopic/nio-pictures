@@ -2,20 +2,19 @@
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
+import heroHomeImage from "../assets/images/hero-home.webp";
 import { homeImages } from "../content/images.config";
 
 const siteUrl = "https://niopictures.com";
-const homeHeroDesktopPath = "/assets/images/hero-home.webp";
-const homeHeroMobilePath = "/assets/images/hero-home-mobile.webp";
-const homeHeroDesktopUrl = `${siteUrl}${homeHeroDesktopPath}`;
+const homeHeroImageUrl = `${siteUrl}${heroHomeImage.src}`;
 const homeHeroImageLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "ImageObject",
   name: "NiO Pictures home hero image",
   description:
     "Cinematic event and family photography in Katy, Texas by NiO Pictures.",
-  contentUrl: homeHeroDesktopUrl,
-  url: homeHeroDesktopUrl,
+  contentUrl: homeHeroImageUrl,
+  url: homeHeroImageUrl,
   creditText: "NiO Pictures",
   creator: {
     "@type": "Person",
@@ -198,11 +197,21 @@ const homeHeroImageLd = JSON.stringify({
       .hero-bg {
         position: absolute;
         inset: 0;
-        background-image: url("/assets/images/hero-home.webp");
+        background-color: #1e1a17;
+        background-image: none;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        transform: scale(1);
+        overflow: hidden;
+      }
+      .hero-image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        filter: saturate(1.02) contrast(1.02);
       }
       .hero-overlay {
         position: absolute;
@@ -218,11 +227,12 @@ const homeHeroImageLd = JSON.stringify({
         position: relative;
         z-index: 2;
         text-align: center;
-        max-width: 820px;
-        padding: 0 var(--gutter);
+        max-width: 860px;
+        padding: clamp(5.5rem, 11vh, 7.5rem) var(--gutter)
+          clamp(5rem, 10vh, 6rem);
       }
       .hero-content .eyebrow {
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.35rem;
       }
       .hero-title em,
       .display-xl em {
@@ -230,19 +240,23 @@ const homeHeroImageLd = JSON.stringify({
         color: var(--gold);
       }
       .hero-subtitle {
-        font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+        font-size: clamp(0.95rem, 1.8vw, 1.08rem);
         font-weight: 300;
         color: var(--muted);
-        max-width: 520px;
-        margin: 0 auto 2.5rem;
+        max-width: 560px;
+        margin: 0 auto 1.75rem;
         line-height: 1.8;
       }
       .hero-actions {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 1rem;
+        gap: 0.85rem;
         flex-wrap: wrap;
+        margin-top: 1.25rem;
+        margin-bottom: 2rem;
+        position: relative;
+        z-index: 3;
       }
       .hero-scroll {
         position: absolute;
@@ -268,6 +282,42 @@ const homeHeroImageLd = JSON.stringify({
         height: 40px;
         background: linear-gradient(to bottom, var(--gold), transparent);
       }
+      .mobile-cta-bar {
+        display: none;
+      }
+      .hybrid-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: clamp(2rem, 5vw, 3rem);
+        align-items: start;
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+      .hybrid-card {
+        border: 1px solid var(--border-light);
+        background: linear-gradient(
+          180deg,
+          rgba(22, 20, 18, 0.96),
+          rgba(14, 13, 12, 0.98)
+        );
+        border-radius: 2px;
+        padding: 1.2rem 1.15rem;
+        box-shadow: 0 18px 30px rgba(0, 0, 0, 0.16);
+      }
+      .hybrid-card + .hybrid-card {
+        margin-top: 1rem;
+      }
+      .hybrid-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        font-family: var(--font-accent);
+        font-size: 0.62rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.75rem;
+      }
       @media (max-width: 768px) {
         .nav-links,
         .nav-cta {
@@ -290,8 +340,27 @@ const homeHeroImageLd = JSON.stringify({
         .display-xl {
           font-size: clamp(2.2rem, 8vw, 2.8rem);
         }
-        .hero-bg {
-          background-image: url("/assets/images/hero-home-mobile.webp");
+        .hybrid-grid {
+          grid-template-columns: 1fr;
+        }
+        .mobile-cta-bar {
+          display: flex;
+          position: fixed;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 1000;
+          gap: 0.65rem;
+          padding: 0.75rem 0.75rem calc(0.75rem + env(safe-area-inset-bottom));
+          background: rgba(10, 9, 8, 0.96);
+          border-top: 1px solid var(--border-light);
+          backdrop-filter: blur(10px);
+        }
+        .mobile-cta-bar .btn {
+          flex: 1 1 0;
+          justify-content: center;
+          min-height: 48px;
+          padding-inline: 0.9rem;
         }
       }
       @media (max-width: 480px) {
@@ -325,29 +394,28 @@ const homeHeroImageLd = JSON.stringify({
     <link
       rel="preload"
       as="image"
-      href={homeHeroMobilePath}
-      media="(max-width: 768px)"
-      fetchpriority="high"
-    />
-    <link
-      rel="preload"
-      as="image"
-      href={homeHeroDesktopPath}
-      media="(min-width: 769px)"
+      href={heroHomeImage.src}
       fetchpriority="high"
     />
     <script type="application/ld+json" is:inline set:html={homeHeroImageLd} />
     <script type="application/ld+json" is:inline>
       {
         "@context": "https://schema.org",
-        "@type": ["LocalBusiness", "ProfessionalService"],
+        "@type": ["LocalBusiness", "ProfessionalService", "PhotographyStudio"],
         "@id": "https://niopictures.com/#business",
         "name": "NiO Pictures",
-        "description": "Cinematic event and family photography in Katy, Texas. Corporate events, Indian cultural celebrations, heirloom family portraits. Serving Katy first, then Cypress, Houston, Sugar Land, and Richmond TX.",
-        "url": "https://niopictures.com",
+        "alternateName": "NiO Pictures Photography",
+        "description": "Premium solo hybrid photography for South Asian cultural milestone events, elegant family portraits, and cinematic photo + film storytelling in Katy, Houston, Cypress, Sugar Land, and Richmond, Texas.",
+        "url": "https://niopictures.com/",
         "telephone": "+12814093585",
         "email": "niopictureskaty@gmail.com",
-        "founder": { "@type": "Person", "name": "Palanivel" },
+        "founder": {
+          "@type": "Person",
+          "name": "Palanivel"
+        },
+        "priceRange": "$$$",
+        "paymentAccepted": "Cash, Credit Card, Venmo",
+        "currenciesAccepted": "USD",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Katy",
@@ -366,7 +434,10 @@ const homeHeroImageLd = JSON.stringify({
             "name": "Katy",
             "sameAs": "https://en.wikipedia.org/wiki/Katy,_Texas"
           },
-          { "@type": "City", "name": "Cypress" },
+          {
+            "@type": "City",
+            "name": "Cypress"
+          },
           {
             "@type": "City",
             "name": "Houston",
@@ -383,7 +454,18 @@ const homeHeroImageLd = JSON.stringify({
             "sameAs": "https://en.wikipedia.org/wiki/Richmond,_Texas"
           }
         ],
-        "priceRange": "$$",
+        "keywords": [
+          "premium family photography",
+          "event photographer",
+          "South Asian celebration photography",
+          "hybrid photo and film",
+          "Katy TX photographer"
+        ],
+        "image": "https://niopictures.com/assets/images/og-home.webp",
+        "sameAs": [
+          "https://www.instagram.com/nio_pictures",
+          "https://www.facebook.com/profile.php?id=61580596898855"
+        ],
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "5",
@@ -411,148 +493,52 @@ const homeHeroImageLd = JSON.stringify({
             "closes": "21:00"
           }
         ],
-        "image": "https://niopictures.com/assets/images/og-home.webp",
-        "sameAs": [
-          "https://www.instagram.com/nio_pictures",
-          "https://www.facebook.com/profile.php?id=61580596898855"
-        ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "name": "Photography Services",
+          "name": "Premium Photography Packages",
+          "description": "Luxury solo hybrid photography for family portraits, cultural milestone events, and cinematic photo + film coverage.",
           "itemListElement": [
             {
               "@type": "Offer",
+              "priceCurrency": "USD",
+              "price": "650",
+              "availability": "https://schema.org/InStock",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Event Photography",
+                "name": "Family Portrait Sessions",
+                "serviceType": "Heirloom family portraits",
+                "description": "Warm, editorial portraits designed for families who want timeless keepsakes and a calm, premium experience.",
+                "url": "https://niopictures.com/family-photography-katy-tx"
+              }
+            },
+            {
+              "@type": "Offer",
+              "priceCurrency": "USD",
+              "price": "950",
+              "availability": "https://schema.org/InStock",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Cultural Milestone Events",
+                "serviceType": "South Asian celebrations and milestone moments",
+                "description": "Premium photography for sangeets, receptions, baby blessings, and other meaningful cultural celebrations.",
                 "url": "https://niopictures.com/event-photography-katy-tx"
               }
             },
             {
               "@type": "Offer",
+              "priceCurrency": "USD",
+              "price": "1200",
+              "availability": "https://schema.org/InStock",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Family Photography",
-                "url": "https://niopictures.com/family-photography-katy-tx"
+                "name": "Hybrid Photo + Film Sessions",
+                "serviceType": "Photo and cinematic film coverage",
+                "description": "A premium hybrid package with polished stills plus a short film to preserve the feeling of the day.",
+                "url": "https://niopictures.com/"
               }
             }
           ]
         }
-      }
-    </script>
-    <script type="application/ld+json" is:inline>
-      {
-        "@context": "https://schema.org",
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "P.G."
-        },
-        "itemReviewed": {
-          "@type": "Service",
-          "name": "Family Event Photography",
-          "provider": { "@id": "https://niopictures.com/#business" }
-        },
-        "reviewBody": "Had an amazing experience with Nio Pictures during our family function! The team captured all the important moments with great attention to detail. The candid shots, group pictures, and family portraits came out wonderfully. We loved the final photos and the quick turnaround.",
-        "datePublished": "2025-12-07"
-      }
-    </script>
-    <script type="application/ld+json" is:inline>
-      {
-        "@context": "https://schema.org",
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "N.M."
-        },
-        "itemReviewed": {
-          "@type": "Service",
-          "name": "Event Photography",
-          "provider": { "@id": "https://niopictures.com/#business" }
-        },
-        "reviewBody": "We recently hired Nio Pictures for our housewarming and birthday celebrations, and they did an amazing job! Every special moment was captured beautifully — from candid smiles to family portraits. The photos turned out vibrant, natural, and full of emotion, perfectly reflecting the joy of the day.",
-        "datePublished": "2025-11-01"
-      }
-    </script>
-    <script type="application/ld+json" is:inline>
-      {
-        "@context": "https://schema.org",
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "S.B."
-        },
-        "itemReviewed": {
-          "@type": "Service",
-          "name": "Event Photography",
-          "provider": { "@id": "https://niopictures.com/#business" }
-        },
-        "reviewBody": "We used NiO pictures for an event. He is very friendly to work with, on time and every thing from booking to delivery of pictures was seamless through his website. He captured the event beautifully and the picture quality was awesome!",
-        "datePublished": "2025-12-07"
-      }
-    </script>
-    <script type="application/ld+json" is:inline>
-      {
-        "@context": "https://schema.org",
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "S.S."
-        },
-        "itemReviewed": {
-          "@type": "Service",
-          "name": "Housewarming Event Photography",
-          "provider": { "@id": "https://niopictures.com/#business" }
-        },
-        "reviewBody": "We recently engaged Nio Pictures for my friend's housewarming party, and it was genuinely an unforgettable experience. The team showed up punctually and took wonderful candid and family photos. I really appreciate Palani's patience in taking a few shots with the kids, making sure everything turned out perfectly. The photos were shared in about two weeks, and they were absolutely fantastic.",
-        "datePublished": "2025-12-21"
-      }
-    </script>
-    <script type="application/ld+json" is:inline>
-      {
-        "@context": "https://schema.org",
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "K.P."
-        },
-        "itemReviewed": {
-          "@type": "Service",
-          "name": "Event Photography",
-          "provider": { "@id": "https://niopictures.com/#business" }
-        },
-        "reviewBody": "It was a pleasure to work with! He was very professional and captured the joy of our event perfectly. The photos were stunning and we will cherish them forever. Highly recommend him.",
-        "datePublished": "2026-01-02"
       }
     </script>
     <script type="application/ld+json" is:inline>
@@ -622,48 +608,56 @@ const homeHeroImageLd = JSON.stringify({
 
   <main id="main-content">
     <section class="hero" aria-label="Hero">
-      <div
-        class="hero-bg"
-        style="background-color: #1e1a17;"
-        data-fetchpriority="high"
-      >
+      <div class="hero-bg" data-fetchpriority="high">
+        <Image
+          src={heroHomeImage}
+          alt="Cinematic hybrid photo + film coverage for South Asian celebrations in Katy, Sugar Land, and Cypress"
+          class="hero-image"
+          width={1600}
+          height={1100}
+          widths={[640, 960, 1280, 1600]}
+          sizes="(max-width: 768px) 100vw, 100vw"
+          loading="eager"
+          decoding="async"
+          priority
+          fetchpriority="high"
+          quality={82}
+        />
       </div>
       <div class="hero-overlay"></div>
 
       <div class="hero-content">
-        <p class="eyebrow">
-          Katy, Texas &nbsp;·&nbsp; Cypress &nbsp;·&nbsp; Houston &nbsp;·&nbsp;
-          Sugar Land &nbsp;·&nbsp; Richmond
-        </p>
+        <p class="eyebrow">Photography for South Asian milestones</p>
         <h1 class="display-xl">
-          <em>Katy TX</em> Photographer — Capturing What You'll Miss Most
+          Gentle, cinematic portraits and celebration photography in Katy, Sugar
+          Land &amp; Cypress.
         </h1>
+        <p
+          class="body-sm"
+          style="max-width: 420px; margin: 0.8rem auto 0; color: var(--muted); letter-spacing: 0.02em;"
+        >
+          Katy, Texas · Houston · Sugar Land · Richmond
+        </p>
         <p class="hero-subtitle">
-          Event photography and family portraits for Katy, TX — made to feel
-          true, built to last.
+          From half-saree portraits and annaprashan to griha pravesham,
+          milestone birthdays, and family reunions, I photograph the warmth,
+          ritual, and emotion of your day with a calm, human touch.
         </p>
         <p
           class="body-sm"
-          style="max-width: 620px; margin: 0.75rem auto 0; color: var(--cream);"
+          style="max-width: 640px; margin: 0.75rem auto 0; color: var(--cream);"
         >
-          NiO Pictures is a Katy, TX photographer focused on event photography
-          and family photography across Katy first, then Cypress, Houston, Sugar
-          Land, and Richmond.
+          The kind of images that feel like home — full of blessings, laughter,
+          and the small details you’ll want to revisit for years.
         </p>
         <div class="hero-actions">
-          <a href="/katy-tx-photographer" class="btn btn-primary btn-arrow"
-            >Katy Photography Hub</a
+          <a href="/contact" class="btn btn-primary btn-arrow"
+            >Start a Conversation</a
           >
-          <a
-            href="/cypress-tx-photographer"
-            class="btn btn-gold-outline btn-arrow">Cypress Sessions</a
+          <a href="#hybrid" class="btn btn-gold-outline btn-arrow"
+            >View Hybrid Coverage</a
           >
-          <a
-            href="https://niopictures.pixieset.com/booking/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-outline">Book a Session</a
-          >
+          <a href="/portfolio" class="btn btn-outline">View Portfolio</a>
         </div>
       </div>
 
@@ -677,6 +671,13 @@ const homeHeroImageLd = JSON.stringify({
         <span>Scroll</span>
       </div>
     </section>
+
+    <div class="mobile-cta-bar" aria-label="Quick booking options">
+      <a href="/contact" class="btn btn-primary btn-arrow"
+        >Start a Conversation</a
+      >
+      <a href="/contact" class="btn btn-outline">Ask About Film</a>
+    </div>
 
     <div
       style="background: var(--surface); border-bottom: 1px solid var(--border-light); padding: 0.9rem 0; text-align: center;"
@@ -718,8 +719,8 @@ const homeHeroImageLd = JSON.stringify({
           <p class="eyebrow">Corporate · Private · Candid</p>
           <h2 class="service-panel-title">Event<br />Photography</h2>
           <p class="service-panel-desc" aria-hidden="true">
-            From boardroom milestones to birthday celebrations - every moment
-            captured with cinematic precision.
+            From cultural celebrations to elegant corporate gatherings, each
+            frame is shaped to feel cinematic, warm, and deeply personal.
           </p>
           <span
             class="btn btn-gold-outline btn-arrow"
@@ -739,8 +740,8 @@ const homeHeroImageLd = JSON.stringify({
           <p class="eyebrow">Portraits · Lifestyle · Legacy</p>
           <h2 class="service-panel-title">Family<br />Heirloom</h2>
           <p class="service-panel-desc" aria-hidden="true">
-            Images you'll pass down - emotional, authentic, and crafted to last
-            generations.
+            Thoughtful portraits and family moments, designed to feel timeless,
+            intimate, and worthy of being passed down with love.
           </p>
           <span
             class="btn btn-gold-outline btn-arrow"
@@ -749,6 +750,73 @@ const homeHeroImageLd = JSON.stringify({
         </div>
       </a>
     </div>
+
+    <section class="section" id="hybrid" aria-label="Hybrid photo and film">
+      <div class="container">
+        <div class="hybrid-grid reveal">
+          <div>
+            <p class="eyebrow">Hybrid Photo + Film</p>
+            <h2 class="display-md" style="margin-bottom: 1rem;">
+              A fuller way to remember your celebration.
+            </h2>
+            <p
+              class="body-lg"
+              style="color: var(--muted); margin-bottom: 1rem;"
+            >
+              With one calm, intentional photographer, you get both heirloom
+              stills and a short cinematic film — the emotion, ritual, and
+              movement of the day, captured with warmth and care.
+            </p>
+            <p class="body-sm" style="color: var(--cream); max-width: 34rem;">
+              Ideal for sangeet, receptions, baby blessings, griha pravesham,
+              milestone birthdays, and cultural celebrations that deserve to be
+              remembered with both beauty and feeling.
+            </p>
+          </div>
+          <div>
+            <article class="hybrid-card">
+              <p class="hybrid-pill">✦ Heirloom stills + film</p>
+              <h3
+                style="font-family: var(--font-display); font-size: 1.15rem; color: var(--cream); margin-bottom: 0.35rem;"
+              >
+                Heirloom portraits, cinematic memory
+              </h3>
+              <p class="body-sm" style="color: var(--muted);">
+                Beautiful stills for your home and a short film that lets the
+                laughter, ritual, and emotion of the day live on long after the
+                celebration ends.
+              </p>
+            </article>
+            <article class="hybrid-card">
+              <p class="hybrid-pill">✦ One calm creative point of view</p>
+              <h3
+                style="font-family: var(--font-display); font-size: 1.15rem; color: var(--cream); margin-bottom: 0.35rem;"
+              >
+                One calm creative presence
+              </h3>
+              <p class="body-sm" style="color: var(--muted);">
+                With one solo hybrid photographer, your day feels simpler,
+                smoother, and more intentional — from the first look to the
+                final film frame.
+              </p>
+            </article>
+            <article class="hybrid-card">
+              <p class="hybrid-pill">✦ Designed for milestone days</p>
+              <h3
+                style="font-family: var(--font-display); font-size: 1.15rem; color: var(--cream); margin-bottom: 0.35rem;"
+              >
+                Designed for milestone moments
+              </h3>
+              <p class="body-sm" style="color: var(--muted);">
+                Perfect for sangeet, receptions, baby blessings, and family
+                gatherings that deserve both refined visuals and a deeply
+                personal story.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="section" aria-label="About NiO Pictures">
       <div class="container">
@@ -933,16 +1001,12 @@ const homeHeroImageLd = JSON.stringify({
             <h3
               style="font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 1rem; color: var(--gold);"
             >
-              A Photographer Who Knows Katy Like a Neighbor
+              Rooted in Katy, Trusted by Families
             </h3>
             <p class="body-lg" style="color: var(--muted);">
-              We've been serving Katy TX families since 2017. We know the
-              neighborhoods, the best parks, the perfect golden hour angles at
-              Cane Island or MKT Trail. We understand what matters to you
-              because we're part of this community. Whether you're in Cinco
-              Ranch, Grand Lakes, or Seven Meadows, we know where to find those
-              picture-perfect backdrops and how to capture your family's unique
-              story.
+              We know Katy's neighborhoods, venues, and golden-hour light like
+              locals do. That familiarity helps every session feel calm,
+              natural, and beautifully planned.
             </p>
           </div>
 
@@ -952,15 +1016,12 @@ const homeHeroImageLd = JSON.stringify({
             <h3
               style="font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 1rem; color: var(--gold);"
             >
-              Locally Committed, Not a Traveling Generalist
+              Culturally Attentive, Deeply Respectful
             </h3>
             <p class="body-lg" style="color: var(--muted);">
-              Katy TX is our home base and our priority. We're deeply invested
-              in this city and its families. That's why we offer flexible
-              scheduling and intimate knowledge of every venue from lakeside
-              estates to suburban parks. Need coverage in Houston, Sugar Land,
-              or other Greater Houston areas? We travel regularly, but Katy
-              families get priority availability and our best rates.
+              From South Asian celebrations to multi-generational milestones, we
+              photograph with care, warmth, and a genuine understanding of what
+              matters most to your family.
             </p>
           </div>
 
@@ -970,33 +1031,12 @@ const homeHeroImageLd = JSON.stringify({
             <h3
               style="font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 1rem; color: var(--gold);"
             >
-              Experience Across Every Neighborhood You Already Love
+              A Premium Experience, Without the Fuss
             </h3>
             <p class="body-lg" style="color: var(--muted);">
-              Years of photographing events and families in Katy means we've
-              mastered lighting challenges, seasonal conditions, and venue
-              logistics before your session even begins. We know which Katy
-              parks have the best light at sunset, which indoor venues work best
-              for corporate events, and how to handle the Texas heat and
-              humidity across all seasons.
-            </p>
-          </div>
-
-          <div
-            style="padding: 2rem; border: 1px solid var(--border-light); border-radius: 2px;"
-          >
-            <h3
-              style="font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 1rem; color: var(--gold);"
-            >
-              Trusted for South Asian &amp; Indian Celebrations Across Houston
-            </h3>
-            <p class="body-lg" style="color: var(--muted);">
-              From Indian and South Asian cultural events to Diwali gatherings
-              and multi-generational family milestones — we bring authentic
-              understanding to every cultural moment. Houston's diverse
-              communities trust us with their most meaningful celebrations
-              because we approach them with respect, artistry, and deep
-              knowledge of traditions.
+              Katy is our home base, and our commitment to this community shows
+              in every detail — from thoughtful planning to a relaxed, polished
+              experience that lets you simply be present.
             </p>
           </div>
         </div>
@@ -1118,18 +1158,15 @@ const homeHeroImageLd = JSON.stringify({
           class="body-sm"
           style="color: var(--muted-dark); margin: 0 auto 1.25rem;"
         >
-          Family sessions from $300 · Events from $500 — limited weekend availability
+          Family portraits from $650 · Cultural milestone events from $950
         </p>
         <div
           style="display:flex; gap: 1rem; justify-content: center; flex-wrap: wrap;"
         >
-          <a
-            href="https://niopictures.pixieset.com/booking/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-primary btn-arrow">Book a Session</a
+          <a href="/contact" class="btn btn-primary btn-arrow"
+            >Start a Conversation</a
           >
-          <a href="/contact" class="btn btn-outline">Get in Touch</a>
+          <a href="#hybrid" class="btn btn-outline">Ask About Hybrid Film</a>
         </div>
       </div>
     </section>
