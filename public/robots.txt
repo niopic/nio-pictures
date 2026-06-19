@@ -1,6 +1,29 @@
+# NiO Pictures — robots.txt
+# Policy: block AI *training* crawlers (protect client images from model
+# training corpora) while explicitly allowing AI *search* crawlers so the
+# studio stays discoverable in ChatGPT / Claude / Perplexity / Google answers.
+
+# --- Default: allow normal search engines (Google, Bing, etc.) ---
 User-agent: *
 Allow: /
 
+# --- AI SEARCH / RETRIEVAL bots: explicitly ALLOWED (these drive recommendations) ---
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# --- AI TRAINING bots: blocked (do not feed client images into training) ---
 User-agent: GPTBot
 Disallow: /
 
@@ -14,6 +37,9 @@ User-agent: CCBot
 Disallow: /
 
 User-agent: Bytespider
+Disallow: /
+
+User-agent: Meta-ExternalAgent
 Disallow: /
 
 Sitemap: https://niopictures.com/sitemap.xml

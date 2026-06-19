@@ -1,0 +1,396 @@
+---
+/**
+ * PricingSection.astro
+ * Reads exclusively from src/data/pricing.ts — never hardcode prices here.
+ * Drop into any page: <PricingSection /> (optionally pass an eyebrow/heading).
+ */
+import { PACKAGES, ADD_ONS, formatUSD } from "../data/pricing";
+
+interface Props {
+  eyebrow?: string;
+  heading?: string;
+  intro?: string;
+  /** Where the per-card CTA points. Inquiry-first by default. */
+  ctaHref?: string;
+  ctaLabel?: string;
+}
+
+const {
+  eyebrow = "Packages & Pricing",
+  heading = "Thoughtfully Crafted Collections",
+  intro = "Every collection is photographed solo, with calm and intention — and delivered as heirlooms made to be revisited for years.",
+  ctaHref = "/contact",
+  ctaLabel = "Start a Conversation",
+} = Astro.props;
+
+// Order so the featured (highest-anchor) package sits in the middle.
+const ordered = [
+  ...PACKAGES.filter((p) => !p.featured && p.id === "heritage-session"),
+  ...PACKAGES.filter((p) => p.featured),
+  ...PACKAGES.filter((p) => !p.featured && p.id !== "heritage-session"),
+];
+---
+
+<section class="pricing" aria-labelledby="pricing-heading" id="pricing">
+  <div class="pricing__inner">
+    <header class="pricing__head">
+      <p class="pricing__eyebrow">{eyebrow}</p>
+      <h2 class="pricing__heading" id="pricing-heading">{heading}</h2>
+      <p class="pricing__intro">{intro}</p>
+    </header>
+
+    <div class="pricing__grid">
+      {
+        ordered.map((pkg) => (
+          <article class:list={["card", { "card--featured": pkg.featured }]}>
+            {pkg.featured && <span class="card__flag">Most Chosen</span>}
+
+            <div class="card__top">
+              <p class="card__best-for">{pkg.bestFor.join(" · ")}</p>
+              <h3 class="card__name">{pkg.name}</h3>
+              <p class="card__tagline">{pkg.tagline}</p>
+              <p class="card__coverage">{pkg.coverage}</p>
+            </div>
+
+            <ul class="card__list">
+              {pkg.deliverables.map((d) => (
+                <li>
+                  <span class="card__mark" aria-hidden="true">
+                    ✦
+                  </span>
+                  {d}
+                </li>
+              ))}
+            </ul>
+
+            <div class="card__tiers">
+              {pkg.tiers.map((tier) => (
+                <div class="tier">
+                  <span class="tier__label">{tier.label}</span>
+                  <span class="tier__price">{formatUSD(tier.price)}</span>
+                  {tier.note && <span class="tier__note">{tier.note}</span>}
+                </div>
+              ))}
+            </div>
+
+            <a class="card__cta" href={ctaHref}>
+              {ctaLabel}
+            </a>
+          </article>
+        ))
+      }
+    </div>
+
+    <aside class="addons" aria-labelledby="addons-heading">
+      <h3 class="addons__heading" id="addons-heading">
+        Add-ons — available with any collection
+      </h3>
+      <ul class="addons__list">
+        {
+          ADD_ONS.map((a) => (
+            <li class="addon">
+              <span class="addon__name">{a.name}</span>
+              <span class="addon__desc">{a.description}</span>
+              <span class="addon__price">+{formatUSD(a.price)}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .pricing {
+    background: var(--black);
+    color: var(--cream);
+    padding-block: var(--section-pad);
+  }
+  .pricing__inner {
+    max-width: var(--container);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  /* ---- Header ---- */
+  .pricing__head {
+    text-align: center;
+    max-width: 46rem;
+    margin-inline: auto;
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+  .pricing__eyebrow {
+    font-family: var(--font-accent);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    color: var(--gold);
+    margin: 0 0 1rem;
+  }
+  .pricing__heading {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    line-height: 1.1;
+    margin: 0 0 1rem;
+  }
+  .pricing__intro {
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ---- Grid ---- */
+  .pricing__grid {
+    display: grid;
+    gap: clamp(1.25rem, 2.5vw, 2rem);
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+  @media (min-width: 60rem) {
+    .pricing__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* ---- Card ---- */
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: clamp(1.75rem, 3vw, 2.5rem);
+    transition:
+      transform var(--dur-base) var(--ease-out),
+      border-color var(--dur-base) var(--ease-out);
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+  }
+  .card--featured {
+    background: var(--surface-2);
+    border-color: var(--gold);
+    box-shadow: 0 0 0 1px var(--gold-glow);
+  }
+  @media (min-width: 60rem) {
+    .card--featured {
+      transform: scale(1.03);
+    }
+    .card--featured:hover {
+      transform: scale(1.03) translateY(-4px);
+    }
+  }
+  .card__flag {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--gold);
+    color: var(--black);
+    font-family: var(--font-accent);
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  .card__top {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .card__best-for {
+    font-family: var(--font-accent);
+    font-size: 0.64rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 0.85rem;
+    line-height: 1.5;
+  }
+  .card__name {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(1.6rem, 2.6vw, 2rem);
+    line-height: 1.1;
+    margin: 0 0 0.5rem;
+  }
+  .card__tagline {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--muted);
+    font-size: 1.05rem;
+    margin: 0 0 0.85rem;
+  }
+  .card__coverage {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    color: var(--cream);
+    opacity: 0.8;
+    margin: 0;
+  }
+
+  .card__list {
+    list-style: none;
+    margin: 1.5rem 0;
+    padding: 0;
+    display: grid;
+    gap: 0.7rem;
+    flex: 1;
+  }
+  .card__list li {
+    display: grid;
+    grid-template-columns: 1.2rem 1fr;
+    gap: 0.6rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--cream);
+  }
+  .card__mark {
+    color: var(--gold);
+    font-size: 0.75rem;
+    line-height: 1.6;
+  }
+
+  /* ---- Tiers ---- */
+  .card__tiers {
+    display: grid;
+    gap: 0.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border-light);
+    margin-bottom: 1.5rem;
+  }
+  .tier {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    column-gap: 1rem;
+  }
+  .tier__label {
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+  .tier__price {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+    color: var(--gold);
+    line-height: 1;
+  }
+  .tier__note {
+    grid-column: 1 / -1;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    color: var(--muted-dark);
+    line-height: 1.5;
+  }
+
+  /* ---- CTA ---- */
+  .card__cta {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-family: var(--font-accent);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 0.74rem;
+    padding: 0.95rem 1.5rem;
+    border: 1px solid var(--gold);
+    border-radius: 2px;
+    color: var(--gold);
+    transition:
+      background var(--dur-base) var(--ease-out),
+      color var(--dur-base) var(--ease-out);
+  }
+  .card__cta:hover {
+    background: var(--gold);
+    color: var(--black);
+  }
+  .card--featured .card__cta {
+    background: var(--gold);
+    color: var(--black);
+  }
+  .card--featured .card__cta:hover {
+    background: var(--gold-dark);
+    border-color: var(--gold-dark);
+    color: var(--cream);
+  }
+
+  /* ---- Add-ons ---- */
+  .addons {
+    margin-top: clamp(2.5rem, 5vw, 4rem);
+    border: 1px solid var(--border-light);
+    border-radius: 2px;
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+  }
+  .addons__heading {
+    font-family: var(--font-accent);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 1.25rem;
+    text-align: center;
+  }
+  .addons__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 48rem) {
+    .addons__list {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem 2.5rem;
+    }
+  }
+  .addon {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    column-gap: 0.75rem;
+    padding-block: 0.6rem;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .addon__name {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+  }
+  .addon__desc {
+    grid-column: 1;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .addon__price {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.15rem;
+    color: var(--gold);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card,
+    .card__cta {
+      transition: none;
+    }
+    .card:hover {
+      transform: none;
+    }
+    .card--featured:hover {
+      transform: scale(1.03);
+    }
+  }
+</style>

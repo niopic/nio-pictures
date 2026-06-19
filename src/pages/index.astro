@@ -1,9 +1,11 @@
 ---
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PricingSection from "../components/PricingSection.astro";
 
 import heroHomeImage from "../assets/images/hero-home.webp";
 import { homeImages } from "../content/images.config";
+import { buildOfferCatalog, formatUSD, PACKAGES, packageFrom } from "../data/pricing";
 
 const siteUrl = "https://niopictures.com";
 const homeHeroImageUrl = `${siteUrl}${heroHomeImage.src}`;
@@ -22,6 +24,75 @@ const homeHeroImageLd = JSON.stringify({
   },
   license: "https://niopictures.com/terms",
   acquireLicensePage: "https://niopictures.com/contact",
+});
+
+const familyFrom = formatUSD(packageFrom(PACKAGES.find((p) => p.id === "legacy-collection")!));
+const eventFrom = formatUSD(packageFrom(PACKAGES.find((p) => p.id === "heritage-session")!));
+
+const businessSchemaLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "ProfessionalService", "PhotographyStudio"],
+  "@id": "https://niopictures.com/#business",
+  name: "NiO Pictures",
+  alternateName: "NiO Pictures Photography",
+  description:
+    "Premium solo hybrid photography for South Asian cultural milestone events, elegant family portraits, and cinematic photo + film storytelling in Katy, Houston, Cypress, Sugar Land, and Richmond, Texas.",
+  url: "https://niopictures.com/",
+  telephone: "+12814093585",
+  email: "niopictureskaty@gmail.com",
+  founder: { "@type": "Person", name: "Palanivel" },
+  priceRange: "$$$",
+  paymentAccepted: "Cash, Credit Card, Venmo",
+  currenciesAccepted: "USD",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Katy",
+    addressRegion: "TX",
+    postalCode: "77449",
+    addressCountry: "US",
+  },
+  geo: { "@type": "GeoCoordinates", latitude: "29.7858", longitude: "-95.8245" },
+  areaServed: [
+    { "@type": "City", name: "Katy", sameAs: "https://en.wikipedia.org/wiki/Katy,_Texas" },
+    { "@type": "City", name: "Cypress" },
+    { "@type": "City", name: "Houston", sameAs: "https://en.wikipedia.org/wiki/Houston" },
+    { "@type": "City", name: "Sugar Land", sameAs: "https://en.wikipedia.org/wiki/Sugar_Land,_Texas" },
+    { "@type": "City", name: "Richmond", sameAs: "https://en.wikipedia.org/wiki/Richmond,_Texas" },
+  ],
+  keywords: [
+    "premium family photography",
+    "event photographer",
+    "South Asian celebration photography",
+    "hybrid photo and film",
+    "Katy TX photographer",
+  ],
+  image: "https://niopictures.com/assets/images/og-home.webp",
+  sameAs: [
+    "https://www.instagram.com/nio_pictures",
+    "https://www.facebook.com/profile.php?id=61580596898855",
+  ],
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5",
+    reviewCount: "7",
+    bestRating: "5",
+    worstRating: "1",
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Saturday", "Sunday"],
+      opens: "09:00",
+      closes: "19:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "18:00",
+      closes: "21:00",
+    },
+  ],
+  hasOfferCatalog: buildOfferCatalog(),
 });
 ---
 
@@ -398,149 +469,7 @@ const homeHeroImageLd = JSON.stringify({
       fetchpriority="high"
     />
     <script type="application/ld+json" is:inline set:html={homeHeroImageLd} />
-    <script type="application/ld+json" is:inline>
-      {
-        "@context": "https://schema.org",
-        "@type": ["LocalBusiness", "ProfessionalService", "PhotographyStudio"],
-        "@id": "https://niopictures.com/#business",
-        "name": "NiO Pictures",
-        "alternateName": "NiO Pictures Photography",
-        "description": "Premium solo hybrid photography for South Asian cultural milestone events, elegant family portraits, and cinematic photo + film storytelling in Katy, Houston, Cypress, Sugar Land, and Richmond, Texas.",
-        "url": "https://niopictures.com/",
-        "telephone": "+12814093585",
-        "email": "niopictureskaty@gmail.com",
-        "founder": {
-          "@type": "Person",
-          "name": "Palanivel"
-        },
-        "priceRange": "$$$",
-        "paymentAccepted": "Cash, Credit Card, Venmo",
-        "currenciesAccepted": "USD",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Katy",
-          "addressRegion": "TX",
-          "postalCode": "77449",
-          "addressCountry": "US"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "29.7858",
-          "longitude": "-95.8245"
-        },
-        "areaServed": [
-          {
-            "@type": "City",
-            "name": "Katy",
-            "sameAs": "https://en.wikipedia.org/wiki/Katy,_Texas"
-          },
-          {
-            "@type": "City",
-            "name": "Cypress"
-          },
-          {
-            "@type": "City",
-            "name": "Houston",
-            "sameAs": "https://en.wikipedia.org/wiki/Houston"
-          },
-          {
-            "@type": "City",
-            "name": "Sugar Land",
-            "sameAs": "https://en.wikipedia.org/wiki/Sugar_Land,_Texas"
-          },
-          {
-            "@type": "City",
-            "name": "Richmond",
-            "sameAs": "https://en.wikipedia.org/wiki/Richmond,_Texas"
-          }
-        ],
-        "keywords": [
-          "premium family photography",
-          "event photographer",
-          "South Asian celebration photography",
-          "hybrid photo and film",
-          "Katy TX photographer"
-        ],
-        "image": "https://niopictures.com/assets/images/og-home.webp",
-        "sameAs": [
-          "https://www.instagram.com/nio_pictures",
-          "https://www.facebook.com/profile.php?id=61580596898855"
-        ],
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "5",
-          "reviewCount": "7",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Saturday", "Sunday"],
-            "opens": "09:00",
-            "closes": "19:00"
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-              "Monday",
-              "Tuesday",
-              "Wednesday",
-              "Thursday",
-              "Friday"
-            ],
-            "opens": "18:00",
-            "closes": "21:00"
-          }
-        ],
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Premium Photography Packages",
-          "description": "Luxury solo hybrid photography for family portraits, cultural milestone events, and cinematic photo + film coverage.",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "priceCurrency": "USD",
-              "price": "650",
-              "availability": "https://schema.org/InStock",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Family Portrait Sessions",
-                "serviceType": "Heirloom family portraits",
-                "description": "Warm, editorial portraits designed for families who want timeless keepsakes and a calm, premium experience.",
-                "url": "https://niopictures.com/family-photography-katy-tx"
-              }
-            },
-            {
-              "@type": "Offer",
-              "priceCurrency": "USD",
-              "price": "950",
-              "availability": "https://schema.org/InStock",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Cultural Milestone Events",
-                "serviceType": "South Asian celebrations and milestone moments",
-                "description": "Premium photography for sangeets, receptions, baby blessings, and other meaningful cultural celebrations.",
-                "url": "https://niopictures.com/event-photography-katy-tx"
-              }
-            },
-            {
-              "@type": "Offer",
-              "priceCurrency": "USD",
-              "price": "1200",
-              "availability": "https://schema.org/InStock",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Hybrid Photo + Film Sessions",
-                "serviceType": "Photo and cinematic film coverage",
-                "description": "A premium hybrid package with polished stills plus a short film to preserve the feeling of the day.",
-                "url": "https://niopictures.com/"
-              }
-            }
-          ]
-        }
-      }
-    </script>
+    <script type="application/ld+json" is:inline set:html={businessSchemaLd} />
     <script type="application/ld+json" is:inline>
       {
         "@context": "https://schema.org",
@@ -1140,6 +1069,8 @@ const homeHeroImageLd = JSON.stringify({
       </div>
     </section>
 
+    <PricingSection />
+
     <section class="cta-banner reveal" aria-label="Book a session">
       <div class="container">
         <p class="eyebrow" style="margin-bottom: 1.25rem;">Ready to Begin?</p>
@@ -1158,7 +1089,7 @@ const homeHeroImageLd = JSON.stringify({
           class="body-sm"
           style="color: var(--muted-dark); margin: 0 auto 1.25rem;"
         >
-          Family portraits from $650 · Cultural milestone events from $950
+          Family portraits from {familyFrom} · Cultural milestone events from {eventFrom}
         </p>
         <div
           style="display:flex; gap: 1rem; justify-content: center; flex-wrap: wrap;"
