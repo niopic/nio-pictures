@@ -16,6 +16,9 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [x] Wired `pricing.ts` into `index.astro`, `book.astro`, `event-photography-katy-tx.astro`, `family-photography-katy-tx.astro`, `katy-tx-photographer.astro`
 - [x] Fixed `priceRange` conflict in `BaseLayout.astro` and `katy-tx-photographer.astro` (both now `$$$`)
 - [x] Added `hasOfferCatalog: buildOfferCatalog()` to homepage JSON-LD (validated clean in Google Rich Results Test — 2 only-optional notices: duplicate `url` field across separate schema blocks, no `streetAddress`; both expected/fine to leave)
+- [x] Replaced 5 anonymized testimonials (P.G./N.M./S.B./S.S./K.P., duplicated across index/about/event-photography pages) with 2 real named/located testimonials (Venkatesh K. — Fulshear TX, Malav S. — Katy TX) + "Read more reviews on Google" link
+- [x] Fixed homepage `aggregateRating` schema to match real GBP (5.0 / 16 reviews, was placeholder 5/7)
+- [x] Added click-to-play film showcase section + `VideoObject` schema (placeholder video: Pongal/Tamil Sangam, to be swapped for 40th birthday film when delivered)
 
 ---
 
@@ -44,8 +47,8 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 ## P1 — Conversion & trust
 
 - [ ] Build a real **on-site portfolio** (stop punting "View Full Gallery" to Pixieset).
-- [ ] **Name the testimonials.** Initials ("P.G.") read as unverifiable. Use first
-      name + last initial at minimum; link to Google reviews where possible.
+- [x] **Replace initials-only reviews.** Replaced P.G./N.M./S.B./S.S./K.P. with real named/located reviews + Google link (see Already shipped).
+- [ ] Build **moment-story section on homepage** — 2-3 curated image sequences with captions, additive to existing grid (not a replacement). Images pending: housewarming set (`story-housewarming-1/2/3.webp`), portrait set (`story-portrait-1/2/3.webp`), third category TBD.
 - [ ] Add an above-the-fold **trust strip** (5★ · since 2017 · 5 cities served).
 - [ ] Add a **"what happens after you inquire"** process section (reduces
       high-ticket hesitation for $1,500+ bookings).
@@ -90,6 +93,8 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [ ] `katy-tx-photographer.astro` maintains its own duplicate `#business` JSON-LD node instead of sharing `BaseLayout`'s — worth consolidating later so a schema field can't drift out of sync again.
 - [ ] `$20/image` add-on referenced in `terms.astro` / blog but missing from `pricing.ts` `ADD_ONS` — add when ready to formalize that pricing.
 - [ ] No shared `<Nav>` component — nav markup is duplicated across 21 files (`class="nav-links"`). Every future nav change requires a 21-file edit. Consider extracting to a shared `Nav.astro` component.
+- [ ] `/portfolio` page funnels deeper browsing to Pixieset ("full gallery lives on Pixieset") — real fix is growing `portfolioImages` in `images.config.ts` with more local images, then removing the Pixieset link entirely. Bigger lift, separate task from the moment-story work.
+- [ ] Add lightbox to `/portfolio` page (not homepage moment stories) once more images are added — click thumbnail, view large, arrow through set, no page navigation.
 
 ---
 
