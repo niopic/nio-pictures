@@ -53,7 +53,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 
 ## P2 — SEO & content
 
-- [ ] **Add Houston location page** (in title tag, biggest market, no page yet).
+- [x] **Add Houston location page** (in title tag, biggest market, no page yet). Created src/pages/houston-tx-photographer.astro, following the existing location-page template but with corrected patterns: South Asian celebrations leads feature cards (not corporate-first), 'Start a Conversation' -> /contact as primary CTA throughout (not Pixieset), 4-question FAQ including the Mahatma Gandhi District/Hillcroft corridor (real South Asian cultural hub in Houston). Verified via built dist/ output: BreadcrumbList + FAQPage schema present, exactly one canonical #business definition (correctly inherited from BaseLayout).
 - [ ] **Add Fulshear location page** (stated service area, no page; fast-growing/affluent).
 - [ ] Add **dedicated service pages**: housewarming, half-saree, corporate,
       and a **videography / highlight-film** page.
@@ -92,6 +92,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [ ] `/portfolio` page funnels deeper browsing to Pixieset ("full gallery lives on Pixieset") — real fix is growing `portfolioImages` in `images.config.ts` with more local images, then removing the Pixieset link entirely. Bigger lift, separate task from the moment-story work.
 - [ ] Add lightbox to `/portfolio` page (not homepage moment stories) once more images are added — click thumbnail, view large, arrow through set, no page navigation.
 - [ ] **40th birthday client — one testimonial, two places:** When a real testimonial arrives for the 40th birthday session, use it to (1) replace the editorial caption in the homepage moment-story birthday slot and (2) feed the film showcase section, whose placeholder video (Pongal/Tamil Sangam) is already flagged for swap to the 40th birthday film — see "Already shipped". Same client; handle both in one pass, don't write two separate captions independently.
+- [ ] **Sweep existing location pages for stale CTA/ordering patterns.** richmond-tx-photographer.astro, sugar-land-photographer.astro, cypress-tx-photographer.astro, and katy-tx-photographer.astro still have, in their visible body copy (not JSON-LD, which was already fixed): (1) Pixieset as the primary CTA button instead of 'Start a Conversation' -> /contact, and (2) corporate-first ordering in feature card text ('Corporate events, private parties, cultural celebrations...'). The new houston-tx-photographer.astro was built with both issues corrected from the start — worth sweeping the other 4 to match, same root cause as today's other positioning/CTA fixes, just not yet applied to this specific visible copy.
 
 ---
 
