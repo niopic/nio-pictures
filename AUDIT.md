@@ -86,7 +86,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 
 ## Backlog — Tech debt
 
-- [ ] `katy-tx-photographer.astro` maintains its own duplicate `#business` JSON-LD node instead of sharing `BaseLayout`'s — worth consolidating later so a schema field can't drift out of sync again.
+- [x] **Resolved.** BaseLayout.astro now renders the single canonical #business JSON-LD node (upgraded to the complete version - aggregateRating, priceRange, geo, founder, hasOfferCatalog, openingHoursSpecification - using the existing description prop so it's correct per-page automatically). Removed duplicate competing #business definitions from index.astro and the 4 location pages (katy-tx, sugar-land, richmond, cypress), which previously had stale reviewCount, leaked corporate-first wording, and a different @type than the homepage's version - same #id, conflicting data, served simultaneously. Verified via built dist/ output, not just source: exactly one full #business definition per page now, with correct {"@id": ...} reference pointers elsewhere (offer catalog providers, BlogPosting publishers, etc.) left intact.
 - [ ] `$20/image` add-on referenced in `terms.astro` / blog but missing from `pricing.ts` `ADD_ONS` — add when ready to formalize that pricing.
 - [x] **No shared `<Nav>` component.** Extracted `Nav.astro` component (renders both desktop nav and mobile drawer); now used across all pages. Eliminates 21-file duplication — future nav changes are single-point edits.
 - [ ] `/portfolio` page funnels deeper browsing to Pixieset ("full gallery lives on Pixieset") — real fix is growing `portfolioImages` in `images.config.ts` with more local images, then removing the Pixieset link entirely. Bigger lift, separate task from the moment-story work.
