@@ -612,6 +612,92 @@ header .reveal {
   border-bottom-color: var(--gold);
 }
 
+/* ── Moment Stories ────────────────────────────────────────── */
+.moment-stories-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+
+.moment-story-title {
+  font-family: var(--font-display);
+  font-size: clamp(0.85rem, 1.4vw, 1rem);
+  font-weight: 400;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.moment-story-strip {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.moment-story-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.moment-story-image {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.moment-story-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 3 / 4;
+}
+
+/* Testimonial variant — gets .testimonial-card dual-class for card chrome;
+   this class only constrains max-width for the single-column layout. */
+.moment-story-quote {
+  max-width: 680px;
+}
+
+/* Caption-only variant (no attribution) — card-weight visuals without the
+   ::before quote glyph, so it reads as editorial copy rather than a client quote. */
+.moment-story-caption {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: 2px;
+  padding: 2.5rem;
+  max-width: 680px;
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.7;
+  transition: border-color var(--dur-base) var(--ease);
+}
+
+.moment-story-caption:hover {
+  border-color: var(--border);
+}
+
+@media (min-width: 768px) {
+  .moment-story-strip {
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+
+  .moment-story-image {
+    flex: 1 1 calc(33.33% - 0.5rem);
+  }
+}
+
 /* ── About Snippet ─────────────────────────────────────────── */
 .about-split {
   display: grid;

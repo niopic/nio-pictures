@@ -4,7 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import PricingSection from "../components/PricingSection.astro";
 
 import heroHomeImage from "../assets/images/hero-home.webp";
-import { homeImages } from "../content/images.config";
+import { homeImages, momentStories } from "../content/images.config";
 import { buildOfferCatalog, formatUSD, PACKAGES, packageFrom } from "../data/pricing";
 
 const siteUrl = "https://niopictures.com";
@@ -1041,52 +1041,65 @@ const businessSchemaLd = JSON.stringify({
       </div>
     </section>
 
-    <section class="section" aria-label="Client testimonials">
+    <!-- ── Moment Stories ─────────────────────────────────────── -->
+    <section
+      class="section"
+      style="background: var(--surface); border-top: 1px solid var(--border-light);"
+      aria-label="Client stories and reviews"
+    >
       <div class="container">
         <div class="section-header center reveal">
-          <p class="eyebrow">What Clients Say</p>
+          <p class="eyebrow">Real Sessions</p>
           <div class="gold-line center gold-line-animate"></div>
-          <h2 class="display-md">Stories from Our Clients</h2>
+          <h2 class="display-md">Stories from Our Sessions</h2>
         </div>
 
-        <div class="testimonials-track">
-          <article class="testimonial-card reveal reveal-delay-1">
-            <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">
-              "We had a great experience with Palani at our housewarming party.
-              We truly appreciate his work, he was very gentle, professional,
-              and made everyone feel comfortable. The photos turned out beautiful
-              and captured all the special moments perfectly. Highly recommend!"
-            </p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">VK</div>
-              <div>
-                <div class="testimonial-name">Venkatesh K.</div>
-                <div class="testimonial-role">Housewarming Party · Fulshear, TX</div>
-              </div>
-            </div>
-          </article>
+        <div class="moment-stories-list">
+          {momentStories.map((story, i) => (
+            <div class={`moment-story reveal reveal-delay-${i + 1}`}>
+              <h3 class="moment-story-title">{story.title}</h3>
 
-          <article class="testimonial-card reveal reveal-delay-2">
-            <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">
-              "Palani from Nio Pictures covered photoshoot for our son's 8th
-              grade graduation dance party. What an amazing experience he
-              delivered to him and his friends. Patient, creative and very
-              diligent is what the experience was. Super happy with all the
-              pictures and would highly recommend Nio Pictures!"
-            </p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">MS</div>
-              <div>
-                <div class="testimonial-name">Malav S.</div>
-                <div class="testimonial-role">Graduation Dance Party · Katy, TX</div>
+              <div
+                class="moment-story-strip"
+                role="region"
+                aria-label={`${story.title} — photo strip`}
+              >
+                {story.images.map((slot) => (
+                  <div class="moment-story-image">
+                    <Image
+                      src={slot.img}
+                      alt={slot.alt}
+                      loading="lazy"
+                      width={400}
+                      height={533}
+                      widths={[400, 800]}
+                      sizes="(max-width: 768px) calc(100vw - 2rem), 30vw"
+                      quality={90}
+                    />
+                  </div>
+                ))}
               </div>
+
+              {story.testimonial ? (
+                <article class="moment-story-quote testimonial-card">
+                  <div class="testimonial-stars">★★★★★</div>
+                  <p class="testimonial-text">"{story.testimonial.quote}"</p>
+                  <div class="testimonial-author">
+                    <div class="testimonial-avatar">{story.testimonial.avatarInitials}</div>
+                    <div>
+                      <div class="testimonial-name">{story.testimonial.name}</div>
+                      <div class="testimonial-role">{story.testimonial.role}</div>
+                    </div>
+                  </div>
+                </article>
+              ) : (
+                <p class="moment-story-caption">{story.caption}</p>
+              )}
             </div>
-          </article>
+          ))}
         </div>
 
-        <div class="testimonials-cta reveal" style="text-align: center; margin-top: 2rem;">
+        <div class="testimonials-cta reveal" style="text-align: center; margin-top: 3rem;">
           <a
             href="https://share.google/8ODqUDxsuIFcxecMo"
             target="_blank"

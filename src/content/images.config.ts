@@ -32,6 +32,16 @@ import familyEventsPanel from "../assets/images/family-events-panel.webp";
 
 import aboutMain from "../assets/images/about-main.webp";
 
+import storyHousewarming1 from "../assets/images/story-housewarming-1.webp";
+import storyHousewarming2 from "../assets/images/story-housewarming-2.webp";
+import storyHousewarming3 from "../assets/images/story-housewarming-3.webp";
+import storyPortrait1 from "../assets/images/story-portrait-1.webp";
+import storyPortrait2 from "../assets/images/story-portrait-2.webp";
+import storyPortrait3 from "../assets/images/story-portrait-3.webp";
+import storyBirthday1 from "../assets/images/story-birthday-1.webp";
+import storyBirthday2 from "../assets/images/story-birthday-2.webp";
+import storyBirthday3 from "../assets/images/story-birthday-3.webp";
+
 type PortfolioImage = {
   img: ImageMetadata;
   alt: string;
@@ -47,6 +57,19 @@ type SlotImage = {
   alt: string;
   width: number;
   height: number;
+};
+
+type MomentStory = {
+  category: "housewarming" | "portrait" | "birthday";
+  title: string;
+  images: [SlotImage, SlotImage, SlotImage];
+  testimonial?: {
+    quote: string;
+    name: string;
+    role: string;
+    avatarInitials: string;
+  };
+  caption?: string;
 };
 
 const withDimensions = (img: ImageMetadata, alt: string): SlotImage => ({
@@ -216,3 +239,76 @@ export const aboutImages = {
     "Palanivel of NiO Pictures photographed in Katy TX for the Houston-area about page"
   ),
 };
+
+export const momentStories: MomentStory[] = [
+  {
+    category: "housewarming",
+    title: "A Housewarming to Remember",
+    images: [
+      withDimensions(
+        storyHousewarming1,
+        "Guests gathering in a newly decorated Fulshear TX home during a housewarming party photographed by NiO Pictures"
+      ),
+      withDimensions(
+        storyHousewarming2,
+        "Candid celebration moment from a Houston-area housewarming party covered by NiO Pictures near Katy TX"
+      ),
+      withDimensions(
+        storyHousewarming3,
+        "Warm connection and room detail from a Fulshear TX housewarming session photographed by NiO Pictures"
+      ),
+    ],
+    testimonial: {
+      quote:
+        "We had a great experience with Palani at our housewarming party. We truly appreciate his work, he was very gentle, professional, and made everyone feel comfortable. The photos turned out beautiful and captured all the special moments perfectly. Highly recommend!",
+      name: "Venkatesh K.",
+      role: "Housewarming Party · Fulshear, TX",
+      avatarInitials: "VK",
+    },
+  },
+  {
+    category: "portrait",
+    title: "Before the Dance",
+    images: [
+      withDimensions(
+        storyPortrait1,
+        "Katy TX pre-dance portrait session for 8th grade students photographed with NiO Pictures near Houston"
+      ),
+      withDimensions(
+        storyPortrait2,
+        "Teen group portrait photography at a Katy TX graduation dance event captured by NiO Pictures"
+      ),
+      withDimensions(
+        storyPortrait3,
+        "Editorial-style pre-dance portrait with natural energy and connection in Katy TX by NiO Pictures"
+      ),
+    ],
+    testimonial: {
+      quote:
+        "Palani from Nio Pictures covered photoshoot for our son's 8th grade graduation dance party. What an amazing experience he delivered to him and his friends. Patient, creative and very diligent is what the experience was. Super happy with all the pictures and would highly recommend Nio Pictures!",
+      name: "Malav S.",
+      role: "Pre-Dance Portrait Session · Katy, TX",
+      avatarInitials: "MS",
+    },
+  },
+  {
+    category: "birthday",
+    title: "Forty and Celebrated",
+    images: [
+      withDimensions(
+        storyBirthday1,
+        "Houston-area 40th birthday celebration photography capturing milestone moments in Katy TX"
+      ),
+      withDimensions(
+        storyBirthday2,
+        "Candid 40th birthday party photography with warm atmosphere photographed by NiO Pictures near Houston"
+      ),
+      withDimensions(
+        storyBirthday3,
+        "Guest connection and celebratory detail from a Katy TX area 40th birthday party by NiO Pictures"
+      ),
+    ],
+    caption:
+      "The milestone speaks for itself — unscripted laughter and gathered faces from a 40th birthday celebration in the Houston-Katy area.",
+  },
+];

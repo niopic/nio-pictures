@@ -48,7 +48,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 
 - [ ] Build a real **on-site portfolio** (stop punting "View Full Gallery" to Pixieset).
 - [x] **Replace initials-only reviews.** Replaced P.G./N.M./S.B./S.S./K.P. with real named/located reviews + Google link (see Already shipped).
-- [ ] Build **moment-story section on homepage** — 2-3 curated image sequences with captions, additive to existing grid (not a replacement). Images pending: housewarming set (`story-housewarming-1/2/3.webp`), portrait set (`story-portrait-1/2/3.webp`), third category TBD.
+- [x] Build **moment-story section on homepage** — 3 sequences live: housewarming (Venkatesh K. testimonial, sourced from the former standalone "Client testimonials" section, which was removed and folded into story context), pre-dance portrait (Malav S. testimonial, same origin), and 40th birthday (editorial caption only — no client testimonial exists yet for that session). All 9 images delivered, converted to WebP via `scripts/convert-to-webp.mjs`, and building clean.
 - [ ] Add an above-the-fold **trust strip** (5★ · since 2017 · 5 cities served).
 - [ ] Add a **"what happens after you inquire"** process section (reduces
       high-ticket hesitation for $1,500+ bookings).
@@ -95,6 +95,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [ ] No shared `<Nav>` component — nav markup is duplicated across 21 files (`class="nav-links"`). Every future nav change requires a 21-file edit. Consider extracting to a shared `Nav.astro` component.
 - [ ] `/portfolio` page funnels deeper browsing to Pixieset ("full gallery lives on Pixieset") — real fix is growing `portfolioImages` in `images.config.ts` with more local images, then removing the Pixieset link entirely. Bigger lift, separate task from the moment-story work.
 - [ ] Add lightbox to `/portfolio` page (not homepage moment stories) once more images are added — click thumbnail, view large, arrow through set, no page navigation.
+- [ ] **40th birthday client — one testimonial, two places:** When a real testimonial arrives for the 40th birthday session, use it to (1) replace the editorial caption in the homepage moment-story birthday slot and (2) feed the film showcase section, whose placeholder video (Pongal/Tamil Sangam) is already flagged for swap to the 40th birthday film — see "Already shipped". Same client; handle both in one pass, don't write two separate captions independently.
 
 ---
 
