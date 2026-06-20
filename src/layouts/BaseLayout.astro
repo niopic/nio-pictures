@@ -1,4 +1,6 @@
 ---
+import { buildOfferCatalog } from "../data/pricing";
+
 interface Props {
   title: string;
   description: string;
@@ -23,15 +25,18 @@ const currentYear = new Date().getFullYear();
 
 const businessSchema = {
   "@context": "https://schema.org",
-  "@type": ["Photographer", "LocalBusiness"],
+  "@type": ["LocalBusiness", "ProfessionalService", "PhotographyStudio"],
   "@id": "https://niopictures.com/#business",
   name: "NiO Pictures",
-  description:
-    "NiO Pictures is a Katy, Texas photography studio specializing in event photography and heirloom family photography across Katy, Houston, Sugar Land, and Richmond.",
+  alternateName: "NiO Pictures Photography",
+  description,
   url: "https://niopictures.com/",
   telephone: "+12814093585",
   email: "niopictureskaty@gmail.com",
-  image: ogImage,
+  founder: { "@type": "Person", name: "Palanivel" },
+  priceRange: "$$$",
+  paymentAccepted: "Cash, Credit Card, Venmo",
+  currenciesAccepted: "USD",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Katy",
@@ -39,16 +44,48 @@ const businessSchema = {
     postalCode: "77449",
     addressCountry: "US",
   },
+  geo: { "@type": "GeoCoordinates", latitude: "29.7858", longitude: "-95.8245" },
   areaServed: [
-    { "@type": "City", name: "Katy" },
-    { "@type": "City", name: "Houston" },
-    { "@type": "City", name: "Sugar Land" },
-    { "@type": "City", name: "Richmond" },
+    { "@type": "City", name: "Katy", sameAs: "https://en.wikipedia.org/wiki/Katy,_Texas" },
+    { "@type": "City", name: "Cypress" },
+    { "@type": "City", name: "Houston", sameAs: "https://en.wikipedia.org/wiki/Houston" },
+    { "@type": "City", name: "Sugar Land", sameAs: "https://en.wikipedia.org/wiki/Sugar_Land,_Texas" },
+    { "@type": "City", name: "Richmond", sameAs: "https://en.wikipedia.org/wiki/Richmond,_Texas" },
   ],
+  keywords: [
+    "premium family photography",
+    "event photographer",
+    "South Asian celebration photography",
+    "hybrid photo and film",
+    "Katy TX photographer",
+  ],
+  image: ogImage,
   sameAs: [
     "https://www.instagram.com/nio_pictures",
     "https://www.facebook.com/profile.php?id=61580596898855",
   ],
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5.0",
+    reviewCount: "16",
+    bestRating: "5",
+    worstRating: "1",
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Saturday", "Sunday"],
+      opens: "09:00",
+      closes: "19:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "18:00",
+      closes: "21:00",
+    },
+  ],
+  hasOfferCatalog: buildOfferCatalog(),
 };
 ---
 

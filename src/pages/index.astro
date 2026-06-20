@@ -6,7 +6,7 @@ import PricingSection from "../components/PricingSection.astro";
 
 import heroHomeImage from "../assets/images/hero-home.webp";
 import { homeImages, momentStories } from "../content/images.config";
-import { buildOfferCatalog, formatUSD, PACKAGES, packageFrom } from "../data/pricing";
+import { formatUSD, PACKAGES, packageFrom } from "../data/pricing";
 
 const siteUrl = "https://niopictures.com";
 const homeHeroImageUrl = `${siteUrl}${heroHomeImage.src}`;
@@ -51,76 +51,11 @@ const filmShowcaseLd = JSON.stringify({
   },
 });
 
-const businessSchemaLd = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "ProfessionalService", "PhotographyStudio"],
-  "@id": "https://niopictures.com/#business",
-  name: "NiO Pictures",
-  alternateName: "NiO Pictures Photography",
-  description:
-    "Premium solo hybrid photography for South Asian cultural milestone events, elegant family portraits, and cinematic photo + film storytelling in Katy, Houston, Cypress, Sugar Land, and Richmond, Texas.",
-  url: "https://niopictures.com/",
-  telephone: "+12814093585",
-  email: "niopictureskaty@gmail.com",
-  founder: { "@type": "Person", name: "Palanivel" },
-  priceRange: "$$$",
-  paymentAccepted: "Cash, Credit Card, Venmo",
-  currenciesAccepted: "USD",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Katy",
-    addressRegion: "TX",
-    postalCode: "77449",
-    addressCountry: "US",
-  },
-  geo: { "@type": "GeoCoordinates", latitude: "29.7858", longitude: "-95.8245" },
-  areaServed: [
-    { "@type": "City", name: "Katy", sameAs: "https://en.wikipedia.org/wiki/Katy,_Texas" },
-    { "@type": "City", name: "Cypress" },
-    { "@type": "City", name: "Houston", sameAs: "https://en.wikipedia.org/wiki/Houston" },
-    { "@type": "City", name: "Sugar Land", sameAs: "https://en.wikipedia.org/wiki/Sugar_Land,_Texas" },
-    { "@type": "City", name: "Richmond", sameAs: "https://en.wikipedia.org/wiki/Richmond,_Texas" },
-  ],
-  keywords: [
-    "premium family photography",
-    "event photographer",
-    "South Asian celebration photography",
-    "hybrid photo and film",
-    "Katy TX photographer",
-  ],
-  image: "https://niopictures.com/assets/images/og-home.webp",
-  sameAs: [
-    "https://www.instagram.com/nio_pictures",
-    "https://www.facebook.com/profile.php?id=61580596898855",
-  ],
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5.0",
-    reviewCount: "16",
-    bestRating: "5",
-    worstRating: "1",
-  },
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Saturday", "Sunday"],
-      opens: "09:00",
-      closes: "19:00",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "18:00",
-      closes: "21:00",
-    },
-  ],
-  hasOfferCatalog: buildOfferCatalog(),
-});
 ---
 
 <BaseLayout
   title="NiO Pictures | Event & Family Photographer in Katy TX | Houston Area"
-  description="NiO Pictures — Katy TX event & family photographer. Cinematic corporate events, Indian celebrations, and heirloom portraits. Serving Katy, Cypress, Houston, Sugar Land & Richmond."
+  description="NiO Pictures — Katy TX photographer specializing in South Asian celebrations, heirloom family portraits, and cinematic event coverage. Serving Katy, Cypress, Houston, Sugar Land & Richmond."
   canonical="https://niopictures.com/"
   ogImage="https://niopictures.com/assets/images/og-home.webp"
   deferComponentsCss={true}
@@ -469,7 +404,6 @@ const businessSchemaLd = JSON.stringify({
       fetchpriority="high"
     />
     <script type="application/ld+json" is:inline set:html={homeHeroImageLd} />
-    <script type="application/ld+json" is:inline set:html={businessSchemaLd} />
     <script type="application/ld+json" is:inline set:html={filmShowcaseLd} />
     <script type="application/ld+json" is:inline>
       {
