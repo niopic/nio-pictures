@@ -1,0 +1,237 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+const title =
+  "Houston Photographer | South Asian Celebrations & Family Portraits | NiO Pictures";
+const description =
+  "Houston photographer specializing in South Asian celebrations - housewarmings, half-saree ceremonies, milestone birthdays - plus heirloom family portraits. Based in Katy TX, serving the greater Houston area.";
+const canonical = "https://niopictures.com/houston-tx-photographer";
+const ogImage = "https://niopictures.com/assets/images/og-home.webp";
+const extraHead =
+  '<script type="application/ld+json">\n  {\n    "@context": "https://schema.org",\n    "@type": "BreadcrumbList",\n    "itemListElement": [\n      {"@type":"ListItem","position":1,"name":"Home","item":"https://niopictures.com/"},\n      {"@type":"ListItem","position":2,"name":"Houston Photographer","item":"https://niopictures.com/houston-tx-photographer"}\n    ]\n  }\n  </script>\n<script type="application/ld+json">\n  {\n    "@context": "https://schema.org",\n    "@type": "FAQPage",\n    "mainEntity": [\n      {\n        "@type": "Question",\n        "name": "Do you photograph South Asian celebrations in Houston?",\n        "acceptedAnswer": {\n          "@type": "Answer",\n          "text": "Yes. NiO Pictures regularly photographs housewarmings, half-saree ceremonies, milestone birthdays, and other South Asian celebrations throughout Houston, including communities near the Mahatma Gandhi District on Hillcroft."\n        }\n      },\n      {\n        "@type": "Question",\n        "name": "Can you photograph private events at Houston venues?",\n        "acceptedAnswer": {\n          "@type": "Answer",\n          "text": "Yes. NiO Pictures provides candid event coverage for Houston banquet halls, community centers, and home celebrations."\n        }\n      },\n      {\n        "@type": "Question",\n        "name": "Do you travel from Katy to Houston for weeknight sessions?",\n        "acceptedAnswer": {\n          "@type": "Answer",\n          "text": "Yes. We offer both weekend and weeknight availability for Houston sessions throughout the year."\n        }\n      },\n      {\n        "@type": "Question",\n        "name": "Do you offer family portrait sessions in Houston?",\n        "acceptedAnswer": {\n          "@type": "Answer",\n          "text": "Yes. We provide heirloom family portrait sessions throughout Houston and the surrounding metro, available as prints, wall art, and keepsake albums."\n        }\n      }\n    ]\n  }\n  </script>';
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+>
+  <Fragment slot="head" set:html={extraHead} />
+  <a
+    href="#main-content"
+    class="skip-link"
+    style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);"
+    onfocus="this.style.top='1rem'"
+    onblur="this.style.top='-40px'">Skip to main content</a
+  >
+
+  <Nav />
+
+  <div
+    style="padding: calc(var(--section-pad) + 4rem) 0 var(--section-pad); border-bottom: 1px solid var(--border-light);"
+  >
+    <div class="container">
+      <div class="reveal">
+        <p class="eyebrow" style="margin-bottom:1rem;">
+          Serving Houston, Texas
+        </p>
+        <div class="gold-line gold-line-animate"></div>
+        <h1 class="display-xl" style="max-width:700px; margin-bottom:1.25rem;">
+          Houston<br /><em style="font-style:italic; color:var(--gold);"
+            >Photographer</em
+          >
+        </h1>
+        <p class="body-lg" style="max-width:580px; margin-bottom:2.5rem;">
+          NiO Pictures is based in Katy, TX and regularly serves Houston and the
+          surrounding metro - including the Mahatma Gandhi District on Hillcroft,
+          a cultural and commercial hub for Houston's South Asian community.
+          Whether you need professional event coverage or timeless family
+          portraits, Palanivel brings the same cinematic eye and genuine care to
+          every session.
+        </p>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+          <a href="/contact" class="btn btn-primary btn-arrow"
+            >Start a Conversation</a
+          >
+          <a
+            href="https://niopictures.pixieset.com/booking/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-outline">Book a Session</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header center reveal">
+        <p class="eyebrow">Photography in Houston TX</p>
+        <div class="gold-line center gold-line-animate"></div>
+        <h2 class="display-md">Houston Photography Services</h2>
+      </div>
+      <div class="features-grid reveal reveal-delay-1">
+        <div class="feature-card">
+          <div class="feature-icon">◇</div>
+          <h3 class="feature-title">South Asian Celebrations</h3>
+          <p class="body-sm">
+            Housewarmings, half-saree ceremonies, milestone birthdays, and
+            cultural celebrations across Houston - photographed with cultural
+            care and a cinematic eye.
+          </p>
+          <a
+            href="/event-photography-katy-tx"
+            style="display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-accent);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-top:1.25rem;"
+            >South Asian Celebrations →</a
+          >
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">◈</div>
+          <h3 class="feature-title">Family Photography</h3>
+          <p class="body-sm">
+            Heirloom family portraits and lifestyle sessions for Houston
+            families. Natural, unscripted, and available as wall art, prints,
+            and keepsake albums.
+          </p>
+          <a
+            href="/family-photography-katy-tx"
+            style="display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-accent);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-top:1.25rem;"
+            >Family Photography →</a
+          >
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">◉</div>
+          <h3 class="feature-title">Weekends & Weeknights</h3>
+          <p class="body-sm">
+            Sessions available on weekends and weeknight evenings throughout
+            Houston and the surrounding metro - no need to take time off work.
+          </p>
+          <a
+            href="/contact"
+            style="display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-accent);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-top:1.25rem;"
+            >Check Availability →</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="section"
+    style="background:var(--surface); border-top:1px solid var(--border-light); border-bottom:1px solid var(--border-light);"
+  >
+    <div class="container" style="max-width:800px;">
+      <div class="section-header center reveal">
+        <p class="eyebrow">Why NiO Pictures</p>
+        <div class="gold-line center gold-line-animate"></div>
+        <h2 class="display-md">A Photographer Who Knows the Area</h2>
+      </div>
+      <p
+        class="body-lg reveal"
+        style="text-align:center; max-width:620px; margin:0 auto 2rem;"
+      >
+        NiO Pictures serves Houston as part of a regular schedule across the
+        metro, with particular experience photographing South Asian celebrations
+        - housewarmings, half-saree ceremonies, milestone birthdays - for
+        families throughout the Houston area, including communities near the
+        Mahatma Gandhi District on Hillcroft. Whether it's a cultural milestone
+        at a Houston banquet hall or a family portrait session in a Houston-area
+        park, every session gets the same cinematic care.
+      </p>
+      <div
+        style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;"
+        class="reveal"
+      >
+        <a href="/katy-tx-photographer" class="btn btn-gold-outline btn-arrow"
+          >Katy TX (Home Base)</a
+        >
+        <a href="/portfolio" class="btn btn-gold-outline btn-arrow"
+          >See Event &amp; Family Portfolio</a
+        >
+        <a href="/about" class="btn btn-outline">About Palanivel</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:900px;">
+      <div class="section-header center reveal">
+        <p class="eyebrow">Houston Area Insight</p>
+        <div class="gold-line center gold-line-animate"></div>
+        <h2 class="display-md">
+          Neighborhoods, Landmarks, and Why We Serve Houston
+        </h2>
+      </div>
+      <p
+        class="body-lg reveal"
+        style="text-align:center; max-width:760px; margin:0 auto 1.25rem;"
+      >
+        Houston is the largest and most diverse city we serve, and we frequently
+        photograph South Asian celebrations and family sessions throughout the
+        metro - including near the Mahatma Gandhi District on Hillcroft, one of
+        Houston's most established South Asian cultural and commercial corridors.
+      </p>
+      <p
+        class="body-lg reveal reveal-delay-1"
+        style="text-align:center; max-width:760px; margin:0 auto 1.25rem;"
+      >
+        For event coverage, we know how to move efficiently through banquet
+        halls, community centers, and private venues across Houston without
+        missing candid moments - from cultural ceremonies to corporate
+        gatherings.
+      </p>
+      <p
+        class="body-lg reveal reveal-delay-2"
+        style="text-align:center; max-width:760px; margin:0 auto;"
+      >
+        We serve Houston consistently because many families here are creating new
+        traditions and want a photographer who understands the cultural
+        significance of their celebrations and can be trusted to return to year
+        after year.
+      </p>
+      <div
+        style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; margin-top:2rem;"
+        class="reveal"
+      >
+        <a
+          href="/event-photography-katy-tx"
+          class="btn btn-gold-outline btn-arrow"
+          >Houston Event Photography Services</a
+        >
+        <a href="/family-photography-katy-tx" class="btn btn-outline"
+          >Houston Family Photography Services</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner reveal">
+    <div class="container">
+      <p class="eyebrow" style="margin-bottom:1.25rem;">
+        Houston TX Photography
+      </p>
+      <h2
+        class="display-md"
+        style="margin-bottom:1rem; max-width:520px; margin-left:auto; margin-right:auto;"
+      >
+        Book Your Session<br /><em style="font-style:italic; color:var(--gold);"
+          >in Houston</em
+        >
+      </h2>
+      <p class="body-lg" style="max-width:420px; margin:0 auto 2.5rem;">
+        Events and family sessions available throughout Houston, Katy, and the
+        greater metro area.
+      </p>
+      <div
+        style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;"
+      >
+        <a href="/contact" class="btn btn-primary btn-arrow"
+          >Start a Conversation</a
+        >
+        <a href="/contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
