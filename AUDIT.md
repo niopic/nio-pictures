@@ -19,6 +19,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [x] Replaced 5 anonymized testimonials (P.G./N.M./S.B./S.S./K.P., duplicated across index/about/event-photography pages) with 2 real named/located testimonials (Venkatesh K. — Fulshear TX, Malav S. — Katy TX) + "Read more reviews on Google" link
 - [x] Fixed homepage `aggregateRating` schema to match real GBP (5.0 / 16 reviews, was placeholder 5/7)
 - [x] Added click-to-play film showcase section + `VideoObject` schema (placeholder video: Pongal/Tamil Sangam, to be swapped for 40th birthday film when delivered)
+- [x] Fixed postal code mismatch: website schema had 77449, but the real Google Business Profile listing (and actual business location) is 77494. Found by manually cross-checking GBP against the site during a live review - same class of NAP inconsistency as other schema bugs fixed tonight, just caught in the one place that required checking outside the codebase.
 
 ---
 
