@@ -32,14 +32,14 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 
 ## P0 — Highest business impact (do first)
 
-- [x] **Reframe price anchoring.** Relocated `<PricingSection />` above the fold on `index.astro` (homepage hero now showcases packages instead of floor pricing). Removed "$650 / $950" hero copy that was anchoring low; pricing cards now lead with $1,400–$1,950 tiers.
+- [x] **Reframe price anchoring.** Relocated `<PricingSection />` to immediately after the Hybrid Photo + Film section on `index.astro` (homepage hero now showcases packages instead of floor pricing). Removed "$650 / $950" hero copy that was anchoring low; pricing cards now lead with $1,400–$1,950 tiers.
 - [x] **Wire pricing.ts into pages.** Remove hardcoded prices from:
       `index.astro`, `book.astro`, `event-photography-katy-tx.astro`,
       `family-photography-katy-tx.astro`, `katy-tx-photographer.astro`.
 - [x] **Fix schema price conflict.** Delete `priceRange: "$$"` in
       `BaseLayout.astro`; keep `"$$$"` in `index.astro` (same `@id`, can't be both).
 - [x] **Add `hasOfferCatalog: buildOfferCatalog()`** to homepage LocalBusiness JSON-LD.
-- [x] **Consolidate CTAs.** Extracted shared `<Nav.astro>` component (eliminates 21-file duplication). Primary CTA across site: "Start a Conversation" inquiry button. Pixieset self-booking demoted to secondary call-to-action in footer. Added active-state toggle in `main.js` for CTA button styling consistency.
+- [x] **Consolidate CTAs.** Extracted shared `<Nav.astro>` component (eliminates 21-file duplication). Primary CTA across site: "Start a Conversation" inquiry button. Pixieset self-booking demoted to secondary text link ("Prefer to self-book? →") in desktop nav and mobile nav drawer in `Nav.astro`, and to secondary call-to-action in footer. Fixed `main.js` to match `/blog/*` paths for active nav state, not just exact path match (fixes "Blog" active state on individual blog post URLs).
 
 ## P1 — Conversion & trust
 
@@ -89,7 +89,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 
 - [ ] `katy-tx-photographer.astro` maintains its own duplicate `#business` JSON-LD node instead of sharing `BaseLayout`'s — worth consolidating later so a schema field can't drift out of sync again.
 - [ ] `$20/image` add-on referenced in `terms.astro` / blog but missing from `pricing.ts` `ADD_ONS` — add when ready to formalize that pricing.
-- [x] **No shared `<Nav>` component.** Extracted `Nav.astro` and `NavMobile.astro` components; now used across all pages. Eliminates 21-file duplication — future nav changes are single-point edits.
+- [x] **No shared `<Nav>` component.** Extracted `Nav.astro` component (renders both desktop nav and mobile drawer); now used across all pages. Eliminates 21-file duplication — future nav changes are single-point edits.
 - [ ] `/portfolio` page funnels deeper browsing to Pixieset ("full gallery lives on Pixieset") — real fix is growing `portfolioImages` in `images.config.ts` with more local images, then removing the Pixieset link entirely. Bigger lift, separate task from the moment-story work.
 - [ ] Add lightbox to `/portfolio` page (not homepage moment stories) once more images are added — click thumbnail, view large, arrow through set, no page navigation.
 - [ ] **40th birthday client — one testimonial, two places:** When a real testimonial arrives for the 40th birthday session, use it to (1) replace the editorial caption in the homepage moment-story birthday slot and (2) feed the film showcase section, whose placeholder video (Pongal/Tamil Sangam) is already flagged for swap to the 40th birthday film — see "Already shipped". Same client; handle both in one pass, don't write two separate captions independently.
