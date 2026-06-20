@@ -50,7 +50,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [ ] Add a **"what happens after you inquire"** process section (reduces
       high-ticket hesitation for $1,500+ bookings).
 - [ ] Add a **pricing-guide lead magnet** (email capture for non-ready visitors).
-- [ ] Sticky **mobile inquiry button**.
+- [x] Sticky **mobile inquiry button**. A sticky mobile CTA bar already existed but was homepage-only (scoped markup + CSS inside index.astro). Relocated into BaseLayout.astro so it renders site-wide on every page. Second button changed from "Ask About Film" (homepage-specific) to a tap-to-call "Call Now" button (tel:+12814093585), appropriate across all pages. CSS moved from index.astro's local `<style>` block into the shared components.css at the existing 768px breakpoint.
 
 ## P2 — SEO & content
 
