@@ -112,6 +112,30 @@ header .reveal {
   z-index: 1;
 }
 
+/* Primary CTA + demoted self-book link travel together so the nav's
+   space-between layout still reads as: logo | links | cta-group. */
+.nav-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.nav-cta-secondary {
+  font-family: var(--font-accent);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+  transition: color var(--dur-fast) var(--ease);
+}
+
+.nav-cta-secondary:hover {
+  color: var(--gold);
+}
+
 /* Mobile nav toggle */
 .nav-toggle {
   display: none;
@@ -184,6 +208,20 @@ header .reveal {
 
 .nav-mobile .nav-mobile-cta {
   margin-top: 1rem;
+  color: var(--gold);
+}
+
+/* Demoted self-book link in the mobile drawer — small, muted, not a headline. */
+.nav-mobile .nav-mobile-secondary {
+  margin-top: 0.25rem;
+  font-family: var(--font-accent);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.nav-mobile .nav-mobile-secondary:hover {
   color: var(--gold);
 }
 
@@ -1438,7 +1476,8 @@ select.form-control option {
 
 @media (max-width: 768px) {
   .nav-links,
-  .nav-cta {
+  .nav-cta,
+  .nav-cta-group {
     display: none;
   }
   .nav-toggle {

@@ -1,0 +1,86 @@
+---
+/**
+ * Nav.astro
+ * Shared top navigation: desktop bar (.nav) + mobile drawer (.nav-mobile).
+ *
+ * Styling lives in /assets/css/components.css (global). The mobile menu toggle
+ * is wired in /assets/js/main.js by class name — keep .nav-toggle / .nav-mobile
+ * intact. main.js also re-applies the active class at runtime from the URL.
+ *
+ * Pass `currentPath` to mark the matching link active server-side, e.g.
+ * "/about", "/portfolio", "/contact". Blog posts should pass "/blog".
+ * Omit it on pages with no matching nav link (home, legal, SEO landers).
+ */
+interface Props {
+  /** Path of the active nav link, e.g. "/about". Omit when no link matches. */
+  currentPath?: string;
+}
+
+const { currentPath } = Astro.props;
+
+const links = [
+  { href: "/event-photography-katy-tx", label: "Celebrations" },
+  { href: "/family-photography-katy-tx", label: "Family" },
+  { href: "/portfolio", label: "Portfolio" },
+  { href: "/about", label: "About" },
+  { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Contact" },
+];
+
+// Pixieset self-booking — demoted to a secondary text link, not removed.
+const SELF_BOOK_URL = "https://niopictures.pixieset.com/booking/";
+---
+
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <a href="/" class="nav-logo" aria-label="NiO Pictures Home">
+    Ni<span>O</span> Pictures
+  </a>
+
+  <div class="nav-links">
+    {
+      links.map((link) => (
+        <a
+          href={link.href}
+          class={currentPath === link.href ? "active" : undefined}
+          aria-current={currentPath === link.href ? "page" : undefined}
+        >
+          {link.label}
+        </a>
+      ))
+    }
+  </div>
+
+  <div class="nav-cta-group">
+    <a href="/contact" class="btn btn-primary nav-cta">Start a Conversation</a>
+    <a
+      href={SELF_BOOK_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="nav-cta-secondary">Prefer to self-book? →</a
+    >
+  </div>
+
+  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile" role="dialog" aria-label="Mobile navigation">
+  {
+    links.map((link) => (
+      <a
+        href={link.href}
+        aria-current={currentPath === link.href ? "page" : undefined}
+      >
+        {link.label}
+      </a>
+    ))
+  }
+  <a href="/contact" class="nav-mobile-cta">Start a Conversation →</a>
+  <a
+    href={SELF_BOOK_URL}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="nav-mobile-secondary">Prefer to self-book? →</a
+  >
+</div>

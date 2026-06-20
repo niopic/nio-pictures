@@ -92,7 +92,11 @@
     if (!rawHref || /^(https?:|mailto:|tel:|#)/i.test(rawHref)) return;
 
     const href = normalizePath(rawHref);
-    if (href === currentPath) {
+    const isActive =
+      href === currentPath ||
+      // Keep the Blog link active on individual blog post URLs (/blog/*).
+      (href === "/blog" && currentPath.startsWith("/blog/"));
+    if (isActive) {
       a.classList.add("active");
     }
   });
