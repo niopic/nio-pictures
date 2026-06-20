@@ -948,6 +948,10 @@ header .reveal {
   border: 1px solid var(--border-light);
 }
 
+.features-grid-4 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
 .feature-card {
   background: var(--black);
   padding: clamp(2rem, 4vw, 3rem);
@@ -1400,6 +1404,9 @@ select.form-control option {
     gap: 2.5rem;
   }
   .features-grid {
+    grid-template-columns: 1fr;
+  }
+  .features-grid-4 {
     grid-template-columns: 1fr;
   }
   .testimonials-track {
