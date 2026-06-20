@@ -755,6 +755,62 @@ const businessSchemaLd = JSON.stringify({
 
     <PricingSection />
 
+    <section
+      class="section"
+      aria-label="Pricing guide download"
+      style="background: var(--surface); border-top: 1px solid var(--border-light);"
+    >
+      <div class="container">
+        <div class="section-header center reveal">
+          <p class="eyebrow">Not Ready Yet?</p>
+          <div class="gold-line center gold-line-animate"></div>
+          <h2 class="display-md">Take Our Pricing Guide With You</h2>
+          <p class="body-lg" style="color: var(--muted); max-width: 480px; margin: 0 auto 2.5rem;">
+            Get the full package breakdown, add-ons, and what-to-expect process — as a PDF you can save and share.
+          </p>
+        </div>
+
+        <form
+          id="lead-magnet-form"
+          novalidate
+          style="position:relative; max-width: 480px; margin: 0 auto;"
+          class="reveal reveal-delay-1"
+        >
+          <!-- Honeypot spam protection -->
+          <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
+            <label for="lm-website">Leave this empty</label>
+            <input type="text" id="lm-website" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+          <!-- Formspree subject distinguisher -->
+          <input type="hidden" name="_subject" value="Pricing Guide Lead Magnet" />
+          <input type="hidden" name="form_type" value="lead_magnet" />
+
+          <div style="display:flex; gap: 0.75rem; flex-wrap: wrap;">
+            <input
+              class="form-control"
+              type="email"
+              id="lm-email"
+              name="email"
+              placeholder="your@email.com"
+              required
+              autocomplete="email"
+              style="flex: 1; min-width: 200px;"
+            />
+            <button type="submit" class="btn btn-primary" style="white-space: nowrap;">
+              Send Me the Guide
+            </button>
+          </div>
+
+          <p
+            id="lead-magnet-success"
+            style="display:none; margin-top: 1rem; text-align:center; color: var(--gold); font-family: var(--font-accent); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;"
+          >
+            Check your downloads — and thank you!
+          </p>
+        </form>
+      </div>
+    </section>
+
     <!-- PLACEHOLDER FILM: swap PFTdwktgg2E for the 40th birthday highlight film once delivered -->
     <section class="section" aria-label="Film showcase" style="background: var(--surface); border-top: 1px solid var(--border-light);">
       <div class="container">

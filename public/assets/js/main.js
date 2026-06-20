@@ -241,6 +241,54 @@
     });
   }
 
+  /* ── Lead magnet form submission ─────────────────────────── */
+  const leadMagnetForm = document.querySelector("#lead-magnet-form");
+  if (leadMagnetForm) {
+    leadMagnetForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const trap = leadMagnetForm.querySelector('input[name="website"]');
+      if (trap && trap.value) return;
+      const emailInput = leadMagnetForm.querySelector('[name="email"]');
+      if (!emailInput.value.trim()) {
+        emailInput.style.borderColor = "var(--gold)";
+        return;
+      }
+      emailInput.style.borderColor = "";
+      const btn = leadMagnetForm.querySelector('[type="submit"]');
+      const original = btn.innerHTML;
+      btn.innerHTML = "Sending…";
+      btn.disabled = true;
+      try {
+        const res = await fetch(FORMSPREE, {
+          method: "POST",
+          body: new FormData(leadMagnetForm),
+          headers: { Accept: "application/json" },
+        });
+        if (res.ok) {
+          const link = document.createElement("a");
+          link.href = "/downloads/nio-pictures-pricing-guide.pdf";
+          link.download = "nio-pictures-pricing-guide.pdf";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          btn.innerHTML = "Sent ✓";
+          leadMagnetForm.reset();
+          const successEl = document.querySelector("#lead-magnet-success");
+          if (successEl) successEl.style.display = "block";
+          setTimeout(() => { btn.innerHTML = original; btn.disabled = false; }, 4000);
+        } else {
+          btn.innerHTML = "Something went wrong — try again";
+          btn.disabled = false;
+          setTimeout(() => { btn.innerHTML = original; }, 3000);
+        }
+      } catch {
+        btn.innerHTML = "Network error — please try again";
+        btn.disabled = false;
+        setTimeout(() => { btn.innerHTML = original; }, 3000);
+      }
+    });
+  }
+
   runWhenIdle(() => {
     /* ── Film showcase: click-to-play ───────────────────────── */
     document.querySelectorAll(".film-poster").forEach((poster) => {
