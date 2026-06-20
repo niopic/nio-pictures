@@ -1887,3 +1887,30 @@ select.form-control option {
     aspect-ratio: 4 / 5;
   }
 }
+
+/* ── Mobile CTA bar (site-wide sticky) ────────────────────── */
+.mobile-cta-bar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-cta-bar {
+    display: flex;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    gap: 0.65rem;
+    padding: 0.75rem 0.75rem calc(0.75rem + env(safe-area-inset-bottom));
+    background: rgba(10, 9, 8, 0.96);
+    border-top: 1px solid var(--border-light);
+    backdrop-filter: blur(10px);
+  }
+  .mobile-cta-bar .btn {
+    flex: 1 1 0;
+    justify-content: center;
+    min-height: 48px;
+    padding-inline: 0.9rem;
+  }
+}

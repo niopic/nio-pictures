@@ -375,9 +375,6 @@ const businessSchemaLd = JSON.stringify({
         height: 40px;
         background: linear-gradient(to bottom, var(--gold), transparent);
       }
-      .mobile-cta-bar {
-        display: none;
-      }
       .hybrid-grid {
         display: grid;
         grid-template-columns: 1.05fr 0.95fr;
@@ -435,25 +432,6 @@ const businessSchemaLd = JSON.stringify({
         }
         .hybrid-grid {
           grid-template-columns: 1fr;
-        }
-        .mobile-cta-bar {
-          display: flex;
-          position: fixed;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          z-index: 1000;
-          gap: 0.65rem;
-          padding: 0.75rem 0.75rem calc(0.75rem + env(safe-area-inset-bottom));
-          background: rgba(10, 9, 8, 0.96);
-          border-top: 1px solid var(--border-light);
-          backdrop-filter: blur(10px);
-        }
-        .mobile-cta-bar .btn {
-          flex: 1 1 0;
-          justify-content: center;
-          min-height: 48px;
-          padding-inline: 0.9rem;
         }
       }
       @media (max-width: 480px) {
@@ -584,12 +562,6 @@ const businessSchemaLd = JSON.stringify({
       </div>
     </section>
 
-    <div class="mobile-cta-bar" aria-label="Quick booking options">
-      <a href="/contact" class="btn btn-primary btn-arrow"
-        >Start a Conversation</a
-      >
-      <a href="/contact" class="btn btn-outline">Ask About Film</a>
-    </div>
 
     <div
       style="background: var(--surface); border-bottom: 1px solid var(--border-light); padding: 0.9rem 0; text-align: center;"
