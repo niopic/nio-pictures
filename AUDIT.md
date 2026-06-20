@@ -24,9 +24,9 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 
 ## P0 — Positioning (do first, shapes everything else)
 
-- [ ] **Decide and commit to positioning hierarchy:** Primary = South Asian family celebrations & milestone events (housewarming, half-saree, birthdays, cultural ceremonies); Secondary = family portraits / heirloom sessions; Tertiary / supporting only = corporate events, branding
-- [ ] **Rewrite homepage hero/subhead** to reflect this hierarchy
-- [ ] **Reorder/adjust nav** so primary services get top billing, tertiary services don't compete for nav space
+- [x] **Decide and commit to positioning hierarchy:** Hierarchy = South Asian celebrations (housewarming, half-saree, Diwali, milestone birthdays) primary; family portraits secondary; corporate tertiary. Applied to `event-photography-katy-tx.astro` (title, meta, JSON-LD, feature cards) and homepage service-split panel.
+- [x] **Rewrite homepage hero/subhead** to reflect this hierarchy — no hero change was needed; `index.astro` hero already leads with "Photography & Film for South Asian Milestones" (h1) and eyebrow "Photography for South Asian milestones". Only the events page and service-split panel had the positioning leak.
+- [x] **Reorder/adjust nav** so primary services get top billing, tertiary services don't compete for nav space — verified across 4 files (`index.astro`, `event-photography-katy-tx.astro`, `family-photography-katy-tx.astro`, `about.astro`): both `.nav-links` and `.nav-mobile` already read Celebrations → Family → Portfolio → About → Blog → Contact on every page; no corporate nav item exists on any page.
 
 ---
 
