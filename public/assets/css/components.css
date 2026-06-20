@@ -513,8 +513,10 @@ header .reveal {
 /* ── Testimonials ──────────────────────────────────────────── */
 .testimonials-track {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .testimonial-card {
@@ -592,6 +594,22 @@ header .reveal {
   font-size: 0.7rem;
   letter-spacing: 0.1em;
   margin-bottom: 0.5rem;
+}
+
+.reviews-link {
+  font-family: var(--font-accent);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color var(--dur-base) var(--ease), border-color var(--dur-base) var(--ease);
+}
+
+.reviews-link:hover {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
 }
 
 /* ── About Snippet ─────────────────────────────────────────── */
