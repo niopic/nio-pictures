@@ -147,6 +147,12 @@ export const ADD_ONS: AddOn[] = [
     description: "24 hrs instead of 48",
     price: 150,
   },
+  {
+    id: "extra-images",
+    name: "Additional Images",
+    description: "Beyond your package allowance, purchased individually",
+    price: 20,
+  },
 ];
 
 /* ----------------------------- Helpers ----------------------------- */
