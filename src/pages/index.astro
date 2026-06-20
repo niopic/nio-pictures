@@ -29,6 +29,27 @@ const homeHeroImageLd = JSON.stringify({
 const familyFrom = formatUSD(packageFrom(PACKAGES.find((p) => p.id === "legacy-collection")!));
 const eventFrom = formatUSD(packageFrom(PACKAGES.find((p) => p.id === "heritage-session")!));
 
+const filmShowcaseLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  name: "Pongal Celebration — Tamil Sangam",
+  description:
+    "A glimpse of our cinematic highlight films, captured for a Pongal celebration with Tamil Sangam.",
+  thumbnailUrl: "https://img.youtube.com/vi/PFTdwktgg2E/maxresdefault.jpg",
+  embedUrl: "https://www.youtube.com/embed/PFTdwktgg2E",
+  contentUrl: "https://youtu.be/PFTdwktgg2E",
+  // TODO: add precise `duration` (ISO 8601, e.g. "PT2M14S") once confirmed
+  // TODO: add accurate `uploadDate` (ISO 8601) once confirmed — do not guess
+  publisher: {
+    "@type": "Organization",
+    name: "NiO Pictures",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://niopictures.com/assets/images/og-home.webp",
+    },
+  },
+});
+
 const businessSchemaLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "ProfessionalService", "PhotographyStudio"],
@@ -470,6 +491,7 @@ const businessSchemaLd = JSON.stringify({
     />
     <script type="application/ld+json" is:inline set:html={homeHeroImageLd} />
     <script type="application/ld+json" is:inline set:html={businessSchemaLd} />
+    <script type="application/ld+json" is:inline set:html={filmShowcaseLd} />
     <script type="application/ld+json" is:inline>
       {
         "@context": "https://schema.org",
@@ -746,6 +768,50 @@ const businessSchemaLd = JSON.stringify({
               </p>
             </article>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLACEHOLDER FILM: swap PFTdwktgg2E for the 40th birthday highlight film once delivered -->
+    <section class="section" aria-label="Film showcase" style="background: var(--surface); border-top: 1px solid var(--border-light);">
+      <div class="container">
+        <div class="section-header center reveal">
+          <p class="eyebrow">Hybrid Photo + Film</p>
+          <div class="gold-line center gold-line-animate"></div>
+          <h2 class="display-md">A Glimpse of Our Cinematic Highlight Films</h2>
+        </div>
+
+        <div class="film-showcase reveal reveal-delay-1" style="max-width: 860px; margin: 2.5rem auto 0;">
+          <div
+            class="film-poster"
+            role="button"
+            tabindex="0"
+            aria-label="Play highlight film: Pongal Celebration, Tamil Sangam"
+            data-video-id="PFTdwktgg2E"
+            style="position: relative; aspect-ratio: 16/9; border: 1px solid var(--border-light); border-radius: 2px; overflow: hidden; cursor: pointer; background: var(--surface-2);"
+          >
+            <img
+              src="https://img.youtube.com/vi/PFTdwktgg2E/maxresdefault.jpg"
+              alt="Pongal Celebration, Tamil Sangam — highlight film preview"
+              loading="lazy"
+              style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;"
+            />
+            <span
+              class="film-play-btn"
+              aria-hidden="true"
+              style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;"
+            >
+              <span style="width: 64px; height: 64px; border-radius: 50%; background: rgba(22,20,18,0.65); border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; backdrop-filter: blur(2px);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="var(--gold)"><path d="M8 5v14l11-7z"/></svg>
+              </span>
+            </span>
+          </div>
+          <p class="body-sm" style="text-align: center; color: var(--muted); margin-top: 1rem;">
+            Pongal Celebration — Tamil Sangam
+          </p>
+          <p class="body-sm" style="text-align: center; color: var(--cream);">
+            A glimpse of our cinematic highlight films.
+          </p>
         </div>
       </div>
     </section>

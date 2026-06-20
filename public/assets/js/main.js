@@ -238,6 +238,32 @@
   }
 
   runWhenIdle(() => {
+    /* ── Film showcase: click-to-play ───────────────────────── */
+    document.querySelectorAll(".film-poster").forEach((poster) => {
+      const activate = () => {
+        const videoId = poster.dataset.videoId;
+        const iframe = document.createElement("iframe");
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        iframe.title = "NiO Pictures highlight film";
+        iframe.frameBorder = "0";
+        iframe.allow =
+          "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
+        iframe.allowFullscreen = true;
+        iframe.style.position = "absolute";
+        iframe.style.inset = "0";
+        iframe.style.width = "100%";
+        iframe.style.height = "100%";
+        poster.replaceChildren(iframe);
+      };
+      poster.addEventListener("click", activate);
+      poster.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          activate();
+        }
+      });
+    });
+
     /* ── Portfolio filter ────────────────────────────────────── */
     const filterBtns = document.querySelectorAll("[data-filter]");
     const portfolioItems = document.querySelectorAll("[data-category]");
