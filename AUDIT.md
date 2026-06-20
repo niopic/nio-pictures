@@ -89,6 +89,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 
 - [ ] `katy-tx-photographer.astro` maintains its own duplicate `#business` JSON-LD node instead of sharing `BaseLayout`'s — worth consolidating later so a schema field can't drift out of sync again.
 - [ ] `$20/image` add-on referenced in `terms.astro` / blog but missing from `pricing.ts` `ADD_ONS` — add when ready to formalize that pricing.
+- [ ] No shared `<Nav>` component — nav markup is duplicated across 21 files (`class="nav-links"`). Every future nav change requires a 21-file edit. Consider extracting to a shared `Nav.astro` component.
 
 ---
 
