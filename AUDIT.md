@@ -47,7 +47,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [ ] Build a real **on-site portfolio** (stop punting "View Full Gallery" to Pixieset).
 - [x] **Replace initials-only reviews.** Replaced P.G./N.M./S.B./S.S./K.P. with real named/located reviews + Google link (see Already shipped).
 - [x] Build **moment-story section on homepage** — 3 sequences live: housewarming (Venkatesh K. testimonial, sourced from the former standalone "Client testimonials" section, which was removed and folded into story context), pre-dance portrait (Malav S. testimonial, same origin), and 40th birthday (editorial caption only — no client testimonial exists yet for that session). All 9 images delivered, converted to WebP via `scripts/convert-to-webp.mjs`, and building clean.
-- [ ] Add an above-the-fold **trust strip** (5★ · since 2017 · 5 cities served).
+- [x] Add an above-the-fold **trust strip** (5★ · since 2017 · 5 cities served). Added 5★ Rated Reviews and Since 2017 badges to the location-badge strip immediately after the hero.
 - [x] Add a **"what happens after you inquire"** process section (reduces high-ticket hesitation for $1,500+ bookings). A fully-built process section ("How It Works" / "Simple. Seamless. Stunning." / 4 steps: Consultation, Day-Of Coverage, Culling and Edit, Gallery Delivery) already existed on event-photography-katy-tx.astro only. Added an adapted version to the homepage, positioned between the Hybrid Photo + Film section and PricingSection — matching the events page's proven sequence (process → price → objection-handling). Copy generalized slightly ("your event" → "your celebration") since the homepage serves both events and family clients. Events page left unchanged. Follow-up flagged but not done: family-photography-katy-tx.astro still lacks this section — worth a consistency pass later.
 - [x] Add a **pricing-guide lead magnet** (email capture for non-ready visitors). Built a 5-page branded PDF guide (real pricing.ts package data + process-section copy, brand colors/typography) at public/downloads/nio-pictures-pricing-guide.pdf. Added an email-capture section to the homepage (positioned after PricingSection), wired to the existing Formspree endpoint with distinguishing hidden fields (_subject, form_type) so submissions are filterable from regular contact inquiries. On success, triggers an actual file download via a programmatic <a download> click (not window.open, which would have been blocked by popup blockers and wouldn't have forced a real download anyway).
 - [x] Sticky **mobile inquiry button**. A sticky mobile CTA bar already existed but was homepage-only (scoped markup + CSS inside index.astro). Relocated into BaseLayout.astro so it renders site-wide on every page. Second button changed from "Ask About Film" (homepage-specific) to a tap-to-call "Call Now" button (tel:+12814093585), appropriate across all pages. CSS moved from index.astro's local `<style>` block into the shared components.css at the existing 768px breakpoint.
@@ -72,7 +72,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
       ("NiO Pictures is a [X] serving [Y]").
 - [ ] Expand **FAQ coverage** (pricing, ritual-specific, turnaround).
 - [ ] Add a distinct **`Organization`** node + consistent `founder`.
-- [ ] Verify NAP (name/address/phone) is **identical** across every schema block.
+- [x] Verify NAP (name/address/phone) is **identical** across every schema block. Resolved via #business schema consolidation (single canonical source in BaseLayout.astro, removed from 18 files). Found and fixed one real remaining NAP issue: postal code was 77449 in code vs the real 77494 on the actual GBP listing.
 
 ## P4 — Revenue (highest untapped margin)
 
@@ -88,7 +88,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 ## Backlog — Tech debt
 
 - [x] **Resolved.** BaseLayout.astro now renders the single canonical #business JSON-LD node (upgraded to the complete version - aggregateRating, priceRange, geo, founder, hasOfferCatalog, openingHoursSpecification - using the existing description prop so it's correct per-page automatically). Removed duplicate competing #business definitions from index.astro and the 4 location pages (katy-tx, sugar-land, richmond, cypress), which previously had stale reviewCount, leaked corporate-first wording, and a different @type than the homepage's version - same #id, conflicting data, served simultaneously. Verified via built dist/ output, not just source: exactly one full #business definition per page now, with correct {"@id": ...} reference pointers elsewhere (offer catalog providers, BlogPosting publishers, etc.) left intact.
-- [ ] `$20/image` add-on referenced in `terms.astro` / blog but missing from `pricing.ts` `ADD_ONS` — add when ready to formalize that pricing.
+- [x] `$20/image` add-on referenced in `terms.astro` / blog but missing from `pricing.ts` `ADD_ONS` — add when ready to formalize that pricing. Added extra-images add-on to pricing.ts ADD_ONS, matching the existing terms.astro/blog references.
 - [x] **No shared `<Nav>` component.** Extracted `Nav.astro` component (renders both desktop nav and mobile drawer); now used across all pages. Eliminates 21-file duplication — future nav changes are single-point edits.
 - [ ] `/portfolio` page funnels deeper browsing to Pixieset ("full gallery lives on Pixieset") — real fix is growing `portfolioImages` in `images.config.ts` with more local images, then removing the Pixieset link entirely. Bigger lift, separate task from the moment-story work.
 - [ ] Add lightbox to `/portfolio` page (not homepage moment stories) once more images are added — click thumbnail, view large, arrow through set, no page navigation.
@@ -99,7 +99,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 
 ## Needs live tooling (can't be verified from code)
 - [ ] **Core Web Vitals** — run `npx unlighthouse --site niopictures.com`; fix hero LCP if needed.
-- [ ] **Google Business Profile** alignment — confirm NAP + categories match the site.
+- [x] **Google Business Profile** alignment — confirm NAP + categories match the site. Reviewed live GBP listing: reviews (16/5★) and phone match the site. Found and fixed a ZIP code mismatch (77449 -> 77494). Categories/services reviewed - found the same corporate-first ordering issue fixed on the website tonight, but GBP's services list (not just description) is a manual dashboard task, not a code fix - logged as a separate follow-up below if not already its own line.
 - [ ] **Indexation** — check Search Console coverage once the new pages ship.
 - [ ] After deploy, validate JSON-LD in Google's **Rich Results Test**.
 
