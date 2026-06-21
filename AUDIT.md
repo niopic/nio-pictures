@@ -21,6 +21,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [x] Added click-to-play film showcase section + `VideoObject` schema (placeholder video: Pongal/Tamil Sangam, to be swapped for 40th birthday film when delivered)
 - [x] Fixed postal code mismatch: website schema had 77449, but the real Google Business Profile listing (and actual business location) is 77494. Found by manually cross-checking GBP against the site during a live review - same class of NAP inconsistency as other schema bugs fixed tonight, just caught in the one place that required checking outside the codebase.
 - [x] Fixed accessibility contrast failure on PricingSection's .tier__note (muted-dark on surface was ~2.5:1, well under WCAG AA's 4.5:1 minimum for normal text; swapped to --muted, ~5.56:1). Found via live Lighthouse Accessibility audit (97/100) on niopictures.com - not in the original audit, a new finding from tonight's live review.
+- [x] **videography-katy-tx.astro** wired to pricing.ts dynamically (linter auto-imported PACKAGES + formatUSD, replaced hardcoded $1,400/$1,950 with live values from pricing.ts tiers + fallback defaults). Ensures pricing never stales on this page.
 
 ---
 
@@ -56,11 +57,10 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 ## P2 — SEO & content
 
 - [x] **Add Houston location page** (in title tag, biggest market, no page yet). Created src/pages/houston-tx-photographer.astro, following the existing location-page template but with corrected patterns: South Asian celebrations leads feature cards (not corporate-first), 'Start a Conversation' -> /contact as primary CTA throughout (not Pixieset), 4-question FAQ including the Mahatma Gandhi District/Hillcroft corridor (real South Asian cultural hub in Houston). Verified via built dist/ output: BreadcrumbList + FAQPage schema present, exactly one canonical #business definition (correctly inherited from BaseLayout).
-- [ ] **Add Fulshear location page** (stated service area, no page; fast-growing/affluent).
-- [ ] Add **dedicated service pages**: housewarming, half-saree, corporate,
-      and a **videography / highlight-film** page.
-- [ ] Strengthen **internal linking** between location pages ↔ service pages.
-- [ ] Add **pricing/process FAQ** (FAQPage schema) to key pages.
+- [x] **Add Fulshear location page** (stated service area, no page; fast-growing/affluent). Created src/pages/fulshear-tx-photographer.astro with generic area language (no named neighborhoods/subdivisions), South Asian celebrations in feature cards, and 3-question FAQ.
+- [x] Add **dedicated service pages**: housewarming, half-saree, corporate, and a **videography / highlight-film** page. Created all 4: housewarming-photography-katy-tx.astro, half-saree-photography-katy-tx.astro, corporate-photography-katy-tx.astro (minimal/tertiary), videography-katy-tx.astro (with dynamic pricing from pricing.ts via linter auto-import).
+- [x] Strengthen **internal linking** between location pages ↔ service pages. Added internal links on event-photography-katy-tx.astro (housewarming/half-saree bullets → dedicated pages, corporate card → corporate page), and Fulshear to city switcher on katy-tx-photographer.astro.
+- [x] Add **pricing/process FAQ** (FAQPage schema) to key pages. Added FAQPage schema to index.astro (2 questions: service areas, South Asian celebrations). Dedicated service pages each include 2-3 FAQ questions in their JSON-LD.
 
 ## P3 — AI search (real levers, post robots.txt)
 
