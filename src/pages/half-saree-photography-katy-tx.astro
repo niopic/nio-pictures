@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.astro";
-import { PACKAGES, formatTurnaroundFull } from "../data/pricing";
+import { PACKAGES, formatTurnaroundFull, formatCoverageHours } from "../data/pricing";
 
 const title =
   "Half-Saree Ceremony Photography Katy TX | NiO Pictures";
@@ -57,7 +57,7 @@ const extraHead = `<script type="application/ld+json">
         "name": "What's included in a half-saree ceremony photography package?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Coverage includes the full ceremony — from the traditional saree-draping moment through family blessings and celebrations afterward — for up to ${heritageSession.coverage}. You'll receive 150+ edited photos within ${formatTurnaroundFull(heritageSession.photoTurnaround)}, with the option to add a ${heritageFilmTier.label}, delivered in about ${formatTurnaroundFull(heritageFilmTier.turnaround!)}."
+          "text": "Coverage includes the full ceremony — from the traditional saree-draping moment through family blessings and celebrations afterward — for up to ${formatCoverageHours(heritageSession.coverageHours)}. You'll receive 150+ edited photos within ${formatTurnaroundFull(heritageSession.photoTurnaround)}, with the option to add ${heritageFilmTier.proseLabel ?? heritageFilmTier.label}, delivered in about ${formatTurnaroundFull(heritageFilmTier.turnaround!)}."
         }
       }
     ]

@@ -27,6 +27,8 @@ export interface PriceTier {
   note?: string;
   /** Optional turnaround time (e.g. for film tiers) */
   turnaround?: Turnaround;
+  /** Optional prose-friendly description for sentence contexts (separate from label) */
+  proseLabel?: string;
 }
 
 export interface Package {
@@ -36,6 +38,8 @@ export interface Package {
   tagline: string;
   /** Occasions this package is designed for */
   bestFor: string[];
+  /** Coverage hours (in decimal form; e.g., 1.5 for 90 minutes) */
+  coverageHours: number;
   coverage: string;
   deliverables: string[];
   /** One or more price tiers (e.g. photos-only vs. photos + film) */
@@ -57,9 +61,14 @@ export const CURRENCY = "USD" as const;
 
 const HERITAGE_PHOTO_TURNAROUND = { value: 48, unit: "hours" } as const;
 const HERITAGE_FILM_TURNAROUND = { value: 3, unit: "weeks" } as const;
+const HERITAGE_COVERAGE_HOURS = 3 as const;
+
 const GALA_PHOTO_TURNAROUND = { value: 48, unit: "hours" } as const;
 const GALA_FILM_TURNAROUND = { value: 3, unit: "weeks" } as const;
+const GALA_COVERAGE_HOURS = 4 as const;
+
 const LEGACY_PHOTO_TURNAROUND = { value: 7, unit: "days" } as const;
+const LEGACY_COVERAGE_HOURS = 1.5 as const;
 
 export const PACKAGES: Package[] = [
   {
@@ -72,7 +81,8 @@ export const PACKAGES: Package[] = [
       "Griha Pravesham",
       "Milestone birthdays",
     ],
-    coverage: "Up to 3 hours, solo",
+    coverageHours: HERITAGE_COVERAGE_HOURS,
+    coverage: `Up to ${formatCoverageHours(HERITAGE_COVERAGE_HOURS)}, solo`,
     photoTurnaround: HERITAGE_PHOTO_TURNAROUND,
     deliverables: [
       "150+ professionally edited photos",
@@ -85,6 +95,7 @@ export const PACKAGES: Package[] = [
       {
         id: "heritage-film",
         label: "Photos + 3-minute cinematic highlight film",
+        proseLabel: "a 3-minute cinematic highlight film",
         price: 1400,
         note: `Film tier includes layered sound design, ${formatTurnaroundAdj(HERITAGE_FILM_TURNAROUND)} delivery`,
         turnaround: HERITAGE_FILM_TURNAROUND,
@@ -101,7 +112,8 @@ export const PACKAGES: Package[] = [
       "Diwali celebrations",
       "Graduation events",
     ],
-    coverage: "Up to 4 hours, solo",
+    coverageHours: GALA_COVERAGE_HOURS,
+    coverage: `Up to ${formatCoverageHours(GALA_COVERAGE_HOURS)}, solo`,
     photoTurnaround: GALA_PHOTO_TURNAROUND,
     deliverables: [
       "250+ professionally edited photos",
@@ -114,6 +126,7 @@ export const PACKAGES: Package[] = [
       {
         id: "gala-film",
         label: "Photos + 4-minute cinematic highlight film",
+        proseLabel: "a 4-minute cinematic highlight film",
         price: 1950,
         note: `Film tier includes layered sound design, ${formatTurnaroundAdj(GALA_FILM_TURNAROUND)} delivery`,
         turnaround: GALA_FILM_TURNAROUND,
@@ -130,7 +143,8 @@ export const PACKAGES: Package[] = [
       "Grandparents visiting",
       "Family milestones",
     ],
-    coverage: "90-minute on-location session",
+    coverageHours: LEGACY_COVERAGE_HOURS,
+    coverage: `${formatCoverageHours(LEGACY_COVERAGE_HOURS)} on-location session`,
     photoTurnaround: LEGACY_PHOTO_TURNAROUND,
     deliverables: [
       "30+ professionally edited images",
@@ -201,6 +215,17 @@ export const ADD_ONS: AddOn[] = [
 ];
 
 /* ----------------------------- Helpers ----------------------------- */
+
+/** Format coverage hours as human-readable string, e.g. "3 hours", "90 minutes" */
+export function formatCoverageHours(hours: number): string {
+  if (hours < 1) {
+    return `${Math.round(hours * 60)} minutes`;
+  }
+  if (hours % 1 === 0) {
+    return `${hours} hour${hours === 1 ? "" : "s"}`;
+  }
+  return `${Math.round(hours * 60)} minutes`;
+}
 
 /** Format turnaround as adjective, e.g. "48-hour", "7-day", "3-week" */
 export function formatTurnaroundAdj(t: Turnaround): string {

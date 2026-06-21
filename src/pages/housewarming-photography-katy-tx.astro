@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.astro";
-import { PACKAGES, formatTurnaroundFull } from "../data/pricing";
+import { PACKAGES, formatTurnaroundFull, formatCoverageHours } from "../data/pricing";
 
 const title =
   "Housewarming Photography Katy TX | Grihapravesam Photographer | NiO Pictures";
@@ -56,7 +56,7 @@ const extraHead = `<script type="application/ld+json">
         "name": "What happens during a housewarming (griha pravesham) photography session?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Coverage typically begins with the puja and ritual moments — the lighting of the lamp, the entry into the new home — and continues through family portraits and candid moments as guests arrive. Sessions run ${heritageSession.coverage}, and you'll receive 150+ professionally edited photos delivered within ${formatTurnaroundFull(heritageSession.photoTurnaround)}, with an optional cinematic highlight film available as well."
+          "text": "Coverage typically begins with the puja and ritual moments — the lighting of the lamp, the entry into the new home — and continues through family portraits and candid moments as guests arrive. Sessions run up to ${formatCoverageHours(heritageSession.coverageHours)}, and you'll receive 150+ professionally edited photos delivered within ${formatTurnaroundFull(heritageSession.photoTurnaround)}, with an optional cinematic highlight film available as well."
         }
       }
     ]
