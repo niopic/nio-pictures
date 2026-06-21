@@ -24,6 +24,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [x] **videography-katy-tx.astro** wired to pricing.ts dynamically — replaced hardcoded $1,400/$1,950 with live values from PACKAGES + formatUSD, with fallback defaults. Ensures pricing never stales on this page.
 - [x] Merged standalone film showcase into existing #hybrid section — was redundant (two sections both pitching photo+film, one in prose, one in video). Now one section: pitch + cards + video as full-width proof below.
 - [x] Added Legacy Collection upsell tiers to pricing.ts: "Session + Legacy Album" ($1,150) and "Session + Legacy Album + Wall Art" ($1,950), extending the base $650 session. Added two new ADD_ONS: "Heritage Album" ($450, for Heritage Session) and "Gala Album" ($550, for Signature Gala). **Note:** these are round placeholder numbers based on standard 200–300% lab-cost markup industry guidance, not yet checked against real WHCC wholesale costs — confirm actual album/wall-art wholesale pricing before treating these as final margin numbers.
+- [x] Added FAQ questions for housewarming, half-saree, pricing breakdown (merged into existing question), and turnaround — all dynamically sourced from pricing.ts. Fixed two grammatically broken sentences caught during rendered-output verification (coverage/tier-label fields were built for card display, not sentence interpolation) by adding structured coverageHours and proseLabel fields, same single-source-of-truth pattern as Turnaround.
 
 ---
 
@@ -72,7 +73,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [x] **Add `VideoObject` schema** for highlight films. Shipped as part of the film showcase section in index.astro (lines 33-52), see Already shipped above.
 - [ ] Add **entity-clear copy** near the top of key pages
       ("NiO Pictures is a [X] serving [Y]").
-- [~] Expand **FAQ coverage** (pricing, ritual-specific, turnaround). **Partial:** Homepage FAQPage covers service areas, South Asian celebrations, what's included, and booking process (4 questions). videography-katy-tx.astro covers film turnaround (3 weeks) and film-specific Q&A. **Still missing:** per-ritual FAQ depth (housewarming-specific, half-saree-specific), explicit pricing breakdowns, and turnaround for photo deliveries (2-3 weeks mentioned in copy but not in FAQ schema).
+- [x] Expand **FAQ coverage** (pricing, ritual-specific, turnaround). Homepage FAQPage covers service areas, South Asian celebrations, what's included, and booking process (4 questions). videography-katy-tx.astro covers film turnaround (3 weeks) and film-specific Q&A. Housewarming and half-saree pages include ritual-specific FAQs, pricing breakdowns sourced from pricing.ts, and delivery turnaround (2-3 weeks for photos) — all dynamically maintained.
 - [ ] Add a distinct **`Organization`** node + consistent `founder`.
 - [x] Verify NAP (name/address/phone) is **identical** across every schema block. Resolved via #business schema consolidation (single canonical source in BaseLayout.astro, removed from 18 files). Found and fixed one real remaining NAP issue: postal code was 77449 in code vs the real 77494 on the actual GBP listing.
 
