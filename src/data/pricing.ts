@@ -12,6 +12,11 @@
  *   "hasOfferCatalog": buildOfferCatalog()
  */
 
+export type Turnaround = {
+  value: number;
+  unit: "hours" | "days" | "weeks";
+};
+
 export interface PriceTier {
   /** Stable key for analytics / anchors, e.g. "heritage-photos" */
   id: string;
@@ -20,6 +25,8 @@ export interface PriceTier {
   price: number;
   /** Optional fine print shown under the price */
   note?: string;
+  /** Optional turnaround time (e.g. for film tiers) */
+  turnaround?: Turnaround;
 }
 
 export interface Package {
@@ -35,6 +42,8 @@ export interface Package {
   tiers: PriceTier[];
   /** Surface this as the recommended middle option in the UI */
   featured?: boolean;
+  /** Photo turnaround time */
+  photoTurnaround: Turnaround;
 }
 
 export interface AddOn {
@@ -58,9 +67,10 @@ export const PACKAGES: Package[] = [
       "Milestone birthdays",
     ],
     coverage: "Up to 3 hours, solo",
+    photoTurnaround: { value: 48, unit: "hours" },
     deliverables: [
       "150+ professionally edited photos",
-      "48-hour delivery",
+      `${formatTurnaroundAdj({ value: 48, unit: "hours" })} delivery`,
       "Private online gallery (Pixieset)",
       "High-resolution downloads, full usage rights",
     ],
@@ -70,7 +80,8 @@ export const PACKAGES: Package[] = [
         id: "heritage-film",
         label: "Photos + 3-minute cinematic highlight film",
         price: 1400,
-        note: "Film tier includes layered sound design, 3-week delivery",
+        note: `Film tier includes layered sound design, ${formatTurnaroundAdj({ value: 3, unit: "weeks" })} delivery`,
+        turnaround: { value: 3, unit: "weeks" },
       },
     ],
   },
@@ -85,9 +96,10 @@ export const PACKAGES: Package[] = [
       "Graduation events",
     ],
     coverage: "Up to 4 hours, solo",
+    photoTurnaround: { value: 48, unit: "hours" },
     deliverables: [
       "250+ professionally edited photos",
-      "48-hour delivery",
+      `${formatTurnaroundAdj({ value: 48, unit: "hours" })} delivery`,
       "Private online gallery (Pixieset)",
       "High-resolution downloads, full usage rights",
     ],
@@ -97,7 +109,8 @@ export const PACKAGES: Package[] = [
         id: "gala-film",
         label: "Photos + 4-minute cinematic highlight film",
         price: 1950,
-        note: "Film tier includes layered sound design, 3-week delivery",
+        note: `Film tier includes layered sound design, ${formatTurnaroundAdj({ value: 3, unit: "weeks" })} delivery`,
+        turnaround: { value: 3, unit: "weeks" },
       },
     ],
     featured: true,
@@ -112,9 +125,10 @@ export const PACKAGES: Package[] = [
       "Family milestones",
     ],
     coverage: "90-minute on-location session",
+    photoTurnaround: { value: 7, unit: "days" },
     deliverables: [
       "30+ professionally edited images",
-      "7-day delivery",
+      `${formatTurnaroundAdj({ value: 7, unit: "days" })} delivery`,
       "One 8×10 fine art print included",
       "Private online gallery (Pixieset)",
     ],
@@ -181,6 +195,18 @@ export const ADD_ONS: AddOn[] = [
 ];
 
 /* ----------------------------- Helpers ----------------------------- */
+
+/** Format turnaround as adjective, e.g. "48-hour", "7-day", "3-week" */
+export function formatTurnaroundAdj(t: Turnaround): string {
+  const singularUnit = t.unit.slice(0, -1);
+  return `${t.value}-${singularUnit}`;
+}
+
+/** Format turnaround in full, e.g. "48 hours", "7 days", "3 weeks" */
+export function formatTurnaroundFull(t: Turnaround): string {
+  const pluralUnit = t.value === 1 ? t.unit.slice(0, -1) : t.unit;
+  return `${t.value} ${pluralUnit}`;
+}
 
 /** Format a whole-dollar amount as "$1,400". */
 export function formatUSD(amount: number): string {
