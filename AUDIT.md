@@ -21,7 +21,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [x] Added click-to-play film showcase section + `VideoObject` schema (placeholder video: Pongal/Tamil Sangam, to be swapped for 40th birthday film when delivered)
 - [x] Fixed postal code mismatch: website schema had 77449, but the real Google Business Profile listing (and actual business location) is 77494. Found by manually cross-checking GBP against the site during a live review - same class of NAP inconsistency as other schema bugs fixed tonight, just caught in the one place that required checking outside the codebase.
 - [x] Fixed accessibility contrast failure on PricingSection's .tier__note (muted-dark on surface was ~2.5:1, well under WCAG AA's 4.5:1 minimum for normal text; swapped to --muted, ~5.56:1). Found via live Lighthouse Accessibility audit (97/100) on niopictures.com - not in the original audit, a new finding from tonight's live review.
-- [x] **videography-katy-tx.astro** wired to pricing.ts dynamically (linter auto-imported PACKAGES + formatUSD, replaced hardcoded $1,400/$1,950 with live values from pricing.ts tiers + fallback defaults). Ensures pricing never stales on this page.
+- [x] **videography-katy-tx.astro** wired to pricing.ts dynamically — replaced hardcoded $1,400/$1,950 with live values from PACKAGES + formatUSD, with fallback defaults. Ensures pricing never stales on this page.
 - [x] Merged standalone film showcase into existing #hybrid section — was redundant (two sections both pitching photo+film, one in prose, one in video). Now one section: pitch + cards + video as full-width proof below.
 - [x] Added Legacy Collection upsell tiers to pricing.ts: "Session + Legacy Album" ($1,150) and "Session + Legacy Album + Wall Art" ($1,950), extending the base $650 session. Added two new ADD_ONS: "Heritage Album" ($450, for Heritage Session) and "Gala Album" ($550, for Signature Gala). **Note:** these are round placeholder numbers based on standard 200–300% lab-cost markup industry guidance, not yet checked against real WHCC wholesale costs — confirm actual album/wall-art wholesale pricing before treating these as final margin numbers.
 
@@ -62,18 +62,17 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [x] **Add Fulshear location page** (stated service area, no page; fast-growing/affluent). Created src/pages/fulshear-tx-photographer.astro with generic area language (no named neighborhoods/subdivisions), South Asian celebrations in feature cards, and 3-question FAQ.
 - [x] Add **dedicated service pages**: housewarming, half-saree, corporate, and a **videography / highlight-film** page. Created all 4: housewarming-photography-katy-tx.astro, half-saree-photography-katy-tx.astro, corporate-photography-katy-tx.astro (minimal/tertiary), videography-katy-tx.astro (with dynamic pricing from pricing.ts via linter auto-import).
 - [x] Strengthen **internal linking** between location pages ↔ service pages. Added internal links on event-photography-katy-tx.astro (housewarming/half-saree bullets → dedicated pages, corporate card → corporate page), and Fulshear to city switcher on katy-tx-photographer.astro.
-- [x] Add **pricing/process FAQ** (FAQPage schema) to key pages. Added FAQPage schema to index.astro (2 questions: service areas, South Asian celebrations). Dedicated service pages each include 2-3 FAQ questions in their JSON-LD.
+- [x] Add **pricing/process FAQ** (FAQPage schema) to key pages. Added FAQPage schema to index.astro (4 questions: service areas, South Asian celebrations, what's included, how to book). Dedicated service pages each include 2-4 FAQ questions in their JSON-LD.
 
 ## P3 — AI search (real levers, post robots.txt)
 
 > Note: blocking training bots costs little — recommendations run on the search
 > bots, which are now allowed. These are the levers that actually move AI visibility.
 
-- [ ] **Add `VideoObject` schema** for highlight films (currently zero, despite
-      "Hybrid Photo + Film" being the headline differentiator).
+- [x] **Add `VideoObject` schema** for highlight films. Shipped as part of the film showcase section in index.astro (lines 33-52), see Already shipped above.
 - [ ] Add **entity-clear copy** near the top of key pages
       ("NiO Pictures is a [X] serving [Y]").
-- [ ] Expand **FAQ coverage** (pricing, ritual-specific, turnaround).
+- [~] Expand **FAQ coverage** (pricing, ritual-specific, turnaround). **Partial:** Homepage FAQPage covers service areas, South Asian celebrations, what's included, and booking process (4 questions). videography-katy-tx.astro covers film turnaround (3 weeks) and film-specific Q&A. **Still missing:** per-ritual FAQ depth (housewarming-specific, half-saree-specific), explicit pricing breakdowns, and turnaround for photo deliveries (2-3 weeks mentioned in copy but not in FAQ schema).
 - [ ] Add a distinct **`Organization`** node + consistent `founder`.
 - [x] Verify NAP (name/address/phone) is **identical** across every schema block. Resolved via #business schema consolidation (single canonical source in BaseLayout.astro, removed from 18 files). Found and fixed one real remaining NAP issue: postal code was 77449 in code vs the real 77494 on the actual GBP listing.
 
