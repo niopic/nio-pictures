@@ -1,0 +1,213 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+const title =
+  "Housewarming Photography Katy TX | Grihapravesam Photographer | NiO Pictures";
+const description =
+  "Housewarming (Grihapravesam) photography in Katy TX and the greater Houston area - capturing the kumkum blessing, threshold crossing, and milk-boiling ritual with cultural care and a cinematic eye.";
+const canonical = "https://niopictures.com/housewarming-photography-katy-tx";
+const ogImage = "https://niopictures.com/assets/images/og-home.webp";
+const extraHead =
+  '<script type="application/ld+json">\n  {\n    "@context": "https://schema.org",\n    "@type": "BreadcrumbList",\n    "itemListElement": [\n      {"@type":"ListItem","position":1,"name":"Home","item":"https://niopictures.com/"},\n      {"@type":"ListItem","position":2,"name":"Housewarming Photography Katy TX","item":"https://niopictures.com/housewarming-photography-katy-tx"}\n    ]\n  }\n  </script>\n<script type="application/ld+json">\n  {\n    "@context": "https://schema.org",\n    "@type": "FAQPage",\n    "mainEntity": [\n      {\n        "@type": "Question",\n        "name": "Do you photograph Grihapravesam (housewarming) ceremonies?",\n        "acceptedAnswer": {\n          "@type": "Answer",\n          "text": "Yes. NiO Pictures regularly photographs housewarming ceremonies throughout Katy and the greater Houston area, including the kumkum blessing, threshold crossing, and milk-boiling ritual."\n        }\n      },\n      {\n        "@type": "Question",\n        "name": "How long does housewarming photography coverage usually take?",\n        "acceptedAnswer": {\n          "@type": "Answer",\n          "text": "Most housewarming sessions run 2-3 hours, covering the ritual itself through the family gathering afterward. Coverage length is discussed during your consultation."\n        }\n      },\n      {\n        "@type": "Question",\n        "name": "Can you photograph both the ceremony and the family afterward?",\n        "acceptedAnswer": {\n          "@type": "Answer",\n          "text": "Yes. We cover the full arc of the day - the ritual, the family gathering, and candid moments throughout - not just the formal ceremony."\n        }\n      }\n    ]\n  }\n  </script>';
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+>
+  <Fragment slot="head" set:html={extraHead} />
+  <a
+    href="#main-content"
+    class="skip-link"
+    style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);"
+    onfocus="this.style.top='1rem'"
+    onblur="this.style.top='-40px'">Skip to main content</a
+  >
+
+  <Nav />
+
+  <div
+    style="padding: calc(var(--section-pad) + 4rem) 0 var(--section-pad); border-bottom: 1px solid var(--border-light);"
+  >
+    <div class="container">
+      <div class="reveal">
+        <p class="eyebrow" style="margin-bottom:1rem;">
+          Housewarming Photography
+        </p>
+        <div class="gold-line gold-line-animate"></div>
+        <h1 class="display-xl" style="max-width:700px; margin-bottom:1.25rem;">
+          Housewarming<br /><em style="font-style:italic; color:var(--gold);"
+            >Photography</em
+          >
+        </h1>
+        <p class="body-lg" style="max-width:580px; margin-bottom:2.5rem;">
+          A Grihapravesam marks the beginning of a new home - the kumkum
+          blessing at the door, the threshold crossing, the milk boiling over on
+          the stove as family gathers around. NiO Pictures photographs these
+          moments with the cultural understanding and calm presence they deserve,
+          throughout Katy and the greater Houston area.
+        </p>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+          <a href="/contact" class="btn btn-primary btn-arrow"
+            >Start a Conversation</a
+          >
+          <a href="/#moment-stories" class="btn btn-outline">See Moment Stories</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header center reveal">
+        <p class="eyebrow">Housewarming Photography</p>
+        <div class="gold-line center gold-line-animate"></div>
+        <h2 class="display-md">The Rituals That Matter</h2>
+      </div>
+      <div class="features-grid reveal reveal-delay-1">
+        <div class="feature-card">
+          <div class="feature-icon">◇</div>
+          <h3 class="feature-title">The Blessing</h3>
+          <p class="body-sm">
+            Kumkum at the doorway, the house number marked, the first steps into
+            a new home - the opening ritual of the day.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">◈</div>
+          <h3 class="feature-title">Crossing the Threshold</h3>
+          <p class="body-sm">
+            The family entering together, offerings in hand - barefoot, present,
+            and unposed.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">◉</div>
+          <h3 class="feature-title">The Gathering</h3>
+          <p class="body-sm">
+            Milk boiling over on the stove, multiple generations' hands together
+            - the candid heart of the celebration.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="section"
+    style="background:var(--surface); border-top:1px solid var(--border-light); border-bottom:1px solid var(--border-light);"
+  >
+    <div class="container" style="max-width:800px;">
+      <div class="section-header center reveal">
+        <p class="eyebrow">Why NiO Pictures</p>
+        <div class="gold-line center gold-line-animate"></div>
+        <h2 class="display-md">Cultural Care, Cinematic Eye</h2>
+      </div>
+      <p
+        class="body-lg reveal"
+        style="text-align:center; max-width:620px; margin:0 auto 2rem;"
+      >
+        Housewarmings carry real cultural weight - the Grihapravesam isn't just
+        a party, it's a blessing for a new chapter. NiO Pictures approaches each
+        one with the same care we'd want for our own family's milestones: showing
+        up early, staying out of the way during the ritual itself, and being
+        ready the moment something real happens.
+      </p>
+      <div
+        style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;"
+        class="reveal"
+      >
+        <a
+          href="/event-photography-katy-tx"
+          class="btn btn-gold-outline btn-arrow"
+          >All South Asian Celebrations</a
+        >
+        <a href="/portfolio" class="btn btn-gold-outline btn-arrow"
+          >See Portfolio</a
+        >
+        <a href="/about" class="btn btn-outline">About Palanivel</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:900px;">
+      <div class="section-header center reveal">
+        <p class="eyebrow">Housewarming Photography</p>
+        <div class="gold-line center gold-line-animate"></div>
+        <h2 class="display-md">
+          Why We Photograph Housewarmings Thoughtfully
+        </h2>
+      </div>
+      <p
+        class="body-lg reveal"
+        style="text-align:center; max-width:760px; margin:0 auto 1.25rem;"
+      >
+        A new home deserves thoughtful documentation. The Grihapravesam
+        housewarming ritual connects generations, honors tradition, and marks a
+        significant threshold in family life.
+      </p>
+      <p
+        class="body-lg reveal reveal-delay-1"
+        style="text-align:center; max-width:760px; margin:0 auto 1.25rem;"
+      >
+        We photograph with respect for the ceremony - present but invisible,
+        moving quietly, and always aware of the spiritual significance of what's
+        unfolding. The candid moments between formal rituals often become the
+        ones families treasure most: grandparents watching, hands in flour as
+        milk boils over, laughter echoing through empty rooms.
+      </p>
+      <p
+        class="body-lg reveal reveal-delay-2"
+        style="text-align:center; max-width:760px; margin:0 auto;"
+      >
+        Every housewarming we photograph becomes part of our own story - a
+        privilege to be trusted with your family's milestones, year after year,
+        throughout Katy, Houston, and the greater area.
+      </p>
+      <div
+        style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; margin-top:2rem;"
+        class="reveal"
+      >
+        <a
+          href="/event-photography-katy-tx"
+          class="btn btn-gold-outline btn-arrow"
+          >Housewarming & Event Photography</a
+        >
+        <a href="/family-photography-katy-tx" class="btn btn-outline"
+          >Family Photography Services</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner reveal">
+    <div class="container">
+      <p class="eyebrow" style="margin-bottom:1.25rem;">
+        Housewarming Photography
+      </p>
+      <h2
+        class="display-md"
+        style="margin-bottom:1rem; max-width:520px; margin-left:auto; margin-right:auto;"
+      >
+        Document Your<br /><em style="font-style:italic; color:var(--gold);"
+          >New Beginning</em
+        >
+      </h2>
+      <p class="body-lg" style="max-width:420px; margin:0 auto 2.5rem;">
+        Grihapravesam ceremonies and housewarming coverage throughout Katy and
+        the greater Houston area.
+      </p>
+      <div
+        style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;"
+      >
+        <a href="/contact" class="btn btn-primary btn-arrow"
+          >Start a Conversation</a
+        >
+        <a href="/contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

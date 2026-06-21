@@ -1,0 +1,181 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+
+const title =
+  "Cinematic Highlight Film Photographer Katy TX | NiO Pictures";
+const description =
+  "Hybrid photo + film coverage in Katy TX - a cinematic highlight film alongside your photos, capturing motion and sound, not just stills.";
+const canonical = "https://niopictures.com/videography-katy-tx";
+const ogImage = "https://niopictures.com/assets/images/og-home.webp";
+const extraHead =
+  '<script type="application/ld+json">\n  {\n    "@context": "https://schema.org",\n    "@type": "BreadcrumbList",\n    "itemListElement": [\n      {"@type":"ListItem","position":1,"name":"Home","item":"https://niopictures.com/"},\n      {"@type":"ListItem","position":2,"name":"Videography Katy TX","item":"https://niopictures.com/videography-katy-tx"}\n    ]\n  }\n  </script>';
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+>
+  <Fragment slot="head" set:html={extraHead} />
+  <a
+    href="#main-content"
+    class="skip-link"
+    style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);"
+    onfocus="this.style.top='1rem'"
+    onblur="this.style.top='-40px'">Skip to main content</a
+  >
+
+  <Nav />
+
+  <div
+    style="padding: calc(var(--section-pad) + 4rem) 0 var(--section-pad); border-bottom: 1px solid var(--border-light);"
+  >
+    <div class="container">
+      <div class="reveal">
+        <p class="eyebrow" style="margin-bottom:1rem;">
+          Photo + Film
+        </p>
+        <div class="gold-line gold-line-animate"></div>
+        <h1 class="display-xl" style="max-width:700px; margin-bottom:1.25rem;">
+          Cinematic<br /><em style="font-style:italic; color:var(--gold);"
+            >Highlight Films</em
+          >
+        </h1>
+        <p class="body-lg" style="max-width:580px; margin-bottom:2.5rem;">
+          With one calm, intentional photographer, you get both heirloom stills
+          and a short cinematic film — the emotion, ritual, and movement of the
+          day, captured with warmth and care.
+        </p>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+          <a href="/contact" class="btn btn-primary btn-arrow"
+            >Start a Conversation</a
+          >
+          <a href="/#pricing" class="btn btn-outline">View Pricing</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header center reveal">
+        <p class="eyebrow">Hybrid Photo + Film Coverage</p>
+        <div class="gold-line center gold-line-animate"></div>
+        <h2 class="display-md">A Fuller Way to Remember Your Celebration</h2>
+      </div>
+      <p
+        class="body-lg reveal"
+        style="text-align:center; max-width:680px; margin:0 auto;"
+      >
+        Ideal for sangeet, receptions, baby blessings, griha pravesham, milestone
+        birthdays, and cultural celebrations that deserve to be remembered with
+        both beauty and feeling.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:900px;">
+      <div class="section-header center reveal">
+        <p class="eyebrow">Film Pricing</p>
+        <div class="gold-line center gold-line-animate"></div>
+        <h2 class="display-md">Cinematic Films for Your Milestone</h2>
+      </div>
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 700px; margin: 2rem auto;" class="reveal reveal-delay-1">
+        <div style="border:1px solid var(--border-light); border-radius:2px; padding:2rem; background:var(--surface);">
+          <p style="font-family:var(--font-accent); font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold); margin-bottom:0.5rem;">The Heritage Session</p>
+          <h3 style="font-family:var(--font-display); font-size:1.5rem; color:var(--cream); margin-bottom:0.5rem;">$1,400</h3>
+          <p style="font-size:0.8rem; color:var(--muted); margin-bottom:1rem;">Photos + 3-minute cinematic film</p>
+          <ul style="margin:1rem 0; display:flex; flex-direction:column; gap:0.5rem;">
+            <li style="font-size:0.875rem; color:var(--cream); display:flex; gap:0.5rem;">
+              <span style="color:var(--gold);">✓</span> 3-minute cinematic film
+            </li>
+            <li style="font-size:0.875rem; color:var(--cream); display:flex; gap:0.5rem;">
+              <span style="color:var(--gold);">✓</span> Layered sound design
+            </li>
+            <li style="font-size:0.875rem; color:var(--cream); display:flex; gap:0.5rem;">
+              <span style="color:var(--gold);">✓</span> 3-week delivery
+            </li>
+            <li style="font-size:0.875rem; color:var(--cream); display:flex; gap:0.5rem;">
+              <span style="color:var(--gold);">✓</span> Plus 150+ photos
+            </li>
+          </ul>
+        </div>
+        <div style="border:1px solid var(--border-light); border-radius:2px; padding:2rem; background:var(--surface);">
+          <p style="font-family:var(--font-accent); font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold); margin-bottom:0.5rem;">The Signature Gala</p>
+          <h3 style="font-family:var(--font-display); font-size:1.5rem; color:var(--cream); margin-bottom:0.5rem;">$1,950</h3>
+          <p style="font-size:0.8rem; color:var(--muted); margin-bottom:1rem;">Photos + 4-minute cinematic film</p>
+          <ul style="margin:1rem 0; display:flex; flex-direction:column; gap:0.5rem;">
+            <li style="font-size:0.875rem; color:var(--cream); display:flex; gap:0.5rem;">
+              <span style="color:var(--gold);">✓</span> 4-minute cinematic film
+            </li>
+            <li style="font-size:0.875rem; color:var(--cream); display:flex; gap:0.5rem;">
+              <span style="color:var(--gold);">✓</span> Layered sound design
+            </li>
+            <li style="font-size:0.875rem; color:var(--cream); display:flex; gap:0.5rem;">
+              <span style="color:var(--gold);">✓</span> 3-week delivery
+            </li>
+            <li style="font-size:0.875rem; color:var(--cream); display:flex; gap:0.5rem;">
+              <span style="color:var(--gold);">✓</span> Plus 250+ photos
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:2.5rem;">
+        <a href="/" class="btn btn-gold-outline btn-arrow">View Full Pricing on Homepage</a>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="section"
+    style="background:var(--surface); border-top:1px solid var(--border-light); border-bottom:1px solid var(--border-light);"
+  >
+    <div class="container" style="max-width:800px;">
+      <div class="section-header center reveal">
+        <p class="eyebrow">Why Hybrid Coverage</p>
+        <div class="gold-line center gold-line-animate"></div>
+        <h2 class="display-md">Stills Plus Motion</h2>
+      </div>
+      <p
+        class="body-lg reveal"
+        style="text-align:center; max-width:620px; margin:0 auto;"
+      >
+        Beautiful heirloom photographs preserve the details - the jewelry, the
+        expressions, the light on a face. A cinematic film captures what photos
+        cannot: the movement, the laughter, the emotion, the sound of the day
+        unfolding.
+      </p>
+    </div>
+  </section>
+
+  <section class="cta-banner reveal">
+    <div class="container">
+      <p class="eyebrow" style="margin-bottom:1.25rem;">
+        Cinematic Highlight Films
+      </p>
+      <h2
+        class="display-md"
+        style="margin-bottom:1rem; max-width:520px; margin-left:auto; margin-right:auto;"
+      >
+        Capture Your Celebration<br /><em style="font-style:italic; color:var(--gold);"
+          >In Motion</em
+        >
+      </h2>
+      <p class="body-lg" style="max-width:420px; margin:0 auto 2.5rem;">
+        Photo + film coverage available throughout Katy and the greater Houston
+        area.
+      </p>
+      <div
+        style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;"
+      >
+        <a href="/contact" class="btn btn-primary btn-arrow"
+          >Start a Conversation</a
+        >
+        <a href="/contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
