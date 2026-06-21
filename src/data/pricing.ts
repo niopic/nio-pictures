@@ -118,7 +118,20 @@ export const PACKAGES: Package[] = [
       "One 8×10 fine art print included",
       "Private online gallery (Pixieset)",
     ],
-    tiers: [{ id: "legacy", label: "Session", price: 650 }],
+    tiers: [
+      { id: "legacy", label: "Session", price: 650 },
+      {
+        id: "legacy-album",
+        label: "Session + Legacy Album",
+        price: 1150
+      },
+      {
+        id: "legacy-complete",
+        label: "Session + Legacy Album + Wall Art",
+        price: 1950,
+        note: "Includes premium leather-cover album and large wall art piece"
+      },
+    ],
   },
 ];
 
@@ -152,6 +165,18 @@ export const ADD_ONS: AddOn[] = [
     name: "Additional Images",
     description: "Beyond your package allowance, purchased individually",
     price: 20,
+  },
+  {
+    id: "heritage-album",
+    name: "Heritage Album",
+    description: "Premium leather-cover album, available with the Heritage Session",
+    price: 450,
+  },
+  {
+    id: "gala-album",
+    name: "Gala Album",
+    description: "Premium leather-cover album, available with the Signature Gala",
+    price: 550,
   },
 ];
 
