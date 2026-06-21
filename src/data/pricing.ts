@@ -55,6 +55,12 @@ export interface AddOn {
 
 export const CURRENCY = "USD" as const;
 
+const HERITAGE_PHOTO_TURNAROUND = { value: 48, unit: "hours" } as const;
+const HERITAGE_FILM_TURNAROUND = { value: 3, unit: "weeks" } as const;
+const GALA_PHOTO_TURNAROUND = { value: 48, unit: "hours" } as const;
+const GALA_FILM_TURNAROUND = { value: 3, unit: "weeks" } as const;
+const LEGACY_PHOTO_TURNAROUND = { value: 7, unit: "days" } as const;
+
 export const PACKAGES: Package[] = [
   {
     id: "heritage-session",
@@ -67,10 +73,10 @@ export const PACKAGES: Package[] = [
       "Milestone birthdays",
     ],
     coverage: "Up to 3 hours, solo",
-    photoTurnaround: { value: 48, unit: "hours" },
+    photoTurnaround: HERITAGE_PHOTO_TURNAROUND,
     deliverables: [
       "150+ professionally edited photos",
-      `${formatTurnaroundAdj({ value: 48, unit: "hours" })} delivery`,
+      `${formatTurnaroundAdj(HERITAGE_PHOTO_TURNAROUND)} delivery`,
       "Private online gallery (Pixieset)",
       "High-resolution downloads, full usage rights",
     ],
@@ -80,8 +86,8 @@ export const PACKAGES: Package[] = [
         id: "heritage-film",
         label: "Photos + 3-minute cinematic highlight film",
         price: 1400,
-        note: `Film tier includes layered sound design, ${formatTurnaroundAdj({ value: 3, unit: "weeks" })} delivery`,
-        turnaround: { value: 3, unit: "weeks" },
+        note: `Film tier includes layered sound design, ${formatTurnaroundAdj(HERITAGE_FILM_TURNAROUND)} delivery`,
+        turnaround: HERITAGE_FILM_TURNAROUND,
       },
     ],
   },
@@ -96,10 +102,10 @@ export const PACKAGES: Package[] = [
       "Graduation events",
     ],
     coverage: "Up to 4 hours, solo",
-    photoTurnaround: { value: 48, unit: "hours" },
+    photoTurnaround: GALA_PHOTO_TURNAROUND,
     deliverables: [
       "250+ professionally edited photos",
-      `${formatTurnaroundAdj({ value: 48, unit: "hours" })} delivery`,
+      `${formatTurnaroundAdj(GALA_PHOTO_TURNAROUND)} delivery`,
       "Private online gallery (Pixieset)",
       "High-resolution downloads, full usage rights",
     ],
@@ -109,8 +115,8 @@ export const PACKAGES: Package[] = [
         id: "gala-film",
         label: "Photos + 4-minute cinematic highlight film",
         price: 1950,
-        note: `Film tier includes layered sound design, ${formatTurnaroundAdj({ value: 3, unit: "weeks" })} delivery`,
-        turnaround: { value: 3, unit: "weeks" },
+        note: `Film tier includes layered sound design, ${formatTurnaroundAdj(GALA_FILM_TURNAROUND)} delivery`,
+        turnaround: GALA_FILM_TURNAROUND,
       },
     ],
     featured: true,
@@ -125,10 +131,10 @@ export const PACKAGES: Package[] = [
       "Family milestones",
     ],
     coverage: "90-minute on-location session",
-    photoTurnaround: { value: 7, unit: "days" },
+    photoTurnaround: LEGACY_PHOTO_TURNAROUND,
     deliverables: [
       "30+ professionally edited images",
-      `${formatTurnaroundAdj({ value: 7, unit: "days" })} delivery`,
+      `${formatTurnaroundAdj(LEGACY_PHOTO_TURNAROUND)} delivery`,
       "One 8×10 fine art print included",
       "Private online gallery (Pixieset)",
     ],
