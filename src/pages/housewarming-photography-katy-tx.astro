@@ -1,14 +1,67 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.astro";
+import { PACKAGES, formatTurnaroundFull } from "../data/pricing";
+
 const title =
   "Housewarming Photography Katy TX | Grihapravesam Photographer | NiO Pictures";
 const description =
   "Housewarming (Grihapravesam) photography in Katy TX and the greater Houston area - capturing the kumkum blessing, threshold crossing, and milk-boiling ritual with cultural care and a cinematic eye.";
 const canonical = "https://niopictures.com/housewarming-photography-katy-tx";
 const ogImage = "https://niopictures.com/assets/images/og-home.webp";
-const extraHead =
-  '<script type="application/ld+json">\n  {\n    "@context": "https://schema.org",\n    "@type": "BreadcrumbList",\n    "itemListElement": [\n      {"@type":"ListItem","position":1,"name":"Home","item":"https://niopictures.com/"},\n      {"@type":"ListItem","position":2,"name":"Housewarming Photography Katy TX","item":"https://niopictures.com/housewarming-photography-katy-tx"}\n    ]\n  }\n  </script>\n<script type="application/ld+json">\n  {\n    "@context": "https://schema.org",\n    "@type": "FAQPage",\n    "mainEntity": [\n      {\n        "@type": "Question",\n        "name": "Do you photograph Grihapravesam (housewarming) ceremonies?",\n        "acceptedAnswer": {\n          "@type": "Answer",\n          "text": "Yes. NiO Pictures regularly photographs housewarming ceremonies throughout Katy and the greater Houston area, including the kumkum blessing, threshold crossing, and milk-boiling ritual."\n        }\n      },\n      {\n        "@type": "Question",\n        "name": "How long does housewarming photography coverage usually take?",\n        "acceptedAnswer": {\n          "@type": "Answer",\n          "text": "Most housewarming sessions run 2-3 hours, covering the ritual itself through the family gathering afterward. Coverage length is discussed during your consultation."\n        }\n      },\n      {\n        "@type": "Question",\n        "name": "Can you photograph both the ceremony and the family afterward?",\n        "acceptedAnswer": {\n          "@type": "Answer",\n          "text": "Yes. We cover the full arc of the day - the ritual, the family gathering, and candid moments throughout - not just the formal ceremony."\n        }\n      }\n    ]\n  }\n  </script>';
+
+const heritageSession = PACKAGES.find(p => p.id === "heritage-session")!;
+
+const extraHead = `<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://niopictures.com/"},
+      {"@type":"ListItem","position":2,"name":"Housewarming Photography Katy TX","item":"https://niopictures.com/housewarming-photography-katy-tx"}
+    ]
+  }
+  </script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do you photograph Grihapravesam (housewarming) ceremonies?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. NiO Pictures regularly photographs housewarming ceremonies throughout Katy and the greater Houston area, including the kumkum blessing, threshold crossing, and milk-boiling ritual."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does housewarming photography coverage usually take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most housewarming sessions run 2-3 hours, covering the ritual itself through the family gathering afterward. Coverage length is discussed during your consultation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you photograph both the ceremony and the family afterward?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We cover the full arc of the day - the ritual, the family gathering, and candid moments throughout - not just the formal ceremony."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens during a housewarming (griha pravesham) photography session?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Coverage typically begins with the puja and ritual moments — the lighting of the lamp, the entry into the new home — and continues through family portraits and candid moments as guests arrive. Sessions run ${heritageSession.coverage}, and you'll receive 150+ professionally edited photos delivered within ${formatTurnaroundFull(heritageSession.photoTurnaround)}, with an optional cinematic highlight film available as well."
+        }
+      }
+    ]
+  }
+  </script>`;
 ---
 
 <BaseLayout

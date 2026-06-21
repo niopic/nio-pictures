@@ -6,7 +6,7 @@ import PricingSection from "../components/PricingSection.astro";
 
 import heroHomeImage from "../assets/images/hero-home.webp";
 import { homeImages, momentStories } from "../content/images.config";
-import { formatUSD, PACKAGES, packageFrom } from "../data/pricing";
+import { formatUSD, PACKAGES, packageFrom, formatTurnaroundFull, priceFrom, priceTo } from "../data/pricing";
 
 const siteUrl = "https://niopictures.com";
 const homeHeroImageUrl = `${siteUrl}${heroHomeImage.src}`;
@@ -29,6 +29,8 @@ const homeHeroImageLd = JSON.stringify({
 
 const familyFrom = formatUSD(packageFrom(PACKAGES.find((p) => p.id === "legacy-collection")!));
 const eventFrom = formatUSD(packageFrom(PACKAGES.find((p) => p.id === "heritage-session")!));
+
+const heritageFilmTier = PACKAGES.find((p) => p.id === "heritage-session")!.tiers.find((t) => t.turnaround)!;
 
 const filmShowcaseLd = JSON.stringify({
   "@context": "https://schema.org",
@@ -419,46 +421,52 @@ const filmShowcaseLd = JSON.stringify({
         ]
       }
     </script>
-    <script type="application/ld+json" is:inline>
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What areas do you serve?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "NiO Pictures is based in Katy, TX and serves the greater Houston area, including Katy, Cypress, Houston, Sugar Land, and Richmond. Weekend and weeknight sessions available."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do you photograph South Asian celebrations?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. NiO Pictures specializes in South Asian celebrations including housewarmings (Grihapravesam), half-saree ceremonies, milestone birthdays, Diwali celebrations, and other cultural events."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What's included in a photography package?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Packages include high-resolution downloads with full usage rights and a private online gallery. See our pricing guide further down this page for full package details."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do I book a session?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Start a conversation through our contact page, and we'll discuss your celebration, vision, and timeline before confirming your date."
-            }
+    <script type="application/ld+json" is:inline set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What areas do you serve?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "NiO Pictures is based in Katy, TX and serves the greater Houston area, including Katy, Cypress, Houston, Sugar Land, and Richmond. Weekend and weeknight sessions available."
           }
-        ]
-      }
-    </script>
+        },
+        {
+          "@type": "Question",
+          "name": "Do you photograph South Asian celebrations?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. NiO Pictures specializes in South Asian celebrations including housewarmings (Grihapravesam), half-saree ceremonies, milestone birthdays, Diwali celebrations, and other cultural events."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's included in a photography package?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `Packages range from ${formatUSD(priceFrom())} to ${formatUSD(priceTo())}. Every package includes professionally edited high-resolution photos with full usage rights and a private online gallery. Event photo delivery is within ${formatTurnaroundFull(PACKAGES.find(p => p.id === "heritage-session")!.photoTurnaround)}, family portrait sessions within ${formatTurnaroundFull(PACKAGES.find(p => p.id === "legacy-collection")!.photoTurnaround)}; cinematic film add-ons deliver in about ${formatTurnaroundFull(heritageFilmTier.turnaround!)}.`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I book a session?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Start a conversation through our contact page, and we'll discuss your celebration, vision, and timeline before confirming your date."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to receive my photos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `Event photography is delivered within ${formatTurnaroundFull(PACKAGES.find(p => p.id === "heritage-session")!.photoTurnaround)}. Family portrait sessions are delivered within ${formatTurnaroundFull(PACKAGES.find(p => p.id === "legacy-collection")!.photoTurnaround)}. If you've added a cinematic highlight film, that's delivered separately, typically within ${formatTurnaroundFull(heritageFilmTier.turnaround!)}, to allow time for sound design and editing.`
+          }
+        }
+      ]
+    })}/>
   </fragment>
 
   <a

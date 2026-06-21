@@ -1,14 +1,68 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.astro";
+import { PACKAGES, formatTurnaroundFull } from "../data/pricing";
+
 const title =
   "Half-Saree Ceremony Photography Katy TX | NiO Pictures";
 const description =
   "Half-saree ceremony photography in Katy TX and the greater Houston area - capturing this coming-of-age milestone with cultural care and a cinematic eye.";
 const canonical = "https://niopictures.com/half-saree-photography-katy-tx";
 const ogImage = "https://niopictures.com/assets/images/og-home.webp";
-const extraHead =
-  '<script type="application/ld+json">\n  {\n    "@context": "https://schema.org",\n    "@type": "BreadcrumbList",\n    "itemListElement": [\n      {"@type":"ListItem","position":1,"name":"Home","item":"https://niopictures.com/"},\n      {"@type":"ListItem","position":2,"name":"Half-Saree Ceremony Photography Katy TX","item":"https://niopictures.com/half-saree-photography-katy-tx"}\n    ]\n  }\n  </script>\n<script type="application/ld+json">\n  {\n    "@context": "https://schema.org",\n    "@type": "FAQPage",\n    "mainEntity": [\n      {\n        "@type": "Question",\n        "name": "Do you photograph half-saree ceremonies?",\n        "acceptedAnswer": {\n          "@type": "Answer",\n          "text": "Yes. NiO Pictures regularly photographs half-saree ceremonies throughout Katy and the greater Houston area, including preparation, ceremony, and family portraits."\n        }\n      },\n      {\n        "@type": "Question",\n        "name": "Do you offer portrait sessions separate from event coverage for half-saree ceremonies?",\n        "acceptedAnswer": {\n          "@type": "Answer",\n          "text": "Yes. Many families book a dedicated portrait session in addition to ceremony coverage - this can be discussed during your consultation."\n        }\n      },\n      {\n        "@type": "Question",\n        "name": "How far in advance should I book half-saree ceremony photography?",\n        "acceptedAnswer": {\n          "@type": "Answer",\n          "text": "We recommend booking 4-6 weeks in advance when possible, especially during peak celebration season."\n        }\n      }\n    ]\n  }\n  </script>';
+
+const heritageSession = PACKAGES.find(p => p.id === "heritage-session")!;
+const heritageFilmTier = heritageSession.tiers.find(t => t.turnaround)!;
+
+const extraHead = `<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://niopictures.com/"},
+      {"@type":"ListItem","position":2,"name":"Half-Saree Ceremony Photography Katy TX","item":"https://niopictures.com/half-saree-photography-katy-tx"}
+    ]
+  }
+  </script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do you photograph half-saree ceremonies?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. NiO Pictures regularly photographs half-saree ceremonies throughout Katy and the greater Houston area, including preparation, ceremony, and family portraits."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer portrait sessions separate from event coverage for half-saree ceremonies?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Many families book a dedicated portrait session in addition to ceremony coverage - this can be discussed during your consultation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How far in advance should I book half-saree ceremony photography?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We recommend booking 4-6 weeks in advance when possible, especially during peak celebration season."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's included in a half-saree ceremony photography package?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Coverage includes the full ceremony — from the traditional saree-draping moment through family blessings and celebrations afterward — for up to ${heritageSession.coverage}. You'll receive 150+ edited photos within ${formatTurnaroundFull(heritageSession.photoTurnaround)}, with the option to add a ${heritageFilmTier.label}, delivered in about ${formatTurnaroundFull(heritageFilmTier.turnaround!)}."
+        }
+      }
+    ]
+  }
+  </script>`;
 ---
 
 <BaseLayout
