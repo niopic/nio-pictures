@@ -22,6 +22,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [x] Fixed postal code mismatch: website schema had 77449, but the real Google Business Profile listing (and actual business location) is 77494. Found by manually cross-checking GBP against the site during a live review - same class of NAP inconsistency as other schema bugs fixed tonight, just caught in the one place that required checking outside the codebase.
 - [x] Fixed accessibility contrast failure on PricingSection's .tier__note (muted-dark on surface was ~2.5:1, well under WCAG AA's 4.5:1 minimum for normal text; swapped to --muted, ~5.56:1). Found via live Lighthouse Accessibility audit (97/100) on niopictures.com - not in the original audit, a new finding from tonight's live review.
 - [x] **videography-katy-tx.astro** wired to pricing.ts dynamically (linter auto-imported PACKAGES + formatUSD, replaced hardcoded $1,400/$1,950 with live values from pricing.ts tiers + fallback defaults). Ensures pricing never stales on this page.
+- [x] Merged standalone film showcase into existing #hybrid section — was redundant (two sections both pitching photo+film, one in prose, one in video). Now one section: pitch + cards + video as full-width proof below.
 
 ---
 
