@@ -164,4 +164,70 @@
     <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://niopictures.com/houston-tx-photographer</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://niopictures.com/fulshear-tx-photographer</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://niopictures.com/corporate-photography-katy-tx</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://niopictures.com/videography-katy-tx</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://niopictures.com/housewarming-photography-katy-tx</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://niopictures.com/half-saree-photography-katy-tx</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://niopictures.com/blog/spring-fling-st-peters-ecdc-katy-tx</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://niopictures.com/assets/images/blog-spring-fling-2026-1.webp</image:loc>
+      <image:title>Spring Fling at St. Peter's ECDC Katy TX — community event photography by NiO Pictures</image:title>
+      <image:geo_location>Katy, Texas, US</image:geo_location>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://niopictures.com/blog/suited-up-golden-hour-river-green-park</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://niopictures.com/assets/images/blog-suited-up-golden-hour-1.webp</image:loc>
+      <image:title>Grad boys golden hour portraits at River Green Park Katy TX — NiO Pictures</image:title>
+      <image:geo_location>Katy, Texas, US</image:geo_location>
+    </image:image>
+  </url>
+
 </urlset>
