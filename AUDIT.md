@@ -84,8 +84,6 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
       - Sub-note: Pricing structure is in pricing.ts; not yet rendered as multi-tier cards on the site — PricingSection.astro needs verification it displays Legacy's new 3-tier structure cleanly (was previously single-tier).
 - [ ] **Package & price the hybrid film offer** prominently (it's the moat).
 - [ ] Build a **corporate package** for Energy Corridor / local firms.
-- [ ] Community-specific positioning (Tamil / Telugu / Gujarati / Punjabi) for
-      deeper trust and referrals — without alienating non-Indian clients.
 
 ---
 
@@ -97,6 +95,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [ ] `/portfolio` page funnels deeper browsing to Pixieset ("full gallery lives on Pixieset") — real fix is growing `portfolioImages` in `images.config.ts` with more local images, then removing the Pixieset link entirely. Bigger lift, separate task from the moment-story work.
 - [ ] Add lightbox to `/portfolio` page (not homepage moment stories) once more images are added — click thumbnail, view large, arrow through set, no page navigation.
 - [ ] 40th birthday session — Palani was second shooter (not the primary client relationship), so no testimonial will be collected from this client. The homepage moment-story birthday slot keeps its editorial caption permanently (not a placeholder pending a testimonial). Usage rights for the images and the eventual highlight film are confirmed clear via Palani's own agreement with the primary shooter. The placeholder video swap (Pongal/Tamil Sangam → 40th birthday highlight film) still proceeds once the film is delivered — that part of the plan is unaffected, only the testimonial expectation is removed.
+- [ ] If/when real clients from specific communities (Punjabi, Gujarati, etc.) are booked, add their actual ritual terminology organically rather than building generic community pages preemptively.
 - [ ] **Confirm real WHCC wholesale costs** for premium album + large wall art piece, then revisit the $1,150/$1,950 Legacy tiers and $450/$550 Heritage/Gala album add-ons — current numbers are estimates pending that check.
 - [x] **Sweep existing location pages for stale CTA/ordering patterns.** Done. All 4 files (richmond, sugar-land, cypress, katy-tx-photographer.astro) swapped to 'Start a Conversation' -> /contact as primary CTA (Pixieset demoted to outline, not removed) and reordered feature-card text to lead with South Asian celebrations instead of corporate. katy-tx-photographer.astro also had a disabled Houston <span> placeholder in its city-switcher row, converted to a live link now that houston-tx-photographer.astro exists. Richmond/Sugar Land/Cypress don't have a city-switcher grid (just loose related-page links), so no Houston placeholder existed there - confirmed, not an oversight. Verified: build clean (22 pages), 'Start a Conversation' is btn-primary on all 4 pages, no Pixieset primaries remain.
 
