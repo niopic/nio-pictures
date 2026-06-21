@@ -23,6 +23,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [x] Fixed accessibility contrast failure on PricingSection's .tier__note (muted-dark on surface was ~2.5:1, well under WCAG AA's 4.5:1 minimum for normal text; swapped to --muted, ~5.56:1). Found via live Lighthouse Accessibility audit (97/100) on niopictures.com - not in the original audit, a new finding from tonight's live review.
 - [x] **videography-katy-tx.astro** wired to pricing.ts dynamically (linter auto-imported PACKAGES + formatUSD, replaced hardcoded $1,400/$1,950 with live values from pricing.ts tiers + fallback defaults). Ensures pricing never stales on this page.
 - [x] Merged standalone film showcase into existing #hybrid section — was redundant (two sections both pitching photo+film, one in prose, one in video). Now one section: pitch + cards + video as full-width proof below.
+- [x] Added Legacy Collection upsell tiers to pricing.ts: "Session + Legacy Album" ($1,150) and "Session + Legacy Album + Wall Art" ($1,950), extending the base $650 session. Added two new ADD_ONS: "Heritage Album" ($450, for Heritage Session) and "Gala Album" ($550, for Signature Gala). **Note:** these are round placeholder numbers based on standard 200–300% lab-cost markup industry guidance, not yet checked against real WHCC wholesale costs — confirm actual album/wall-art wholesale pricing before treating these as final margin numbers.
 
 ---
 
@@ -78,8 +79,9 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 
 ## P4 — Revenue (highest untapped margin)
 
-- [ ] Surface **album / print / wall-art** upsells (Legacy already includes one print —
+- [x] Surface **album / print / wall-art** upsells (Legacy already includes one print —
       productize it).
+      - Sub-note: Pricing structure is in pricing.ts; not yet rendered as multi-tier cards on the site — PricingSection.astro needs verification it displays Legacy's new 3-tier structure cleanly (was previously single-tier).
 - [ ] **Package & price the hybrid film offer** prominently (it's the moat).
 - [ ] Build a **corporate package** for Energy Corridor / local firms.
 - [ ] Community-specific positioning (Tamil / Telugu / Gujarati / Punjabi) for
@@ -95,6 +97,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [ ] `/portfolio` page funnels deeper browsing to Pixieset ("full gallery lives on Pixieset") — real fix is growing `portfolioImages` in `images.config.ts` with more local images, then removing the Pixieset link entirely. Bigger lift, separate task from the moment-story work.
 - [ ] Add lightbox to `/portfolio` page (not homepage moment stories) once more images are added — click thumbnail, view large, arrow through set, no page navigation.
 - [ ] **40th birthday client — one testimonial, two places:** When a real testimonial arrives for the 40th birthday session, use it to (1) replace the editorial caption in the homepage moment-story birthday slot and (2) feed the film showcase section, whose placeholder video (Pongal/Tamil Sangam) is already flagged for swap to the 40th birthday film — see "Already shipped". Same client; handle both in one pass, don't write two separate captions independently.
+- [ ] **Confirm real WHCC wholesale costs** for premium album + large wall art piece, then revisit the $1,150/$1,950 Legacy tiers and $450/$550 Heritage/Gala album add-ons — current numbers are estimates pending that check.
 - [x] **Sweep existing location pages for stale CTA/ordering patterns.** Done. All 4 files (richmond, sugar-land, cypress, katy-tx-photographer.astro) swapped to 'Start a Conversation' -> /contact as primary CTA (Pixieset demoted to outline, not removed) and reordered feature-card text to lead with South Asian celebrations instead of corporate. katy-tx-photographer.astro also had a disabled Houston <span> placeholder in its city-switcher row, converted to a live link now that houston-tx-photographer.astro exists. Richmond/Sugar Land/Cypress don't have a city-switcher grid (just loose related-page links), so no Houston placeholder existed there - confirmed, not an oversight. Verified: build clean (22 pages), 'Start a Conversation' is btn-primary on all 4 pages, no Pixieset primaries remain.
 
 ---
