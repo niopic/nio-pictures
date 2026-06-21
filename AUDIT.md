@@ -71,7 +71,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 > bots, which are now allowed. These are the levers that actually move AI visibility.
 
 - [x] **Add `VideoObject` schema** for highlight films. Shipped as part of the film showcase section in index.astro (lines 33-52), see Already shipped above.
-- [ ] Add **entity-clear copy** near the top of key pages
+- [x] Add **entity-clear copy** near the top of key pages
       ("NiO Pictures is a [X] serving [Y]").
 - [x] Expand **FAQ coverage** (pricing, ritual-specific, turnaround). Homepage FAQPage covers service areas, South Asian celebrations, what's included, and booking process (4 questions). videography-katy-tx.astro covers film turnaround (3 weeks) and film-specific Q&A. Housewarming and half-saree pages include ritual-specific FAQs, pricing breakdowns sourced from pricing.ts, and delivery turnaround (2-3 weeks for photos) — all dynamically maintained.
 - [ ] Add a distinct **`Organization`** node + consistent `founder`.
