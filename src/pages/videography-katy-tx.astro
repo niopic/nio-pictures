@@ -1,6 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.astro";
+import { PACKAGES, formatUSD } from "../data/pricing";
+
+const heritageSession = PACKAGES.find((p) => p.id === "heritage-session");
+const heritageFilmTier = heritageSession?.tiers.find((t) => t.id === "heritage-film");
+
+const signatureGala = PACKAGES.find((p) => p.id === "signature-gala");
+const galaFilmTier = signatureGala?.tiers.find((t) => t.id === "gala-film");
 
 const title =
   "Cinematic Highlight Film Photographer Katy TX | NiO Pictures";
@@ -85,9 +92,9 @@ const extraHead =
       </div>
       <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 700px; margin: 2rem auto;" class="reveal reveal-delay-1">
         <div style="border:1px solid var(--border-light); border-radius:2px; padding:2rem; background:var(--surface);">
-          <p style="font-family:var(--font-accent); font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold); margin-bottom:0.5rem;">The Heritage Session</p>
-          <h3 style="font-family:var(--font-display); font-size:1.5rem; color:var(--cream); margin-bottom:0.5rem;">$1,400</h3>
-          <p style="font-size:0.8rem; color:var(--muted); margin-bottom:1rem;">Photos + 3-minute cinematic film</p>
+          <p style="font-family:var(--font-accent); font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold); margin-bottom:0.5rem;">{heritageSession?.name}</p>
+          <h3 style="font-family:var(--font-display); font-size:1.5rem; color:var(--cream); margin-bottom:0.5rem;">{formatUSD(heritageFilmTier?.price ?? 1400)}</h3>
+          <p style="font-size:0.8rem; color:var(--muted); margin-bottom:1rem;">{heritageFilmTier?.label}</p>
           <ul style="margin:1rem 0; display:flex; flex-direction:column; gap:0.5rem;">
             <li style="font-size:0.875rem; color:var(--cream); display:flex; gap:0.5rem;">
               <span style="color:var(--gold);">✓</span> 3-minute cinematic film
@@ -104,9 +111,9 @@ const extraHead =
           </ul>
         </div>
         <div style="border:1px solid var(--border-light); border-radius:2px; padding:2rem; background:var(--surface);">
-          <p style="font-family:var(--font-accent); font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold); margin-bottom:0.5rem;">The Signature Gala</p>
-          <h3 style="font-family:var(--font-display); font-size:1.5rem; color:var(--cream); margin-bottom:0.5rem;">$1,950</h3>
-          <p style="font-size:0.8rem; color:var(--muted); margin-bottom:1rem;">Photos + 4-minute cinematic film</p>
+          <p style="font-family:var(--font-accent); font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold); margin-bottom:0.5rem;">{signatureGala?.name}</p>
+          <h3 style="font-family:var(--font-display); font-size:1.5rem; color:var(--cream); margin-bottom:0.5rem;">{formatUSD(galaFilmTier?.price ?? 1950)}</h3>
+          <p style="font-size:0.8rem; color:var(--muted); margin-bottom:1rem;">{galaFilmTier?.label}</p>
           <ul style="margin:1rem 0; display:flex; flex-direction:column; gap:0.5rem;">
             <li style="font-size:0.875rem; color:var(--cream); display:flex; gap:0.5rem;">
               <span style="color:var(--gold);">✓</span> 4-minute cinematic film
