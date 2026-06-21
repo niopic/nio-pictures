@@ -1,5 +1,6 @@
 ---
 import { buildOfferCatalog } from "../data/pricing";
+import logoImage from "../assets/images/logo.png";
 
 interface Props {
   title: string;
@@ -86,6 +87,21 @@ const businessSchema = {
     },
   ],
   hasOfferCatalog: buildOfferCatalog(),
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://niopictures.com/#organization",
+  name: "NiO Pictures",
+  url: "https://niopictures.com",
+  logo: {
+    "@type": "ImageObject",
+    url: `https://niopictures.com${logoImage.src}`,
+  },
+  foundingDate: "2017",
+  founder: { "@type": "Person", name: "Palanivel" },
+  sameAs: businessSchema.sameAs,
 };
 ---
 
@@ -211,6 +227,11 @@ const businessSchema = {
       type="application/ld+json"
       is:inline
       set:html={JSON.stringify(businessSchema)}
+    />
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify(organizationSchema)}
     />
     <slot name="head" />
 
