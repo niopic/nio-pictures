@@ -1,10 +1,21 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.astro";
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import { portfolioImages } from "../content/images.config";
 
 const siteUrl = "https://niopictures.com";
+
+const lightboxImages = await Promise.all(
+  portfolioImages.map((item) =>
+    getImage({
+      src: item.img,
+      widths: [800, 1200, 1600, 2000],
+      format: "webp",
+      quality: 85,
+    })
+  )
+);
 
 const title =
   "Portfolio | Event & Family Photography Gallery | NiO Pictures Katy TX";
@@ -131,8 +142,10 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
       id="port-data"
       type="application/json"
       set:html={JSON.stringify(
-        portfolioImages.map((item) => ({
+        portfolioImages.map((item, i) => ({
           src: item.img.src,
+          lbSrc: lightboxImages[i].src,
+          lbSrcset: lightboxImages[i].srcSet.attribute,
           alt: item.alt,
           category: item.category,
           label: item.label,
@@ -156,7 +169,7 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
         <button class="port-lb-arrow port-lb-prev" id="port-lb-prev" aria-label="Previous image" type="button">&#8592;</button>
         <button class="port-lb-arrow port-lb-next" id="port-lb-next" aria-label="Next image" type="button">&#8594;</button>
         <div class="port-lb-stage">
-          <img class="port-lb-img" id="port-lb-img" src="" alt="" />
+          <img class="port-lb-img" id="port-lb-img" src="" srcset="" sizes="90vw" alt="" />
         </div>
         <div class="port-lb-meta">
           <p class="port-lb-category eyebrow" id="port-lb-category"></p>
@@ -422,7 +435,7 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
 
 <script>
   (function () {
-    const portData: { src: string; alt: string; category: string; label: string; caption: string }[] =
+    const portData: { src: string; lbSrc: string; lbSrcset: string; alt: string; category: string; label: string; caption: string }[] =
       JSON.parse(document.getElementById("port-data")?.textContent || "[]");
 
     const lb        = document.getElementById("port-lb") as HTMLElement;
@@ -447,7 +460,8 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
       const d = portData[index];
       stage.classList.add("lb-fade");
       setTimeout(() => {
-        img.src = d.src;
+        img.src = d.lbSrc;
+        img.srcset = d.lbSrcset;
         img.alt = d.alt;
         catEl.textContent = d.category.replace(/-/g, " ");
         labelEl.textContent = d.label;
