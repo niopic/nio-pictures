@@ -130,7 +130,7 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
     <script
       id="port-data"
       type="application/json"
-      set:text={JSON.stringify(
+      set:html={JSON.stringify(
         portfolioImages.map((item) => ({
           src: item.img.src,
           alt: item.alt,
