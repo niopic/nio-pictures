@@ -1,10 +1,9 @@
-﻿---
+---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.astro";
 import { Image } from "astro:assets";
 import { portfolioImages } from "../content/images.config";
 
-const [leadImage, ...stackImages] = portfolioImages;
 const siteUrl = "https://niopictures.com";
 
 const title =
@@ -81,6 +80,7 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
   <Nav currentPath="/portfolio" />
 
   <main id="main-content">
+    <!-- ── Header ─────────────────────────────────────────────── -->
     <section class="port-header">
       <div class="container">
         <div class="reveal">
@@ -91,89 +91,83 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
             <em style="font-style:italic; color:var(--gold);">Event &amp; Family Photography</em>
           </h1>
           <p class="body-lg port-header-intro">
-            A curated edit of event photography, family portraits, and editorial
-            frames made across Katy TX and the Houston area.
+            A growing collection of real moments from real celebrations — browse
+            the full set right here, no need to go anywhere else.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="port-lead-section">
-      <div class="port-lead-grid">
-        <figure class="port-lead-image reveal">
-          <Image
-            src={leadImage.img}
-            alt={leadImage.alt}
-            loading="eager"
-            fetchpriority="high"
-            widths={[480, 800, 1200, 1600]}
-            sizes="(max-width: 768px) 100vw, 55vw"
-            quality={90}
-          />
-        </figure>
-
-        <aside class="port-note reveal">
-          <p class="port-kicker">A Small Note</p>
-          <h2 class="display-md port-note-title">Enough to feel the work.</h2>
-          <p class="port-note-copy">
-            Every image here was chosen deliberately. This is a curated
-            selection — enough to feel the work, not everything I've ever shot.
-            The full gallery lives on Pixieset, and each route below shows the
-            work in context.
-          </p>
-          <div class="port-note-links">
-            <a
-              href="https://niopictures.pixieset.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="port-text-link"
-            >
-              Full Gallery →
-            </a>
-            <a href={leadImage.link} class="port-text-link">
-              {leadImage.linkText} →
-            </a>
-          </div>
-        </aside>
-      </div>
-
+    <!-- ── Grid Gallery ───────────────────────────────────────── -->
+    <section class="port-grid-section">
       <div class="container">
-        <div class="port-caption reveal">
-          <p class="port-label">{leadImage.label}</p>
-          <p class="port-caption-text">{leadImage.caption}</p>
-          <a href={leadImage.link} class="port-text-link"
-            >{leadImage.linkText} →</a
-          >
+        <div class="port-grid" id="port-grid">
+          {
+            portfolioImages.map((item, i) => (
+              <button
+                class="port-grid-item"
+                data-index={i}
+                aria-label={`View ${item.label}`}
+                type="button"
+              >
+                <Image
+                  src={item.img}
+                  alt={item.alt}
+                  widths={[400, 600, 800]}
+                  sizes="(max-width: 767px) calc(50vw - 1.5rem), (max-width: 1099px) calc(33.33vw - 1.5rem), calc(25vw - 1.5rem)"
+                  loading={i < 4 ? "eager" : "lazy"}
+                  fetchpriority={i === 0 ? "high" : undefined}
+                  quality={85}
+                />
+              </button>
+            ))
+          }
         </div>
       </div>
     </section>
 
-    {
-      stackImages.map((item) => (
-        <section class="port-frame-section reveal">
-          <div class="container">
-            <figure class="port-frame">
-              <Image
-                src={item.img}
-                alt={item.alt}
-                loading="lazy"
-                widths={[480, 900, 1600]}
-                sizes="100vw"
-                quality={90}
-              />
-            </figure>
-            <div class="port-caption reveal">
-              <p class="port-label">{item.label}</p>
-              <p class="port-caption-text">{item.caption}</p>
-              <a href={item.link} class="port-text-link">
-                {item.linkText} →
-              </a>
-            </div>
-          </div>
-        </section>
-      ))
-    }
+    <!-- Image data for lightbox -->
+    <script
+      id="port-data"
+      type="application/json"
+      set:text={JSON.stringify(
+        portfolioImages.map((item) => ({
+          src: item.img.src,
+          alt: item.alt,
+          category: item.category,
+          label: item.label,
+          caption: item.caption,
+        }))
+      )}
+    ></script>
 
+    <!-- ── Lightbox ───────────────────────────────────────────── -->
+    <div
+      class="port-lb"
+      id="port-lb"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Image lightbox"
+      hidden
+    >
+      <div class="port-lb-backdrop" id="port-lb-backdrop"></div>
+      <div class="port-lb-inner">
+        <button class="port-lb-close" id="port-lb-close" aria-label="Close lightbox" type="button">×</button>
+        <button class="port-lb-arrow port-lb-prev" id="port-lb-prev" aria-label="Previous image" type="button">&#8592;</button>
+        <button class="port-lb-arrow port-lb-next" id="port-lb-next" aria-label="Next image" type="button">&#8594;</button>
+        <div class="port-lb-stage">
+          <img class="port-lb-img" id="port-lb-img" src="" alt="" />
+        </div>
+        <div class="port-lb-meta">
+          <p class="port-lb-category eyebrow" id="port-lb-category"></p>
+          <p class="port-lb-label" id="port-lb-label"></p>
+          <p class="port-lb-caption" id="port-lb-caption"></p>
+        </div>
+        <p class="port-lb-counter" id="port-lb-counter"></p>
+      </div>
+    </div>
+
+    <!-- ── CTA ───────────────────────────────────────────────── -->
     <section class="port-cta reveal">
       <div class="container">
         <div class="port-cta-inner">
@@ -184,12 +178,6 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
             <h2 class="display-md port-cta-title">Let's Talk.</h2>
           </div>
           <div class="port-cta-actions">
-            <a
-              href="https://niopictures.pixieset.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-outline">Full Gallery</a
-            >
             <a
               href="https://niopictures.pixieset.com/booking/"
               target="_blank"
@@ -211,3 +199,328 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
     </section>
   </main>
 </BaseLayout>
+
+<style>
+  /* ── Grid ─────────────────────────────────────────────────── */
+  .port-grid-section {
+    padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(3rem, 6vw, 5rem);
+  }
+
+  .port-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .port-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .port-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .port-grid-item {
+    display: block;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 2px;
+    background: var(--surface-2);
+    aspect-ratio: 3 / 4;
+    padding: 0;
+    border: none;
+    position: relative;
+    transition: opacity var(--dur-base) var(--ease);
+  }
+
+  .port-grid-item:hover {
+    opacity: 0.88;
+  }
+
+  .port-grid-item:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+  }
+
+  .port-grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--dur-slow) var(--ease);
+  }
+
+  .port-grid-item:hover img {
+    transform: scale(1.04);
+  }
+
+  /* ── Lightbox ─────────────────────────────────────────────── */
+  .port-lb {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--dur-base) var(--ease);
+  }
+
+  .port-lb.lb-open {
+    opacity: 1;
+  }
+
+  .port-lb[hidden] {
+    display: none;
+  }
+
+  .port-lb-backdrop {
+    position: absolute;
+    inset: 0;
+    background: var(--black-a95);
+    cursor: pointer;
+  }
+
+  .port-lb-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    max-height: 100svh;
+    padding: 4rem 1.5rem 2rem;
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
+
+  .port-lb-stage {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transition: opacity var(--dur-base) var(--ease), transform var(--dur-base) var(--ease);
+  }
+
+  .port-lb-stage.lb-fade {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+
+  .port-lb-img {
+    max-width: 100%;
+    max-height: 65svh;
+    object-fit: contain;
+    border-radius: 2px;
+    display: block;
+  }
+
+  .port-lb-meta {
+    text-align: center;
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .port-lb-category {
+    color: var(--gold);
+    margin: 0;
+  }
+
+  .port-lb-label {
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    font-weight: 300;
+    color: var(--cream);
+    margin: 0;
+  }
+
+  .port-lb-caption {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 48ch;
+    margin: 0;
+  }
+
+  .port-lb-counter {
+    font-family: var(--font-accent);
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    color: var(--muted-dark);
+    margin-top: 1.25rem;
+    text-transform: uppercase;
+  }
+
+  .port-lb-close {
+    position: fixed;
+    top: 1.25rem;
+    right: 1.5rem;
+    font-size: 1.75rem;
+    line-height: 1;
+    color: var(--muted);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    transition: color var(--dur-fast) var(--ease);
+    z-index: 2;
+  }
+
+  .port-lb-close:hover {
+    color: var(--gold);
+  }
+
+  .port-lb-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.4rem;
+    color: var(--muted);
+    cursor: pointer;
+    background: rgba(22, 20, 18, 0.6);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 0.75rem 0.9rem;
+    transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+    z-index: 2;
+    line-height: 1;
+  }
+
+  .port-lb-arrow:hover {
+    color: var(--gold);
+    border-color: var(--gold);
+    background: rgba(22, 20, 18, 0.85);
+  }
+
+  .port-lb-prev {
+    left: 1rem;
+  }
+
+  .port-lb-next {
+    right: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    .port-lb-arrow {
+      top: auto;
+      bottom: 5.5rem;
+      transform: none;
+      padding: 0.6rem 0.75rem;
+      font-size: 1.1rem;
+    }
+    .port-lb-prev { left: 1rem; }
+    .port-lb-next { right: 1rem; }
+  }
+</style>
+
+<script>
+  (function () {
+    const portData: { src: string; alt: string; category: string; label: string; caption: string }[] =
+      JSON.parse(document.getElementById("port-data")?.textContent || "[]");
+
+    const lb        = document.getElementById("port-lb") as HTMLElement;
+    const backdrop  = document.getElementById("port-lb-backdrop") as HTMLElement;
+    const stage     = lb?.querySelector(".port-lb-stage") as HTMLElement;
+    const img       = document.getElementById("port-lb-img") as HTMLImageElement;
+    const catEl     = document.getElementById("port-lb-category") as HTMLElement;
+    const labelEl   = document.getElementById("port-lb-label") as HTMLElement;
+    const captionEl = document.getElementById("port-lb-caption") as HTMLElement;
+    const counterEl = document.getElementById("port-lb-counter") as HTMLElement;
+    const closeBtn  = document.getElementById("port-lb-close") as HTMLButtonElement;
+    const prevBtn   = document.getElementById("port-lb-prev") as HTMLButtonElement;
+    const nextBtn   = document.getElementById("port-lb-next") as HTMLButtonElement;
+
+    if (!lb || !portData.length) return;
+
+    let current = 0;
+    let triggerEl: HTMLElement | null = null;
+    const total = portData.length;
+
+    function show(index: number) {
+      const d = portData[index];
+      stage.classList.add("lb-fade");
+      setTimeout(() => {
+        img.src = d.src;
+        img.alt = d.alt;
+        catEl.textContent = d.category.replace(/-/g, " ");
+        labelEl.textContent = d.label;
+        captionEl.textContent = d.caption;
+        counterEl.textContent = `${index + 1} / ${total}`;
+        stage.classList.remove("lb-fade");
+      }, Number(getComputedStyle(stage).transitionDuration.replace("s", "")) * 1000 || 200);
+    }
+
+    function open(index: number, trigger: HTMLElement) {
+      current = index;
+      triggerEl = trigger;
+      lb.removeAttribute("hidden");
+      requestAnimationFrame(() => lb.classList.add("lb-open"));
+      show(current);
+      document.body.style.overflow = "hidden";
+      trapFocus();
+      closeBtn.focus();
+    }
+
+    function close() {
+      lb.classList.remove("lb-open");
+      lb.addEventListener("transitionend", () => {
+        lb.setAttribute("hidden", "");
+        document.body.style.overflow = "";
+        removeFocusTrap();
+        if (triggerEl) triggerEl.focus();
+      }, { once: true });
+    }
+
+    function navigate(dir: number) {
+      current = (current + dir + total) % total;
+      show(current);
+    }
+
+    // Focus trap
+    let focusTrapHandler: ((e: KeyboardEvent) => void) | null = null;
+    function trapFocus() {
+      focusTrapHandler = (e: KeyboardEvent) => {
+        if (e.key === "Escape") { close(); return; }
+        if (e.key === "ArrowLeft")  { navigate(-1); return; }
+        if (e.key === "ArrowRight") { navigate(1);  return; }
+        if (e.key !== "Tab") return;
+        const focusable = Array.from(
+          lb.querySelectorAll<HTMLElement>("button, [tabindex='0']")
+        ).filter(el => !el.hasAttribute("hidden"));
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last  = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus();
+        }
+      };
+      document.addEventListener("keydown", focusTrapHandler);
+    }
+    function removeFocusTrap() {
+      if (focusTrapHandler) document.removeEventListener("keydown", focusTrapHandler);
+      focusTrapHandler = null;
+    }
+
+    // Grid item clicks
+    document.querySelectorAll<HTMLButtonElement>(".port-grid-item").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const idx = parseInt(btn.dataset.index || "0", 10);
+        open(idx, btn);
+      });
+    });
+
+    closeBtn.addEventListener("click", close);
+    backdrop.addEventListener("click", close);
+    prevBtn.addEventListener("click", () => navigate(-1));
+    nextBtn.addEventListener("click", () => navigate(1));
+  })();
+</script>
