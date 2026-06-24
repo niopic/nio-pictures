@@ -1592,7 +1592,6 @@ select.form-control option {
     grid-template-columns: 1fr;
   }
   .chat-bubble {
-    bottom: 1.25rem;
     right: 1.25rem;
   }
 
@@ -1917,5 +1916,8 @@ select.form-control option {
     justify-content: center;
     min-height: 48px;
     padding-inline: 0.9rem;
+  }
+  .chat-bubble {
+    bottom: calc(5.5rem + env(safe-area-inset-bottom));
   }
 }
