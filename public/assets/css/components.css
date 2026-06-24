@@ -45,7 +45,6 @@
   font-weight: 500;
   letter-spacing: 0.18em;
   color: var(--cream);
-  text-transform: uppercase;
   position: relative;
   z-index: 1;
 }
