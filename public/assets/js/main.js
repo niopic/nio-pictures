@@ -299,7 +299,7 @@
         iframe.title = "NiO Pictures highlight film";
         iframe.frameBorder = "0";
         iframe.allow =
-          "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
+          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
         iframe.allowFullscreen = true;
         iframe.style.position = "absolute";
         iframe.style.inset = "0";
