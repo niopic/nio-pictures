@@ -42,4 +42,4 @@ Disallow: /
 User-agent: Meta-ExternalAgent
 Disallow: /
 
-Sitemap: https://niopictures.com/sitemap.xml
+Sitemap: https://niopictures.com/sitemap-index.xml
