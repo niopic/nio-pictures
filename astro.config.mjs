@@ -1,7 +1,9 @@
 import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
   site: "https://niopictures.com",
+  integrations: [sitemap()],
   trailingSlash: "never",
   devToolbar: {
     enabled: false,

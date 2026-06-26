@@ -10,6 +10,7 @@
     "image:intake": "node scripts/image-intake.mjs"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
     "astro": "^5.5.0",
     "sharp": "^0.33.0"
   },
