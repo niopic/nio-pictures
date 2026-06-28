@@ -1,5 +1,11 @@
 import type { ImageMetadata } from "astro";
 
+import portfolioEvents1 from "../assets/images/portfolio-events-1.webp";
+import portfolioEvents2 from "../assets/images/portfolio-events-2.webp";
+import portfolioFamily1 from "../assets/images/portfolio-family-1.webp";
+import portfolioFamily2 from "../assets/images/portfolio-family-2.webp";
+import portfolioEditorial1 from "../assets/images/portfolio-editorial-1.webp";
+
 import portfolioHousewarmingRitual from "../assets/images/portfolio/portfolio-housewarming-ritual.webp";
 import portfolioHousewarmingFamily from "../assets/images/portfolio/portfolio-housewarming-family.webp";
 import portfolioFireceremony from "../assets/images/portfolio/portfolio-fireceremony.webp";
@@ -102,6 +108,56 @@ const withDimensions = (img: ImageMetadata, alt: string): SlotImage => ({
 });
 
 export const portfolioImages: PortfolioImage[] = [
+  {
+    img: portfolioEvents1,
+    alt: "Cinematic Katy TX event photography showing guests and atmosphere during a Houston-area celebration",
+    category: "event-photography",
+    label: "Event Coverage",
+    caption:
+      "Cinematic event photography built for the big atmosphere and the smaller moments that give a Houston celebration its shape.",
+    link: "/event-photography-katy-tx",
+    linkText: "See Event Work",
+  },
+  {
+    img: portfolioEvents2,
+    alt: "Houston TX event photography capturing candid guest interaction at a polished Katy corporate event",
+    category: "event-photography",
+    label: "Corporate Events",
+    caption:
+      "Clean coverage, candid reactions, and room details that help a Katy TX event gallery feel complete instead of generic.",
+    link: "/event-photography-katy-tx",
+    linkText: "Event Photography",
+  },
+  {
+    img: portfolioFamily1,
+    alt: "Katy TX family photography portrait in warm evening light for a Houston-area family session",
+    category: "family-photography",
+    label: "Family Portraits",
+    caption:
+      "Family photography that keeps the warmth, movement, and calm connection families in Katy TX want to remember later.",
+    link: "/family-photography-katy-tx",
+    linkText: "See Family Work",
+  },
+  {
+    img: portfolioFamily2,
+    alt: "Lifestyle family photography in Katy TX with natural connection and cinematic light near Houston",
+    category: "family-photography",
+    label: "Lifestyle Sessions",
+    caption:
+      "Heirloom-minded family photography for Houston and Katy families who want images that still feel true to them.",
+    link: "/family-photography-katy-tx",
+    linkText: "Family Photography",
+  },
+  {
+    img: portfolioEditorial1,
+    alt: "Editorial portrait photography by a Katy TX photographer creating refined branding-style imagery near Houston",
+    category: "editorial-portraiture",
+    label: "Editorial Portraits",
+    caption:
+      "Editorial portraiture with the same restraint and presence that runs through every event and family photography session.",
+    link: "/about",
+    linkText: "Meet the Photographer",
+  },
   {
     img: portfolioHousewarmingRitual,
     alt: "Housewarming ritual photography in Katy TX capturing a candid traditional ceremony moment",

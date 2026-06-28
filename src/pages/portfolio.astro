@@ -6,8 +6,104 @@ import { portfolioImages } from "../content/images.config";
 
 const siteUrl = "https://niopictures.com";
 
+// Extract base filename for ordering: /_astro/portfolio-foo.HASH.webp → "portfolio-foo"
+const baseName = (src: string) => (src.split("/").pop() || "").split(".")[0];
+
+const sectionDefs = [
+  {
+    id: "housewarming",
+    heading: "Housewarming Celebrations",
+    category: "housewarming-photography",
+    order: [
+      "portfolio-housewarming-ritual",
+      "portfolio-idol-detail",
+      "portfolio-housewarming-family",
+      "portfolio-fireceremony",
+    ],
+  },
+  {
+    id: "halfsaree",
+    heading: "Half-Saree Ceremonies",
+    category: "half-saree-photography",
+    order: [
+      "portfolio-halfsaree-family",
+      "portfolio-halfsaree-application",
+      "portfolio-halfsaree-tilak",
+      "portfolio-halfsaree-sisters",
+      "portfolio-halfsaree-solo",
+    ],
+  },
+  {
+    id: "events",
+    heading: "Celebrations & Events",
+    category: "event-photography",
+    order: [
+      "portfolio-group-kurtas",
+      "portfolio-venue-night",
+      "portfolio-couple-stringlights",
+      "portfolio-couple-entryway",
+      "portfolio-cakecutting",
+      "portfolio-floral-detail",
+      "portfolio-events-1",
+      "portfolio-events-2",
+    ],
+  },
+  {
+    id: "family",
+    heading: "Family Portraits",
+    category: "family-photography",
+    order: [
+      "portfolio-family-goldenhour",
+      "portfolio-mothers-embrace",
+      "portfolio-family-stairs",
+      "portfolio-family-1",
+      "portfolio-family-2",
+    ],
+  },
+  {
+    id: "editorial",
+    heading: "Editorial Portraits",
+    category: "editorial-portraiture",
+    order: [
+      "portfolio-editorial-bokeh",
+      "portfolio-diwali-sherwani",
+      "portfolio-diwali-redsaree",
+      "portfolio-diwali-seafoam",
+      "portfolio-diwali-maroonblouse",
+      "portfolio-diwali-dancepose",
+      "portfolio-diwali-couple",
+      "portfolio-diwali-bluefloral",
+      "portfolio-diwali-redscarf",
+      "portfolio-editorial-1",
+    ],
+  },
+];
+
+type PortfolioItem = (typeof portfolioImages)[0];
+
+function sortSection(items: PortfolioItem[], order: string[]): PortfolioItem[] {
+  const getBase = (item: PortfolioItem) => baseName(item.img.src);
+  return [
+    ...order
+      .map((key) => items.find((item) => getBase(item) === key))
+      .filter((x): x is PortfolioItem => x !== undefined),
+    ...items.filter((item) => !order.includes(getBase(item))),
+  ];
+}
+
+const sections = sectionDefs.map((def) => ({
+  ...def,
+  items: sortSection(
+    portfolioImages.filter((item) => item.category === def.category),
+    def.order
+  ),
+}));
+
+// Global ordered array (all 32 in section order) for lightbox navigation
+const orderedImages = sections.flatMap((s) => s.items);
+
 const lightboxImages = await Promise.all(
-  portfolioImages.map((item) =>
+  orderedImages.map((item) =>
     getImage({
       src: item.img,
       widths: [800, 1200, 1600, 2000],
@@ -17,12 +113,16 @@ const lightboxImages = await Promise.all(
   )
 );
 
+// Map img.src → global lightbox index
+const globalIndexMap = new Map(orderedImages.map((item, i) => [item.img.src, i]));
+
 const title =
   "Portfolio | Event & Family Photography Gallery | NiO Pictures Katy TX";
 const description =
   "Browse NiO Pictures' photography portfolio. Cinematic events and heirloom family portraits from Katy, Houston, Sugar Land & Richmond TX.";
 const canonical = "https://niopictures.com/portfolio";
 const ogImage = "https://niopictures.com/assets/images/og-home.webp";
+
 const breadcrumbLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -42,7 +142,7 @@ const breadcrumbLd = {
   ],
 };
 
-const associatedMedia = portfolioImages.map((image) => ({
+const associatedMedia = orderedImages.map((image) => ({
   "@type": "ImageObject",
   name: `${image.label} | NiO Pictures`,
   contentUrl: `${siteUrl}${image.img.src}`,
@@ -109,40 +209,46 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
       </div>
     </section>
 
-    <!-- ── Grid Gallery ───────────────────────────────────────── -->
-    <section class="port-grid-section">
-      <div class="container">
-        <div class="port-grid" id="port-grid">
-          {
-            portfolioImages.map((item, i) => (
-              <button
-                class="port-grid-item"
-                data-index={i}
-                aria-label={`View ${item.label}`}
-                type="button"
-              >
-                <Image
-                  src={item.img}
-                  alt={item.alt}
-                  widths={[400, 600, 800]}
-                  sizes="(max-width: 767px) calc(50vw - 1.5rem), (max-width: 1099px) calc(33.33vw - 1.5rem), calc(25vw - 1.5rem)"
-                  loading={i < 4 ? "eager" : "lazy"}
-                  fetchpriority={i === 0 ? "high" : undefined}
-                  quality={85}
-                />
-              </button>
-            ))
-          }
-        </div>
-      </div>
-    </section>
+    <!-- ── Categorized Masonry Sections ──────────────────────── -->
+    {
+      sections.map((section) => (
+        <section class="port-section">
+          <div class="container">
+            <h2 class="display-md port-section-heading">{section.heading}</h2>
+            <div class="port-grid">
+              {section.items.map((item) => {
+                const gIdx = globalIndexMap.get(item.img.src) ?? 0;
+                return (
+                  <button
+                    class="port-grid-item"
+                    data-index={gIdx}
+                    aria-label={`View ${item.label}`}
+                    type="button"
+                  >
+                    <Image
+                      src={item.img}
+                      alt={item.alt}
+                      widths={[400, 600, 800]}
+                      sizes="(max-width: 767px) calc(50vw - 1.5rem), (max-width: 1099px) calc(33.33vw - 1.5rem), calc(25vw - 1.5rem)"
+                      loading={gIdx < 4 ? "eager" : "lazy"}
+                      fetchpriority={gIdx === 0 ? "high" : undefined}
+                      quality={85}
+                    />
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      ))
+    }
 
-    <!-- Image data for lightbox -->
+    <!-- Image data for lightbox (in section order: housewarming → halfsaree → events → family → editorial) -->
     <script
       id="port-data"
       type="application/json"
       set:html={JSON.stringify(
-        portfolioImages.map((item, i) => ({
+        orderedImages.map((item, i) => ({
           src: item.img.src,
           lbSrc: lightboxImages[i].src,
           lbSrcset: lightboxImages[i].srcSet.attribute,
@@ -216,36 +322,42 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
 </BaseLayout>
 
 <style>
-  /* ── Grid ─────────────────────────────────────────────────── */
-  .port-grid-section {
-    padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(3rem, 6vw, 5rem);
+  /* ── Section layout ───────────────────────────────────────── */
+  .port-section {
+    padding: clamp(2rem, 4vw, 3rem) 0;
   }
 
+  .port-section-heading {
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── Masonry grid ─────────────────────────────────────────── */
   .port-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
+    column-count: 2;
+    column-gap: 0.5rem;
   }
 
   @media (min-width: 768px) {
     .port-grid {
-      grid-template-columns: repeat(3, 1fr);
+      column-count: 3;
     }
   }
 
   @media (min-width: 1100px) {
     .port-grid {
-      grid-template-columns: repeat(4, 1fr);
+      column-count: 4;
     }
   }
 
   .port-grid-item {
     display: block;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    break-inside: avoid;
     cursor: pointer;
     overflow: hidden;
     border-radius: 2px;
     background: var(--surface-2);
-    aspect-ratio: 3 / 4;
     padding: 0;
     border: none;
     position: relative;
@@ -263,8 +375,7 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
 
   .port-grid-item img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
     display: block;
     transition: transform var(--dur-slow) var(--ease);
   }
@@ -526,7 +637,7 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
       focusTrapHandler = null;
     }
 
-    // Grid item clicks
+    // Grid item clicks — data-index is the global lightbox index
     document.querySelectorAll<HTMLButtonElement>(".port-grid-item").forEach((btn) => {
       btn.addEventListener("click", () => {
         const idx = parseInt(btn.dataset.index || "0", 10);
