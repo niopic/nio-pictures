@@ -13,6 +13,7 @@ const sectionDefs = [
   {
     id: "housewarming",
     heading: "Housewarming Celebrations",
+    intro: "The rituals, the gathered family, the new home — covered as it actually happens.",
     category: "housewarming-photography",
     order: [
       "portfolio-housewarming-ritual",
@@ -24,6 +25,7 @@ const sectionDefs = [
   {
     id: "halfsaree",
     heading: "Half-Saree Ceremonies",
+    intro: "A milestone celebration captured from the ceremony itself through to the family portraits after.",
     category: "half-saree-photography",
     order: [
       "portfolio-halfsaree-family",
@@ -36,6 +38,7 @@ const sectionDefs = [
   {
     id: "events",
     heading: "Celebrations & Events",
+    intro: "Candid energy and genuine moments from get-togethers, milestone birthdays, and gatherings across the Houston area.",
     category: "event-photography",
     order: [
       "portfolio-group-kurtas",
@@ -51,6 +54,7 @@ const sectionDefs = [
   {
     id: "family",
     heading: "Family Portraits",
+    intro: "Warm, connected portraits that hold up as a keepsake, not just a posed afternoon.",
     category: "family-photography",
     order: [
       "portfolio-family-goldenhour",
@@ -63,6 +67,7 @@ const sectionDefs = [
   {
     id: "editorial",
     heading: "Editorial Portraits",
+    intro: "Studio-style portraiture with clean light and real presence — including festival season sessions.",
     category: "editorial-portraiture",
     order: [
       "portfolio-editorial-bokeh",
@@ -215,6 +220,7 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
         <section class="port-section">
           <div class="container">
             <h2 class="display-md port-section-heading">{section.heading}</h2>
+            <p class="body-sm port-section-intro">{section.intro}</p>
             <div class="port-grid">
               {section.items.map((item) => {
                 const gIdx = globalIndexMap.get(item.img.src) ?? 0;
@@ -328,7 +334,12 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
   }
 
   .port-section-heading {
+    margin-bottom: 0.75rem;
+  }
+
+  .port-section-intro {
     margin-bottom: 1.5rem;
+    max-width: 60ch;
   }
 
   /* ── Masonry grid ─────────────────────────────────────────── */
