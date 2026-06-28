@@ -496,7 +496,7 @@ export const eventsImages = {
   ),
   gridSlot3: withDimensions(
     eventsAboutPortrait,
-    "Tilak ceremony photography during a Katy TX half-saree celebration with traditional blessing gesture"
+    "Group portrait of friends in colorful kurtas at a Houston-area evening celebration"
   ),
   gridSlot4: withDimensions(
     eventsAboutMain,
@@ -508,7 +508,7 @@ export const eventsImages = {
   ),
   gridSlot6: withDimensions(
     eventsAboutMain2,
-    "Multi-generational family portrait at a Katy TX housewarming celebration photographed by NiO Pictures"
+    "Wide night photography of a Houston-area home celebration with pool lighting and gathered guests"
   ),
 };
 
