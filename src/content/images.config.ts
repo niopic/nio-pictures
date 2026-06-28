@@ -48,6 +48,7 @@ import eventsHero from "../assets/images/events-hero.webp";
 import eventsPanel from "../assets/images/events-panel.webp";
 import eventsAboutPortrait from "../assets/images/events-about-portrait.webp";
 import eventsAboutMain from "../assets/images/events-about-main.webp";
+import eventsAboutMain2 from "../assets/images/events-about-main-2.webp";
 import eventsFamilyHero from "../assets/images/events-family-hero.webp";
 import eventsFamilyPanel from "../assets/images/events-family-panel.webp";
 
@@ -473,31 +474,31 @@ export const homeImages = {
 export const eventsImages = {
   pageHero: withDimensions(
     eventsHero,
-    "Katy TX event photography hero image showing cinematic celebration coverage"
+    "Couple portrait photography under string lights at a Houston-area evening celebration"
   ),
   gridSlot1: withDimensions(
     eventsPanel,
-    "Houston TX event photography panel image with candid guest interaction"
+    "Candid cake-cutting photography at a Katy TX milestone birthday celebration with family gathered close"
   ),
   gridSlot2: withDimensions(
     eventsFamilyPanel,
-    "Houston area family photography panel image referenced from the events page"
+    "Couple portrait photography at a Houston-area home entryway during a festive celebration"
   ),
   gridSlot3: withDimensions(
     eventsAboutPortrait,
-    "Katy TX event photographer portrait detail for Houston celebration coverage"
+    "Tilak ceremony photography during a Katy TX half-saree celebration with traditional blessing gesture"
   ),
   gridSlot4: withDimensions(
     eventsAboutMain,
-    "Houston TX event photography about image with editorial portrait styling"
+    "Floral decor detail photography styled for a Katy TX celebration with soft bokeh lighting"
   ),
   gridSlot5: withDimensions(
     eventsFamilyHero,
     "Katy TX family photography crossover image used on the events page"
   ),
   gridSlot6: withDimensions(
-    eventsAboutMain,
-    "Houston TX event photography about image with editorial portrait styling"
+    eventsAboutMain2,
+    "Multi-generational family portrait at a Katy TX housewarming celebration photographed by NiO Pictures"
   ),
 };
 
