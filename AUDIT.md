@@ -1,111 +1,162 @@
 # NiO Pictures — Site Audit & Action Tracker
 
-Overall score at audit time: **63 / 100**. Strong technical chassis (Astro,
-WebP, deferred CSS, rich schema) held back by positioning leaks, low price
-anchoring, and unpackaged revenue. The gap to ~85 is mostly editing decisions,
-not a rebuild.
+Started at **63/100**. Running estimate as of June 28, 2026: **~82/100**.
+Remaining gap is mostly proof depth (image quality/coverage across service
+pages), not infrastructure or schema.
 
 Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 
 ---
 
-## ✅ Already shipped (this pass)
-- [x] `src/data/pricing.ts` — single source of truth for all pricing
-- [x] `src/components/PricingSection.astro` — branded pricing UI reading from pricing.ts
-- [x] `public/robots.txt` — keeps training-bot blocks, explicitly allows AI **search** bots
-- [x] Wired `pricing.ts` into `index.astro`, `book.astro`, `event-photography-katy-tx.astro`, `family-photography-katy-tx.astro`, `katy-tx-photographer.astro`
-- [x] Fixed `priceRange` conflict in `BaseLayout.astro` and `katy-tx-photographer.astro` (both now `$$$`)
-- [x] Added `hasOfferCatalog: buildOfferCatalog()` to homepage JSON-LD (validated clean in Google Rich Results Test — 2 only-optional notices: duplicate `url` field across separate schema blocks, no `streetAddress`; both expected/fine to leave)
-- [x] Replaced 5 anonymized testimonials (P.G./N.M./S.B./S.S./K.P., duplicated across index/about/event-photography pages) with 2 real named/located testimonials (Venkatesh K. — Fulshear TX, Malav S. — Katy TX) + "Read more reviews on Google" link
-- [x] Fixed homepage `aggregateRating` schema to match real GBP (5.0 / 16 reviews, was placeholder 5/7)
-- [x] Added click-to-play film showcase section + `VideoObject` schema (placeholder video: Pongal/Tamil Sangam, to be swapped for 40th birthday film when delivered)
-- [x] Fixed postal code mismatch: website schema had 77449, but the real Google Business Profile listing (and actual business location) is 77494. Found by manually cross-checking GBP against the site during a live review - same class of NAP inconsistency as other schema bugs fixed tonight, just caught in the one place that required checking outside the codebase.
-- [x] Fixed accessibility contrast failure on PricingSection's .tier__note (muted-dark on surface was ~2.5:1, well under WCAG AA's 4.5:1 minimum for normal text; swapped to --muted, ~5.56:1). Found via live Lighthouse Accessibility audit (97/100) on niopictures.com - not in the original audit, a new finding from tonight's live review.
-- [x] **videography-katy-tx.astro** wired to pricing.ts dynamically — replaced hardcoded $1,400/$1,950 with live values from PACKAGES + formatUSD, with fallback defaults. Ensures pricing never stales on this page.
-- [x] Merged standalone film showcase into existing #hybrid section — was redundant (two sections both pitching photo+film, one in prose, one in video). Now one section: pitch + cards + video as full-width proof below.
-- [x] Added Legacy Collection upsell tiers to pricing.ts: "Session + Legacy Album" ($1,150) and "Session + Legacy Album + Wall Art" ($1,950), extending the base $650 session. Added two new ADD_ONS: "Heritage Album" ($450, for Heritage Session) and "Gala Album" ($550, for Signature Gala). **Note:** these are round placeholder numbers based on standard 200–300% lab-cost markup industry guidance, not yet checked against real WHCC wholesale costs — confirm actual album/wall-art wholesale pricing before treating these as final margin numbers.
-- [x] Added FAQ questions for housewarming, half-saree, pricing breakdown (merged into existing question), and turnaround — all dynamically sourced from pricing.ts. Fixed two grammatically broken sentences caught during rendered-output verification (coverage/tier-label fields were built for card display, not sentence interpolation) by adding structured coverageHours and proseLabel fields, same single-source-of-truth pattern as Turnaround.
+## Decisions to not re-litigate
+
+Guardrails and deliberate choices that look like gaps but aren't — re-check
+this list before "fixing" any of these:
+
+- **Legacy Collection pricing** ($1,150 / $1,950 tiers, $450/$550 Heritage/Gala
+  album add-ons) are placeholder numbers based on standard markup guidance,
+  not real WHCC wholesale costs. Don't treat as final margin numbers until
+  WHCC costs are confirmed.
+- **Corporate page is deliberately minimal** and intentionally not linked
+  from homepage or nav — tertiary positioning, not an oversight.
+- **Fulshear page deliberately uses generic area language**, no named
+  neighborhoods/subdivisions.
+- **40th birthday moment-story has no testimonial and never will** — Palani
+  was second shooter, not the primary client relationship. The editorial
+  caption is permanent, not a placeholder. Usage rights are confirmed clear
+  via Palani's agreement with the primary shooter.
+- **VideoObject placeholder video** (Pongal/Tamil Sangam) is intentional
+  until the real 40th birthday highlight film is delivered — then swap and
+  populate `duration`/`uploadDate`.
+- **`robots.txt`** blocks training bots but explicitly allows AI search bots
+  — deliberate, not inconsistent.
+- **Pixieset is always secondary** (`btn-outline`/text link), never the
+  primary CTA. "Start a Conversation" → `/contact` is primary site-wide.
+  Any page reversing this is a regression.
+- **Community-specific ethnic positioning** (Punjabi/Gujarati/etc.) is
+  deliberately deferred until real bookings from those communities happen
+  organically — not a content gap to fill preemptively.
 
 ---
 
-## P0 — Positioning (do first, shapes everything else)
+## Process lessons (apply to every future session)
 
-- [x] **Decide and commit to positioning hierarchy:** Hierarchy = South Asian celebrations (housewarming, half-saree, Diwali, milestone birthdays) primary; family portraits secondary; corporate tertiary. Applied to `event-photography-katy-tx.astro` (title, meta, JSON-LD, feature cards) and homepage service-split panel.
-- [x] **Rewrite homepage hero/subhead** to reflect this hierarchy — no hero change was needed; `index.astro` hero already leads with "Photography & Film for South Asian Milestones" (h1) and eyebrow "Photography for South Asian milestones". Only the events page and service-split panel had the positioning leak.
-- [x] **Reorder/adjust nav** so primary services get top billing, tertiary services don't compete for nav space — verified across 4 files (`index.astro`, `event-photography-katy-tx.astro`, `family-photography-katy-tx.astro`, `about.astro`): both `.nav-links` and `.nav-mobile` already read Celebrations → Family → Portfolio → About → Blog → Contact on every page; no corporate nav item exists on any page.
+- **Claude Code's self-reported summaries are unverified until independently
+  confirmed** against actual repo/git state or built `dist/` output. Caught
+  a real instance of this June 28: a verification report cited specific
+  file hashes and alt text that didn't exist anywhere in the actual repo —
+  the fix had never been applied. Always re-pull and re-check directly
+  (`md5sum`, `grep` on built HTML) rather than trusting a summary.
+- **Parallel sessions can silently create cross-page duplicates.** Two
+  sessions independently picked the same source photos for different pages
+  on June 28, caught only via `md5sum` comparison after both had pushed.
+  When picking a "fresh" image for any page, check it isn't already in use
+  elsewhere on the site, not just unused in the current file.
+- **Verify rendered output, not build success.** Always grep `dist/` HTML
+  after building — this has caught broken FAQ grammar, stale AUDIT.md
+  claims, incorrect schema, and silently-unapplied image fixes.
+- **Single source of truth.** All pricing in `pricing.ts`. All image data in
+  `images.config.ts`. All business schema in `BaseLayout.astro`. Duplicating
+  these is a regression.
+- **Hardcoded counts create staleness bugs** (city counts, stat numbers) —
+  use non-exhaustive phrasing or derive dynamically.
+- **Plan before applying multi-file changes** — show diffs first, surgical
+  incremental edits over batch rewrites.
 
 ---
 
-## P0 — Highest business impact (do first)
+## ✅ Already shipped
+- [x] `pricing.ts` single source of truth + `PricingSection.astro` reading from it, wired into all relevant pages
+- [x] `robots.txt` — blocks training bots, allows AI search bots
+- [x] Fixed schema `priceRange` conflict (`$$` vs `$$$`) and postal code mismatch (77449 → 77494)
+- [x] Added `hasOfferCatalog` to homepage JSON-LD — validated clean in Rich Results Test
+- [x] Replaced 5 anonymized testimonials with 2 real named/located reviews (Venkatesh K., Malav S.) + Google reviews link
+- [x] Fixed homepage `aggregateRating` to match real GBP (5.0/16, was 5/7)
+- [x] Click-to-play film showcase + `VideoObject` schema (placeholder video — see Decisions above)
+- [x] Fixed PricingSection accessibility contrast failure (WCAG AA)
+- [x] `videography-katy-tx.astro` wired to dynamic pricing
+- [x] Merged redundant film-showcase sections into one
+- [x] Added Legacy Collection upsell tiers + Heritage/Gala album add-ons (see Decisions above re: placeholder numbers)
+- [x] Added dynamic FAQ questions for housewarming, half-saree, pricing, turnaround; fixed two grammatically broken interpolated sentences
+- [x] Positioning hierarchy (South Asian celebrations primary, family secondary, corporate tertiary) applied across events page, homepage, and nav
+- [x] Price anchoring reframed — `PricingSection` relocated after Hybrid Photo+Film section, low-anchoring hero copy removed
+- [x] Extracted shared `Nav.astro` (eliminated 21-file duplication); Pixieset demoted to secondary everywhere
+- [x] Built real on-site `/portfolio` — 32 real images, 5 categories, working lightbox; old Pixieset gallery-funnel removed (caveat: homepage CTA still points to Pixieset, see Backlog)
+- [x] Homepage moment-story section — 3 sequences, 9 images, 2 real testimonials
+- [x] Above-the-fold trust strip (5★ · since 2017 · cities served)
+- [x] "What happens after you inquire" process section added to homepage
+- [x] Pricing-guide PDF lead magnet + email capture, wired to Formspree
+- [x] Sticky mobile inquiry bar moved into `BaseLayout` (site-wide, was homepage-only)
+- [x] Added Houston and Fulshear location pages
+- [x] Added housewarming, half-saree, corporate, and videography service pages
+- [x] Strengthened internal linking between location ↔ service pages
+- [x] Added FAQPage schema to homepage and all dedicated service pages
+- [x] `VideoObject`, entity-clear copy, FAQ coverage, `Organization` node + founder, NAP consistency — all verified present across schema
+- [x] Confirmed `PricingSection.astro` renders Legacy Collection's 3-tier structure correctly (generic `pkg.tiers` mapping, no component change needed)
+- [x] Consolidated single canonical `#business` JSON-LD node in `BaseLayout.astro`, removed 4 duplicate/conflicting definitions
+- [x] Swept all location pages for stale CTA/ordering patterns — all now lead with South Asian celebrations, Pixieset demoted
 
-- [x] **Reframe price anchoring.** Relocated `<PricingSection />` to immediately after the Hybrid Photo + Film section on `index.astro` (homepage hero now showcases packages instead of floor pricing). Removed "$650 / $950" hero copy that was anchoring low; pricing cards now lead with $1,400–$1,950 tiers.
-- [x] **Wire pricing.ts into pages.** Remove hardcoded prices from:
-      `index.astro`, `book.astro`, `event-photography-katy-tx.astro`,
-      `family-photography-katy-tx.astro`, `katy-tx-photographer.astro`.
-- [x] **Fix schema price conflict.** Delete `priceRange: "$$"` in
-      `BaseLayout.astro`; keep `"$$$"` in `index.astro` (same `@id`, can't be both).
-- [x] **Add `hasOfferCatalog: buildOfferCatalog()`** to homepage LocalBusiness JSON-LD.
-- [x] **Consolidate CTAs.** Extracted shared `<Nav.astro>` component (eliminates 21-file duplication). Primary CTA across site: "Start a Conversation" inquiry button. Pixieset self-booking demoted to secondary text link ("Prefer to self-book? →") in desktop nav and mobile nav drawer in `Nav.astro`, and to secondary call-to-action in footer. Fixed `main.js` to match `/blog/*` paths for active nav state, not just exact path match (fixes "Blog" active state on individual blog post URLs).
+---
 
-## P1 — Conversion & trust
+## Open — P1 Conversion & trust
+- [ ] `family-photography-katy-tx.astro` still lacks the "what happens after you inquire" process section other pages have — consistency pass, not done yet.
 
-- [ ] Build a real **on-site portfolio** (stop punting "View Full Gallery" to Pixieset).
-- [x] **Replace initials-only reviews.** Replaced P.G./N.M./S.B./S.S./K.P. with real named/located reviews + Google link (see Already shipped).
-- [x] Build **moment-story section on homepage** — 3 sequences live: housewarming (Venkatesh K. testimonial, sourced from the former standalone "Client testimonials" section, which was removed and folded into story context), pre-dance portrait (Malav S. testimonial, same origin), and 40th birthday (editorial caption only — no client testimonial exists yet for that session). All 9 images delivered, converted to WebP via `scripts/convert-to-webp.mjs`, and building clean.
-- [x] Add an above-the-fold **trust strip** (5★ · since 2017 · 5 cities served). Added 5★ Rated Reviews and Since 2017 badges to the location-badge strip immediately after the hero.
-- [x] Add a **"what happens after you inquire"** process section (reduces high-ticket hesitation for $1,500+ bookings). A fully-built process section ("How It Works" / "Simple. Seamless. Stunning." / 4 steps: Consultation, Day-Of Coverage, Culling and Edit, Gallery Delivery) already existed on event-photography-katy-tx.astro only. Added an adapted version to the homepage, positioned between the Hybrid Photo + Film section and PricingSection — matching the events page's proven sequence (process → price → objection-handling). Copy generalized slightly ("your event" → "your celebration") since the homepage serves both events and family clients. Events page left unchanged. Follow-up flagged but not done: family-photography-katy-tx.astro still lacks this section — worth a consistency pass later.
-- [x] Add a **pricing-guide lead magnet** (email capture for non-ready visitors). Built a 5-page branded PDF guide (real pricing.ts package data + process-section copy, brand colors/typography) at public/downloads/nio-pictures-pricing-guide.pdf. Added an email-capture section to the homepage (positioned after PricingSection), wired to the existing Formspree endpoint with distinguishing hidden fields (_subject, form_type) so submissions are filterable from regular contact inquiries. On success, triggers an actual file download via a programmatic <a download> click (not window.open, which would have been blocked by popup blockers and wouldn't have forced a real download anyway).
-- [x] Sticky **mobile inquiry button**. A sticky mobile CTA bar already existed but was homepage-only (scoped markup + CSS inside index.astro). Relocated into BaseLayout.astro so it renders site-wide on every page. Second button changed from "Ask About Film" (homepage-specific) to a tap-to-call "Call Now" button (tel:+12814093585), appropriate across all pages. CSS moved from index.astro's local `<style>` block into the shared components.css at the existing 768px breakpoint.
-
-## P2 — SEO & content
-
-- [x] **Add Houston location page** (in title tag, biggest market, no page yet). Created src/pages/houston-tx-photographer.astro, following the existing location-page template but with corrected patterns: South Asian celebrations leads feature cards (not corporate-first), 'Start a Conversation' -> /contact as primary CTA throughout (not Pixieset), 4-question FAQ including the Mahatma Gandhi District/Hillcroft corridor (real South Asian cultural hub in Houston). Verified via built dist/ output: BreadcrumbList + FAQPage schema present, exactly one canonical #business definition (correctly inherited from BaseLayout).
-- [x] **Add Fulshear location page** (stated service area, no page; fast-growing/affluent). Created src/pages/fulshear-tx-photographer.astro with generic area language (no named neighborhoods/subdivisions), South Asian celebrations in feature cards, and 3-question FAQ.
-- [x] Add **dedicated service pages**: housewarming, half-saree, corporate, and a **videography / highlight-film** page. Created all 4: housewarming-photography-katy-tx.astro, half-saree-photography-katy-tx.astro, corporate-photography-katy-tx.astro (minimal/tertiary), videography-katy-tx.astro (with dynamic pricing from pricing.ts via linter auto-import).
-- [x] Strengthen **internal linking** between location pages ↔ service pages. Added internal links on event-photography-katy-tx.astro (housewarming/half-saree bullets → dedicated pages, corporate card → corporate page), and Fulshear to city switcher on katy-tx-photographer.astro.
-- [x] Add **pricing/process FAQ** (FAQPage schema) to key pages. Added FAQPage schema to index.astro (4 questions: service areas, South Asian celebrations, what's included, how to book). Dedicated service pages each include 2-4 FAQ questions in their JSON-LD.
-
-## P3 — AI search (real levers, post robots.txt)
-
-> Note: blocking training bots costs little — recommendations run on the search
-> bots, which are now allowed. These are the levers that actually move AI visibility.
-
-- [x] **Add `VideoObject` schema** for highlight films. Shipped as part of the film showcase section in index.astro (lines 33-52), see Already shipped above.
-- [x] Add **entity-clear copy** near the top of key pages
-      ("NiO Pictures is a [X] serving [Y]").
-- [x] Expand **FAQ coverage** (pricing, ritual-specific, turnaround). Homepage FAQPage covers service areas, South Asian celebrations, what's included, and booking process (4 questions). videography-katy-tx.astro covers film turnaround (3 weeks) and film-specific Q&A. Housewarming and half-saree pages include ritual-specific FAQs, pricing breakdowns sourced from pricing.ts, and delivery turnaround (2-3 weeks for photos) — all dynamically maintained.
-- [ ] Add a distinct **`Organization`** node + consistent `founder`.
-- [x] Verify NAP (name/address/phone) is **identical** across every schema block. Resolved via #business schema consolidation (single canonical source in BaseLayout.astro, removed from 18 files). Found and fixed one real remaining NAP issue: postal code was 77449 in code vs the real 77494 on the actual GBP listing.
-
-## P4 — Revenue (highest untapped margin)
-
-- [x] Surface **album / print / wall-art** upsells (Legacy already includes one print —
-      productize it).
-      - Sub-note: Pricing structure is in pricing.ts; not yet rendered as multi-tier cards on the site — PricingSection.astro needs verification it displays Legacy's new 3-tier structure cleanly (was previously single-tier).
+## Open — P4 Revenue
 - [ ] **Package & price the hybrid film offer** prominently (it's the moat).
 - [ ] Build a **corporate package** for Energy Corridor / local firms.
 
+## Open — Backlog
+- [ ] **Homepage "View Full Gallery" button still points to Pixieset** instead of the now-real `/portfolio` page. Small fix.
+- [ ] 40th birthday highlight film — swap placeholder video, populate `duration`/`uploadDate` once delivered (testimonial expectation already resolved, see Decisions above).
+- [ ] **Confirm real WHCC wholesale costs** to finalize Legacy/Heritage/Gala pricing (currently placeholders, see Decisions above).
+- [ ] `VideoObject` `duration` field still pending real mm:ss from YouTube (recommended, not critical).
+
 ---
 
-## Backlog — Tech debt
+## Session: June 28, 2026 — Image audit & cross-page fixes
 
-- [x] **Resolved.** BaseLayout.astro now renders the single canonical #business JSON-LD node (upgraded to the complete version - aggregateRating, priceRange, geo, founder, hasOfferCatalog, openingHoursSpecification - using the existing description prop so it's correct per-page automatically). Removed duplicate competing #business definitions from index.astro and the 4 location pages (katy-tx, sugar-land, richmond, cypress), which previously had stale reviewCount, leaked corporate-first wording, and a different @type than the homepage's version - same #id, conflicting data, served simultaneously. Verified via built dist/ output, not just source: exactly one full #business definition per page now, with correct {"@id": ...} reference pointers elsewhere (offer catalog providers, BlogPosting publishers, etc.) left intact.
-- [x] `$20/image` add-on referenced in `terms.astro` / blog but missing from `pricing.ts` `ADD_ONS` — add when ready to formalize that pricing. Added extra-images add-on to pricing.ts ADD_ONS, matching the existing terms.astro/blog references.
-- [x] **No shared `<Nav>` component.** Extracted `Nav.astro` component (renders both desktop nav and mobile drawer); now used across all pages. Eliminates 21-file duplication — future nav changes are single-point edits.
-- [ ] `/portfolio` page funnels deeper browsing to Pixieset ("full gallery lives on Pixieset") — real fix is growing `portfolioImages` in `images.config.ts` with more local images, then removing the Pixieset link entirely. Bigger lift, separate task from the moment-story work.
-- [ ] Add lightbox to `/portfolio` page (not homepage moment stories) once more images are added — click thumbnail, view large, arrow through set, no page navigation.
-- [ ] 40th birthday session — Palani was second shooter (not the primary client relationship), so no testimonial will be collected from this client. The homepage moment-story birthday slot keeps its editorial caption permanently (not a placeholder pending a testimonial). Usage rights for the images and the eventual highlight film are confirmed clear via Palani's own agreement with the primary shooter. The placeholder video swap (Pongal/Tamil Sangam → 40th birthday highlight film) still proceeds once the film is delivered — that part of the plan is unaffected, only the testimonial expectation is removed.
-- [ ] If/when real clients from specific communities (Punjabi, Gujarati, etc.) are booked, add their actual ritual terminology organically rather than building generic community pages preemptively.
-- [ ] **Confirm real WHCC wholesale costs** for premium album + large wall art piece, then revisit the $1,150/$1,950 Legacy tiers and $450/$550 Heritage/Gala album add-ons — current numbers are estimates pending that check.
-- [~] **VideoObject schema** — `uploadDate` fixed (real value: `2026-01-30`, from Search Console critical-issue alert). `duration` field still pending — get real mm:ss from YouTube and add when convenient (Google lists this as recommended, not critical).
-- [x] **Sweep existing location pages for stale CTA/ordering patterns.** Done. All 4 files (richmond, sugar-land, cypress, katy-tx-photographer.astro) swapped to 'Start a Conversation' -> /contact as primary CTA (Pixieset demoted to outline, not removed) and reordered feature-card text to lead with South Asian celebrations instead of corporate. katy-tx-photographer.astro also had a disabled Houston <span> placeholder in its city-switcher row, converted to a live link now that houston-tx-photographer.astro exists. Richmond/Sugar Land/Cypress don't have a city-switcher grid (just loose related-page links), so no Houston placeholder existed there - confirmed, not an oversight. Verified: build clean (22 pages), 'Start a Conversation' is btn-primary on all 4 pages, no Pixieset primaries remain.
+Image-by-image audit (not just filenames) of every page meant to show
+proof-of-work, continuing from the prior session's portfolio rebuild.
+
+- [x] **family-photography-katy-tx.astro** — 3 of 6 grid slots broken: a
+      floral-decor photo mislabeled as a "portrait detail," and two slots
+      (`gridSlot3`/`gridSlot6`) both showing the **NiO Pictures logo
+      graphic** instead of a client photo, with fabricated alt text. Fixed
+      with real portraits; de-duplicated the shared import.
+- [x] **housewarming + half-saree pages had zero images at all** (confirmed
+      via grep, not assumption) — the two pages built around the brand's
+      core positioning had no visual proof of work. Added a hero +
+      3-image gallery to both, reusing the events page's proven CSS
+      pattern.
+- [x] **Hero text-overflow bug** on both new heroes — long-form intro
+      paragraphs (written pre-image) plus CTA buttons pushed content taller
+      than the fixed hero box on mobile, overflowing behind the Nav.
+      Fixed by shortening hero copy to match the events page's format and
+      removing the hero buttons entirely (both pages already have CTAs
+      lower down).
+- [x] **Half-saree hero image cropped out the subject's face** — wrong
+      aspect ratio (tall portrait forced into a wide hero box). Fixed by
+      reshuffling existing half-saree images into aspect-appropriate slots,
+      no new images needed.
+- [x] **event-photography-katy-tx.astro** — original audit found 6 of 7
+      slots broken/off-brand/duplicated; all replaced with real on-brand
+      portfolio images. Fixing this surfaced the two process bugs now
+      captured permanently in "Process lessons" above (parallel-session
+      duplicate images; a fabricated verification report).
+
+**Open finding from this session, not yet acted on:** `katy-tx-photographer`,
+`houston`, `fulshear`, `sugar-land`, `richmond`, `cypress`,
+`corporate-photography`, and `videography` pages have **zero images** —
+confirmed via grep, only a shared `og-home.webp` meta tag exists. Lower
+priority than housewarming/half-saree were (discovery/SEO pages, not
+primary conversion pages).
 
 ---
 
 ## Needs live tooling (can't be verified from code)
 - [ ] **Core Web Vitals** — run `npx unlighthouse --site niopictures.com`; fix hero LCP if needed.
-- [x] **Google Business Profile** alignment — confirm NAP + categories match the site. Reviewed live GBP listing: reviews (16/5★) and phone match the site. Found and fixed a ZIP code mismatch (77449 -> 77494). Categories/services reviewed - found the same corporate-first ordering issue fixed on the website tonight, but GBP's services list (not just description) is a manual dashboard task, not a code fix - logged as a separate follow-up below if not already its own line.
-- [ ] **Indexation** — check Search Console coverage once the new pages ship.
+- [x] **Google Business Profile** alignment confirmed — NAP/reviews match, ZIP mismatch found and fixed (77449 → 77494).
+- [ ] **Indexation** — check Search Console coverage once new pages ship.
 - [ ] After deploy, validate JSON-LD in Google's **Rich Results Test**.
 
 ---
