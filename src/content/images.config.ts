@@ -44,6 +44,16 @@ import homeGridEvents from "../assets/images/home-grid-events.webp";
 import homeGridFamily from "../assets/images/home-grid-family.webp";
 import homeGridPortrait from "../assets/images/home-grid-portrait.webp";
 
+import housewarmingHero from "../assets/images/housewarming-hero.webp";
+import housewarmingGrid1 from "../assets/images/housewarming-grid1.webp";
+import housewarmingGrid2 from "../assets/images/housewarming-grid2.webp";
+import housewarmingGrid3 from "../assets/images/housewarming-grid3.webp";
+
+import halfSareeHero from "../assets/images/halfsaree-hero.webp";
+import halfSareeGrid1 from "../assets/images/halfsaree-grid1.webp";
+import halfSareeGrid2 from "../assets/images/halfsaree-grid2.webp";
+import halfSareeGrid3 from "../assets/images/halfsaree-grid3.webp";
+
 import eventsHero from "../assets/images/events-hero.webp";
 import eventsPanel from "../assets/images/events-panel.webp";
 import eventsAboutPortrait from "../assets/images/events-about-portrait.webp";
@@ -499,6 +509,44 @@ export const eventsImages = {
   gridSlot6: withDimensions(
     eventsAboutMain2,
     "Multi-generational family portrait at a Katy TX housewarming celebration photographed by NiO Pictures"
+  ),
+};
+
+export const housewarmingImages = {
+  pageHero: withDimensions(
+    housewarmingHero,
+    "Multi-generational family gathered around the stove as milk boils over during a Katy TX housewarming Grihapravesam ritual"
+  ),
+  gridSlot1: withDimensions(
+    housewarmingGrid1,
+    "Multi-generational family portrait at a Katy TX housewarming celebration"
+  ),
+  gridSlot2: withDimensions(
+    housewarmingGrid2,
+    "Traditional fire ceremony (homam) during a Katy TX housewarming ritual"
+  ),
+  gridSlot3: withDimensions(
+    housewarmingGrid3,
+    "Silver Kamadhenu idol detail styled for a Katy TX housewarming celebration"
+  ),
+};
+
+export const halfSareeImages = {
+  pageHero: withDimensions(
+    halfSareeHero,
+    "Solo portrait of a young woman in traditional half-saree ceremony attire with floral backdrop in Katy TX"
+  ),
+  gridSlot1: withDimensions(
+    halfSareeGrid1,
+    "Tilak blessing moment during a Katy TX half-saree ceremony"
+  ),
+  gridSlot2: withDimensions(
+    halfSareeGrid2,
+    "Family portrait at a Katy TX half-saree ceremony celebration"
+  ),
+  gridSlot3: withDimensions(
+    halfSareeGrid3,
+    "Sisters portrait at a Katy TX half-saree ceremony with traditional jewelry"
   ),
 };
 

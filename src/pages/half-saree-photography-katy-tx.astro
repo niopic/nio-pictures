@@ -1,7 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.astro";
 import { PACKAGES, formatTurnaroundFull, formatCoverageHours } from "../data/pricing";
+import { halfSareeImages } from "../content/images.config";
 
 const title =
   "Half-Saree Ceremony Photography Katy TX | NiO Pictures";
@@ -82,32 +84,41 @@ const extraHead = `<script type="application/ld+json">
 
   <Nav />
 
-  <div
-    style="padding: calc(var(--section-pad) + 4rem) 0 var(--section-pad); border-bottom: 1px solid var(--border-light);"
-  >
-    <div class="container">
-      <div class="reveal">
-        <p class="eyebrow" style="margin-bottom:1rem;">
-          Half-Saree Ceremony Photography
-        </p>
-        <div class="gold-line gold-line-animate"></div>
-        <h1 class="display-xl" style="max-width:700px; margin-bottom:1.25rem;">
-          Half-Saree<br /><em style="font-style:italic; color:var(--gold);"
-            >Ceremony</em
-          >
-        </h1>
-        <p class="body-lg" style="max-width:580px; margin-bottom:2.5rem;">
-          The half-saree ceremony (Langa Voni) marks a meaningful coming-of-age
-          milestone, rich with tradition, family, and celebration. NiO Pictures
-          photographs these ceremonies with cultural understanding and a
-          cinematic eye, throughout Katy and the greater Houston area.
-        </p>
-        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-          <a href="/contact" class="btn btn-primary btn-arrow"
-            >Start a Conversation</a
-          >
-          <a href="/portfolio" class="btn btn-outline">See Portfolio</a>
-        </div>
+  <div class="page-hero" style="margin-top: 0; padding-top: 0;">
+    <div class="page-hero-bg" style="background-color: #18161a;">
+      <Image
+        src={halfSareeImages.pageHero.img}
+        alt={halfSareeImages.pageHero.alt}
+        aria-hidden="true"
+        loading="eager"
+        fetchpriority="high"
+        widths={[768, 1200, 1600, 1920]}
+        sizes="100vw"
+        quality={90}
+        class="page-hero-bg-image"
+      />
+    </div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content container">
+      <p class="eyebrow" style="margin-bottom:1rem;">
+        Half-Saree Ceremony Photography
+      </p>
+      <h1 class="display-xl" style="max-width:700px; margin-bottom:1.25rem;">
+        Half-Saree<br /><em style="font-style:italic; color:var(--gold);"
+          >Ceremony</em
+        >
+      </h1>
+      <p class="body-lg" style="max-width:580px; margin-bottom:2.5rem;">
+        The half-saree ceremony (Langa Voni) marks a meaningful coming-of-age
+        milestone, rich with tradition, family, and celebration. NiO Pictures
+        photographs these ceremonies with cultural understanding and a
+        cinematic eye, throughout Katy and the greater Houston area.
+      </p>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+        <a href="/contact" class="btn btn-primary btn-arrow"
+          >Start a Conversation</a
+        >
+        <a href="/portfolio" class="btn btn-outline">See Portfolio</a>
       </div>
     </div>
   </div>
@@ -180,6 +191,55 @@ const extraHead = `<script type="application/ld+json">
           >See Portfolio</a
         >
         <a href="/about" class="btn btn-outline">About Palanivel</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header center reveal">
+        <p class="eyebrow">Half-Saree Gallery</p>
+        <div class="gold-line center gold-line-animate"></div>
+        <h2 class="display-md">From Recent Ceremonies</h2>
+      </div>
+
+      <div class="featured-grid reveal reveal-delay-1">
+        <div class="grid-item">
+          <Image
+            src={halfSareeImages.gridSlot1.img}
+            alt={halfSareeImages.gridSlot1.alt}
+            loading="lazy"
+            widths={[400, 800, 1200]}
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            width={800}
+            height={600}
+            style="background:var(--surface-2)"
+          />
+        </div>
+        <div class="grid-item">
+          <Image
+            src={halfSareeImages.gridSlot2.img}
+            alt={halfSareeImages.gridSlot2.alt}
+            loading="lazy"
+            widths={[300, 400, 800]}
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            width={400}
+            height={533}
+            style="background:var(--surface-2)"
+          />
+        </div>
+        <div class="grid-item">
+          <Image
+            src={halfSareeImages.gridSlot3.img}
+            alt={halfSareeImages.gridSlot3.alt}
+            loading="lazy"
+            widths={[300, 400, 800]}
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            width={400}
+            height={533}
+            style="background:var(--surface-2)"
+          />
+        </div>
       </div>
     </div>
   </section>

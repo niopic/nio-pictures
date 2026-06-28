@@ -1,7 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.astro";
 import { PACKAGES, formatTurnaroundFull, formatCoverageHours } from "../data/pricing";
+import { housewarmingImages } from "../content/images.config";
 
 const title =
   "Housewarming Photography Katy TX | Grihapravesam Photographer | NiO Pictures";
@@ -81,33 +83,42 @@ const extraHead = `<script type="application/ld+json">
 
   <Nav />
 
-  <div
-    style="padding: calc(var(--section-pad) + 4rem) 0 var(--section-pad); border-bottom: 1px solid var(--border-light);"
-  >
-    <div class="container">
-      <div class="reveal">
-        <p class="eyebrow" style="margin-bottom:1rem;">
-          Housewarming Photography
-        </p>
-        <div class="gold-line gold-line-animate"></div>
-        <h1 class="display-xl" style="max-width:700px; margin-bottom:1.25rem;">
-          Housewarming<br /><em style="font-style:italic; color:var(--gold);"
-            >Photography</em
-          >
-        </h1>
-        <p class="body-lg" style="max-width:580px; margin-bottom:2.5rem;">
-          A Grihapravesam marks the beginning of a new home - the kumkum
-          blessing at the door, the threshold crossing, the milk boiling over on
-          the stove as family gathers around. NiO Pictures photographs these
-          moments with the cultural understanding and calm presence they deserve,
-          throughout Katy and the greater Houston area.
-        </p>
-        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-          <a href="/contact" class="btn btn-primary btn-arrow"
-            >Start a Conversation</a
-          >
-          <a href="/#moment-stories" class="btn btn-outline">See Moment Stories</a>
-        </div>
+  <div class="page-hero" style="margin-top: 0; padding-top: 0;">
+    <div class="page-hero-bg" style="background-color: #18161a;">
+      <Image
+        src={housewarmingImages.pageHero.img}
+        alt={housewarmingImages.pageHero.alt}
+        aria-hidden="true"
+        loading="eager"
+        fetchpriority="high"
+        widths={[768, 1200, 1600, 1920]}
+        sizes="100vw"
+        quality={90}
+        class="page-hero-bg-image"
+      />
+    </div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content container">
+      <p class="eyebrow" style="margin-bottom:1rem;">
+        Housewarming Photography
+      </p>
+      <h1 class="display-xl" style="max-width:700px; margin-bottom:1.25rem;">
+        Housewarming<br /><em style="font-style:italic; color:var(--gold);"
+          >Photography</em
+        >
+      </h1>
+      <p class="body-lg" style="max-width:580px; margin-bottom:2.5rem;">
+        A Grihapravesam marks the beginning of a new home - the kumkum
+        blessing at the door, the threshold crossing, the milk boiling over on
+        the stove as family gathers around. NiO Pictures photographs these
+        moments with the cultural understanding and calm presence they deserve,
+        throughout Katy and the greater Houston area.
+      </p>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+        <a href="/contact" class="btn btn-primary btn-arrow"
+          >Start a Conversation</a
+        >
+        <a href="/#moment-stories" class="btn btn-outline">See Moment Stories</a>
       </div>
     </div>
   </div>
@@ -181,6 +192,55 @@ const extraHead = `<script type="application/ld+json">
           >See Portfolio</a
         >
         <a href="/about" class="btn btn-outline">About Palanivel</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header center reveal">
+        <p class="eyebrow">Housewarming Gallery</p>
+        <div class="gold-line center gold-line-animate"></div>
+        <h2 class="display-md">From Recent Celebrations</h2>
+      </div>
+
+      <div class="featured-grid reveal reveal-delay-1">
+        <div class="grid-item">
+          <Image
+            src={housewarmingImages.gridSlot1.img}
+            alt={housewarmingImages.gridSlot1.alt}
+            loading="lazy"
+            widths={[400, 800, 1200]}
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            width={800}
+            height={600}
+            style="background:var(--surface-2)"
+          />
+        </div>
+        <div class="grid-item">
+          <Image
+            src={housewarmingImages.gridSlot2.img}
+            alt={housewarmingImages.gridSlot2.alt}
+            loading="lazy"
+            widths={[300, 400, 800]}
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            width={400}
+            height={533}
+            style="background:var(--surface-2)"
+          />
+        </div>
+        <div class="grid-item">
+          <Image
+            src={housewarmingImages.gridSlot3.img}
+            alt={housewarmingImages.gridSlot3.alt}
+            loading="lazy"
+            widths={[300, 400, 800]}
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            width={400}
+            height={533}
+            style="background:var(--surface-2)"
+          />
+        </div>
       </div>
     </div>
   </section>
