@@ -534,15 +534,15 @@ export const housewarmingImages = {
 export const halfSareeImages = {
   pageHero: withDimensions(
     halfSareeHero,
-    "Solo portrait of a young woman in traditional half-saree ceremony attire with floral backdrop in Katy TX"
+    "Tilak blessing moment during a Katy TX half-saree ceremony with traditional jewelry and floral backdrop"
   ),
   gridSlot1: withDimensions(
     halfSareeGrid1,
-    "Tilak blessing moment during a Katy TX half-saree ceremony"
+    "Family portrait at a Katy TX half-saree ceremony celebration"
   ),
   gridSlot2: withDimensions(
     halfSareeGrid2,
-    "Family portrait at a Katy TX half-saree ceremony celebration"
+    "Solo portrait of a young woman in traditional half-saree ceremony attire with floral backdrop in Katy TX"
   ),
   gridSlot3: withDimensions(
     halfSareeGrid3,
