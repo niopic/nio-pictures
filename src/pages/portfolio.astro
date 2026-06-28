@@ -262,6 +262,8 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
           category: item.category,
           label: item.label,
           caption: item.caption,
+          lbWidth: item.img.width,
+          lbHeight: item.img.height,
         }))
       )}
     ></script>
@@ -345,7 +347,7 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
   /* ── Masonry grid ─────────────────────────────────────────── */
   .port-grid {
     column-count: 2;
-    column-gap: 0.5rem;
+    column-gap: 1.25rem;
   }
 
   @media (min-width: 768px) {
@@ -354,7 +356,7 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
     }
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1400px) {
     .port-grid {
       column-count: 4;
     }
@@ -363,7 +365,7 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
   .port-grid-item {
     display: block;
     width: 100%;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.25rem;
     break-inside: avoid;
     cursor: pointer;
     overflow: hidden;
@@ -559,7 +561,7 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
 
 <script>
   (function () {
-    const portData: { src: string; lbSrc: string; lbSrcset: string; alt: string; category: string; label: string; caption: string }[] =
+    const portData: { src: string; lbSrc: string; lbSrcset: string; alt: string; category: string; label: string; caption: string; lbWidth: number; lbHeight: number }[] =
       JSON.parse(document.getElementById("port-data")?.textContent || "[]");
 
     const lb        = document.getElementById("port-lb") as HTMLElement;
@@ -579,20 +581,42 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
     let current = 0;
     let triggerEl: HTMLElement | null = null;
     const total = portData.length;
+    let loadGen = 0;
 
     function show(index: number) {
       const d = portData[index];
+      const gen = ++loadGen;
+
+      // Update meta immediately — no need to wait for the image
+      img.alt = d.alt;
+      catEl.textContent = d.category.replace(/-/g, " ");
+      labelEl.textContent = d.label;
+      captionEl.textContent = d.caption;
+      counterEl.textContent = `${index + 1} / ${total}`;
+
+      const fadeDuration =
+        parseFloat(getComputedStyle(stage).transitionDuration) * 1000 || 200;
+
       stage.classList.add("lb-fade");
+
       setTimeout(() => {
-        img.src = d.lbSrc;
-        img.srcset = d.lbSrcset;
-        img.alt = d.alt;
-        catEl.textContent = d.category.replace(/-/g, " ");
-        labelEl.textContent = d.label;
-        captionEl.textContent = d.caption;
-        counterEl.textContent = `${index + 1} / ${total}`;
-        stage.classList.remove("lb-fade");
-      }, Number(getComputedStyle(stage).transitionDuration.replace("s", "")) * 1000 || 200);
+        if (gen !== loadGen) return;
+        // Reserve layout space so there is no size jump when the image arrives
+        img.style.aspectRatio = `${d.lbWidth} / ${d.lbHeight}`;
+        // Keep stage faded while preloading — only unfade once the image is ready
+        const preloader = new Image();
+        preloader.sizes = "90vw";
+        const reveal = () => {
+          if (gen !== loadGen) return;
+          img.src = d.lbSrc;
+          img.srcset = d.lbSrcset;
+          stage.classList.remove("lb-fade");
+        };
+        preloader.onload = reveal;
+        preloader.onerror = reveal;
+        preloader.srcset = d.lbSrcset;
+        preloader.src = d.lbSrc;
+      }, fadeDuration);
     }
 
     function open(index: number, trigger: HTMLElement) {
