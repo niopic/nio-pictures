@@ -445,27 +445,27 @@ export const homeImages = {
   ),
   gridSlot1: withDimensions(
     homeGridEvents,
-    "Katy TX event photography grid image from a Houston-area celebration"
+    "Wide night photography of a Houston-area home celebration with pool lighting and gathered guests"
   ),
   gridSlot2: withDimensions(
     homeGridFamily,
-    "Houston area family photography grid image featuring a connected portrait moment"
+    "Housewarming ritual photography in Katy TX capturing a candid traditional ceremony moment"
   ),
   gridSlot3: withDimensions(
     homeEventsHero,
-    "Houston TX event photography hero image highlighting cinematic celebration coverage"
+    "Solo portrait photography of a young woman at a Katy TX half-saree ceremony with floral backdrop styling"
   ),
   gridSlot4: withDimensions(
     homeAboutMain,
-    "Houston TX photographer portrait for NiO Pictures home page introduction"
+    "Silver Kamadhenu idol detail photography styled for a Katy TX housewarming celebration"
   ),
   gridSlot5: withDimensions(
     homeFamilyHero,
-    "Katy TX family photography hero image with heirloom portrait warmth"
+    "Mother and daughter portrait photography in Katy TX showing genuine warmth and connection"
   ),
   gridSlot6: withDimensions(
     homeGridPortrait,
-    "Editorial portrait photography grid image by a Katy TX photographer"
+    "Outdoor family photography in golden hour light for a Katy TX family near Houston"
   ),
 };
 
