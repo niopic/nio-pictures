@@ -55,6 +55,7 @@ import familyHero from "../assets/images/family-hero.webp";
 import familyPanel from "../assets/images/family-panel.webp";
 import familyAboutPortrait from "../assets/images/family-about-portrait.webp";
 import familyAboutMain from "../assets/images/family-about-main.webp";
+import familyGrid6 from "../assets/images/family-grid6.webp";
 import familyEventsHero from "../assets/images/family-events-hero.webp";
 import familyEventsPanel from "../assets/images/family-events-panel.webp";
 
@@ -511,11 +512,11 @@ export const familyImages = {
   ),
   gridSlot2: withDimensions(
     familyAboutPortrait,
-    "Katy TX family photographer portrait detail for heirloom family sessions"
+    "Multi-generational family portrait on an indoor staircase in Katy TX, parents with teenage son and young daughter in traditional attire"
   ),
   gridSlot3: withDimensions(
     familyAboutMain,
-    "Houston area family photography about image with refined portrait styling"
+    "Outdoor golden hour family portrait in Katy TX, parents and teenage son sharing a candid moment in natural light"
   ),
   gridSlot4: withDimensions(
     familyEventsPanel,
@@ -526,8 +527,8 @@ export const familyImages = {
     "Katy TX event photography crossover image featured on the family page"
   ),
   gridSlot6: withDimensions(
-    familyAboutMain,
-    "Houston area family photography about image with refined portrait styling"
+    familyGrid6,
+    "Multi-generational family gathered for a housewarming ritual blessing in a Katy TX neighborhood, three generations in traditional dress"
   ),
 };
 
