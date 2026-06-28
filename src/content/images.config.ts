@@ -508,7 +508,7 @@ export const eventsImages = {
   ),
   gridSlot6: withDimensions(
     eventsAboutMain2,
-    "Wide night photography of a Houston-area home celebration with pool lighting and gathered guests"
+    "Editorial portrait of a woman in traditional jewelry with warm bokeh lighting at a Houston-area evening celebration"
   ),
 };
 
