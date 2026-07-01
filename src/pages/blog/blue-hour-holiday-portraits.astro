@@ -2,9 +2,9 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Nav from "../../components/Nav.astro";
 import { Image } from "astro:assets";
-import aboutMain from "../../assets/images/about-main.webp";
+import heroImage from "../../assets/images/blog-bluehour.webp";
 const siteUrl = "https://niopictures.com";
-const heroImagePath = aboutMain.src;
+const heroImagePath = heroImage.src;
 const heroImageUrl = `${siteUrl}${heroImagePath}`;
 const title = "Blue Hour Front-Yard Holiday Portraits Katy TX | NiO Pictures";
 const description =
@@ -118,8 +118,8 @@ const breadcrumbLd = JSON.stringify({
   <div style="max-width:900px; margin:0 auto; padding:0 var(--gutter);">
     <div class="post-img">
       <Image
-        src={aboutMain}
-        alt="Blue hour holiday family portraits in front yard Katy TX"
+        src={heroImage}
+        alt="Group of friends in traditional kurtas at a Houston-area Diwali evening celebration"
         loading="eager"
         style="background:var(--surface-2);"
         fetchpriority="high"

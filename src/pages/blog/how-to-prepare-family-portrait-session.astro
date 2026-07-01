@@ -2,9 +2,9 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Nav from "../../components/Nav.astro";
 import { Image } from "astro:assets";
-import aboutMain from "../../assets/images/about-main.webp";
+import heroImage from "../../assets/images/blog-prepare.webp";
 const siteUrl = "https://niopictures.com";
-const heroImagePath = aboutMain.src;
+const heroImagePath = heroImage.src;
 const heroImageUrl = `${siteUrl}${heroImagePath}`;
 const title =
   "How to Prepare for Your Katy Family Portrait Session | NiO Pictures";
@@ -121,8 +121,8 @@ const breadcrumbLd = JSON.stringify({
   <div style="max-width:900px; margin:0 auto; padding:0 var(--gutter);">
     <div class="post-img">
       <Image
-        src={aboutMain}
-        alt="Happy family preparing outfits and coordinating colors before professional portrait photography session in beautiful Katy TX outdoor park location"
+        src={heroImage}
+        alt="South Asian family of four posing together for a portrait session in Katy TX"
         loading="eager"
         style="background:var(--surface-2);"
         fetchpriority="high"
