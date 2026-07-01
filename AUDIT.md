@@ -107,21 +107,22 @@ this list before "fixing" any of these:
 
 ## Open — P1 Conversion & trust
 - [ ] `family-photography-katy-tx.astro` still lacks the "what happens after you inquire" process section other pages have — consistency pass, not done yet.
-- [ ] **CTA hierarchy regression on the two highest-traffic pages.** The closing `cta-banner` section on both `event-photography-katy-tx.astro` and `family-photography-katy-tx.astro` has exactly one button — Pixieset, styled `btn-primary` — with no "Start a Conversation"/Contact alternative at all in that section. Violates the standing rule (see Decisions above). `about.astro` has the same issue mid-page and in its own closing banner (Pixieset primary, Contact only as secondary).
-- [ ] **Broken image in `Person` schema.** `about.astro`'s JSON-LD points to `about-portrait.webp`, which doesn't exist anywhere in the repo — no equivalent of the stable `public/` copy that `og-home.webp` has for this exact purpose. Real image is `about-main.webp`. Fix: create the stable public copy (matching the `og-home.webp` pattern) rather than just editing the schema string, since a hashed `astro:assets` path won't resolve at a fixed URL either.
-- [ ] **Two blog posts use the photographer's headshot (`about-main.webp`) instead of their own purpose-made images.** `how-to-prepare-family-portrait-session.astro` should use `blog-prepare.webp` (a real family portrait, unused on disk right now). `blue-hour-holiday-portraits.astro` should use `blog-bluehour.webp` (imperfect topical match — group portrait, not literally a front-yard blue-hour shot — but still better than the headshot; ideally gets a real dedicated shot eventually).
-- [ ] `about.astro`'s "Where I Work" service-area grid only lists Katy/Houston/Sugar Land/Richmond — missing Fulshear and Cypress, both of which have their own location pages now.
+- [x] **CTA hierarchy regression on the two highest-traffic pages.** Fixed — events + family closing banners now have "Start a Conversation" as `btn-primary` with Pixieset as `btn-outline` secondary. About page fixed in both mid-page and closing banner locations.
+- [x] **Broken image in `Person` schema.** Fixed — created `public/assets/images/about-portrait.webp` as a stable public copy of `about-main.webp`, matching the `og-home.webp` pattern.
+- [x] **Two blog posts using wrong hero images.** Fixed — `how-to-prepare` now uses `blog-prepare.webp`, `blue-hour` now uses `blog-bluehour.webp`.
+- [x] `about.astro`'s "Where I Work" grid missing Fulshear + Cypress. Fixed — grid expanded to 6 columns.
+- [ ] **`og:image` hardcode on family page.** `family-photography-katy-tx.astro` has `og:image` and `twitter:image` meta tags in the head hard-referencing `family-hero.webp` directly (not via `familyImages`). Now that the hero was swapped to `family-hero-new.webp`, the social preview image is stale. Small fix — update the hardcoded URL to match the new hero.
 
 ## Open — P4 Revenue
 - [ ] **Package & price the hybrid film offer** prominently (it's the moat).
 - [ ] Build a **corporate package** for Energy Corridor / local firms.
 
 ## Open — Backlog
-- [ ] **Homepage "View Full Gallery" button still points to Pixieset** instead of the now-real `/portfolio` page. Small fix.
-- [ ] 40th birthday highlight film — swap placeholder video, populate `duration`/`uploadDate` once delivered (testimonial expectation already resolved, see Decisions above).
+- [x] **Homepage "View Full Gallery" button** now points to `/portfolio`. Fixed.
+- [ ] 40th birthday highlight film — swap placeholder video, populate `duration`/`uploadDate` once delivered.
 - [ ] **Confirm real WHCC wholesale costs** to finalize Legacy/Heritage/Gala pricing (currently placeholders, see Decisions above).
 - [ ] `VideoObject` `duration` field still pending real mm:ss from YouTube (recommended, not critical).
-- [ ] **8 pages still have zero images**: `katy-tx-photographer`, `houston`, `fulshear`, `sugar-land`, `richmond`, `cypress`, `corporate-photography`, `videography`. 12 real, fully unused client photos exist on disk to draw from (8 from one Diwali community-event shoot + `portfolio-events-2`, `portfolio-editorial-1`, `portfolio-halfsaree-application`, `portfolio-mothers-embrace`) — see Decisions above re: not overusing the Diwali set. Needs specific per-page image picks before executing — creative judgment call, not a mechanical fix.
+- [x] **8 zero-image pages** — all fixed. `katy-tx-photographer`, `houston`, `fulshear`, `sugar-land`, `richmond`, `cypress`, `corporate-photography`, `videography` all now have full-bleed page-hero images. `object-position: top center` applied to all 10 hero pages (8 new + events + family) to prevent face-cropping on desktop.
 
 ---
 
