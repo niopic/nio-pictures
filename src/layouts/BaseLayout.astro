@@ -61,7 +61,15 @@ const businessSchema = {
     "hybrid photo and film",
     "Katy TX photographer",
   ],
-  image: ogImage,
+  image: {
+    "@type": "ImageObject",
+    url: ogImage,
+    copyrightNotice: "© 2026 NiO Pictures. All Rights Reserved.",
+    creditText: "NiO Pictures",
+    creator: { "@type": "Person", name: "Palanivel" },
+    license: "https://niopictures.com/terms",
+    acquireLicensePage: "https://niopictures.com/contact",
+  },
   sameAs: [
     "https://www.instagram.com/nio_pictures",
     "https://www.facebook.com/profile.php?id=61580596898855",
