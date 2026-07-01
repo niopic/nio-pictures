@@ -62,7 +62,7 @@ import eventsAboutMain2 from "../assets/images/events-about-main-2.webp";
 import eventsFamilyHero from "../assets/images/events-family-hero.webp";
 import eventsFamilyPanel from "../assets/images/events-family-panel.webp";
 
-import familyHero from "../assets/images/family-hero.webp";
+import familyHeroNew from "../assets/images/family-hero-new.webp";
 import familyPanel from "../assets/images/family-panel.webp";
 import familyAboutPortrait from "../assets/images/family-about-portrait.webp";
 import familyAboutMain from "../assets/images/family-about-main.webp";
@@ -561,8 +561,8 @@ export const halfSareeImages = {
 
 export const familyImages = {
   pageHero: withDimensions(
-    familyHero,
-    "Katy TX family photography hero portrait in warm evening light"
+    familyHeroNew,
+    "South Asian family of four in traditional attire at a celebration in Katy TX — NiO Pictures family photography"
   ),
   gridSlot1: withDimensions(
     familyPanel,
