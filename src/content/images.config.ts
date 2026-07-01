@@ -72,6 +72,15 @@ import familyEventsPanel from "../assets/images/family-events-panel.webp";
 
 import aboutMain from "../assets/images/about-main.webp";
 
+import katyHero from "../assets/images/katy-hero.webp";
+import houstonHero from "../assets/images/houston-hero.webp";
+import fulshearHero from "../assets/images/fulshear-hero.webp";
+import sugarLandHero from "../assets/images/sugar-land-hero.webp";
+import richmondHero from "../assets/images/richmond-hero.webp";
+import cypressHero from "../assets/images/cypress-hero.webp";
+import corporateHero from "../assets/images/corporate-hero.webp";
+import videographyHero from "../assets/images/videography-hero.webp";
+
 import storyHousewarming1 from "../assets/images/story-housewarming-1.webp";
 import storyHousewarming2 from "../assets/images/story-housewarming-2.webp";
 import storyHousewarming3 from "../assets/images/story-housewarming-3.webp";
@@ -585,6 +594,47 @@ export const aboutImages = {
   main: withDimensions(
     aboutMain,
     "Palanivel of NiO Pictures photographed in Katy TX for the Houston-area about page"
+  ),
+};
+
+export const katyImages = {
+  pageHero: withDimensions(katyHero,
+    "Mother applying sandalwood during a half-saree ceremony in Katy TX — milestone photography by NiO Pictures"
+  ),
+};
+export const houstonImages = {
+  pageHero: withDimensions(houstonHero,
+    "Couple in traditional South Asian attire at a Diwali celebration in Houston TX — NiO Pictures event photography"
+  ),
+};
+export const fulshearImages = {
+  pageHero: withDimensions(fulshearHero,
+    "Multi-generational family at a housewarming celebration in Fulshear TX photographed by NiO Pictures"
+  ),
+};
+export const sugarLandImages = {
+  pageHero: withDimensions(sugarLandHero,
+    "Family portrait at a half-saree ceremony celebration in Sugar Land TX — NiO Pictures"
+  ),
+};
+export const richmondImages = {
+  pageHero: withDimensions(richmondHero,
+    "Family portrait at a housewarming celebration in Richmond TX — NiO Pictures"
+  ),
+};
+export const cypressImages = {
+  pageHero: withDimensions(cypressHero,
+    "Sisters in traditional attire at a half-saree ceremony in Cypress TX — NiO Pictures"
+  ),
+};
+export const corporateImages = {
+  pageHero: withDimensions(corporateHero,
+    "Group of professionals in formal kurtas at a corporate event in Katy TX — NiO Pictures"
+  ),
+};
+export const videographyImages = {
+  pageHero: withDimensions(videographyHero,
+    "Couple in a cinematic doorway portrait during a South Asian celebration — NiO Pictures highlight films"
   ),
 };
 

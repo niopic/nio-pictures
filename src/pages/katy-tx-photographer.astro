@@ -1,6 +1,8 @@
 ﻿---
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.astro";
+import { katyImages } from "../content/images.config";
 const title =
   "Katy TX Photographer | Events \u0026 Family Portraits | NiO Pictures";
 const description =
@@ -29,36 +31,33 @@ const extraHead =
   <Nav />
 
   <!-- ── Hero ───────────────────────────────────────────────── -->
-  <div
-    style="padding: calc(var(--section-pad) + 4rem) 0 var(--section-pad); border-bottom: 1px solid var(--border-light);"
-  >
-    <div class="container">
-      <div>
-        <p class="eyebrow" style="margin-bottom:1rem;">Based in Katy, Texas</p>
-        <div class="gold-line gold-line-animate"></div>
-        <h1 class="display-xl" style="max-width:700px; margin-bottom:1.25rem;">
-          Your Katy TX<br /><em style="font-style:italic; color:var(--gold);"
-            >Photographer</em
-          >
-        </h1>
-        <p class="body-lg" style="max-width:560px; margin-bottom:2.5rem;">
-          NiO Pictures is a photography studio rooted in Katy, Texas —
-          specializing in cinematic event coverage and heirloom family portraits
-          for families and businesses across the greater Houston area.
-        </p>
-        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-          <a href="/contact" class="btn btn-primary btn-arrow">Start a Conversation</a>
-          <a href="/portfolio" class="btn btn-outline"
-            >See Event &amp; Family Portfolio</a
-          >
-          <a
-            href="https://niopictures.pixieset.com/booking/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-outline">Book a Katy TX Session</a
-          >
-        </div>
-      </div>
+  <div class="page-hero" style="margin-top: 0; padding-top: 0;">
+    <div class="page-hero-bg" style="background-color: #18161a;">
+      <Image
+        src={katyImages.pageHero.img}
+        alt={katyImages.pageHero.alt}
+        aria-hidden="true"
+        loading="eager"
+        fetchpriority="high"
+        widths={[768, 1200, 1600, 1920]}
+        sizes="100vw"
+        quality={90}
+        class="page-hero-bg-image"
+        style="object-position: top center;"
+      />
+    </div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content container">
+      <p class="eyebrow" style="margin-bottom:1rem;">Based in Katy, Texas</p>
+      <div class="gold-line gold-line-animate"></div>
+      <h1 class="display-xl" style="max-width:700px; margin-bottom:1.25rem;">
+        Your Katy TX<br /><em style="font-style:italic; color:var(--gold);"
+          >Photographer</em
+        >
+      </h1>
+      <p class="body-lg" style="max-width:580px; margin-bottom:0;">
+        South Asian milestone photography and heirloom family portraits, rooted in Katy TX and serving Greater Houston since 2017.
+      </p>
     </div>
   </div>
 

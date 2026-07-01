@@ -1,7 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.astro";
 import { PACKAGES, formatUSD } from "../data/pricing";
+import { videographyImages } from "../content/images.config";
 
 const heritageSession = PACKAGES.find((p) => p.id === "heritage-session");
 const heritageFilmTier = heritageSession?.tiers.find((t) => t.id === "heritage-film");
@@ -36,32 +38,35 @@ const extraHead =
 
   <Nav />
 
-  <div
-    style="padding: calc(var(--section-pad) + 4rem) 0 var(--section-pad); border-bottom: 1px solid var(--border-light);"
-  >
-    <div class="container">
-      <div class="reveal">
-        <p class="eyebrow" style="margin-bottom:1rem;">
-          Photo + Film
-        </p>
-        <div class="gold-line gold-line-animate"></div>
-        <h1 class="display-xl" style="max-width:700px; margin-bottom:1.25rem;">
-          Cinematic<br /><em style="font-style:italic; color:var(--gold);"
-            >Highlight Films</em
-          >
-        </h1>
-        <p class="body-lg" style="max-width:580px; margin-bottom:2.5rem;">
-          With one calm, intentional photographer, you get both heirloom stills
-          and a short cinematic film — the emotion, ritual, and movement of the
-          day, captured with warmth and care.
-        </p>
-        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-          <a href="/contact" class="btn btn-primary btn-arrow"
-            >Start a Conversation</a
-          >
-          <a href="/#pricing" class="btn btn-outline">View Pricing</a>
-        </div>
-      </div>
+  <div class="page-hero" style="margin-top: 0; padding-top: 0;">
+    <div class="page-hero-bg" style="background-color: #18161a;">
+      <Image
+        src={videographyImages.pageHero.img}
+        alt={videographyImages.pageHero.alt}
+        aria-hidden="true"
+        loading="eager"
+        fetchpriority="high"
+        widths={[768, 1200, 1600, 1920]}
+        sizes="100vw"
+        quality={90}
+        class="page-hero-bg-image"
+        style="object-position: top center;"
+      />
+    </div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content container">
+      <p class="eyebrow" style="margin-bottom:1rem;">
+        Photo + Film
+      </p>
+      <div class="gold-line gold-line-animate"></div>
+      <h1 class="display-xl" style="max-width:700px; margin-bottom:1.25rem;">
+        Cinematic<br /><em style="font-style:italic; color:var(--gold);"
+          >Highlight Films</em
+        >
+      </h1>
+      <p class="body-lg" style="max-width:580px; margin-bottom:0;">
+        One calm, intentional photographer. Both heirloom stills and a short cinematic film — the emotion, ritual, and movement of your celebration.
+      </p>
     </div>
   </div>
 
