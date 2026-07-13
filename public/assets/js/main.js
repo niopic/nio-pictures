@@ -196,6 +196,10 @@
       });
 
       if (res.ok) {
+        gtag("event", "form_submit", {
+          form_id: form.id,
+          page_path: window.location.pathname,
+        });
         btn.innerHTML = successMsg;
         form.reset();
         if (onSuccess) setTimeout(onSuccess, 1200);
@@ -265,6 +269,10 @@
           headers: { Accept: "application/json" },
         });
         if (res.ok) {
+          gtag("event", "form_submit", {
+            form_id: "lead-magnet-form",
+            page_path: window.location.pathname,
+          });
           const link = document.createElement("a");
           link.href = "/downloads/nio-pictures-pricing-guide.pdf";
           link.download = "nio-pictures-pricing-guide.pdf";

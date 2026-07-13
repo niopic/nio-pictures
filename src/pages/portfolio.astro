@@ -627,6 +627,11 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
     function open(index: number, trigger: HTMLElement) {
       current = index;
       triggerEl = trigger;
+      gtag("event", "portfolio_view", {
+        category: portData[index].category,
+        label: portData[index].label,
+        page_path: window.location.pathname,
+      });
       lb.removeAttribute("hidden");
       requestAnimationFrame(() => lb.classList.add("lb-open"));
       show(current);

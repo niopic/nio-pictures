@@ -6,8 +6,7 @@
     "dev": "astro dev",
     "build": "astro build && node scripts/minify-public-assets.mjs",
     "preview": "astro preview",
-    "astro": "astro",
-    "image:intake": "node scripts/image-intake.mjs"
+    "astro": "astro"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

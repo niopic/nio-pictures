@@ -616,7 +616,7 @@
       </div>
       <div class="intro-step">
         <span class="step-n">04</span>
-        <span>Move the file into the destination folder shown in the export label</span>
+        <span>Move the file into the destination folder shown in the export label — note that most Portfolio Gallery images go into the <code>src/assets/images/portfolio/</code> subfolder, not the top-level images folder</span>
       </div>
     </div>
   </div>
@@ -682,13 +682,44 @@
 
 const SLOTS = [
   {
-    section: "Portfolio (all 4:5 portrait)",
+    section: "Portfolio Gallery (masonry — flexible, no forced crop)",
     slots: [
-      { id: "portfolio-events-1",    label: "Events — Image 1",   ar: [4,5], targetKB: 180, dest: "src/assets/images/" },
-      { id: "portfolio-events-2",    label: "Events — Image 2",   ar: [4,5], targetKB: 180, dest: "src/assets/images/" },
-      { id: "portfolio-family-1",    label: "Family — Image 1",   ar: [4,5], targetKB: 180, dest: "src/assets/images/" },
-      { id: "portfolio-family-2",    label: "Family — Image 2",   ar: [4,5], targetKB: 180, dest: "src/assets/images/" },
-      { id: "portfolio-editorial-1", label: "Editorial — Image 1",ar: [4,5], targetKB: 180, dest: "src/assets/images/" },
+      { id: "portfolio-events-1",    label: "Events — Image 1",   flexible: true, targetKB: 180, dest: "src/assets/images/" },
+      { id: "portfolio-events-2",    label: "Events — Image 2",   flexible: true, targetKB: 180, dest: "src/assets/images/" },
+      { id: "portfolio-family-1",    label: "Family — Image 1",   flexible: true, targetKB: 180, dest: "src/assets/images/" },
+      { id: "portfolio-family-2",    label: "Family — Image 2",   flexible: true, targetKB: 180, dest: "src/assets/images/" },
+      { id: "portfolio-editorial-1", label: "Editorial — Image 1",flexible: true, targetKB: 180, dest: "src/assets/images/" },
+      { id: "portfolio-housewarming-ritual",   label: "Housewarming — Ritual",          flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-housewarming-family",   label: "Housewarming — Family Portrait", flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-fireceremony",          label: "Housewarming — Fire Ceremony",   flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-idol-detail",            label: "Housewarming — Idol Detail",     flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-housewarming-couple",   label: "Housewarming — Couple Portrait", flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-housewarming-garland",  label: "Housewarming — Garlanding",      flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-housewarming-exterior", label: "Housewarming — Home Exterior",   flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-housewarming-candid",   label: "Housewarming — Candid",          flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-halfsaree-application", label: "Half-Saree — Sandalwood Application", flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-halfsaree-tilak",       label: "Half-Saree — Tilak Blessing",    flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-halfsaree-sisters",     label: "Half-Saree — Sisters Portrait",  flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-halfsaree-family",      label: "Half-Saree — Family Portrait",   flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-halfsaree-solo",        label: "Half-Saree — Solo Portrait",     flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-family-goldenhour",     label: "Family — Golden Hour",           flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-family-stairs",         label: "Family — Staircase Portrait",    flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-mothers-embrace",       label: "Family — Mother & Daughter",     flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-couple-entryway",       label: "Event — Couple at Entryway",     flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-cakecutting",           label: "Event — Cake Cutting",           flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-floral-detail",         label: "Event — Floral Decor Detail",    flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-editorial-bokeh",       label: "Editorial — Bokeh Portrait",     flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-couple-stringlights",   label: "Event — Couple Under String Lights", flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-group-kurtas",          label: "Event — Group in Kurtas",        flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-venue-night",           label: "Event — Venue at Night",         flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-diwali-sherwani",       label: "Diwali — Sherwani Portrait",     flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-diwali-redscarf",       label: "Diwali — Red Dupatta",           flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-diwali-redsaree",       label: "Diwali — Red Silk Saree",        flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-diwali-bluefloral",     label: "Diwali — Blue Floral Outfit",    flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-diwali-dancepose",      label: "Diwali — Dance Pose",            flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-diwali-maroonblouse",   label: "Diwali — Maroon & Gold Blouse",  flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-diwali-seafoam",        label: "Diwali — Seafoam Outfit",        flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
+      { id: "portfolio-diwali-couple",         label: "Diwali — Couple Portrait",       flexible: true, targetKB: 180, dest: "src/assets/images/portfolio/" },
     ]
   },
   {
@@ -731,33 +762,80 @@ const SLOTS = [
   {
     section: "Events Page — Gallery Grid (ratios MUST match CSS grid-item rules)",
     slots: [
-      { id: "events-panel",          label: "Grid slot 1 — large left (4:3 landscape)",       ar: [4,3], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(1)" },
-      { id: "events-family-panel",   label: "Grid slot 2 — portrait (3:4)",                   ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(2)" },
-      { id: "events-about-portrait", label: "Grid slot 3 — portrait (3:4)",                   ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(3)" },
-      { id: "events-about-main",     label: "Grid slot 4+6 — portrait (3:4, reused in slot 6)",ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(4) and nth-child(6)" },
-      { id: "events-family-hero",    label: "Grid slot 5 — large right (3:2 landscape)",      ar: [3,2], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(5)" },
+      { id: "events-panel",          label: "Grid slot 1 — large left (4:3 landscape)",  ar: [4,3], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(1)" },
+      { id: "events-family-panel",   label: "Grid slot 2 — portrait (3:4)",              ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(2)" },
+      { id: "events-about-portrait", label: "Grid slot 3 — portrait (3:4)",              ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(3)" },
+      { id: "events-about-main",     label: "Grid slot 4 — portrait (3:4)",              ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(4)" },
+      { id: "events-family-hero",    label: "Grid slot 5 — bottom centre (3:4 portrait)",ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(5)" },
+      { id: "events-about-main-2",   label: "Grid slot 6 — large right (3:2 landscape)", ar: [3,2], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(6)" },
     ]
   },
   {
     section: "Family Page — Hero (Astro Image, goes to src/)",
     slots: [
-      { id: "family-hero", label: "Family page hero (16:9 landscape)", ar: [16,9], targetKB: 300, dest: "src/assets/images/", note: "Astro Image" },
+      { id: "family-hero-new", label: "Family page hero (16:9 landscape)", ar: [16,9], targetKB: 300, dest: "src/assets/images/", note: "Astro Image" },
     ]
   },
   {
     section: "Family Page — Gallery Grid (ratios MUST match CSS grid-item rules)",
     slots: [
-      { id: "family-panel",          label: "Grid slot 1 — large left (3:4 portrait)",         ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(1)" },
-      { id: "family-about-portrait", label: "Grid slot 2 — portrait (3:4)",                    ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(2)" },
-      { id: "family-about-main",     label: "Grid slot 3+6 — portrait (3:4, reused in slot 6)", ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(3) and nth-child(6)" },
-      { id: "family-events-panel",   label: "Grid slot 4 — portrait (3:4)",                    ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(4)" },
-      { id: "family-events-hero",    label: "Grid slot 5 — large right (3:2 landscape)",       ar: [3,2], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(5)" },
+      { id: "family-panel",          label: "Grid slot 1 — large left (3:4 portrait)",   ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(1)" },
+      { id: "family-about-portrait", label: "Grid slot 2 — portrait (3:4)",              ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(2)" },
+      { id: "family-about-main",     label: "Grid slot 3 — portrait (3:4)",              ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(3)" },
+      { id: "family-events-panel",   label: "Grid slot 4 — portrait (3:4)",              ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(4)" },
+      { id: "family-events-hero",    label: "Grid slot 5 — bottom centre (3:4 portrait)",ar: [3,4], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(5)" },
+      { id: "family-grid6",          label: "Grid slot 6 — large right (3:2 landscape)", ar: [3,2], targetKB: 150, dest: "src/assets/images/", note: "grid-item:nth-child(6)" },
     ]
   },
   {
     section: "About Page",
     slots: [
       { id: "about-main", label: "About main photo (4:3)", ar: [4,3], targetKB: 150, dest: "src/assets/images/" },
+    ]
+  },
+  {
+    section: "Home Page — Moment Stories (3:4 fixed crop)",
+    slots: [
+      { id: "story-housewarming-1", label: "Housewarming Story — Image 1", ar: [3,4], targetKB: 150, dest: "src/assets/images/" },
+      { id: "story-housewarming-2", label: "Housewarming Story — Image 2", ar: [3,4], targetKB: 150, dest: "src/assets/images/" },
+      { id: "story-housewarming-3", label: "Housewarming Story — Image 3", ar: [3,4], targetKB: 150, dest: "src/assets/images/" },
+      { id: "story-portrait-1",     label: "Pre-Dance Story — Image 1",    ar: [3,4], targetKB: 150, dest: "src/assets/images/" },
+      { id: "story-portrait-2",     label: "Pre-Dance Story — Image 2",    ar: [3,4], targetKB: 150, dest: "src/assets/images/" },
+      { id: "story-portrait-3",     label: "Pre-Dance Story — Image 3",    ar: [3,4], targetKB: 150, dest: "src/assets/images/" },
+      { id: "story-birthday-1",     label: "Birthday Story — Image 1",     ar: [3,4], targetKB: 150, dest: "src/assets/images/" },
+      { id: "story-birthday-2",     label: "Birthday Story — Image 2",     ar: [3,4], targetKB: 150, dest: "src/assets/images/" },
+      { id: "story-birthday-3",     label: "Birthday Story — Image 3",     ar: [3,4], targetKB: 150, dest: "src/assets/images/" },
+    ]
+  },
+  {
+    section: "Housewarming Page — Hero + Grid",
+    slots: [
+      { id: "housewarming-hero",  label: "Housewarming page hero (16:9)", ar: [16,9], targetKB: 300, dest: "src/assets/images/", note: "Astro Image" },
+      { id: "housewarming-grid1", label: "Grid slot 1 (3:4 portrait)",    ar: [3,4],  targetKB: 150, dest: "src/assets/images/" },
+      { id: "housewarming-grid2", label: "Grid slot 2 (3:4 portrait)",    ar: [3,4],  targetKB: 150, dest: "src/assets/images/" },
+      { id: "housewarming-grid3", label: "Grid slot 3 (3:4 portrait)",    ar: [3,4],  targetKB: 150, dest: "src/assets/images/" },
+    ]
+  },
+  {
+    section: "Half-Saree Page — Hero + Grid",
+    slots: [
+      { id: "halfsaree-hero",  label: "Half-Saree page hero (16:9)", ar: [16,9], targetKB: 300, dest: "src/assets/images/", note: "Astro Image" },
+      { id: "halfsaree-grid1", label: "Grid slot 1 (3:4 portrait)",  ar: [3,4],  targetKB: 150, dest: "src/assets/images/" },
+      { id: "halfsaree-grid2", label: "Grid slot 2 (3:4 portrait)",  ar: [3,4],  targetKB: 150, dest: "src/assets/images/" },
+      { id: "halfsaree-grid3", label: "Grid slot 3 (3:4 portrait)",  ar: [3,4],  targetKB: 150, dest: "src/assets/images/" },
+    ]
+  },
+  {
+    section: "City & Service Pages — Hero (16:9, Astro Image)",
+    slots: [
+      { id: "katy-hero",         label: "Katy TX — hero",         ar: [16,9], targetKB: 300, dest: "src/assets/images/", note: "Astro Image" },
+      { id: "houston-hero",      label: "Houston TX — hero",      ar: [16,9], targetKB: 300, dest: "src/assets/images/", note: "Astro Image" },
+      { id: "fulshear-hero",     label: "Fulshear TX — hero",     ar: [16,9], targetKB: 300, dest: "src/assets/images/", note: "Astro Image" },
+      { id: "sugar-land-hero",   label: "Sugar Land TX — hero",   ar: [16,9], targetKB: 300, dest: "src/assets/images/", note: "Astro Image" },
+      { id: "richmond-hero",     label: "Richmond TX — hero",     ar: [16,9], targetKB: 300, dest: "src/assets/images/", note: "Astro Image" },
+      { id: "cypress-hero",      label: "Cypress TX — hero",      ar: [16,9], targetKB: 300, dest: "src/assets/images/", note: "Astro Image" },
+      { id: "corporate-hero",    label: "Corporate Photography — hero",  ar: [16,9], targetKB: 300, dest: "src/assets/images/", note: "Astro Image" },
+      { id: "videography-hero",  label: "Videography — hero",     ar: [16,9], targetKB: 300, dest: "src/assets/images/", note: "Astro Image" },
     ]
   },
   {
@@ -782,6 +860,7 @@ const SLOTS = [
     section: "Social / OG",
     slots: [
       { id: "og-home", label: "OG card — all pages (1200×630 fixed)", ar: [1200,630], targetKB: 120, dest: "public/assets/images/", note: "Fixed 1200×630px" },
+      { id: "about-portrait", label: "Person schema image (4:3)", ar: [4,3], targetKB: 150, dest: "public/assets/images/", note: "Public copy of about-main — keep in sync" },
     ]
   },
 ];
@@ -865,9 +944,8 @@ function buildUI() {
     grid.className = 'slot-grid';
 
     group.slots.forEach(slot => {
-      const [aw, ah] = slot.ar;
-      const arStr = `${aw}/${ah}`;
-      const arLabel = aw === 1200 ? '1200×630' : `${aw}:${ah}`;
+      const arStr = slot.flexible ? '4/5' : `${slot.ar[0]}/${slot.ar[1]}`;
+      const arLabel = slot.flexible ? 'Flexible crop' : (slot.ar[0] === 1200 ? '1200×630' : `${slot.ar[0]}:${slot.ar[1]}`);
 
       const card = document.createElement('div');
       card.className = 'slot';
@@ -970,7 +1048,6 @@ function loadImageToSlot(slotId, file) {
 
 // ── Modal ────────────────────────────────────────────────────
 function openModal(slot, img) {
-  const [aw, ah] = slot.ar;
   document.getElementById('modal-title').textContent = slot.label;
   document.getElementById('output-filename').textContent = `${slot.id}${getOutputExt()} (→ ${slot.dest})`;
   document.getElementById('size-target').textContent = `Target: ${slot.targetKB}KB`;
@@ -994,32 +1071,36 @@ function closeModal() {
 // ── Canvas draw ──────────────────────────────────────────────
 function drawCrop() {
   if (!sourceImg || !activeSlotDef) return;
-  const [aw, ah] = activeSlotDef.ar;
+
+  const srcW = sourceImg.width;
+  const srcH = sourceImg.height;
+  const targetAR = activeSlotDef.flexible ? (srcW / srcH) : (activeSlotDef.ar[0] / activeSlotDef.ar[1]);
 
   // Fixed output resolution
   let outW, outH;
-  if (aw === 1200) { outW = 1200; outH = 630; }
-  else {
-    outW = 1200;
-    outH = Math.round(outW * ah / aw);
+  if (!activeSlotDef.flexible && activeSlotDef.ar[0] === 1200) {
+    outW = 1200; outH = 630;
+  } else {
+    outW = activeSlotDef.flexible ? Math.min(1600, srcW) : 1200;
+    outH = Math.round(outW / targetAR);
   }
 
   canvas.width = outW;
   canvas.height = outH;
 
   const wrapper = document.getElementById('crop-wrapper');
-  const displayH = Math.round(wrapper.clientWidth * ah / aw);
+  const displayH = Math.round(wrapper.clientWidth / targetAR);
   canvas.style.height = displayH + 'px';
 
   ctx.clearRect(0, 0, outW, outH);
 
-  const srcW = sourceImg.width;
-  const srcH = sourceImg.height;
-  const targetAR = aw / ah;
   const srcAR = srcW / srcH;
 
   let cropW, cropH;
-  if (srcAR > targetAR) {
+  if (activeSlotDef.flexible) {
+    cropW = srcW / zoom;
+    cropH = srcH / zoom;
+  } else if (srcAR > targetAR) {
     cropH = srcH / zoom;
     cropW = cropH * targetAR;
   } else {
