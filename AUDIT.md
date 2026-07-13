@@ -36,6 +36,13 @@ this list before "fixing" any of these:
 - **Community-specific ethnic positioning** (Punjabi/Gujarati/etc.) is
   deliberately deferred until real bookings from those communities happen
   organically — not a content gap to fill preemptively.
+- **Richmond page hero reuses the Katy housewarming-family photo** —
+  no Richmond-specific event photo exists yet. Same file
+  (`portfolio-housewarming-family.webp` / `richmond-hero.webp`, confirmed
+  byte-identical via sha1sum), two location claims (Katy TX in the
+  portfolio caption, Richmond TX on the location page hero). Deliberate
+  stopgap, not a duplicate-image bug — don't "fix" by touching either
+  caption until a real Richmond client photo is available to replace it.
 - **Don't fill the 8 zero-image pages with the Diwali studio portrait set
   one-per-page.** 6 of the 8 unused Diwali images share the identical pink
   studio backdrop from one shoot — spreading them across the 6 location
