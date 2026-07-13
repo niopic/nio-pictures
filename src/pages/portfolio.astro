@@ -16,6 +16,10 @@ const sectionDefs = [
     intro: "The rituals, the gathered family, the new home — covered as it actually happens.",
     category: "housewarming-photography",
     order: [
+      "portfolio-housewarming-couple",
+      "portfolio-housewarming-garland",
+      "portfolio-housewarming-exterior",
+      "portfolio-housewarming-candid",
       "portfolio-housewarming-ritual",
       "portfolio-idol-detail",
       "portfolio-housewarming-family",
@@ -104,7 +108,7 @@ const sections = sectionDefs.map((def) => ({
   ),
 }));
 
-// Global ordered array (all 32 in section order) for lightbox navigation
+// Global ordered array (all 36 in section order) for lightbox navigation
 const orderedImages = sections.flatMap((s) => s.items);
 
 const lightboxImages = await Promise.all(

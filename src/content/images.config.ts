@@ -10,6 +10,10 @@ import portfolioHousewarmingRitual from "../assets/images/portfolio/portfolio-ho
 import portfolioHousewarmingFamily from "../assets/images/portfolio/portfolio-housewarming-family.webp";
 import portfolioFireceremony from "../assets/images/portfolio/portfolio-fireceremony.webp";
 import portfolioIdolDetail from "../assets/images/portfolio/portfolio-idol-detail.webp";
+import portfolioHousewarmingCouple from "../assets/images/portfolio/portfolio-housewarming-couple.webp";
+import portfolioHousewarmingGarland from "../assets/images/portfolio/portfolio-housewarming-garland.webp";
+import portfolioHousewarmingExterior from "../assets/images/portfolio/portfolio-housewarming-exterior.webp";
+import portfolioHousewarmingCandid from "../assets/images/portfolio/portfolio-housewarming-candid.webp";
 import portfolioHalfsareeApplication from "../assets/images/portfolio/portfolio-halfsaree-application.webp";
 import portfolioHalfsareeTilak from "../assets/images/portfolio/portfolio-halfsaree-tilak.webp";
 import portfolioHalfsareeSisters from "../assets/images/portfolio/portfolio-halfsaree-sisters.webp";
@@ -180,6 +184,26 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "Meet the Photographer",
   },
   {
+    img: portfolioHousewarmingGarland,
+    alt: "Garlanding ritual during a Fulshear TX housewarming ceremony with family gathered close",
+    category: "housewarming-photography",
+    label: "Housewarming Rituals",
+    caption:
+      "A garlanding moment captured mid-ritual during a Fulshear TX housewarming — real ceremony, not a reenactment for the camera.",
+    link: "/housewarming-photography-katy-tx",
+    linkText: "Housewarming Photography",
+  },
+  {
+    img: portfolioHousewarmingCouple,
+    alt: "Portrait of a couple during a Fulshear TX housewarming celebration with traditional jewelry and warm connection",
+    category: "housewarming-photography",
+    label: "Housewarming Portraits",
+    caption:
+      "A close, unposed portrait from a Fulshear TX housewarming — the kind of genuine connection that makes a milestone gallery feel personal.",
+    link: "/housewarming-photography-katy-tx",
+    linkText: "See Housewarming Work",
+  },
+  {
     img: portfolioHousewarmingRitual,
     alt: "Housewarming ritual photography in Katy TX capturing a candid traditional ceremony moment",
     category: "housewarming-photography",
@@ -216,6 +240,26 @@ export const portfolioImages: PortfolioImage[] = [
     label: "Ritual Detail",
     caption:
       "Detail photography for the small symbols that carry a lot of meaning — part of how NiO Pictures covers a Houston-area housewarming.",
+    link: "/housewarming-photography-katy-tx",
+    linkText: "Housewarming Photography",
+  },
+  {
+    img: portfolioHousewarmingExterior,
+    alt: "Twilight exterior of a newly decorated home during a Fulshear TX housewarming celebration",
+    category: "housewarming-photography",
+    label: "Housewarming Arrival",
+    caption:
+      "The home itself, lit and ready for guests — an establishing shot that gives a Fulshear TX housewarming gallery its sense of place.",
+    link: "/housewarming-photography-katy-tx",
+    linkText: "See Housewarming Work",
+  },
+  {
+    img: portfolioHousewarmingCandid,
+    alt: "Candid couple portrait walking toward a decorated entryway during a Fulshear TX housewarming celebration",
+    category: "housewarming-photography",
+    label: "Housewarming Candids",
+    caption:
+      "Real movement and a genuine glance back — candid coverage from a Fulshear TX housewarming that goes beyond posed portraits.",
     link: "/housewarming-photography-katy-tx",
     linkText: "Housewarming Photography",
   },
@@ -454,187 +498,195 @@ export const portfolioImages: PortfolioImage[] = [
 export const homeImages = {
   aboutPortrait: withDimensions(
     homeAboutPortrait,
-    "Katy TX family photographer portrait detail for NiO Pictures home about section"
+    "Katy TX family photographer portrait detail for NiO Pictures home about section",
   ),
   servicePanelEvents: withDimensions(
     homeEventsPanel,
-    "Katy TX event photography panel image featuring polished celebration coverage"
+    "Katy TX event photography panel image featuring polished celebration coverage",
   ),
   servicePanelFamily: withDimensions(
     homeFamilyPanel,
-    "Katy TX family photography panel image with warm connection and movement"
+    "Katy TX family photography panel image with warm connection and movement",
   ),
   gridSlot1: withDimensions(
     homeGridEvents,
-    "Wide night photography of a Houston-area home celebration with pool lighting and gathered guests"
+    "Wide night photography of a Houston-area home celebration with pool lighting and gathered guests",
   ),
   gridSlot2: withDimensions(
     homeGridFamily,
-    "Housewarming ritual photography in Katy TX capturing a candid traditional ceremony moment"
+    "Housewarming ritual photography in Katy TX capturing a candid traditional ceremony moment",
   ),
   gridSlot3: withDimensions(
     homeEventsHero,
-    "Solo portrait photography of a young woman at a Katy TX half-saree ceremony with floral backdrop styling"
+    "Solo portrait photography of a young woman at a Katy TX half-saree ceremony with floral backdrop styling",
   ),
   gridSlot4: withDimensions(
     homeAboutMain,
-    "Silver Kamadhenu idol detail photography styled for a Katy TX housewarming celebration"
+    "Silver Kamadhenu idol detail photography styled for a Katy TX housewarming celebration",
   ),
   gridSlot5: withDimensions(
     homeFamilyHero,
-    "Mother and daughter portrait photography in Katy TX showing genuine warmth and connection"
+    "Mother and daughter portrait photography in Katy TX showing genuine warmth and connection",
   ),
   gridSlot6: withDimensions(
     homeGridPortrait,
-    "Outdoor family photography in golden hour light for a Katy TX family near Houston"
+    "Outdoor family photography in golden hour light for a Katy TX family near Houston",
   ),
 };
 
 export const eventsImages = {
   pageHero: withDimensions(
     eventsHero,
-    "Couple portrait photography under string lights at a Houston-area evening celebration"
+    "Couple portrait photography under string lights at a Houston-area evening celebration",
   ),
   gridSlot1: withDimensions(
     eventsPanel,
-    "Candid cake-cutting photography at a Katy TX milestone birthday celebration with family gathered close"
+    "Candid cake-cutting photography at a Katy TX milestone birthday celebration with family gathered close",
   ),
   gridSlot2: withDimensions(
     eventsFamilyPanel,
-    "Couple portrait photography at a Houston-area home entryway during a festive celebration"
+    "Couple portrait photography at a Houston-area home entryway during a festive celebration",
   ),
   gridSlot3: withDimensions(
     eventsAboutPortrait,
-    "Group portrait of friends in colorful kurtas at a Houston-area evening celebration"
+    "Group portrait of friends in colorful kurtas at a Houston-area evening celebration",
   ),
   gridSlot4: withDimensions(
     eventsAboutMain,
-    "Floral decor detail photography styled for a Katy TX celebration with soft bokeh lighting"
+    "Floral decor detail photography styled for a Katy TX celebration with soft bokeh lighting",
   ),
   gridSlot5: withDimensions(
     eventsFamilyHero,
-    "Katy TX family photography crossover image used on the events page"
+    "Katy TX family photography crossover image used on the events page",
   ),
   gridSlot6: withDimensions(
     eventsAboutMain2,
-    "Editorial portrait of a woman in traditional jewelry with warm bokeh lighting at a Houston-area evening celebration"
+    "Editorial portrait of a woman in traditional jewelry with warm bokeh lighting at a Houston-area evening celebration",
   ),
 };
 
 export const housewarmingImages = {
   pageHero: withDimensions(
     housewarmingHero,
-    "Multi-generational family gathered around the stove as milk boils over during a Katy TX housewarming Grihapravesam ritual"
+    "Multi-generational family gathered around the stove as milk boils over during a Katy TX housewarming Grihapravesam ritual",
   ),
   gridSlot1: withDimensions(
     housewarmingGrid1,
-    "Multi-generational family portrait at a Katy TX housewarming celebration"
+    "Multi-generational family portrait at a Katy TX housewarming celebration",
   ),
   gridSlot2: withDimensions(
     housewarmingGrid2,
-    "Traditional fire ceremony (homam) during a Katy TX housewarming ritual"
+    "Traditional fire ceremony (homam) during a Katy TX housewarming ritual",
   ),
   gridSlot3: withDimensions(
     housewarmingGrid3,
-    "Silver Kamadhenu idol detail styled for a Katy TX housewarming celebration"
+    "Silver Kamadhenu idol detail styled for a Katy TX housewarming celebration",
   ),
 };
 
 export const halfSareeImages = {
   pageHero: withDimensions(
     halfSareeHero,
-    "Tilak blessing moment during a Katy TX half-saree ceremony with traditional jewelry and floral backdrop"
+    "Tilak blessing moment during a Katy TX half-saree ceremony with traditional jewelry and floral backdrop",
   ),
   gridSlot1: withDimensions(
     halfSareeGrid1,
-    "Family portrait at a Katy TX half-saree ceremony celebration"
+    "Family portrait at a Katy TX half-saree ceremony celebration",
   ),
   gridSlot2: withDimensions(
     halfSareeGrid2,
-    "Solo portrait of a young woman in traditional half-saree ceremony attire with floral backdrop in Katy TX"
+    "Solo portrait of a young woman in traditional half-saree ceremony attire with floral backdrop in Katy TX",
   ),
   gridSlot3: withDimensions(
     halfSareeGrid3,
-    "Sisters portrait at a Katy TX half-saree ceremony with traditional jewelry"
+    "Sisters portrait at a Katy TX half-saree ceremony with traditional jewelry",
   ),
 };
 
 export const familyImages = {
   pageHero: withDimensions(
     familyHeroNew,
-    "South Asian family of four in traditional attire at a celebration in Katy TX — NiO Pictures family photography"
+    "South Asian family of four in traditional attire at a celebration in Katy TX — NiO Pictures family photography",
   ),
   gridSlot1: withDimensions(
     familyPanel,
-    "Houston TX family photography panel image with natural connection and movement"
+    "Houston TX family photography panel image with natural connection and movement",
   ),
   gridSlot2: withDimensions(
     familyAboutPortrait,
-    "Multi-generational family portrait on an indoor staircase in Katy TX, parents with teenage son and young daughter in traditional attire"
+    "Multi-generational family portrait on an indoor staircase in Katy TX, parents with teenage son and young daughter in traditional attire",
   ),
   gridSlot3: withDimensions(
     familyAboutMain,
-    "Outdoor golden hour family portrait in Katy TX, parents and teenage son sharing a candid moment in natural light"
+    "Outdoor golden hour family portrait in Katy TX, parents and teenage son sharing a candid moment in natural light",
   ),
   gridSlot4: withDimensions(
     familyEventsPanel,
-    "Houston TX event photography panel image referenced from the family page"
+    "Houston TX event photography panel image referenced from the family page",
   ),
   gridSlot5: withDimensions(
     familyEventsHero,
-    "Katy TX event photography crossover image featured on the family page"
+    "Katy TX event photography crossover image featured on the family page",
   ),
   gridSlot6: withDimensions(
     familyGrid6,
-    "Multi-generational family gathered for a housewarming ritual blessing in a Katy TX neighborhood, three generations in traditional dress"
+    "Multi-generational family gathered for a housewarming ritual blessing in a Katy TX neighborhood, three generations in traditional dress",
   ),
 };
 
 export const aboutImages = {
   main: withDimensions(
     aboutMain,
-    "Palanivel of NiO Pictures photographed in Katy TX for the Houston-area about page"
+    "Palanivel of NiO Pictures photographed in Katy TX for the Houston-area about page",
   ),
 };
 
 export const katyImages = {
-  pageHero: withDimensions(katyHero,
-    "Mother applying sandalwood during a half-saree ceremony in Katy TX — milestone photography by NiO Pictures"
+  pageHero: withDimensions(
+    katyHero,
+    "Mother applying sandalwood during a half-saree ceremony in Katy TX — milestone photography by NiO Pictures",
   ),
 };
 export const houstonImages = {
-  pageHero: withDimensions(houstonHero,
-    "Couple in traditional South Asian attire at a Diwali celebration in Houston TX — NiO Pictures event photography"
+  pageHero: withDimensions(
+    houstonHero,
+    "Couple in traditional South Asian attire at a Diwali celebration in Houston TX — NiO Pictures event photography",
   ),
 };
 export const fulshearImages = {
-  pageHero: withDimensions(fulshearHero,
-    "Multi-generational family at a housewarming celebration in Fulshear TX photographed by NiO Pictures"
+  pageHero: withDimensions(
+    fulshearHero,
+    "Multi-generational family at a housewarming celebration in Fulshear TX photographed by NiO Pictures",
   ),
 };
 export const sugarLandImages = {
-  pageHero: withDimensions(sugarLandHero,
-    "Family portrait at a half-saree ceremony celebration in Sugar Land TX — NiO Pictures"
+  pageHero: withDimensions(
+    sugarLandHero,
+    "Family portrait at a half-saree ceremony celebration in Sugar Land TX — NiO Pictures",
   ),
 };
 export const richmondImages = {
-  pageHero: withDimensions(richmondHero,
-    "Family portrait at a housewarming celebration in Richmond TX — NiO Pictures"
+  pageHero: withDimensions(
+    richmondHero,
+    "Family portrait at a housewarming celebration in Richmond TX — NiO Pictures",
   ),
 };
 export const cypressImages = {
-  pageHero: withDimensions(cypressHero,
-    "Sisters in traditional attire at a half-saree ceremony in Cypress TX — NiO Pictures"
+  pageHero: withDimensions(
+    cypressHero,
+    "Sisters in traditional attire at a half-saree ceremony in Cypress TX — NiO Pictures",
   ),
 };
 export const corporateImages = {
-  pageHero: withDimensions(corporateHero,
-    "Group of professionals in formal kurtas at a corporate event in Katy TX — NiO Pictures"
+  pageHero: withDimensions(
+    corporateHero,
+    "Group of professionals in formal kurtas at a corporate event in Katy TX — NiO Pictures",
   ),
 };
 export const videographyImages = {
-  pageHero: withDimensions(videographyHero,
-    "Couple in a cinematic doorway portrait during a South Asian celebration — NiO Pictures highlight films"
+  pageHero: withDimensions(
+    videographyHero,
+    "Couple in a cinematic doorway portrait during a South Asian celebration — NiO Pictures highlight films",
   ),
 };
 
@@ -645,15 +697,15 @@ export const momentStories: MomentStory[] = [
     images: [
       withDimensions(
         storyHousewarming1,
-        "Guests gathering in a newly decorated Fulshear TX home during a housewarming party photographed by NiO Pictures"
+        "Guests gathering in a newly decorated Fulshear TX home during a housewarming party photographed by NiO Pictures",
       ),
       withDimensions(
         storyHousewarming2,
-        "Candid celebration moment from a Houston-area housewarming party covered by NiO Pictures near Katy TX"
+        "Candid celebration moment from a Houston-area housewarming party covered by NiO Pictures near Katy TX",
       ),
       withDimensions(
         storyHousewarming3,
-        "Warm connection and room detail from a Fulshear TX housewarming session photographed by NiO Pictures"
+        "Warm connection and room detail from a Fulshear TX housewarming session photographed by NiO Pictures",
       ),
     ],
     testimonial: {
@@ -670,15 +722,15 @@ export const momentStories: MomentStory[] = [
     images: [
       withDimensions(
         storyPortrait1,
-        "Katy TX pre-dance portrait session for 8th grade students photographed with NiO Pictures near Houston"
+        "Katy TX pre-dance portrait session for 8th grade students photographed with NiO Pictures near Houston",
       ),
       withDimensions(
         storyPortrait2,
-        "Teen group portrait photography at a Katy TX graduation dance event captured by NiO Pictures"
+        "Teen group portrait photography at a Katy TX graduation dance event captured by NiO Pictures",
       ),
       withDimensions(
         storyPortrait3,
-        "Editorial-style pre-dance portrait with natural energy and connection in Katy TX by NiO Pictures"
+        "Editorial-style pre-dance portrait with natural energy and connection in Katy TX by NiO Pictures",
       ),
     ],
     testimonial: {
@@ -695,15 +747,15 @@ export const momentStories: MomentStory[] = [
     images: [
       withDimensions(
         storyBirthday1,
-        "Houston-area 40th birthday celebration photography capturing milestone moments in Katy TX"
+        "Houston-area 40th birthday celebration photography capturing milestone moments in Katy TX",
       ),
       withDimensions(
         storyBirthday2,
-        "Candid 40th birthday party photography with warm atmosphere photographed by NiO Pictures near Houston"
+        "Candid 40th birthday party photography with warm atmosphere photographed by NiO Pictures near Houston",
       ),
       withDimensions(
         storyBirthday3,
-        "Guest connection and celebratory detail from a Katy TX area 40th birthday party by NiO Pictures"
+        "Guest connection and celebratory detail from a Katy TX area 40th birthday party by NiO Pictures",
       ),
     ],
     caption:
