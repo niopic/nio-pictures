@@ -59,16 +59,18 @@ export interface AddOn {
 
 export const CURRENCY = "USD" as const;
 
-const HERITAGE_PHOTO_TURNAROUND = { value: 48, unit: "hours" } as const;
+const HERITAGE_PHOTO_TURNAROUND = { value: 7, unit: "days" } as const;
 const HERITAGE_FILM_TURNAROUND = { value: 3, unit: "weeks" } as const;
 const HERITAGE_COVERAGE_HOURS = 3 as const;
 
-const GALA_PHOTO_TURNAROUND = { value: 48, unit: "hours" } as const;
+const GALA_PHOTO_TURNAROUND = { value: 7, unit: "days" } as const;
 const GALA_FILM_TURNAROUND = { value: 3, unit: "weeks" } as const;
 const GALA_COVERAGE_HOURS = 4 as const;
 
 const LEGACY_PHOTO_TURNAROUND = { value: 7, unit: "days" } as const;
 const LEGACY_COVERAGE_HOURS = 1.5 as const;
+
+export const CORPORATE_PHOTO_TURNAROUND = { value: 7, unit: "days" } as const;
 
 export const PACKAGES: Package[] = [
   {
