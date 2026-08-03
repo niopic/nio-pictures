@@ -779,7 +779,7 @@ const filmShowcaseLd = JSON.stringify({
             <div class="step-number">04</div>
             <h3 class="display-sm">Gallery Delivery</h3>
             <p class="body-sm">
-              Your private online gallery is delivered within 2-3 weeks, ready
+              Your private online gallery is delivered within {formatTurnaroundFull(PACKAGES.find(p => p.id === "heritage-session")!.photoTurnaround)}, ready
               to download and share.
             </p>
           </div>

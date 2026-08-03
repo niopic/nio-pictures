@@ -1,6 +1,8 @@
 ﻿---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.astro";
+import { PACKAGES, formatTurnaroundFull } from "../data/pricing";
+const heritageSession = PACKAGES.find((p) => p.id === "heritage-session")!;
 const title = "Contact NiO Pictures | Event \u0026 Family Photographer Katy TX";
 const description =
   "Ready to book? Reach out to NiO Pictures — Katy TX event & family photographer. Call or text 281-409-3585. Serving Katy, Fulshear, Cypress, Sugar Land, Richmond & Houston.";
@@ -395,7 +397,7 @@ const extraHead = `<script type="application/ld+json">
             </li>
             <li style="color: var(--muted);">
               <span style="color: var(--cream);">Delivery</span> — Post-session, you'll
-              receive edited galleries within 2–3 weeks.
+              receive edited galleries within {formatTurnaroundFull(heritageSession.photoTurnaround)}.
             </li>
           </ol>
         </div>

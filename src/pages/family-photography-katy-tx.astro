@@ -5,7 +5,7 @@ import Nav from "../components/Nav.astro";
 import PricingSection from "../components/PricingSection.astro";
 
 import { familyImages } from "../content/images.config";
-import { formatUSD, PACKAGES, packageFrom } from "../data/pricing";
+import { formatUSD, PACKAGES, packageFrom, formatTurnaroundFull } from "../data/pricing";
 
 const siteUrl = "https://niopictures.com";
 const familyHeroImagePath = familyImages.pageHero.img.src;
@@ -71,7 +71,7 @@ const familyFaqLd = JSON.stringify({
       name: "When will I receive my family photos?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: `Photos from the Legacy Collection are delivered within 7 days. You'll receive a private Pixieset gallery link where you can view, download, share, and order prints. Rush delivery may be available on request.`,
+        text: `Photos from the Legacy Collection are delivered within ${formatTurnaroundFull(legacyPkg.photoTurnaround)}. You'll receive a private Pixieset gallery link where you can view, download, share, and order prints. Rush delivery may be available on request.`,
       },
     },
     {
@@ -597,7 +597,7 @@ const familyFaqLd = JSON.stringify({
             <div class="step-number">04</div>
             <h3 class="display-sm">Gallery Delivery</h3>
             <p class="body-sm">
-              Your private online gallery is delivered within 2-3 weeks,
+              Your private online gallery is delivered within {formatTurnaroundFull(legacyPkg.photoTurnaround)},
               ready to download and share.
             </p>
           </div>
@@ -711,9 +711,8 @@ const familyFaqLd = JSON.stringify({
               ></summary
             >
             <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
-              Essential and Signature sessions are delivered within 10 days.
-              Premium sessions within 7 days. You will receive a link to your
-              private Pixieset gallery where you can view, download, share, and
+              Photos from the Legacy Collection are delivered within {formatTurnaroundFull(legacyPkg.photoTurnaround)}.
+              You will receive a link to your private Pixieset gallery where you can view, download, share, and
               order prints - all in one place. Rush delivery may be available
               for select sessions; contact me to discuss.
             </p>

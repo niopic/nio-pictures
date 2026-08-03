@@ -2,6 +2,8 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.astro";
 import PricingSection from "../components/PricingSection.astro";
+import { PACKAGES, formatTurnaroundFull } from "../data/pricing";
+const heritageSession = PACKAGES.find((p) => p.id === "heritage-session")!;
 const title = "Book a Photography Session | NiO Pictures — Katy TX";
 const description =
   "Book event & family photography sessions with NiO Pictures in Katy TX. We confirm within 24 hours. Serving Houston, Sugar Land & Richmond. Weekends and weeknights available.";
@@ -165,7 +167,7 @@ const extraHead = `<script type="application/ld+json">
                     Gallery delivery
                   </p>
                   <p class="body-sm">
-                    Your private online gallery is ready within 2–3 weeks.
+                    Your private online gallery is ready within {formatTurnaroundFull(heritageSession.photoTurnaround)}.
                   </p>
                 </div>
               </div>

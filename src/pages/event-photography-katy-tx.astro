@@ -5,6 +5,8 @@ import Nav from "../components/Nav.astro";
 import PricingSection from "../components/PricingSection.astro";
 
 import { eventsImages } from "../content/images.config";
+import { PACKAGES, formatTurnaroundFull } from "../data/pricing";
+const heritageSession = PACKAGES.find((p) => p.id === "heritage-session")!;
 
 const siteUrl = "https://niopictures.com";
 const eventHeroImagePath = eventsImages.pageHero.img.src;
@@ -483,7 +485,7 @@ const eventHeroImageLd = JSON.stringify({
             <div class="step-number">04</div>
             <h3 class="display-sm">Gallery Delivery</h3>
             <p class="body-sm">
-              Your private online gallery is delivered within 2-3 weeks, ready
+              Your private online gallery is delivered within {formatTurnaroundFull(heritageSession.photoTurnaround)}, ready
               to download and share.
             </p>
           </div>
