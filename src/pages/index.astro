@@ -41,14 +41,15 @@ const heritageFilmTier = PACKAGES.find((p) => p.id === "heritage-session")!.tier
 const filmShowcaseLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  name: "Pongal Celebration — Tamil Sangam",
+  name: "40th Birthday Celebration — Bollywood Theme",
   description:
-    "A glimpse of our cinematic highlight films, captured for a Pongal celebration with Tamil Sangam.",
-  thumbnailUrl: "https://img.youtube.com/vi/PFTdwktgg2E/maxresdefault.jpg",
-  embedUrl: "https://www.youtube.com/embed/PFTdwktgg2E",
-  contentUrl: "https://youtu.be/PFTdwktgg2E",
-  // TODO: add precise `duration` (ISO 8601, e.g. "PT2M14S") once confirmed
-  uploadDate: "2026-01-30",
+    "A glimpse of our cinematic highlight films, captured for a Bollywood-themed 40th birthday celebration at Jemima Event Venue in Houston.",
+  thumbnailUrl: "https://img.youtube.com/vi/y5wZ-k30vBw/maxresdefault.jpg",
+  embedUrl: "https://www.youtube.com/embed/y5wZ-k30vBw",
+  contentUrl: "https://youtu.be/y5wZ-k30vBw",
+  duration: "PT3M5S",
+  uploadDate: "2026-08-02",
+  isFamilyFriendly: true,
   publisher: {
     "@type": "Organization",
     name: "NiO Pictures",
@@ -56,6 +57,10 @@ const filmShowcaseLd = JSON.stringify({
       "@type": "ImageObject",
       url: "https://niopictures.com/assets/images/og-home.webp",
     },
+  },
+  potentialAction: {
+    "@type": "WatchAction",
+    target: "https://youtu.be/y5wZ-k30vBw",
   },
 });
 
@@ -421,6 +426,8 @@ const filmShowcaseLd = JSON.stringify({
       href={heroHomeImage.src}
       fetchpriority="high"
     />
+    <link rel="preconnect" href="https://img.youtube.com" />
+    <link rel="preconnect" href="https://www.youtube-nocookie.com" />
     <script type="application/ld+json" is:inline set:html={homeHeroImageLd} />
     <script type="application/ld+json" is:inline set:html={filmShowcaseLd} />
     <script type="application/ld+json" is:inline>
@@ -703,20 +710,24 @@ const filmShowcaseLd = JSON.stringify({
           </div>
         </div>
 
-        <!-- PLACEHOLDER FILM: swap PFTdwktgg2E for the 40th birthday highlight film once delivered -->
-        <div class="film-showcase reveal reveal-delay-1" style="max-width: 860px; margin: 2.5rem auto 0;">
+        <!-- 40th birthday highlight film — live as of 2026-08-02 -->
+        <div class="film-showcase reveal reveal-delay-1" style="max-width: 1120px; margin: 2.5rem auto 0;">
           <div
             class="film-poster"
             role="button"
             tabindex="0"
-            aria-label="Play highlight film: Pongal Celebration, Tamil Sangam"
-            data-video-id="PFTdwktgg2E"
+            aria-label="Play highlight film: 40th Birthday Celebration, Bollywood Theme"
+            data-video-id="y5wZ-k30vBw"
             style="position: relative; aspect-ratio: 16/9; border: 1px solid var(--border-light); border-radius: 2px; overflow: hidden; cursor: pointer; background: var(--surface-2);"
           >
             <img
-              src="https://img.youtube.com/vi/PFTdwktgg2E/maxresdefault.jpg"
-              alt="Pongal Celebration, Tamil Sangam — highlight film preview"
+              src="https://img.youtube.com/vi/y5wZ-k30vBw/maxresdefault.jpg"
+              onerror="this.onerror=null;this.src='https://img.youtube.com/vi/y5wZ-k30vBw/hqdefault.jpg';"
+              alt="40th Birthday Celebration, Bollywood Theme — highlight film preview"
+              width="1280"
+              height="720"
               loading="lazy"
+              decoding="async"
               style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;"
             />
             <span
@@ -730,7 +741,7 @@ const filmShowcaseLd = JSON.stringify({
             </span>
           </div>
           <p class="body-sm" style="text-align: center; color: var(--muted); margin-top: 1rem;">
-            Pongal Celebration — Tamil Sangam
+            40th Birthday Celebration — Bollywood Theme
           </p>
           <p class="body-sm" style="text-align: center; color: var(--cream);">
             A glimpse of our cinematic highlight films.

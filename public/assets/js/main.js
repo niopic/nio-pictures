@@ -303,7 +303,7 @@
       const activate = () => {
         const videoId = poster.dataset.videoId;
         const iframe = document.createElement("iframe");
-        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&playsinline=1&rel=0`;
         iframe.title = "NiO Pictures highlight film";
         iframe.frameBorder = "0";
         iframe.allow =
@@ -313,6 +313,7 @@
         iframe.style.inset = "0";
         iframe.style.width = "100%";
         iframe.style.height = "100%";
+        iframe.style.border = "0";
         poster.replaceChildren(iframe);
       };
       poster.addEventListener("click", activate);
