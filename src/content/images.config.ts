@@ -22,6 +22,9 @@ import portfolioHalfsareeSolo from "../assets/images/portfolio/portfolio-halfsar
 import portfolioHalfsareeGrandparents from "../assets/images/portfolio/portfolio-halfsaree-grandparents.webp";
 import portfolioHalfsareeGift from "../assets/images/portfolio/portfolio-halfsaree-gift.webp";
 import portfolioHalfsareeHennaDetail from "../assets/images/portfolio/portfolio-halfsaree-henna-detail.webp";
+import portfolioHalfsareeHennaFrame from "../assets/images/portfolio/portfolio-halfsaree-henna-frame.webp";
+import portfolioHalfsareeSelfieCandid from "../assets/images/portfolio/portfolio-halfsaree-selfie-candid.webp";
+import portfolioHalfsareeSpotlight from "../assets/images/portfolio/portfolio-halfsaree-spotlight.webp";
 import portfolioFamilyGoldenhour from "../assets/images/portfolio/portfolio-family-goldenhour.webp";
 import portfolioFamilyStairs from "../assets/images/portfolio/portfolio-family-stairs.webp";
 import portfolioMothersEmbrace from "../assets/images/portfolio/portfolio-mothers-embrace.webp";
@@ -63,7 +66,7 @@ import halfSareeGettingReady from "../assets/images/halfsaree-getting-ready.webp
 import halfSareeHaldi from "../assets/images/halfsaree-haldi.webp";
 import halfSareeMehndiApplication from "../assets/images/halfsaree-mehndi-application.webp";
 import halfSareeFatherDaughter from "../assets/images/halfsaree-father-daughter.webp";
-import halfSareeSpotlightPortrait from "../assets/images/halfsaree-spotlight-portrait.webp";
+import halfSareeArmrestPortrait from "../assets/images/halfsaree-armrest-portrait.webp";
 
 import eventsHero from "../assets/images/events-hero.webp";
 import eventsPanel from "../assets/images/events-panel.webp";
@@ -371,6 +374,39 @@ export const portfolioImages: PortfolioImage[] = [
       "Intricate henna detail from a recent Katy TX half-saree celebration.",
     link: "/half-saree-photography-katy-tx",
     linkText: "Half-Saree Photography",
+  },
+  {
+    key: "portfolio-halfsaree-henna-frame",
+    img: portfolioHalfsareeHennaFrame,
+    alt: "Young woman framing her face with intricately hennaed hands during a half-saree ceremony in Katy TX",
+    category: "half-saree-photography",
+    label: "Half-Saree Henna Detail",
+    caption:
+      "Finished henna, styled as its own portrait moment — the kind of detail Katy TX families treasure from this milestone.",
+    link: "/half-saree-photography-katy-tx",
+    linkText: "See Half-Saree Work",
+  },
+  {
+    key: "portfolio-halfsaree-selfie-candid",
+    img: portfolioHalfsareeSelfieCandid,
+    alt: "Candid selfie moment between a young woman and a family member during a half-saree ceremony celebration in Katy TX",
+    category: "half-saree-photography",
+    label: "Half-Saree Candid Moment",
+    caption:
+      "The unposed, in-between moments — a quick selfie with family — that make a half-saree celebration feel real.",
+    link: "/half-saree-photography-katy-tx",
+    linkText: "Half-Saree Photography",
+  },
+  {
+    key: "portfolio-halfsaree-spotlight",
+    img: portfolioHalfsareeSpotlight,
+    alt: "Full-length portrait of a young woman in traditional half-saree ceremony attire in Katy TX, seated beneath a floral arch",
+    category: "half-saree-photography",
+    label: "Half-Saree Spotlight Portrait",
+    caption:
+      "A dedicated spotlight portrait from a half-saree celebration, floral-framed and unhurried — the kind of image a Katy TX family showcases first.",
+    link: "/half-saree-photography-katy-tx",
+    linkText: "See Half-Saree Work",
   },
   {
     key: "portfolio-family-goldenhour",
@@ -691,8 +727,8 @@ export const halfSareeImages = {
     "Family elders blessing a young woman during her half-saree ceremony in Katy TX, hands raised in traditional benediction under a floral arch",
   ),
   spotlightPortrait: withDimensions(
-    halfSareeSpotlightPortrait,
-    "Full-length portrait of a young woman in traditional half-saree ceremony attire in Katy TX, seated beneath a floral arch",
+    halfSareeArmrestPortrait,
+    "Relaxed portrait of a young woman in traditional half-saree ceremony attire in Katy TX, leaning against a sofa arm beneath a floral arch",
   ),
 };
 
