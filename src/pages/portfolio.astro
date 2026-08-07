@@ -8,22 +8,6 @@ const siteUrl = "https://niopictures.com";
 
 const sectionDefs = [
   {
-    id: "housewarming",
-    heading: "Housewarming Celebrations",
-    intro: "The rituals, the gathered family, the new home — covered as it actually happens.",
-    category: "housewarming-photography",
-    order: [
-      "portfolio-housewarming-couple",
-      "portfolio-housewarming-garland",
-      "portfolio-housewarming-exterior",
-      "portfolio-housewarming-candid",
-      "portfolio-housewarming-ritual",
-      "portfolio-idol-detail",
-      "portfolio-housewarming-family",
-      "portfolio-fireceremony",
-    ],
-  },
-  {
     id: "halfsaree",
     heading: "Half-Saree Ceremonies",
     intro: "A milestone celebration captured from the ceremony itself through to the family portraits after.",
@@ -39,6 +23,22 @@ const sectionDefs = [
       "portfolio-halfsaree-henna-detail",
       "portfolio-halfsaree-henna-frame",
       "portfolio-halfsaree-selfie-candid",
+    ],
+  },
+  {
+    id: "housewarming",
+    heading: "Housewarming Celebrations",
+    intro: "The rituals, the gathered family, the new home — covered as it actually happens.",
+    category: "housewarming-photography",
+    order: [
+      "portfolio-housewarming-couple",
+      "portfolio-housewarming-garland",
+      "portfolio-housewarming-exterior",
+      "portfolio-housewarming-candid",
+      "portfolio-housewarming-ritual",
+      "portfolio-idol-detail",
+      "portfolio-housewarming-family",
+      "portfolio-fireceremony",
     ],
   },
   {
@@ -255,7 +255,7 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
       ))
     }
 
-    <!-- Image data for lightbox (in section order: housewarming → halfsaree → events → family → editorial) -->
+    <!-- Image data for lightbox (in section order: halfsaree → housewarming → events → family → editorial) -->
     <script
       id="port-data"
       type="application/json"
