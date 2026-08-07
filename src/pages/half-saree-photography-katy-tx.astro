@@ -61,6 +61,14 @@ const extraHead = `<script type="application/ld+json">
           "@type": "Answer",
           "text": "Coverage includes the full ceremony — from the traditional saree-draping moment through family blessings and celebrations afterward — for up to ${formatCoverageHours(heritageSession.coverageHours)}. You'll receive 150+ edited photos within ${formatTurnaroundFull(heritageSession.photoTurnaround)}, with the option to add ${heritageFilmTier.proseLabel ?? heritageFilmTier.label}, delivered in about ${formatTurnaroundFull(heritageFilmTier.turnaround!)}."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "What rituals are typically photographed at a half-saree ceremony?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Coverage typically includes haldi (turmeric application), the water-pouring ritual, mehndi (henna) application, blessings from family elders, and the reception celebration — whether that spans one location or two, such as a home ceremony followed by a venue celebration."
+        }
       }
     ]
   }
@@ -127,24 +135,26 @@ const extraHead = `<script type="application/ld+json">
           <div class="feature-icon">◇</div>
           <h3 class="feature-title">The Preparation</h3>
           <p class="body-sm">
-            Getting ready, the saree draping, the jewelry and details that make
-            the day feel different from any other.
+            Getting ready, the saree draping, the mehndi application - the quiet,
+            detail-rich moments before the ceremony begins.
           </p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">◈</div>
           <h3 class="feature-title">The Ceremony</h3>
           <p class="body-sm">
-            The blessings, the traditions, the family gathered around -
-            photographed candidly as it unfolds.
+            Haldi, the water-pouring ritual, blessings from family elders -
+            traditions captured candidly as they unfold, from backyard to
+            banquet hall.
           </p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">◉</div>
           <h3 class="feature-title">Portraits</h3>
           <p class="body-sm">
-            Individual and family portraits that capture this milestone the way
-            it deserves to be remembered.
+            Individual and family portraits, including grandparents and
+            siblings, that capture this milestone the way it deserves to be
+            remembered.
           </p>
         </div>
       </div>
@@ -232,9 +242,116 @@ const extraHead = `<script type="application/ld+json">
             style="background:var(--surface-2)"
           />
         </div>
+        <div class="grid-item">
+          <Image
+            src={halfSareeImages.gridSlot4.img}
+            alt={halfSareeImages.gridSlot4.alt}
+            loading="lazy"
+            widths={[300, 400, 800]}
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            width={400}
+            height={533}
+            style="background:var(--surface-2)"
+          />
+        </div>
+        <div class="grid-item">
+          <Image
+            src={halfSareeImages.gridSlot5.img}
+            alt={halfSareeImages.gridSlot5.alt}
+            loading="lazy"
+            widths={[300, 400, 800]}
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            width={400}
+            height={533}
+            style="background:var(--surface-2)"
+          />
+        </div>
+        <div class="grid-item">
+          <Image
+            src={halfSareeImages.gridSlot6.img}
+            alt={halfSareeImages.gridSlot6.alt}
+            loading="lazy"
+            widths={[400, 800, 1200]}
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            width={800}
+            height={533}
+            style="background:var(--surface-2)"
+          />
+        </div>
       </div>
     </div>
   </section>
+
+  <section class="section spotlight-section">
+    <div class="container">
+      <div class="spotlight-grid reveal">
+        <div class="spotlight-image">
+          <Image
+            src={halfSareeImages.spotlightPortrait.img}
+            alt={halfSareeImages.spotlightPortrait.alt}
+            loading="lazy"
+            widths={[400, 800, 1200]}
+            sizes="(max-width: 768px) 100vw, 50vw"
+            width={800}
+            height={1200}
+            style="background:var(--surface-2)"
+          />
+        </div>
+        <div class="spotlight-quote">
+          <p class="eyebrow" style="margin-bottom:1rem;">A Recent Half-Saree Ceremony</p>
+          <div class="gold-line gold-line-animate" style="margin-bottom:1.5rem;"></div>
+          <div class="testimonial-stars" style="margin-bottom:1rem;">★★★★★</div>
+          <p class="body-lg" style="margin-bottom:1.5rem;">
+            "We had an absolutely wonderful experience with Palani at NiO
+            Pictures for our daughter's half saree ceremony... He covered
+            both days of our celebration&mdash;first at our home and
+            backyard, and then at our party hall&mdash;capturing every
+            special moment beautifully with professionalism, creativity,
+            and an incredible eye for detail... If you're looking for a
+            photographer who is talented, dependable, accommodating,
+            reasonably priced, and delivers exceptional quality, we
+            wholeheartedly recommend Palani and NiO Pictures."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">ST</div>
+            <div>
+              <div class="testimonial-name">Sunny T.</div>
+              <div class="testimonial-role">Half-Saree Ceremony &middot; Houston, TX</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .spotlight-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .spotlight-image {
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .spotlight-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    @media (max-width: 860px) {
+      .spotlight-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .spotlight-image {
+        max-width: 420px;
+        margin: 0 auto;
+      }
+    }
+  </style>
 
   <section class="section">
     <div class="container" style="max-width:900px;">
@@ -251,7 +368,9 @@ const extraHead = `<script type="application/ld+json">
       >
         The half-saree ceremony marks a significant moment in a young woman's
         life - a transition into womanhood, celebrated with family, tradition,
-        and cultural pride.
+        and cultural pride. Whether your family calls it Langa Voni, Ritu
+        Kala Samskara, or something else entirely, the heart of the
+        celebration is the same.
       </p>
       <p
         class="body-lg reveal reveal-delay-1"

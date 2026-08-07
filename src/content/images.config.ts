@@ -19,6 +19,9 @@ import portfolioHalfsareeTilak from "../assets/images/portfolio/portfolio-halfsa
 import portfolioHalfsareeSisters from "../assets/images/portfolio/portfolio-halfsaree-sisters.webp";
 import portfolioHalfsareeFamily from "../assets/images/portfolio/portfolio-halfsaree-family.webp";
 import portfolioHalfsareeSolo from "../assets/images/portfolio/portfolio-halfsaree-solo.webp";
+import portfolioHalfsareeGrandparents from "../assets/images/portfolio/portfolio-halfsaree-grandparents.webp";
+import portfolioHalfsareeGift from "../assets/images/portfolio/portfolio-halfsaree-gift.webp";
+import portfolioHalfsareeHennaDetail from "../assets/images/portfolio/portfolio-halfsaree-henna-detail.webp";
 import portfolioFamilyGoldenhour from "../assets/images/portfolio/portfolio-family-goldenhour.webp";
 import portfolioFamilyStairs from "../assets/images/portfolio/portfolio-family-stairs.webp";
 import portfolioMothersEmbrace from "../assets/images/portfolio/portfolio-mothers-embrace.webp";
@@ -53,10 +56,14 @@ import housewarmingGrid1 from "../assets/images/housewarming-grid1.webp";
 import housewarmingGrid2 from "../assets/images/housewarming-grid2.webp";
 import housewarmingGrid3 from "../assets/images/housewarming-grid3.webp";
 
-import halfSareeHero from "../assets/images/halfsaree-hero.webp";
-import halfSareeGrid1 from "../assets/images/halfsaree-grid1.webp";
-import halfSareeGrid2 from "../assets/images/halfsaree-grid2.webp";
-import halfSareeGrid3 from "../assets/images/halfsaree-grid3.webp";
+import halfSareeBlessing from "../assets/images/halfsaree-hero-blessing.webp";
+import halfSareeHaldiPortrait from "../assets/images/halfsaree-haldi-portrait.webp";
+import halfSareeWaterPouring from "../assets/images/halfsaree-water-pouring.webp";
+import halfSareeGettingReady from "../assets/images/halfsaree-getting-ready.webp";
+import halfSareeHaldi from "../assets/images/halfsaree-haldi.webp";
+import halfSareeMehndiApplication from "../assets/images/halfsaree-mehndi-application.webp";
+import halfSareeFatherDaughter from "../assets/images/halfsaree-father-daughter.webp";
+import halfSareeSpotlightPortrait from "../assets/images/halfsaree-spotlight-portrait.webp";
 
 import eventsHero from "../assets/images/events-hero.webp";
 import eventsPanel from "../assets/images/events-panel.webp";
@@ -96,6 +103,7 @@ import storyBirthday2 from "../assets/images/story-birthday-2.webp";
 import storyBirthday3 from "../assets/images/story-birthday-3.webp";
 
 type PortfolioImage = {
+  key: string;
   img: ImageMetadata;
   alt: string;
   category: string;
@@ -134,6 +142,7 @@ const withDimensions = (img: ImageMetadata, alt: string): SlotImage => ({
 
 export const portfolioImages: PortfolioImage[] = [
   {
+    key: "portfolio-events-1",
     img: portfolioEvents1,
     alt: "Cinematic Katy TX event photography showing guests and atmosphere during a Houston-area celebration",
     category: "event-photography",
@@ -144,6 +153,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "See Event Work",
   },
   {
+    key: "portfolio-events-2",
     img: portfolioEvents2,
     alt: "Houston TX event photography capturing candid guest interaction at a polished Katy corporate event",
     category: "event-photography",
@@ -154,6 +164,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "Event Photography",
   },
   {
+    key: "portfolio-family-1",
     img: portfolioFamily1,
     alt: "Katy TX family photography portrait in warm evening light for a Houston-area family session",
     category: "family-photography",
@@ -164,6 +175,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "See Family Work",
   },
   {
+    key: "portfolio-family-2",
     img: portfolioFamily2,
     alt: "Lifestyle family photography in Katy TX with natural connection and cinematic light near Houston",
     category: "family-photography",
@@ -174,6 +186,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "Family Photography",
   },
   {
+    key: "portfolio-editorial-1",
     img: portfolioEditorial1,
     alt: "Editorial portrait photography by a Katy TX photographer creating refined branding-style imagery near Houston",
     category: "editorial-portraiture",
@@ -184,6 +197,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "Meet the Photographer",
   },
   {
+    key: "portfolio-housewarming-garland",
     img: portfolioHousewarmingGarland,
     alt: "Garlanding ritual during a Fulshear TX housewarming ceremony with family gathered close",
     category: "housewarming-photography",
@@ -194,6 +208,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "Housewarming Photography",
   },
   {
+    key: "portfolio-housewarming-couple",
     img: portfolioHousewarmingCouple,
     alt: "Portrait of a couple during a Fulshear TX housewarming celebration with traditional jewelry and warm connection",
     category: "housewarming-photography",
@@ -204,6 +219,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "See Housewarming Work",
   },
   {
+    key: "portfolio-housewarming-ritual",
     img: portfolioHousewarmingRitual,
     alt: "Housewarming ritual photography in Katy TX capturing a candid traditional ceremony moment",
     category: "housewarming-photography",
@@ -214,6 +230,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "See Housewarming Work",
   },
   {
+    key: "portfolio-housewarming-family",
     img: portfolioHousewarmingFamily,
     alt: "Multi-generational family portrait at a Katy TX housewarming celebration photographed by NiO Pictures",
     category: "housewarming-photography",
@@ -224,6 +241,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "Housewarming Photography",
   },
   {
+    key: "portfolio-fireceremony",
     img: portfolioFireceremony,
     alt: "Traditional fire ceremony photography during a Houston-area housewarming ritual near Katy TX",
     category: "housewarming-photography",
@@ -234,6 +252,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "See Housewarming Work",
   },
   {
+    key: "portfolio-idol-detail",
     img: portfolioIdolDetail,
     alt: "Silver Kamadhenu idol detail photography styled for a Katy TX housewarming celebration",
     category: "housewarming-photography",
@@ -244,6 +263,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "Housewarming Photography",
   },
   {
+    key: "portfolio-housewarming-exterior",
     img: portfolioHousewarmingExterior,
     alt: "Twilight exterior of a newly decorated home during a Fulshear TX housewarming celebration",
     category: "housewarming-photography",
@@ -254,6 +274,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "See Housewarming Work",
   },
   {
+    key: "portfolio-housewarming-candid",
     img: portfolioHousewarmingCandid,
     alt: "Candid couple portrait walking toward a decorated entryway during a Fulshear TX housewarming celebration",
     category: "housewarming-photography",
@@ -264,6 +285,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "Housewarming Photography",
   },
   {
+    key: "portfolio-halfsaree-application",
     img: portfolioHalfsareeApplication,
     alt: "Half-saree ceremony photography in Katy TX showing a traditional sandalwood application moment",
     category: "half-saree-photography",
@@ -274,6 +296,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "See Half-Saree Work",
   },
   {
+    key: "portfolio-halfsaree-tilak",
     img: portfolioHalfsareeTilak,
     alt: "Tilak ceremony photography during a Katy TX half-saree celebration with traditional blessing gesture",
     category: "half-saree-photography",
@@ -284,6 +307,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "Half-Saree Photography",
   },
   {
+    key: "portfolio-halfsaree-sisters",
     img: portfolioHalfsareeSisters,
     alt: "Sisters portrait photography at a Katy TX half-saree ceremony with traditional jewelry and silk saree styling",
     category: "half-saree-photography",
@@ -294,6 +318,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "See Half-Saree Work",
   },
   {
+    key: "portfolio-halfsaree-family",
     img: portfolioHalfsareeFamily,
     alt: "Family group photography at a Katy TX half-saree ceremony with traditional silk saree and gold jewelry",
     category: "half-saree-photography",
@@ -304,6 +329,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "Half-Saree Photography",
   },
   {
+    key: "portfolio-halfsaree-solo",
     img: portfolioHalfsareeSolo,
     alt: "Solo portrait photography of a young woman at a Katy TX half-saree ceremony with floral backdrop styling",
     category: "half-saree-photography",
@@ -314,6 +340,40 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "See Half-Saree Work",
   },
   {
+    key: "portfolio-halfsaree-grandparents",
+    img: portfolioHalfsareeGrandparents,
+    alt: "Three-generation family portrait at a Katy TX half-saree ceremony, grandparents and granddaughter together",
+    category: "half-saree-photography",
+    label: "Half-Saree Family Portrait",
+    caption:
+      "Grandparents, parents, and the family's newest milestone — captured together at a Katy TX half-saree celebration.",
+    link: "/half-saree-photography-katy-tx",
+    linkText: "Half-Saree Photography",
+  },
+  {
+    key: "portfolio-halfsaree-gift",
+    img: portfolioHalfsareeGift,
+    alt: "Grandparents presenting a gift to their granddaughter during a half-saree ceremony celebration in Katy TX",
+    category: "half-saree-photography",
+    label: "Half-Saree Ceremony Gift",
+    caption:
+      "The small, personal moments — like a grandparent's gift — that make a half-saree celebration feel complete.",
+    link: "/half-saree-photography-katy-tx",
+    linkText: "See Half-Saree Work",
+  },
+  {
+    key: "portfolio-halfsaree-henna-detail",
+    img: portfolioHalfsareeHennaDetail,
+    alt: "Detailed henna design on a hand ahead of a Katy TX half-saree ceremony",
+    category: "half-saree-photography",
+    label: "Half-Saree Mehndi Detail",
+    caption:
+      "Intricate henna detail from a recent Katy TX half-saree celebration.",
+    link: "/half-saree-photography-katy-tx",
+    linkText: "Half-Saree Photography",
+  },
+  {
+    key: "portfolio-family-goldenhour",
     img: portfolioFamilyGoldenhour,
     alt: "Outdoor family photography in golden hour light for a Katy TX family near Houston",
     category: "family-photography",
@@ -324,6 +384,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "See Family Work",
   },
   {
+    key: "portfolio-family-stairs",
     img: portfolioFamilyStairs,
     alt: "Family portrait photography on an indoor staircase for a Katy TX family during a celebration",
     category: "family-photography",
@@ -334,6 +395,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "Family Photography",
   },
   {
+    key: "portfolio-mothers-embrace",
     img: portfolioMothersEmbrace,
     alt: "Mother and daughter portrait photography in Katy TX showing genuine warmth and connection",
     category: "family-photography",
@@ -344,6 +406,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "See Family Work",
   },
   {
+    key: "portfolio-couple-entryway",
     img: portfolioCoupleEntryway,
     alt: "Couple portrait photography at a Houston-area home entryway during a festive celebration",
     category: "event-photography",
@@ -354,6 +417,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "See Event Work",
   },
   {
+    key: "portfolio-cakecutting",
     img: portfolioCakecutting,
     alt: "Candid cake-cutting photography at a Katy TX milestone birthday celebration with family gathered close",
     category: "event-photography",
@@ -364,6 +428,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "Event Photography",
   },
   {
+    key: "portfolio-floral-detail",
     img: portfolioFloralDetail,
     alt: "Floral decor detail photography styled for a Katy TX celebration with soft bokeh lighting",
     category: "event-photography",
@@ -374,6 +439,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "See Event Work",
   },
   {
+    key: "portfolio-editorial-bokeh",
     img: portfolioEditorialBokeh2,
     alt: "Editorial portrait photography with dramatic bokeh lighting for a Houston-area celebration",
     category: "editorial-portraiture",
@@ -384,6 +450,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "Meet the Photographer",
   },
   {
+    key: "portfolio-couple-stringlights",
     img: portfolioCoupleStringlights,
     alt: "Couple portrait photography under string lights at a Houston-area evening celebration",
     category: "event-photography",
@@ -394,6 +461,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "Event Photography",
   },
   {
+    key: "portfolio-group-kurtas",
     img: portfolioGroupKurtas,
     alt: "Group portrait photography of friends in colorful kurtas at a Houston-area celebration",
     category: "event-photography",
@@ -404,6 +472,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "See Event Work",
   },
   {
+    key: "portfolio-venue-night",
     img: portfolioVenueNight,
     alt: "Wide night photography of a Houston-area home celebration with pool lighting and gathered guests",
     category: "event-photography",
@@ -414,6 +483,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "Event Photography",
   },
   {
+    key: "portfolio-diwali-sherwani",
     img: portfolioDiwaliSherwani,
     alt: "Diwali studio portrait photography of a man in white sherwani with pearl detailing near Katy TX",
     category: "editorial-portraiture",
@@ -424,6 +494,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "Meet the Photographer",
   },
   {
+    key: "portfolio-diwali-redscarf",
     img: portfolioDiwaliRedscarf,
     alt: "Diwali studio portrait photography of a man in blue kurta with red dupatta styling near Houston",
     category: "editorial-portraiture",
@@ -434,6 +505,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "Meet the Photographer",
   },
   {
+    key: "portfolio-diwali-redsaree",
     img: portfolioDiwaliRedsaree,
     alt: "Diwali studio portrait photography of a woman in red silk saree with traditional gold jewelry near Katy TX",
     category: "editorial-portraiture",
@@ -444,6 +516,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "Meet the Photographer",
   },
   {
+    key: "portfolio-diwali-bluefloral",
     img: portfolioDiwaliBluefloral,
     alt: "Diwali studio portrait photography of a woman in blue floral outfit against a festive backdrop near Houston",
     category: "editorial-portraiture",
@@ -454,6 +527,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "Meet the Photographer",
   },
   {
+    key: "portfolio-diwali-dancepose",
     img: portfolioDiwaliDancepose,
     alt: "Diwali studio portrait photography of a woman in a celebratory dance pose with gold jewelry near Katy TX",
     category: "editorial-portraiture",
@@ -464,6 +538,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "Meet the Photographer",
   },
   {
+    key: "portfolio-diwali-maroonblouse",
     img: portfolioDiwaliMaroonblouse,
     alt: "Diwali studio portrait photography of a woman in maroon and gold blouse with traditional jewelry near Houston",
     category: "editorial-portraiture",
@@ -474,6 +549,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "Meet the Photographer",
   },
   {
+    key: "portfolio-diwali-seafoam",
     img: portfolioDiwaliSeafoam,
     alt: "Diwali studio portrait photography of a woman in seafoam embroidered outfit near Katy TX",
     category: "editorial-portraiture",
@@ -484,6 +560,7 @@ export const portfolioImages: PortfolioImage[] = [
     linkText: "Meet the Photographer",
   },
   {
+    key: "portfolio-diwali-couple",
     img: portfolioDiwaliCouple,
     alt: "Diwali studio portrait photography of a couple in coordinated outfits against a festive backdrop near Houston",
     category: "editorial-portraiture",
@@ -586,20 +663,36 @@ export const housewarmingImages = {
 
 export const halfSareeImages = {
   pageHero: withDimensions(
-    halfSareeHero,
-    "Tilak blessing moment during a Katy TX half-saree ceremony with traditional jewelry and floral backdrop",
+    halfSareeHaldiPortrait,
+    "Close-up profile portrait of a young woman with haldi (turmeric) on her cheek during her half-saree ceremony in Katy TX, smiling against a red floral backdrop",
   ),
   gridSlot1: withDimensions(
-    halfSareeGrid1,
-    "Family portrait at a Katy TX half-saree ceremony celebration",
+    halfSareeWaterPouring,
+    "Water-pouring ceremony ritual at a Katy TX half-saree celebration, family members pouring blessed water over the honoree beneath a floral canopy",
   ),
   gridSlot2: withDimensions(
-    halfSareeGrid2,
-    "Solo portrait of a young woman in traditional half-saree ceremony attire with floral backdrop in Katy TX",
+    halfSareeGettingReady,
+    "Reflection portrait of a young woman getting ready for her half-saree ceremony in Katy TX, captured through a decorative mirror",
   ),
   gridSlot3: withDimensions(
-    halfSareeGrid3,
-    "Sisters portrait at a Katy TX half-saree ceremony with traditional jewelry",
+    halfSareeHaldi,
+    "Father applying haldi (turmeric) to his daughter during a half-saree ceremony ritual at a Katy TX backyard celebration",
+  ),
+  gridSlot4: withDimensions(
+    halfSareeMehndiApplication,
+    "Henna artist applying an intricate mehndi design to a young woman's hand ahead of her half-saree ceremony in Katy TX",
+  ),
+  gridSlot5: withDimensions(
+    halfSareeFatherDaughter,
+    "Father kissing his daughter's forehead during her half-saree ceremony celebration in Katy TX",
+  ),
+  gridSlot6: withDimensions(
+    halfSareeBlessing,
+    "Family elders blessing a young woman during her half-saree ceremony in Katy TX, hands raised in traditional benediction under a floral arch",
+  ),
+  spotlightPortrait: withDimensions(
+    halfSareeSpotlightPortrait,
+    "Full-length portrait of a young woman in traditional half-saree ceremony attire in Katy TX, seated beneath a floral arch",
   ),
 };
 

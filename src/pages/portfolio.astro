@@ -6,9 +6,6 @@ import { portfolioImages } from "../content/images.config";
 
 const siteUrl = "https://niopictures.com";
 
-// Extract base filename for ordering: /_astro/portfolio-foo.HASH.webp → "portfolio-foo"
-const baseName = (src: string) => (src.split("/").pop() || "").split(".")[0];
-
 const sectionDefs = [
   {
     id: "housewarming",
@@ -37,6 +34,9 @@ const sectionDefs = [
       "portfolio-halfsaree-tilak",
       "portfolio-halfsaree-sisters",
       "portfolio-halfsaree-solo",
+      "portfolio-halfsaree-grandparents",
+      "portfolio-halfsaree-gift",
+      "portfolio-halfsaree-henna-detail",
     ],
   },
   {
@@ -91,12 +91,11 @@ const sectionDefs = [
 type PortfolioItem = (typeof portfolioImages)[0];
 
 function sortSection(items: PortfolioItem[], order: string[]): PortfolioItem[] {
-  const getBase = (item: PortfolioItem) => baseName(item.img.src);
   return [
     ...order
-      .map((key) => items.find((item) => getBase(item) === key))
+      .map((key) => items.find((item) => item.key === key))
       .filter((x): x is PortfolioItem => x !== undefined),
-    ...items.filter((item) => !order.includes(getBase(item))),
+    ...items.filter((item) => !order.includes(item.key)),
   ];
 }
 
@@ -108,7 +107,7 @@ const sections = sectionDefs.map((def) => ({
   ),
 }));
 
-// Global ordered array (all 36 in section order) for lightbox navigation
+// Global ordered array (all 39 in section order) for lightbox navigation
 const orderedImages = sections.flatMap((s) => s.items);
 
 const lightboxImages = await Promise.all(
