@@ -79,6 +79,121 @@ const extraHead =
     </div>
   </section>
 
+  <section class="section" style="padding-top:0;">
+    <div class="container" style="max-width:1100px;">
+      <div class="reveal" style="text-align:center; margin-bottom:2rem;">
+        <p class="eyebrow" style="margin-bottom:1rem;">Recent Work</p>
+        <h2 class="display-md" style="margin-bottom:0.75rem;">
+          A Private Gala<br /><em style="font-style:italic; color:var(--gold);"
+            >Captured Start to Finish</em
+          >
+        </h2>
+        <p class="body-md" style="max-width:600px; margin:0 auto;">
+          From candid guest moments to the night's performances — the same
+          full coverage approach we bring to any private or corporate event.
+        </p>
+      </div>
+
+      <div class="reveal">
+        <Image
+          src={corporateImages.gallery[0].img}
+          alt={corporateImages.gallery[0].alt}
+          loading="lazy"
+          width={900}
+          height={600}
+          widths={[600, 900, 1200, 1600]}
+          sizes="(max-width: 767px) calc(100vw - 2rem), 1000px"
+          quality={90}
+          class="corp-gallery-banner"
+        />
+      </div>
+
+      <div class="corp-gallery-strip reveal">
+        {
+          corporateImages.gallery.slice(1).map((item) => (
+            <div class="corp-gallery-image">
+              <Image
+                src={item.img}
+                alt={item.alt}
+                loading="lazy"
+                width={400}
+                height={600}
+                widths={[400, 800]}
+                sizes="(max-width: 767px) calc(100vw - 2rem), (max-width: 1399px) calc(50vw - 3rem), calc(25vw - 3rem)"
+                quality={90}
+              />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq" aria-label="Frequently asked questions">
+    <div class="container" style="max-width: 820px;">
+      <div class="section-header center reveal">
+        <p class="eyebrow">Common Questions</p>
+        <div class="gold-line center gold-line-animate"></div>
+        <h2 class="display-md">Corporate Photography FAQs</h2>
+      </div>
+      <div
+        style="display:flex; flex-direction:column; gap:0;"
+        class="reveal reveal-delay-1"
+      >
+        <details
+          style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
+          open
+        >
+          <summary
+            style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
+            >Do you offer on-site corporate headshots?<span
+              style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
+              >+</span
+            ></summary
+          >
+          <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
+            Yes. We offer on-site headshot sessions for teams of any size in
+            Katy and the greater Houston area.
+          </p>
+        </details>
+
+        <details
+          style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
+        >
+          <summary
+            style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
+            >How quickly are corporate photos delivered?<span
+              style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
+              >+</span
+            ></summary
+          >
+          <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
+            Corporate sessions are typically delivered within {formatTurnaroundFull(CORPORATE_PHOTO_TURNAROUND)} -
+            faster turnaround can be discussed for time-sensitive needs.
+          </p>
+        </details>
+
+        <details
+          style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
+        >
+          <summary
+            style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
+            >Do you photograph office or shop opening pujas?<span
+              style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
+              >+</span
+            ></summary
+          >
+          <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
+            Yes. NiO Pictures photographs office opening pujas, shop and store
+            opening blessings, and business inauguration ceremonies for South
+            Asian-owned businesses throughout Katy and the greater Houston
+            area.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <section class="cta-banner reveal">
     <div class="container">
       <p class="eyebrow" style="margin-bottom:1.25rem;">
@@ -102,7 +217,7 @@ const extraHead =
         <a href="/contact" class="btn btn-primary btn-arrow"
           >Start a Conversation</a
         >
-        <a href="/contact" class="btn btn-outline">Get in Touch</a>
+        <a href="tel:+12814093585" class="btn btn-outline">Call Now</a>
       </div>
     </div>
   </section>

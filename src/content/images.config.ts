@@ -93,6 +93,11 @@ import sugarLandHero from "../assets/images/sugar-land-hero.webp";
 import richmondHero from "../assets/images/richmond-hero.webp";
 import cypressHero from "../assets/images/cypress-hero.webp";
 import corporateHero from "../assets/images/corporate-hero.webp";
+import corporateGalaCandid from "../assets/images/corporate-gala-candid-laugh.webp";
+import corporateGalaDip from "../assets/images/corporate-gala-chandelier-dip.webp";
+import corporateGalaDance from "../assets/images/corporate-gala-dance-pose.webp";
+import corporateGalaProfile from "../assets/images/corporate-gala-portrait-profile.webp";
+import corporateGalaPortrait from "../assets/images/corporate-gala-guest-portrait.webp";
 import videographyHero from "../assets/images/videography-hero.webp";
 
 import storyHousewarming1 from "../assets/images/story-housewarming-1.webp";
@@ -811,6 +816,28 @@ export const corporateImages = {
     corporateHero,
     "Group of professionals in formal kurtas at a corporate event in Katy TX — NiO Pictures",
   ),
+  gallery: [
+    withDimensions(
+      corporateGalaCandid,
+      "Guests sharing a laugh at a private gala event in Katy TX — NiO Pictures event photography",
+    ),
+    withDimensions(
+      corporateGalaDip,
+      "Professional dancers mid-performance beneath chandeliers at a Katy TX private gala — NiO Pictures event photography",
+    ),
+    withDimensions(
+      corporateGalaDance,
+      "Dancer captured mid-pose on the ballroom floor at a Katy TX private event — NiO Pictures",
+    ),
+    withDimensions(
+      corporateGalaProfile,
+      "Formal portrait of a guest at a private gala event in Katy TX — NiO Pictures",
+    ),
+    withDimensions(
+      corporateGalaPortrait,
+      "Guest portrait at a private event in Katy TX — NiO Pictures corporate and event photography",
+    ),
+  ],
 };
 export const videographyImages = {
   pageHero: withDimensions(
