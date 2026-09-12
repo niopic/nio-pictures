@@ -5,8 +5,10 @@ import Nav from "../components/Nav.astro";
 import PricingSection from "../components/PricingSection.astro";
 
 import { eventsImages } from "../content/images.config";
-import { PACKAGES, formatTurnaroundFull } from "../data/pricing";
+import { PACKAGES, formatTurnaroundFull, formatCoverageHours } from "../data/pricing";
+const intimateGathering = PACKAGES.find((p) => p.id === "intimate-gathering")!;
 const heritageSession = PACKAGES.find((p) => p.id === "heritage-session")!;
+const signatureGala = PACKAGES.find((p) => p.id === "signature-gala")!;
 
 const siteUrl = "https://niopictures.com";
 const eventHeroImagePath = eventsImages.pageHero.img.src;
@@ -139,7 +141,7 @@ const eventHeroImageLd = JSON.stringify({
             "name": "What is included in event photography coverage?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Every package includes 3+ hours of event coverage — starting at 3 hours with the Heritage Session, up to 4 hours with the Signature Gala — professionally edited images in my cinematic style, and delivery via a private online gallery. Additional coverage hours are available — contact me for custom quotes."
+              "text": "Coverage starts at 2 hours with the Intimate Gathering, 3 hours with the Heritage Session, and up to 4 hours with the Signature Gala — every package includes professionally edited images in my cinematic style and delivery via a private online gallery. Additional coverage hours are available — contact me for custom quotes."
             }
           },
           {
@@ -594,11 +596,13 @@ const eventHeroImageLd = JSON.stringify({
               ></summary
             >
             <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
-              Every package includes 3+ hours of event coverage — starting at
-              3 hours with the Heritage Session, up to 4 hours with the
-              Signature Gala — professionally edited images in my cinematic
-              style, and delivery via a private online gallery. Additional
-              coverage hours are available — contact me for custom quotes.
+              Coverage starts at {formatCoverageHours(intimateGathering.coverageHours)} with
+              the Intimate Gathering, {formatCoverageHours(heritageSession.coverageHours)} with
+              the Heritage Session, and up to {formatCoverageHours(signatureGala.coverageHours)} with
+              the Signature Gala — every package includes professionally
+              edited images in my cinematic style and delivery via a private
+              online gallery. Additional coverage hours are available —
+              contact me for custom quotes.
             </p>
           </details>
 

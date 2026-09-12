@@ -44,10 +44,12 @@ export interface Package {
   deliverables: string[];
   /** One or more price tiers (e.g. photos-only vs. photos + film) */
   tiers: PriceTier[];
-  /** Surface this as the recommended middle option in the UI */
+  /** Surface this as the recommended option in the UI */
   featured?: boolean;
   /** Photo turnaround time */
   photoTurnaround: Turnaround;
+  /** Explicit sort position in pricing UI (lower renders first) */
+  order: number;
 }
 
 export interface AddOn {
@@ -59,12 +61,15 @@ export interface AddOn {
 
 export const CURRENCY = "USD" as const;
 
+const INTIMATE_PHOTO_TURNAROUND = { value: 7, unit: "days" } as const;
+const INTIMATE_COVERAGE_HOURS = 2 as const;
+
 const HERITAGE_PHOTO_TURNAROUND = { value: 7, unit: "days" } as const;
-const HERITAGE_FILM_TURNAROUND = { value: 3, unit: "weeks" } as const;
+const HERITAGE_FILM_TURNAROUND = { value: 2, unit: "weeks" } as const;
 const HERITAGE_COVERAGE_HOURS = 3 as const;
 
 const GALA_PHOTO_TURNAROUND = { value: 7, unit: "days" } as const;
-const GALA_FILM_TURNAROUND = { value: 3, unit: "weeks" } as const;
+const GALA_FILM_TURNAROUND = { value: 2, unit: "weeks" } as const;
 const GALA_COVERAGE_HOURS = 4 as const;
 
 const LEGACY_PHOTO_TURNAROUND = { value: 7, unit: "days" } as const;
@@ -73,6 +78,30 @@ const LEGACY_COVERAGE_HOURS = 1.5 as const;
 export const CORPORATE_PHOTO_TURNAROUND = { value: 7, unit: "days" } as const;
 
 export const PACKAGES: Package[] = [
+  {
+    id: "intimate-gathering",
+    name: "The Intimate Gathering",
+    tagline: "Shorter ceremonies, captured with the same care.",
+    bestFor: [
+      "Home poojas",
+      "Griha Pravesham",
+      "Annaprashan",
+      "Small gatherings",
+    ],
+    coverageHours: INTIMATE_COVERAGE_HOURS,
+    coverage: `Up to ${formatCoverageHours(INTIMATE_COVERAGE_HOURS)}, solo`,
+    photoTurnaround: INTIMATE_PHOTO_TURNAROUND,
+    deliverables: [
+      "75-100 professionally edited photos",
+      `${formatTurnaroundAdj(INTIMATE_PHOTO_TURNAROUND)} delivery`,
+      "Private online gallery (Pixieset)",
+      "High-resolution downloads, full usage rights",
+    ],
+    tiers: [
+      { id: "intimate-photos", label: "Photos only", price: 695 },
+    ],
+    order: 1,
+  },
   {
     id: "heritage-session",
     name: "The Heritage Session",
@@ -95,7 +124,6 @@ export const PACKAGES: Package[] = [
       "High-resolution downloads, full usage rights",
     ],
     tiers: [
-      { id: "heritage-photos", label: "Photos only", price: 950 },
       {
         id: "heritage-film",
         label: "Photos + 3-minute cinematic highlight film",
@@ -104,7 +132,10 @@ export const PACKAGES: Package[] = [
         note: `Film tier includes layered sound design, ${formatTurnaroundAdj(HERITAGE_FILM_TURNAROUND)} delivery`,
         turnaround: HERITAGE_FILM_TURNAROUND,
       },
+      { id: "heritage-photos", label: "Photos only", price: 950 },
     ],
+    featured: true,
+    order: 2,
   },
   {
     id: "signature-gala",
@@ -137,7 +168,7 @@ export const PACKAGES: Package[] = [
         turnaround: GALA_FILM_TURNAROUND,
       },
     ],
-    featured: true,
+    order: 3,
   },
   {
     id: "legacy-collection",
@@ -171,6 +202,7 @@ export const PACKAGES: Package[] = [
         note: "Includes premium leather-cover album and large wall art piece"
       },
     ],
+    order: 4,
   },
 ];
 
@@ -196,14 +228,8 @@ export const ADD_ONS: AddOn[] = [
   {
     id: "rush-delivery",
     name: "Rush Photo Delivery",
-    description: "24 hrs instead of 48",
+    description: "3-day delivery instead of 7",
     price: 150,
-  },
-  {
-    id: "extra-images",
-    name: "Additional Images",
-    description: "Beyond your package allowance, purchased individually",
-    price: 20,
   },
   {
     id: "heritage-album",

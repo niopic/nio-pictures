@@ -23,12 +23,7 @@ const {
   ctaLabel = "Start a Conversation",
 } = Astro.props;
 
-// Order so the featured (highest-anchor) package sits in the middle.
-const ordered = [
-  ...PACKAGES.filter((p) => !p.featured && p.id === "heritage-session"),
-  ...PACKAGES.filter((p) => p.featured),
-  ...PACKAGES.filter((p) => !p.featured && p.id !== "heritage-session"),
-];
+const ordered = [...PACKAGES].sort((a, b) => a.order - b.order);
 ---
 
 <section class="pricing" aria-labelledby="pricing-heading" id="pricing">
@@ -43,7 +38,7 @@ const ordered = [
       {
         ordered.map((pkg) => (
           <article class:list={["card", { "card--featured": pkg.featured }]}>
-            {pkg.featured && <span class="card__flag">Most Chosen</span>}
+            {pkg.featured && <span class="card__flag">Recommended</span>}
 
             <div class="card__top">
               <p class="card__best-for">{pkg.bestFor.join(" · ")}</p>
