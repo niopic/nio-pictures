@@ -105,10 +105,30 @@ this list before "fixing" any of these:
   use non-exhaustive phrasing or derive dynamically.
 - **Plan before applying multi-file changes** — show diffs first, surgical
   incremental edits over batch rewrites.
+- **Edge config can silently override repo intent.** `robots.txt`
+  deliberately allowed AI search bots while blocking training bots.
+  Cloudflare's managed "Block AI bots" rule was 403'ing all AI
+  user-agents at the edge, before Astro ran — Googlebot unaffected.
+  Nothing in the repo could surface this; it survived every prior
+  code-level audit. Found September 13, 2026 by curling production with
+  real crawler user-agents. Fixed by setting Block AI bots to Allow
+  (Security → Bots) and disabling Bot Fight Mode. Lesson: verify behavior
+  against production with the actual client, not just the code — a code
+  review cannot see the network edge.
 
 ---
 
 ## ✅ Already shipped
+- [x] **Cloudflare was 403'ing every AI search/answer bot** (`GPTBot`,
+      `OAI-SearchBot`, `ChatGPT-User`, `PerplexityBot`, `Claude-SearchBot`,
+      `Claude-User`) at the edge via the managed "Block AI bots" rule,
+      completely overriding `robots.txt`'s deliberate allow-list —
+      Googlebot/Bingbot were unaffected, so this was invisible to normal
+      testing. Confirmed via direct curl against production with real
+      crawler user-agents (Sept 13, 2026). Fixed in the Cloudflare
+      dashboard: Security → Bots → Block AI bots set to Allow, Bot Fight
+      Mode disabled. See "Process lessons" for why this couldn't be
+      caught from the repo.
 - [x] `pricing.ts` single source of truth + `PricingSection.astro` reading from it, wired into all relevant pages
 - [x] `robots.txt` — blocks training bots, allows AI search bots
 - [x] Fixed schema `priceRange` conflict (`$$` vs `$$$`) and postal code mismatch (77449 → 77494)
