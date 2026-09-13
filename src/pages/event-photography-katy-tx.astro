@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.astro";
 import PricingSection from "../components/PricingSection.astro";
+import VideoFacade from "../components/VideoFacade.astro";
 
 import { eventsImages } from "../content/images.config";
 import { PACKAGES, formatTurnaroundFull, formatCoverageHours } from "../data/pricing";
@@ -29,6 +30,33 @@ const eventHeroImageLd = JSON.stringify({
   license: "https://niopictures.com/terms",
   acquireLicensePage: "https://niopictures.com/contact",
 });
+
+const highlightFilmVideoId = "yPbUN4l1jrs";
+const highlightFilmLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  name: "Housewarming Highlights — A Cinematic South Indian Griha Pravesham Film",
+  description:
+    "A cinematic highlight film capturing a South Indian Griha Pravesham (housewarming) ceremony — from the morning rituals to an evening of celebration with family and friends.",
+  thumbnailUrl: `https://img.youtube.com/vi/${highlightFilmVideoId}/maxresdefault.jpg`,
+  embedUrl: `https://www.youtube-nocookie.com/embed/${highlightFilmVideoId}`,
+  contentUrl: `https://youtu.be/${highlightFilmVideoId}`,
+  duration: "PT2M2S",
+  uploadDate: "2026-07-18",
+  isFamilyFriendly: true,
+  publisher: {
+    "@type": "Organization",
+    name: "NiO Pictures",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://niopictures.com/assets/images/events-hero.webp",
+    },
+  },
+  potentialAction: {
+    "@type": "WatchAction",
+    target: `https://youtu.be/${highlightFilmVideoId}`,
+  },
+});
 ---
 
 <BaseLayout
@@ -46,6 +74,10 @@ const eventHeroImageLd = JSON.stringify({
     />
 
     <script type="application/ld+json" is:inline set:html={eventHeroImageLd} />
+    <script type="application/ld+json" is:inline set:html={highlightFilmLd} />
+
+    <link rel="preconnect" href="https://img.youtube.com" />
+    <link rel="preconnect" href="https://www.youtube-nocookie.com" />
 
     <script type="application/ld+json" is:inline>
       {
@@ -520,6 +552,38 @@ const eventHeroImageLd = JSON.stringify({
     </section>
 
     <PricingSection />
+
+    <section class="section" aria-label="Highlight film">
+      <div class="container">
+        <div
+          style="max-width: 720px; margin: 0 auto; text-align: center;"
+          class="reveal"
+        >
+          <p class="eyebrow">The Highlight Film</p>
+          <div class="gold-line center gold-line-animate"></div>
+          <h2 class="display-md" style="margin-bottom: 1.5rem;">
+            Some Moments Move.<br /><em style="font-style:italic; color:var(--gold);"
+              >Watch One Unfold.</em
+            >
+          </h2>
+          <p class="body-lg">
+            A cinematic highlight film from a recent Griha Pravesham
+            (housewarming) — the motion, sound, and emotion a photo alone
+            can't hold.
+          </p>
+        </div>
+
+        <div
+          style="max-width: 900px; margin: 2.5rem auto 0;"
+          class="reveal reveal-delay-1"
+        >
+          <VideoFacade
+            videoId="yPbUN4l1jrs"
+            title="Housewarming Highlights — A Cinematic South Indian Griha Pravesham Film"
+          />
+        </div>
+      </div>
+    </section>
 
     <section class="section" id="faq" aria-label="Frequently asked questions">
       <div class="container" style="max-width: 820px;">

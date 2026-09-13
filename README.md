@@ -3,7 +3,7 @@
 **Business:** NiO Pictures · Palanivel · Katy, Texas
 **Tech:** Astro 5 · SSG · Cloudflare Pages · Git-based deployment
 **Domain:** https://niopictures.com
-**Last Updated:** June 28, 2026
+**Last Updated:** September 13, 2026
 
 > This document covers architecture, integrations, and reference info for the
 > live site. **For current task status, open items, and decisions already
@@ -60,7 +60,7 @@ du -sh dist/                    # Check total size
 | **Language**           | TypeScript/JavaScript  | Page logic & components                                            |
 | **Styling**            | Vanilla CSS            | `public/assets/css/` — global, components, animations, blog       |
 | **Image pipeline**     | Sharp + `astro:assets` | Typed image imports, automatic WebP/AVIF + responsive variants     |
-| **Fonts**              | Google Fonts           | Cormorant Garamond, DM Sans, Cinzel (non-blocking load)            |
+| **Fonts**              | Google Fonts + system font | Cormorant Garamond + Cinzel via Google Fonts (non-blocking load); body/UI text uses the `system-ui, sans-serif` stack, no Google Fonts request |
 | **Forms**              | Formspree              | `xjgpbyeb` endpoint — contact + booking submissions                |
 | **Hosting**            | Cloudflare Pages        | Git-connected, auto-builds on push to `main`                       |
 | **Analytics**          | Google Analytics 4     | `G-1VZ3GPSWGH`                                                      |
@@ -82,8 +82,9 @@ a regression — route it through the source of truth instead.
 ### Image workflow (replaces any older instructions you may see elsewhere)
 
 1. Real client photos live in `src/assets/images/` (flat) and
-   `src/assets/images/portfolio/` (the 32-image curated portfolio set, 5
-   categories).
+   `src/assets/images/portfolio/` (the curated portfolio set, 5 categories —
+   check `portfolioImages` in `images.config.ts` for the current image
+   count; it grows over time and isn't repeated here).
 2. Every image used on a page is imported in `src/content/images.config.ts`
    and exported as a named object (e.g. `eventsImages`, `housewarmingImages`)
    with `{ img, alt }` per slot.
@@ -106,7 +107,6 @@ a regression — route it through the source of truth instead.
 | `consolidate-images.mjs`     | Helper for moving/renaming image batches into `src/assets/images/`     |
 | `convert-to-webp.mjs`        | Batch-converts source images to WebP                                  |
 | `gen-touch-icon.mjs`         | Generates the apple-touch-icon from the SVG favicon                   |
-| `image-intake.mjs` (`npm run image:intake`) | Intake helper for new image batches                    |
 
 ---
 
@@ -181,13 +181,16 @@ backgrounds); surface layers give depth without relying on shadows.
 
 ## 📝 Typography
 
-| Role                  | Font Family        | Weights                       | Source       |
-| ----------------------- | --------------------- | -------------------------------- | -------------- |
-| Display / Headlines   | Cormorant Garamond  | 300, 400 (+ italic variants)    | Google Fonts  |
-| Body / UI Text        | DM Sans             | 300, 400, 500                    | Google Fonts  |
-| Accent / Labels / Nav | Cinzel              | 400, 500                         | Google Fonts  |
+| Role                  | Font Family                 | Weights                       | Source       |
+| ----------------------- | ------------------------------ | -------------------------------- | -------------- |
+| Display / Headlines   | Cormorant Garamond           | 300, 400 (+ italic variants)    | Google Fonts  |
+| Body / UI Text        | `system-ui, sans-serif`      | Whatever the OS/browser default provides | System font stack — not Google Fonts, no network request |
+| Accent / Labels / Nav | Cinzel                       | 400, 500                         | Google Fonts  |
 
-**Loading strategy:** non-blocking via `media="print" onload="this.media='all'"`.
+**Loading strategy:** the two Google Fonts load non-blocking via
+`media="print" onload="this.media='all'"`. Body text intentionally skips
+Google Fonts entirely (see `--font-body` in `global.css`) — one less
+render-blocking/CLS-risk request.
 
 ### Type Scale
 
@@ -197,12 +200,13 @@ backgrounds); surface layers give depth without relying on shadows.
 | `.display-lg` | Cormorant Garamond  | clamp(2.2rem → 3.8rem)    | 300    | Section hero headlines             |
 | `.display-md` | Cormorant Garamond  | clamp(1.6rem → 2.6rem)    | 400    | Section headings                   |
 | `.eyebrow`    | Cinzel              | 0.62–0.75rem               | 400    | Category labels, uppercase tags    |
-| `.body-lg`    | DM Sans             | clamp(1rem → 1.15rem)      | 300    | Lead paragraphs                    |
-| `.body-sm`    | DM Sans             | 0.875rem                   | 300    | Secondary copy, captions           |
+| `.body-lg`    | System font          | clamp(1rem → 1.15rem)      | 300    | Lead paragraphs                    |
+| `.body-sm`    | System font          | 0.875rem                   | 300    | Secondary copy, captions           |
 
-Cormorant Garamond carries the editorial/cinematic premium feel; DM Sans
-stays clean and readable at small sizes; Cinzel is used sparingly for nav
-links, eyebrow labels, and package names.
+Cormorant Garamond carries the editorial/cinematic premium feel; the system
+font stack stays clean, readable at small sizes, and free of an extra
+font-loading request; Cinzel is used sparingly for nav links, eyebrow
+labels, and package names.
 
 ---
 
@@ -215,7 +219,7 @@ links, eyebrow labels, and package names.
 src/pages/
 ├── index.astro                              Home
 ├── about.astro                              About Palanivel
-├── portfolio.astro                          32-image categorized portfolio + lightbox
+├── portfolio.astro                          Categorized portfolio (5 categories) + lightbox
 ├── book.astro / contact.astro               Forms (Formspree)
 ├── blog.astro                               Blog index
 ├── blog/ (6 posts)
@@ -255,7 +259,7 @@ _headers / _redirects    Cloudflare config — live at repo root, copied into
                           dist/ by scripts/minify-public-assets.mjs at build
                           time (see Build Scripts above)
 astro.config.mjs         Astro + sitemap + image service config
-package.json              Scripts: dev, build, preview, image:intake
+package.json              Scripts: dev, build, preview, astro
 ```
 
 ### Navigation behavior
@@ -272,7 +276,7 @@ separate "Home" nav item.
 | Field   | Value                                       | Note                              |
 | -------- | --------------------------------------------- | ------------------------------------ |
 | Booking | https://niopictures.pixieset.com/booking/    | Always a **secondary** CTA — "Start a Conversation" → `/contact` is primary site-wide |
-| Gallery | https://niopictures.pixieset.com/            | Homepage's "View Full Gallery" still points here — should point to `/portfolio` instead, see `AUDIT.md` |
+| Gallery | https://niopictures.pixieset.com/            | Legacy full gallery. Homepage's "View Full Gallery" button points to `/portfolio`, not here — see `AUDIT.md`'s "Already shipped" |
 
 ### Formspree (Contact Forms)
 
@@ -280,7 +284,7 @@ separate "Home" nav item.
 | ------------------- | --------------------------------------- |
 | Endpoint          | `https://formspree.io/f/xjgpbyeb`     |
 | Email destination | niopictureskaty@gmail.com              |
-| Spam protection   | Hidden honeypot field `id="website"`  |
+| Spam protection   | Hidden honeypot field `name="website"`  |
 
 ### NiO Chat Widget
 
@@ -303,19 +307,18 @@ Profile URL: `https://share.google/8ODqUDxsuIFcxecMo`
 ## 💰 Pricing
 
 **Source of truth is `src/data/pricing.ts` — never hardcode a price anywhere
-else.** Current packages (as of this writing; check `pricing.ts` directly for
-the live numbers, since this table will drift):
+else.** Open that file directly for current package names, coverage hours,
+tiers, and dollar amounts; this README intentionally does not mirror numbers
+here since they drift out of sync with the source.
 
-| Package                | Coverage      | Photos only | + Cinematic film |
-| ------------------------ | --------------- | ------------- | ------------------- |
-| **Heritage Session**   | Up to 3 hrs   | $950        | $1,400              |
-| **Signature Gala**     | Up to 4 hrs   | $1,400      | $1,950               |
-| **Legacy Collection**  | 90 min session | $650        | +$500 album / +$1,300 album+wall art |
+Packages currently defined (see `PACKAGES` in `pricing.ts` for the live
+ladder and ordering): Intimate Gathering, Heritage Session, Signature Gala,
+Legacy Collection. Add-ons (social reel, raw footage archive, extra hour,
+rush delivery, Heritage/Gala album) are defined in the `ADD_ONS` export.
 
-Add-ons (social reel, raw footage, extra hour, rush delivery, extra images,
-Heritage/Gala albums) are also defined in `pricing.ts` — see the `ADD_ONS`
-export. **Legacy/Heritage/Gala album pricing is currently a placeholder**
-pending real WHCC wholesale cost confirmation — see `AUDIT.md`.
+**Legacy Collection's album/wall-art tiers and the Heritage/Gala album
+add-ons are currently placeholder pricing**, pending real WHCC wholesale
+cost confirmation — see `AUDIT.md`'s "Decisions to not re-litigate."
 
 ---
 
@@ -378,7 +381,7 @@ Find `aggregateRating` in `src/layouts/BaseLayout.astro` and update
 | `_headers`/`_redirects` live at repo root, not `public/` | Handled automatically — `scripts/minify-public-assets.mjs` copies them into `dist/` at build time. Don't "fix" this by moving the files; the build script depends on their current location. |
 | Hero images preloaded on every page          | Intentional for visual priority/LCP; acceptable trade-off given the photography-quality bar |
 | Formspree honeypot field                    | Spambots may still probe the endpoint; low false-positive rate observed |
-| Git history bloat (~272MB `.git`)            | 216MB of raw JPGs were committed then removed early on; would need `git filter-repo` to clean up — deferred, not urgent |
+| Git history bloat (grows every session — run `du -sh .git` for the current figure) | Raw JPGs were committed then removed early on; the history still carries that weight and grows further with normal use. Would need `git filter-repo` to clean up — deferred, not urgent |
 
 ---
 
@@ -397,13 +400,15 @@ Cache-Control (CSS/JS)    public, max-age=31536000, immutable
 Cache-Control (Images)    public, max-age=31536000, immutable
 ```
 
-**CSP allows:** `self`, `googletagmanager.com`, `google-analytics.com`, `chat.niopictures.com`, `fonts.googleapis.com`, `fonts.gstatic.com`, `formspree.io`, `niopictures.pixieset.com`, `youtube.com`, `img.youtube.com`, `i.ytimg.com`
+**CSP allows:** `self`, `googletagmanager.com`, `google-analytics.com`, `chat.niopictures.com`, `fonts.googleapis.com`, `fonts.gstatic.com`, `formspree.io`, `niopictures.pixieset.com`, `youtube.com`, `youtube-nocookie.com` (both in `frame-src`, for click-to-play video facades), `img.youtube.com`, `i.ytimg.com`
 
 ### Spam Protection
 
-Both forms have a hidden honeypot field (`id="website"`, `tabindex="-1"`).
-Bots fill it in automatically; the submission is silently discarded in JS
-before any fetch is made.
+Both forms have a hidden honeypot field (`name="website"` — this is what
+`main.js` actually checks; the `id` is page-prefixed, e.g. `contact-website`/
+`book-website`, and only used for label association). Bots fill it in
+automatically; the submission is silently discarded in JS before any fetch
+is made.
 
 ### Legal Pages
 
@@ -434,11 +439,12 @@ mention means something doesn't exist yet.
 | Site type              | Astro 5 SSG — requires build step (`npm run build`), output in `dist/`        |
 | Domain                 | `niopictures.com` — no hyphen                                                |
 | Page count             | 27 (21 top-level + 6 blog posts)                                              |
+| npm scripts            | `dev`, `build`, `preview`, `astro` (see `package.json` — there is no `image:intake` script; `image-intake.mjs` referenced in older notes doesn't exist in `scripts/`) |
 | Formspree endpoint     | `https://formspree.io/f/xjgpbyeb`                                            |
 | GA4 Measurement ID     | `G-1VZ3GPSWGH`                                                                |
 | Pricing source         | `src/data/pricing.ts` — never hardcode a price elsewhere                     |
 | Image source           | `src/content/images.config.ts` + `src/assets/images/` — never hardcode an image path elsewhere |
-| External link rel      | All external links use `rel="noopener noreferrer"`                           |
-| Honeypot field         | `id="website"`, hidden, both forms                                            |
-| Copyright year         | 2026                                                                           |
+| External link rel      | Nearly all external links use `rel="noopener noreferrer"` — exception: the 3 Google-review links (`about.astro`, `event-photography-katy-tx.astro`, `index.astro`) use `rel="noopener"` only, no `noreferrer` |
+| Honeypot field         | `name="website"`, hidden, both forms (checked via `input[name="website"]` in `main.js`) |
+| Copyright year         | Footer text is dynamic (`new Date().getFullYear()` in `BaseLayout.astro`) — nothing to update there. Three JSON-LD `copyrightNotice` strings ARE hardcoded (`"© 2026 NiO Pictures..."` in `BaseLayout.astro`, `index.astro`, `portfolio.astro`) and need a manual bump every January |
 | Verification discipline | Always grep `dist/*.html` after building to confirm a change actually rendered — never trust a build-succeeded message alone. See `AUDIT.md`'s "Process lessons" section for why this matters specifically with Claude Code. |

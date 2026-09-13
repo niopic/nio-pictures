@@ -1,0 +1,135 @@
+---
+/**
+ * VideoFacade.astro
+ * Lite YouTube embed: renders a static poster + play button and only
+ * loads the youtube-nocookie.com iframe after the visitor clicks/activates it.
+ * No YouTube JS or network request happens before that interaction.
+ */
+interface Props {
+  /** YouTube video id, e.g. the "v=" value from the watch URL. */
+  videoId: string;
+  /** Human-readable video title, used for the aria-label and iframe title. */
+  title: string;
+  /** Alt text for the poster image. Defaults to a generic preview label. */
+  posterAlt?: string;
+  /** Override the poster image src. Defaults to the YouTube-hosted thumbnail. */
+  posterSrc?: string;
+}
+
+const {
+  videoId,
+  title,
+  posterAlt = `${title} — video preview`,
+  posterSrc,
+} = Astro.props;
+
+const posterHigh = posterSrc ?? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+const posterFallback = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+---
+
+<div
+  class="video-facade"
+  data-video-id={videoId}
+  data-video-title={title}
+  style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 2px; border: 1px solid var(--border-light); background: var(--surface-2);"
+>
+  <img
+    class="video-facade__poster"
+    src={posterHigh}
+    onerror={`this.onerror=null;this.src='${posterFallback}';`}
+    alt={posterAlt}
+    width="1280"
+    height="720"
+    loading="lazy"
+    decoding="async"
+    style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; margin: 0;"
+  />
+  <button
+    type="button"
+    class="video-facade__play"
+    aria-label={`Play video: ${title}`}
+    style="position: absolute; inset: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: transparent; border: 0; padding: 0; cursor: pointer;"
+  >
+    <span class="video-facade__play-icon" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"
+        ><path d="M8 5v14l11-7z"></path></svg
+      >
+    </span>
+  </button>
+</div>
+
+<style>
+  .video-facade__play-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--black-a72);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    backdrop-filter: blur(2px);
+    transition:
+      transform var(--dur-base) var(--ease-out),
+      background var(--dur-base) var(--ease-out);
+  }
+
+  .video-facade__play:hover .video-facade__play-icon,
+  .video-facade__play:focus-visible .video-facade__play-icon {
+    transform: scale(1.08);
+    background: var(--gold);
+    color: var(--black);
+  }
+
+  .video-facade__play:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .video-facade__play-icon {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  function initVideoFacades() {
+    document.querySelectorAll<HTMLElement>(".video-facade").forEach((facade) => {
+      if (facade.dataset.vfReady) return;
+      facade.dataset.vfReady = "1";
+
+      const button = facade.querySelector<HTMLButtonElement>(".video-facade__play");
+      const videoId = facade.dataset.videoId;
+      const title = facade.dataset.videoTitle || "Video";
+      if (!button || !videoId) return;
+
+      button.addEventListener(
+        "click",
+        () => {
+          const iframe = document.createElement("iframe");
+          iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&playsinline=1&rel=0`;
+          iframe.title = title;
+          iframe.allow =
+            "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+          iframe.allowFullscreen = true;
+          // Set fill styles inline since this element is created client-side.
+          iframe.style.position = "absolute";
+          iframe.style.inset = "0";
+          iframe.style.width = "100%";
+          iframe.style.height = "100%";
+          iframe.style.border = "0";
+          facade.replaceChildren(iframe);
+        },
+        { once: true },
+      );
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initVideoFacades);
+  } else {
+    initVideoFacades();
+  }
+</script>
