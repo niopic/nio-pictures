@@ -73,16 +73,26 @@ const breadcrumbLd = JSON.stringify({
 >
   <Fragment slot="head">
     <link rel="preload" as="image" href={heroImagePath} fetchpriority="high" />
-    <script type="application/ld+json" is:inline set:html={blogPostingLd} />
-    <script type="application/ld+json" is:inline set:html={breadcrumbLd} />
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={blogPostingLd}
+    ></script>
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={breadcrumbLd}
+    ></script>
   </Fragment>
   <a
     href="#main-content"
     class="skip-link"
     style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);"
     onfocus="this.style.top='1rem'"
-    onblur="this.style.top='-40px'">Skip to main content</a
+    onblur="this.style.top='-40px'"
   >
+    Skip to main content
+  </a>
 
   <Nav currentPath="/blog" />
 
@@ -95,7 +105,9 @@ const breadcrumbLd = JSON.stringify({
     </nav>
     <span class="post-tag">Process · Family Photography · Katy TX</span>
     <h1 class="post-title">
-      Your Family Photography<br />Journey with NiO Pictures
+      Your Family Photography
+      <br />
+      Journey with NiO Pictures
     </h1>
     <div class="post-meta">
       <span>Palanivel</span>
@@ -146,66 +158,83 @@ const breadcrumbLd = JSON.stringify({
     <ol>
       <li>
         <div>
-          <strong>Easy Booking</strong><br />
-          Start with a quick online inquiry or book directly through our booking page.
-          Choose your preferred date and session type — family portraits, lifestyle
-          session, or milestone. You'll receive a confirmation and a welcome note
-          with all session details, including your session fee and what to expect.
+          <strong>Easy Booking</strong>
+          <br />
+          Start with a quick online inquiry or book directly through our booking
+          page. Choose your preferred date and session type — family portraits,
+          lifestyle session, or milestone. You'll receive a confirmation and a
+          welcome note with all session details, including your session fee and
+          what to expect.
         </div>
       </li>
       <li>
         <div>
-          <strong>Prep Guidelines</strong><br />
-          Once booked, I'll send you a full preparation guide covering outfit coordination,
-          styling advice, tips for keeping kids calm and engaged, and location guidance.
-          We'll make sure you arrive feeling ready and relaxed — not rushing. You
-          can also <a
+          <strong>Prep Guidelines</strong>
+          <br />
+          Once booked, I'll send you a full preparation guide covering outfit
+          coordination, styling advice, tips for keeping kids calm and engaged,
+          and location guidance. We'll make sure you arrive feeling ready and
+          relaxed — not rushing. You can also{" "}
+          <a
             href="/blog/how-to-prepare-family-portrait-session"
-            style="color:var(--gold);">read the full prep guide here</a
-          >.
+            style="color:var(--gold);"
+          >
+            read the full prep guide here
+          </a>
+          .
         </div>
       </li>
       <li>
         <div>
-          <strong>Calm, Guided Photoshoot</strong><br />
-          On session day, I'll guide you through natural poses and genuine interactions
-          that capture real family moments — not stiff, forced ones. I build in gentle
-          pauses and let things breathe. I always shoot more than the minimum included
-          in your package, so you have plenty of beautiful options to choose from
-          when your gallery arrives.
+          <strong>Calm, Guided Photoshoot</strong>
+          <br />
+          On session day, I'll guide you through natural poses and genuine
+          interactions that capture real family moments — not stiff, forced
+          ones. I build in gentle pauses and let things breathe. I always shoot
+          more than the minimum included in your package, so you have plenty of
+          beautiful options to choose from when your gallery arrives.
         </div>
       </li>
       <li>
         <div>
-          <strong>Image Selection</strong><br />
-          Within your delivery window, you'll receive access to your full private
-          online gallery. Take your time, view the images at your own pace, and favorite
-          the number included in your package — no pressure, entirely your choice.
+          <strong>Image Selection</strong>
+          <br />
+          Within your delivery window, you'll receive access to your full
+          private online gallery. Take your time, view the images at your own
+          pace, and favorite the number included in your package — no pressure,
+          entirely your choice.
         </div>
       </li>
       <li>
         <div>
-          <strong>Professional Editing &amp; Final Delivery</strong><br />
-          Your selected images are professionally retouched — colour-corrected, polished,
-          and consistent in style across the full set. High-resolution digital files
-          are delivered via your private Pixieset gallery, ready to download and share
-          with family.
+          <strong>Professional Editing &amp; Final Delivery</strong>
+          <br />
+          Your selected images are professionally retouched — colour-corrected,
+          polished, and consistent in style across the full set. High-resolution
+          digital files are delivered via your private Pixieset gallery, ready
+          to download and share with family.
         </div>
       </li>
       <li>
         <div>
-          <strong>Albums, Prints &amp; Wall Art</strong><br />
-          This is the heart of heirloom photography. Digital files are beautiful —
-          but a print on your wall or a keepsake album in your hands is something
-          else entirely. Through your Pixieset gallery, you can order premium framed
-          prints, large-format wall art, and handcrafted 10×10 keepsake albums. These
-          are the products built to last — the ones you'll pass down. Browse and order
-          directly from your private gallery at <a
+          <strong>Albums, Prints &amp; Wall Art</strong>
+          <br />
+          This is the heart of heirloom photography. Digital files are beautiful
+          — but a print on your wall or a keepsake album in your hands is
+          something else entirely. Through your Pixieset gallery, you can order
+          premium framed prints, large-format wall art, and handcrafted 10×10
+          keepsake albums. These are the products built to last — the ones
+          you'll pass down. Browse and order directly from your private gallery
+          at{" "}
+          <a
             href="https://niopictures.pixieset.com/"
             target="_blank"
             rel="noopener noreferrer"
-            style="color:var(--gold);">niopictures.pixieset.com</a
-          >.
+            style="color:var(--gold);"
+          >
+            niopictures.pixieset.com
+          </a>
+          .
         </div>
       </li>
     </ol>
@@ -266,9 +295,11 @@ const breadcrumbLd = JSON.stringify({
     </p>
     <p>
       If you have questions at any point — before, during, or after your session
-      — <a href="/contact" style="color:var(--gold);"
-        >I'm always easy to reach</a
-      >.
+      —{" "}
+      <a href="/contact" style="color:var(--gold);">
+        I'm always easy to reach
+      </a>
+      .
     </p>
 
     <div class="post-divider"></div>
@@ -276,19 +307,24 @@ const breadcrumbLd = JSON.stringify({
     <div class="post-cta">
       <h3>Ready to Start Your Journey?</h3>
       <p>
-        Family portrait sessions available in Katy and the greater Houston area — weekends and weeknights.
+        Family portrait sessions available in Katy and the greater Houston area
+        — weekends and weeknights.
       </p>
       <a
         href="https://niopictures.pixieset.com/booking/"
         target="_blank"
         rel="noopener noreferrer"
-        class="btn btn-primary btn-arrow">Book Your Session</a
+        class="btn btn-primary btn-arrow"
       >
+        Book Your Session
+      </a>
       <a
         href="/family-photography-katy-tx"
         class="btn btn-outline"
-        style="margin-left:0.5rem;">Family Photography</a
+        style="margin-left:0.5rem;"
       >
+        Family Photography
+      </a>
     </div>
   </article>
 

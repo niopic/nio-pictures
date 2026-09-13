@@ -30,50 +30,50 @@ const ordered = [...PACKAGES].sort((a, b) => a.order - b.order);
   <div class="pricing__inner">
     <header class="pricing__head">
       <p class="pricing__eyebrow">{eyebrow}</p>
-      <h2 class="pricing__heading" id="pricing-heading">{heading}</h2>
+      <h2 class="pricing__heading" id="pricing-heading">
+        {heading}
+      </h2>
       <p class="pricing__intro">{intro}</p>
     </header>
 
     <div class="pricing__grid">
-      {
-        ordered.map((pkg) => (
-          <article class:list={["card", { "card--featured": pkg.featured }]}>
-            {pkg.featured && <span class="card__flag">Recommended</span>}
+      {ordered.map((pkg) => (
+        <article class:list={["card", { "card--featured": pkg.featured }]}>
+          {pkg.featured && <span class="card__flag">Recommended</span>}
 
-            <div class="card__top">
-              <p class="card__best-for">{pkg.bestFor.join(" · ")}</p>
-              <h3 class="card__name">{pkg.name}</h3>
-              <p class="card__tagline">{pkg.tagline}</p>
-              <p class="card__coverage">{pkg.coverage}</p>
-            </div>
+          <div class="card__top">
+            <p class="card__best-for">{pkg.bestFor.join(" · ")}</p>
+            <h3 class="card__name">{pkg.name}</h3>
+            <p class="card__tagline">{pkg.tagline}</p>
+            <p class="card__coverage">{pkg.coverage}</p>
+          </div>
 
-            <ul class="card__list">
-              {pkg.deliverables.map((d) => (
-                <li>
-                  <span class="card__mark" aria-hidden="true">
-                    ✦
-                  </span>
-                  {d}
-                </li>
-              ))}
-            </ul>
+          <ul class="card__list">
+            {pkg.deliverables.map((d) => (
+              <li>
+                <span class="card__mark" aria-hidden="true">
+                  ✦
+                </span>
+                {d}
+              </li>
+            ))}
+          </ul>
 
-            <div class="card__tiers">
-              {pkg.tiers.map((tier) => (
-                <div class="tier">
-                  <span class="tier__label">{tier.label}</span>
-                  <span class="tier__price">{formatUSD(tier.price)}</span>
-                  {tier.note && <span class="tier__note">{tier.note}</span>}
-                </div>
-              ))}
-            </div>
+          <div class="card__tiers">
+            {pkg.tiers.map((tier) => (
+              <div class="tier">
+                <span class="tier__label">{tier.label}</span>
+                <span class="tier__price">{formatUSD(tier.price)}</span>
+                {tier.note && <span class="tier__note">{tier.note}</span>}
+              </div>
+            ))}
+          </div>
 
-            <a class="card__cta" href={ctaHref}>
-              {ctaLabel}
-            </a>
-          </article>
-        ))
-      }
+          <a class="card__cta" href={ctaHref}>
+            {ctaLabel}
+          </a>
+        </article>
+      ))}
     </div>
 
     <aside class="addons" aria-labelledby="addons-heading">
@@ -81,15 +81,13 @@ const ordered = [...PACKAGES].sort((a, b) => a.order - b.order);
         Add-ons — available with any collection
       </h3>
       <ul class="addons__list">
-        {
-          ADD_ONS.map((a) => (
-            <li class="addon">
-              <span class="addon__name">{a.name}</span>
-              <span class="addon__desc">{a.description}</span>
-              <span class="addon__price">+{formatUSD(a.price)}</span>
-            </li>
-          ))
-        }
+        {ADD_ONS.map((a) => (
+          <li class="addon">
+            <span class="addon__name">{a.name}</span>
+            <span class="addon__desc">{a.description}</span>
+            <span class="addon__price">+{formatUSD(a.price)}</span>
+          </li>
+        ))}
       </ul>
     </aside>
   </div>

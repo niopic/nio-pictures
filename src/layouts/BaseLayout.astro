@@ -45,13 +45,33 @@ const businessSchema = {
     postalCode: "77494",
     addressCountry: "US",
   },
-  geo: { "@type": "GeoCoordinates", latitude: "29.7858", longitude: "-95.8245" },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: "29.7858",
+    longitude: "-95.8245",
+  },
   areaServed: [
-    { "@type": "City", name: "Katy", sameAs: "https://en.wikipedia.org/wiki/Katy,_Texas" },
+    {
+      "@type": "City",
+      name: "Katy",
+      sameAs: "https://en.wikipedia.org/wiki/Katy,_Texas",
+    },
     { "@type": "City", name: "Cypress" },
-    { "@type": "City", name: "Houston", sameAs: "https://en.wikipedia.org/wiki/Houston" },
-    { "@type": "City", name: "Sugar Land", sameAs: "https://en.wikipedia.org/wiki/Sugar_Land,_Texas" },
-    { "@type": "City", name: "Richmond", sameAs: "https://en.wikipedia.org/wiki/Richmond,_Texas" },
+    {
+      "@type": "City",
+      name: "Houston",
+      sameAs: "https://en.wikipedia.org/wiki/Houston",
+    },
+    {
+      "@type": "City",
+      name: "Sugar Land",
+      sameAs: "https://en.wikipedia.org/wiki/Sugar_Land,_Texas",
+    },
+    {
+      "@type": "City",
+      name: "Richmond",
+      sameAs: "https://en.wikipedia.org/wiki/Richmond,_Texas",
+    },
     { "@type": "City", name: "Fulshear" },
   ],
   keywords: [
@@ -178,21 +198,19 @@ const organizationSchema = {
       onload="this.media='all'"
     />
 
-    {
-      deferComponentsCss ? (
-        <Fragment>
-          <link rel="preload" as="style" href="/assets/css/components.css" />
-          <link
-            rel="stylesheet"
-            href="/assets/css/components.css"
-            media="print"
-            onload="this.media='all'"
-          />
-        </Fragment>
-      ) : (
-        <link rel="stylesheet" href="/assets/css/components.css" />
-      )
-    }
+    {deferComponentsCss ? (
+      <Fragment>
+        <link rel="preload" as="style" href="/assets/css/components.css" />
+        <link
+          rel="stylesheet"
+          href="/assets/css/components.css"
+          media="print"
+          onload="this.media='all'"
+        />
+      </Fragment>
+    ) : (
+      <link rel="stylesheet" href="/assets/css/components.css" />
+    )}
 
     <link rel="preload" as="style" href="/assets/css/animations.css" />
     <link
@@ -211,19 +229,17 @@ const organizationSchema = {
       <link rel="stylesheet" href="/assets/css/animations.css" />
     </noscript>
 
-    {
-      extraStyles.map((href) => (
-        <Fragment>
-          <link rel="preload" as="style" href={href} />
-          <link
-            rel="stylesheet"
-            href={href}
-            media="print"
-            onload="this.media='all'"
-          />
-        </Fragment>
-      ))
-    }
+    {extraStyles.map((href) => (
+      <Fragment>
+        <link rel="preload" as="style" href={href} />
+        <link
+          rel="stylesheet"
+          href={href}
+          media="print"
+          onload="this.media='all'"
+        />
+      </Fragment>
+    ))}
 
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -235,12 +251,12 @@ const organizationSchema = {
       type="application/ld+json"
       is:inline
       set:html={JSON.stringify(businessSchema)}
-    />
+    ></script>
     <script
       type="application/ld+json"
       is:inline
       set:html={JSON.stringify(organizationSchema)}
-    />
+    ></script>
     <slot name="head" />
 
     <script is:inline>
@@ -289,7 +305,10 @@ const organizationSchema = {
       <div class="container">
         <div class="footer-grid">
           <div class="footer-brand">
-            <a href="/" class="nav-logo">N<span class="wordmark-i">i</span><span>O</span> PICTURES</a>
+            <a href="/" class="nav-logo">
+              N<span class="wordmark-i">i</span>
+              <span>O</span> PICTURES
+            </a>
             <p>
               Cinematic photography and film for South Asian milestone
               celebrations. Based in Katy, TX, serving Katy, Fulshear, Cypress,
@@ -308,8 +327,10 @@ const organizationSchema = {
               <a
                 href="https://niopictures.pixieset.com/"
                 target="_blank"
-                rel="noopener noreferrer">View Gallery</a
+                rel="noopener noreferrer"
               >
+                View Gallery
+              </a>
             </nav>
           </div>
 
@@ -339,49 +360,58 @@ const organizationSchema = {
           <div class="footer-contact">
             <p class="footer-heading">Contact</p>
             <p>
-              Katy, Texas<br />
-              Serving Greater Houston Area<br />
+              Katy, Texas
+              <br />
+              Serving Greater Houston Area
+              <br />
               Katy - Cypress - Sugar Land - Richmond - Houston
             </p>
             <p style="margin-top: 1rem; line-height: 2.2;">
-              <a href="tel:+12814093585" style="display:block;"
-                >Phone 281-409-3585</a
-              >
-              <a href="mailto:niopictureskaty@gmail.com" style="display:block;"
-                >Email niopictureskaty@gmail.com</a
-              >
+              <a href="tel:+12814093585" style="display:block;">
+                Phone 281-409-3585
+              </a>
+              <a href="mailto:niopictureskaty@gmail.com" style="display:block;">
+                Email niopictureskaty@gmail.com
+              </a>
               <a
                 href="https://www.instagram.com/nio_pictures"
                 target="_blank"
                 rel="noopener noreferrer"
-                style="display:block;">Instagram @nio_pictures</a
+                style="display:block;"
               >
+                Instagram @nio_pictures
+              </a>
               <a
                 href="https://niopictures.pixieset.com/booking/"
                 target="_blank"
                 rel="noopener noreferrer"
-                style="display:block;">Self-Book Online</a
+                style="display:block;"
               >
+                Self-Book Online
+              </a>
             </p>
           </div>
         </div>
 
-        <div
-          style="border-top:1px solid var(--border-light);padding:1rem 0;margin-bottom:1rem;"
-        >
+        <div style="border-top:1px solid var(--border-light);padding:1rem 0;margin-bottom:1rem;">
           <p style="font-size:0.75rem;color:var(--muted);line-height:1.6;">
             This site uses Google Analytics to understand how visitors use our
             pages. No personal data is sold.
-            <a href="/privacy" style="color:var(--muted);">Privacy Policy</a>
+            <a href="/privacy" style="color:var(--muted);">
+              Privacy Policy
+            </a>
             &middot;
-            <a href="/terms" style="color:var(--muted);">Terms</a>
+            <a href="/terms" style="color:var(--muted);">
+              Terms
+            </a>
           </p>
         </div>
 
         <div class="footer-bottom">
           <p class="footer-copy">
             &copy; {currentYear}
-            <span>NiO Pictures</span> - Palanivel. All rights reserved. Katy, TX.
+            <span>NiO Pictures</span> - Palanivel. All rights reserved. Katy,
+            TX.
           </p>
           <div class="footer-legal">
             <a href="/privacy">Privacy</a>
@@ -392,8 +422,12 @@ const organizationSchema = {
     </footer>
 
     <div class="mobile-cta-bar" aria-label="Quick booking options">
-      <a href="/contact" class="btn btn-primary btn-arrow">Start a Conversation</a>
-      <a href="tel:+12814093585" class="btn btn-outline">Call Now</a>
+      <a href="/contact" class="btn btn-primary btn-arrow">
+        Start a Conversation
+      </a>
+      <a href="tel:+12814093585" class="btn btn-outline">
+        Call Now
+      </a>
     </div>
 
     <script src="/assets/js/main.js" defer></script>

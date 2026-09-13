@@ -10,7 +10,8 @@ const sectionDefs = [
   {
     id: "halfsaree",
     heading: "Half-Saree Ceremonies",
-    intro: "A milestone celebration captured from the ceremony itself through to the family portraits after.",
+    intro:
+      "A milestone celebration captured from the ceremony itself through to the family portraits after.",
     category: "half-saree-photography",
     order: [
       "portfolio-halfsaree-family",
@@ -28,7 +29,8 @@ const sectionDefs = [
   {
     id: "housewarming",
     heading: "Housewarming Celebrations",
-    intro: "The rituals, the gathered family, the new home — covered as it actually happens.",
+    intro:
+      "The rituals, the gathered family, the new home — covered as it actually happens.",
     category: "housewarming-photography",
     order: [
       "portfolio-housewarming-couple",
@@ -44,7 +46,8 @@ const sectionDefs = [
   {
     id: "events",
     heading: "Celebrations & Events",
-    intro: "Candid energy and genuine moments from get-togethers, milestone birthdays, and gatherings across the Houston area.",
+    intro:
+      "Candid energy and genuine moments from get-togethers, milestone birthdays, and gatherings across the Houston area.",
     category: "event-photography",
     order: [
       "portfolio-group-kurtas",
@@ -60,7 +63,8 @@ const sectionDefs = [
   {
     id: "family",
     heading: "Family Portraits",
-    intro: "Warm, connected portraits that hold up as a keepsake, not just a posed afternoon.",
+    intro:
+      "Warm, connected portraits that hold up as a keepsake, not just a posed afternoon.",
     category: "family-photography",
     order: [
       "portfolio-family-goldenhour",
@@ -73,7 +77,8 @@ const sectionDefs = [
   {
     id: "editorial",
     heading: "Editorial Portraits",
-    intro: "Studio-style portraiture with clean light and real presence — including festival season sessions.",
+    intro:
+      "Studio-style portraiture with clean light and real presence — including festival season sessions.",
     category: "editorial-portraiture",
     order: [
       "portfolio-editorial-bokeh",
@@ -105,7 +110,7 @@ const sections = sectionDefs.map((def) => ({
   ...def,
   items: sortSection(
     portfolioImages.filter((item) => item.category === def.category),
-    def.order
+    def.order,
   ),
 }));
 
@@ -119,12 +124,14 @@ const lightboxImages = await Promise.all(
       widths: [800, 1200, 1600, 2000],
       format: "webp",
       quality: 85,
-    })
-  )
+    }),
+  ),
 );
 
 // Map img.src → global lightbox index
-const globalIndexMap = new Map(orderedImages.map((item, i) => [item.img.src, i]));
+const globalIndexMap = new Map(
+  orderedImages.map((item, i) => [item.img.src, i]),
+);
 
 const title =
   "Portfolio | South Asian Celebrations & Family Photography | NiO Pictures Katy TX";
@@ -196,8 +203,10 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
     class="skip-link"
     style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);"
     onfocus="this.style.top='1rem'"
-    onblur="this.style.top='-40px'">Skip to main content</a
+    onblur="this.style.top='-40px'"
   >
+    Skip to main content
+  </a>
 
   <Nav currentPath="/portfolio" />
 
@@ -206,11 +215,16 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
     <section class="port-header">
       <div class="container">
         <div class="reveal">
-          <p class="eyebrow" style="margin-bottom:1rem;">Selected Work</p>
+          <p class="eyebrow" style="margin-bottom:1rem;">
+            Selected Work
+          </p>
           <div class="gold-line gold-line-animate"></div>
           <h1 class="display-xl port-header-title">
-            Portfolio — Katy TX<br />
-            <em style="font-style:italic; color:var(--gold);">South Asian Celebrations &amp; Family Photography</em>
+            Portfolio — Katy TX
+            <br />
+            <em style="font-style:italic; color:var(--gold);">
+              South Asian Celebrations &amp; Family Photography
+            </em>
           </h1>
           <p class="body-lg port-header-intro">
             A growing collection of real moments from real celebrations — browse
@@ -221,39 +235,37 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
     </section>
 
     <!-- ── Categorized Masonry Sections ──────────────────────── -->
-    {
-      sections.map((section) => (
-        <section class="port-section">
-          <div class="container">
-            <h2 class="display-md port-section-heading">{section.heading}</h2>
-            <p class="body-sm port-section-intro">{section.intro}</p>
-            <div class="port-grid">
-              {section.items.map((item) => {
-                const gIdx = globalIndexMap.get(item.img.src) ?? 0;
-                return (
-                  <button
-                    class="port-grid-item"
-                    data-index={gIdx}
-                    aria-label={`View ${item.label}`}
-                    type="button"
-                  >
-                    <Image
-                      src={item.img}
-                      alt={item.alt}
-                      widths={[400, 600, 800]}
-                      sizes="(max-width: 767px) calc(50vw - 1.5rem), (max-width: 1099px) calc(33.33vw - 1.5rem), calc(25vw - 1.5rem)"
-                      loading={gIdx < 4 ? "eager" : "lazy"}
-                      fetchpriority={gIdx === 0 ? "high" : undefined}
-                      quality={85}
-                    />
-                  </button>
-                );
-              })}
-            </div>
+    {sections.map((section) => (
+      <section class="port-section">
+        <div class="container">
+          <h2 class="display-md port-section-heading">{section.heading}</h2>
+          <p class="body-sm port-section-intro">{section.intro}</p>
+          <div class="port-grid">
+            {section.items.map((item) => {
+              const gIdx = globalIndexMap.get(item.img.src) ?? 0;
+              return (
+                <button
+                  class="port-grid-item"
+                  data-index={gIdx}
+                  aria-label={`View ${item.label}`}
+                  type="button"
+                >
+                  <Image
+                    src={item.img}
+                    alt={item.alt}
+                    widths={[400, 600, 800]}
+                    sizes="(max-width: 767px) calc(50vw - 1.5rem), (max-width: 1099px) calc(33.33vw - 1.5rem), calc(25vw - 1.5rem)"
+                    loading={gIdx < 4 ? "eager" : "lazy"}
+                    fetchpriority={gIdx === 0 ? "high" : undefined}
+                    quality={85}
+                  />
+                </button>
+              );
+            })}
           </div>
-        </section>
-      ))
-    }
+        </div>
+      </section>
+    ))}
 
     <!-- Image data for lightbox (in section order: halfsaree → housewarming → events → family → editorial) -->
     <script
@@ -270,10 +282,9 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
           caption: item.caption,
           lbWidth: item.img.width,
           lbHeight: item.img.height,
-        }))
+        })),
       )}
     ></script>
-
     <!-- ── Lightbox ───────────────────────────────────────────── -->
     <div
       class="port-lb"
@@ -285,11 +296,39 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
     >
       <div class="port-lb-backdrop" id="port-lb-backdrop"></div>
       <div class="port-lb-inner">
-        <button class="port-lb-close" id="port-lb-close" aria-label="Close lightbox" type="button">×</button>
-        <button class="port-lb-arrow port-lb-prev" id="port-lb-prev" aria-label="Previous image" type="button">&#8592;</button>
-        <button class="port-lb-arrow port-lb-next" id="port-lb-next" aria-label="Next image" type="button">&#8594;</button>
+        <button
+          class="port-lb-close"
+          id="port-lb-close"
+          aria-label="Close lightbox"
+          type="button"
+        >
+          ×
+        </button>
+        <button
+          class="port-lb-arrow port-lb-prev"
+          id="port-lb-prev"
+          aria-label="Previous image"
+          type="button"
+        >
+          &#8592;
+        </button>
+        <button
+          class="port-lb-arrow port-lb-next"
+          id="port-lb-next"
+          aria-label="Next image"
+          type="button"
+        >
+          &#8594;
+        </button>
         <div class="port-lb-stage">
-          <img class="port-lb-img" id="port-lb-img" src="" srcset="" sizes="90vw" alt="" />
+          <img
+            class="port-lb-img"
+            id="port-lb-img"
+            src=""
+            srcset=""
+            sizes="90vw"
+            alt=""
+          />
         </div>
         <div class="port-lb-meta">
           <p class="port-lb-category eyebrow" id="port-lb-category"></p>
@@ -311,23 +350,25 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
             <h2 class="display-md port-cta-title">Let's Talk.</h2>
           </div>
           <div class="port-cta-actions">
-            <a href="/contact" class="btn btn-primary btn-arrow"
-              >Start a Conversation</a
-            >
+            <a href="/contact" class="btn btn-primary btn-arrow">
+              Start a Conversation
+            </a>
           </div>
           <div class="port-cta-links">
-            <a href="/event-photography-katy-tx" class="port-text-link"
-              >Event Photography →</a
-            >
-            <a href="/family-photography-katy-tx" class="port-text-link"
-              >Family Sessions →</a
-            >
+            <a href="/event-photography-katy-tx" class="port-text-link">
+              Event Photography →
+            </a>
+            <a href="/family-photography-katy-tx" class="port-text-link">
+              Family Sessions →
+            </a>
             <a
               href="https://niopictures.pixieset.com/booking/"
               target="_blank"
               rel="noopener noreferrer"
-              class="port-text-link">Prefer to self-book? →</a
+              class="port-text-link"
             >
+              Prefer to self-book? →
+            </a>
           </div>
         </div>
       </div>
@@ -448,7 +489,9 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
     width: 100%;
     display: flex;
     justify-content: center;
-    transition: opacity var(--dur-base) var(--ease), transform var(--dur-base) var(--ease);
+    transition:
+      opacity var(--dur-base) var(--ease),
+      transform var(--dur-base) var(--ease);
   }
 
   .port-lb-stage.lb-fade {
@@ -533,7 +576,10 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
     border: 1px solid var(--border);
     border-radius: 2px;
     padding: 0.75rem 0.9rem;
-    transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+    transition:
+      color var(--dur-fast) var(--ease),
+      border-color var(--dur-fast) var(--ease),
+      background var(--dur-fast) var(--ease);
     z-index: 2;
     line-height: 1;
   }
@@ -560,27 +606,46 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
       padding: 0.6rem 0.75rem;
       font-size: 1.1rem;
     }
-    .port-lb-prev { left: 1rem; }
-    .port-lb-next { right: 1rem; }
+    .port-lb-prev {
+      left: 1rem;
+    }
+    .port-lb-next {
+      right: 1rem;
+    }
   }
 </style>
 
 <script>
   (function () {
-    const portData: { src: string; lbSrc: string; lbSrcset: string; alt: string; category: string; label: string; caption: string; lbWidth: number; lbHeight: number }[] =
-      JSON.parse(document.getElementById("port-data")?.textContent || "[]");
+    const portData: {
+      src: string;
+      lbSrc: string;
+      lbSrcset: string;
+      alt: string;
+      category: string;
+      label: string;
+      caption: string;
+      lbWidth: number;
+      lbHeight: number;
+    }[] = JSON.parse(document.getElementById("port-data")?.textContent || "[]");
 
-    const lb        = document.getElementById("port-lb") as HTMLElement;
-    const backdrop  = document.getElementById("port-lb-backdrop") as HTMLElement;
-    const stage     = lb?.querySelector(".port-lb-stage") as HTMLElement;
-    const img       = document.getElementById("port-lb-img") as HTMLImageElement;
-    const catEl     = document.getElementById("port-lb-category") as HTMLElement;
-    const labelEl   = document.getElementById("port-lb-label") as HTMLElement;
+    const lb = document.getElementById("port-lb") as HTMLElement;
+    const backdrop = document.getElementById("port-lb-backdrop") as HTMLElement;
+    const stage = lb?.querySelector(".port-lb-stage") as HTMLElement;
+    const img = document.getElementById("port-lb-img") as HTMLImageElement;
+    const catEl = document.getElementById("port-lb-category") as HTMLElement;
+    const labelEl = document.getElementById("port-lb-label") as HTMLElement;
     const captionEl = document.getElementById("port-lb-caption") as HTMLElement;
     const counterEl = document.getElementById("port-lb-counter") as HTMLElement;
-    const closeBtn  = document.getElementById("port-lb-close") as HTMLButtonElement;
-    const prevBtn   = document.getElementById("port-lb-prev") as HTMLButtonElement;
-    const nextBtn   = document.getElementById("port-lb-next") as HTMLButtonElement;
+    const closeBtn = document.getElementById(
+      "port-lb-close",
+    ) as HTMLButtonElement;
+    const prevBtn = document.getElementById(
+      "port-lb-prev",
+    ) as HTMLButtonElement;
+    const nextBtn = document.getElementById(
+      "port-lb-next",
+    ) as HTMLButtonElement;
 
     if (!lb || !portData.length) return;
 
@@ -643,12 +708,16 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
 
     function close() {
       lb.classList.remove("lb-open");
-      lb.addEventListener("transitionend", () => {
-        lb.setAttribute("hidden", "");
-        document.body.style.overflow = "";
-        removeFocusTrap();
-        if (triggerEl) triggerEl.focus();
-      }, { once: true });
+      lb.addEventListener(
+        "transitionend",
+        () => {
+          lb.setAttribute("hidden", "");
+          document.body.style.overflow = "";
+          removeFocusTrap();
+          if (triggerEl) triggerEl.focus();
+        },
+        { once: true },
+      );
     }
 
     function navigate(dir: number) {
@@ -660,36 +729,50 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
     let focusTrapHandler: ((e: KeyboardEvent) => void) | null = null;
     function trapFocus() {
       focusTrapHandler = (e: KeyboardEvent) => {
-        if (e.key === "Escape") { close(); return; }
-        if (e.key === "ArrowLeft")  { navigate(-1); return; }
-        if (e.key === "ArrowRight") { navigate(1);  return; }
+        if (e.key === "Escape") {
+          close();
+          return;
+        }
+        if (e.key === "ArrowLeft") {
+          navigate(-1);
+          return;
+        }
+        if (e.key === "ArrowRight") {
+          navigate(1);
+          return;
+        }
         if (e.key !== "Tab") return;
         const focusable = Array.from(
-          lb.querySelectorAll<HTMLElement>("button, [tabindex='0']")
-        ).filter(el => !el.hasAttribute("hidden"));
+          lb.querySelectorAll<HTMLElement>("button, [tabindex='0']"),
+        ).filter((el) => !el.hasAttribute("hidden"));
         if (!focusable.length) return;
         const first = focusable[0];
-        const last  = focusable[focusable.length - 1];
+        const last = focusable[focusable.length - 1];
         if (e.shiftKey && document.activeElement === first) {
-          e.preventDefault(); last.focus();
+          e.preventDefault();
+          last.focus();
         } else if (!e.shiftKey && document.activeElement === last) {
-          e.preventDefault(); first.focus();
+          e.preventDefault();
+          first.focus();
         }
       };
       document.addEventListener("keydown", focusTrapHandler);
     }
     function removeFocusTrap() {
-      if (focusTrapHandler) document.removeEventListener("keydown", focusTrapHandler);
+      if (focusTrapHandler)
+        document.removeEventListener("keydown", focusTrapHandler);
       focusTrapHandler = null;
     }
 
     // Grid item clicks — data-index is the global lightbox index
-    document.querySelectorAll<HTMLButtonElement>(".port-grid-item").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const idx = parseInt(btn.dataset.index || "0", 10);
-        open(idx, btn);
+    document
+      .querySelectorAll<HTMLButtonElement>(".port-grid-item")
+      .forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const idx = parseInt(btn.dataset.index || "0", 10);
+          open(idx, btn);
+        });
       });
-    });
 
     closeBtn.addEventListener("click", close);
     backdrop.addEventListener("click", close);

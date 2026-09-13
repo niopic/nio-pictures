@@ -3,15 +3,17 @@ import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.astro";
 import { corporateImages } from "../content/images.config";
-import { formatTurnaroundFull, CORPORATE_PHOTO_TURNAROUND } from "../data/pricing";
+import {
+  formatTurnaroundFull,
+  CORPORATE_PHOTO_TURNAROUND,
+} from "../data/pricing";
 const title =
   "Corporate Photography Katy TX | Headshots & Event Coverage | NiO Pictures";
 const description =
   "Corporate photography in Katy TX - headshots, conference coverage, and event photography for local businesses.";
 const canonical = "https://niopictures.com/corporate-photography-katy-tx";
 const ogImage = "https://niopictures.com/assets/images/og-home.webp";
-const extraHead =
-  `<script type="application/ld+json">\n  {\n    "@context": "https://schema.org",\n    "@type": "BreadcrumbList",\n    "itemListElement": [\n      {"@type":"ListItem","position":1,"name":"Home","item":"https://niopictures.com/"},\n      {"@type":"ListItem","position":2,"name":"Corporate Photography Katy TX","item":"https://niopictures.com/corporate-photography-katy-tx"}\n    ]\n  }\n  </script>\n<script type="application/ld+json">\n  {\n    "@context": "https://schema.org",\n    "@type": "FAQPage",\n    "mainEntity": [\n      {\n        "@type": "Question",\n        "name": "Do you offer on-site corporate headshots?",\n        "acceptedAnswer": {\n          "@type": "Answer",\n          "text": "Yes. We offer on-site headshot sessions for teams of any size in Katy and the greater Houston area."\n        }\n      },\n      {\n        "@type": "Question",\n        "name": "How quickly are corporate photos delivered?",\n        "acceptedAnswer": {\n          "@type": "Answer",\n          "text": "Corporate sessions are typically delivered within ${formatTurnaroundFull(CORPORATE_PHOTO_TURNAROUND)} - faster turnaround can be discussed for time-sensitive needs."\n        }\n      },\n      {\n        "@type": "Question",\n        "name": "Do you photograph office or shop opening pujas?",\n        "acceptedAnswer": {\n          "@type": "Answer",\n          "text": "Yes. NiO Pictures photographs office opening pujas, shop and store opening blessings, and business inauguration ceremonies for South Asian-owned businesses throughout Katy and the greater Houston area."\n        }\n      }\n    ]\n  }\n  </script>`;
+const extraHead = `<script type="application/ld+json">\n  {\n    "@context": "https://schema.org",\n    "@type": "BreadcrumbList",\n    "itemListElement": [\n      {"@type":"ListItem","position":1,"name":"Home","item":"https://niopictures.com/"},\n      {"@type":"ListItem","position":2,"name":"Corporate Photography Katy TX","item":"https://niopictures.com/corporate-photography-katy-tx"}\n    ]\n  }\n  </script>\n<script type="application/ld+json">\n  {\n    "@context": "https://schema.org",\n    "@type": "FAQPage",\n    "mainEntity": [\n      {\n        "@type": "Question",\n        "name": "Do you offer on-site corporate headshots?",\n        "acceptedAnswer": {\n          "@type": "Answer",\n          "text": "Yes. We offer on-site headshot sessions for teams of any size in Katy and the greater Houston area."\n        }\n      },\n      {\n        "@type": "Question",\n        "name": "How quickly are corporate photos delivered?",\n        "acceptedAnswer": {\n          "@type": "Answer",\n          "text": "Corporate sessions are typically delivered within ${formatTurnaroundFull(CORPORATE_PHOTO_TURNAROUND)} - faster turnaround can be discussed for time-sensitive needs."\n        }\n      },\n      {\n        "@type": "Question",\n        "name": "Do you photograph office or shop opening pujas?",\n        "acceptedAnswer": {\n          "@type": "Answer",\n          "text": "Yes. NiO Pictures photographs office opening pujas, shop and store opening blessings, and business inauguration ceremonies for South Asian-owned businesses throughout Katy and the greater Houston area."\n        }\n      }\n    ]\n  }\n  </script>`;
 ---
 
 <BaseLayout
@@ -26,8 +28,10 @@ const extraHead =
     class="skip-link"
     style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);"
     onfocus="this.style.top='1rem'"
-    onblur="this.style.top='-40px'">Skip to main content</a
+    onblur="this.style.top='-40px'"
   >
+    Skip to main content
+  </a>
 
   <Nav />
 
@@ -53,12 +57,13 @@ const extraHead =
       </p>
       <div class="gold-line gold-line-animate"></div>
       <h1 class="display-xl" style="max-width:700px; margin-bottom:1.25rem;">
-        Corporate<br /><em style="font-style:italic; color:var(--gold);"
-          >Photography</em
-        >
+        Corporate
+        <br />
+        <em style="font-style:italic; color:var(--gold);">Photography</em>
       </h1>
       <p class="body-lg" style="max-width:580px; margin-bottom:0;">
-        Professional headshots, conference coverage, and event photography for businesses in Katy and the greater Houston area.
+        Professional headshots, conference coverage, and event photography for
+        businesses in Katy and the greater Houston area.
       </p>
     </div>
   </div>
@@ -82,15 +87,19 @@ const extraHead =
   <section class="section" style="padding-top:0;">
     <div class="container" style="max-width:1100px;">
       <div class="reveal" style="text-align:center; margin-bottom:2rem;">
-        <p class="eyebrow" style="margin-bottom:1rem;">Recent Work</p>
+        <p class="eyebrow" style="margin-bottom:1rem;">
+          Recent Work
+        </p>
         <h2 class="display-md" style="margin-bottom:0.75rem;">
-          A Private Gala<br /><em style="font-style:italic; color:var(--gold);"
-            >Captured Start to Finish</em
-          >
+          A Private Gala
+          <br />
+          <em style="font-style:italic; color:var(--gold);">
+            Captured Start to Finish
+          </em>
         </h2>
         <p class="body-md" style="max-width:600px; margin:0 auto;">
-          From candid guest moments to the night's performances — the same
-          full coverage approach we bring to any private or corporate event.
+          From candid guest moments to the night's performances — the same full
+          coverage approach we bring to any private or corporate event.
         </p>
       </div>
 
@@ -109,22 +118,20 @@ const extraHead =
       </div>
 
       <div class="corp-gallery-strip reveal">
-        {
-          corporateImages.gallery.slice(1).map((item) => (
-            <div class="corp-gallery-image">
-              <Image
-                src={item.img}
-                alt={item.alt}
-                loading="lazy"
-                width={400}
-                height={600}
-                widths={[400, 800]}
-                sizes="(max-width: 767px) calc(100vw - 2rem), (max-width: 1399px) calc(50vw - 3rem), calc(25vw - 3rem)"
-                quality={90}
-              />
-            </div>
-          ))
-        }
+        {corporateImages.gallery.slice(1).map((item) => (
+          <div class="corp-gallery-image">
+            <Image
+              src={item.img}
+              alt={item.alt}
+              loading="lazy"
+              width={400}
+              height={600}
+              widths={[400, 800]}
+              sizes="(max-width: 767px) calc(100vw - 2rem), (max-width: 1399px) calc(50vw - 3rem), calc(25vw - 3rem)"
+              quality={90}
+            />
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -144,50 +151,43 @@ const extraHead =
           style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
           open
         >
-          <summary
-            style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
-            >Do you offer on-site corporate headshots?<span
-              style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
-              >+</span
-            ></summary
-          >
+          <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+            Do you offer on-site corporate headshots?
+            <span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">
+              +
+            </span>
+          </summary>
           <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
             Yes. We offer on-site headshot sessions for teams of any size in
             Katy and the greater Houston area.
           </p>
         </details>
 
-        <details
-          style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
-        >
-          <summary
-            style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
-            >How quickly are corporate photos delivered?<span
-              style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
-              >+</span
-            ></summary
-          >
+        <details style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;">
+          <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+            How quickly are corporate photos delivered?
+            <span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">
+              +
+            </span>
+          </summary>
           <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
-            Corporate sessions are typically delivered within {formatTurnaroundFull(CORPORATE_PHOTO_TURNAROUND)} -
-            faster turnaround can be discussed for time-sensitive needs.
+            Corporate sessions are typically delivered within{" "}
+            {formatTurnaroundFull(CORPORATE_PHOTO_TURNAROUND)} - faster
+            turnaround can be discussed for time-sensitive needs.
           </p>
         </details>
 
-        <details
-          style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
-        >
-          <summary
-            style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
-            >Do you photograph office or shop opening pujas?<span
-              style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
-              >+</span
-            ></summary
-          >
+        <details style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;">
+          <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+            Do you photograph office or shop opening pujas?
+            <span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">
+              +
+            </span>
+          </summary>
           <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
             Yes. NiO Pictures photographs office opening pujas, shop and store
             opening blessings, and business inauguration ceremonies for South
-            Asian-owned businesses throughout Katy and the greater Houston
-            area.
+            Asian-owned businesses throughout Katy and the greater Houston area.
           </p>
         </details>
       </div>
@@ -203,21 +203,21 @@ const extraHead =
         class="display-md"
         style="margin-bottom:1rem; max-width:520px; margin-left:auto; margin-right:auto;"
       >
-        Professional Coverage<br /><em style="font-style:italic; color:var(--gold);"
-          >for Your Team</em
-        >
+        Professional Coverage
+        <br />
+        <em style="font-style:italic; color:var(--gold);">for Your Team</em>
       </h2>
       <p class="body-lg" style="max-width:420px; margin:0 auto 2.5rem;">
         Headshots, conferences, and corporate events throughout Katy and the
         greater Houston area.
       </p>
-      <div
-        style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;"
-      >
-        <a href="/contact" class="btn btn-primary btn-arrow"
-          >Start a Conversation</a
-        >
-        <a href="tel:+12814093585" class="btn btn-outline">Call Now</a>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="/contact" class="btn btn-primary btn-arrow">
+          Start a Conversation
+        </a>
+        <a href="tel:+12814093585" class="btn btn-outline">
+          Call Now
+        </a>
       </div>
     </div>
   </section>

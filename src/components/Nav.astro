@@ -33,54 +33,61 @@ const SELF_BOOK_URL = "https://niopictures.pixieset.com/booking/";
 
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <a href="/" class="nav-logo" aria-label="NiO Pictures Home">
-    N<span class="wordmark-i">i</span><span>O</span> PICTURES
+    N<span class="wordmark-i">i</span>
+    <span>O</span> PICTURES
   </a>
 
   <div class="nav-links">
-    {
-      links.map((link) => (
-        <a
-          href={link.href}
-          class={currentPath === link.href ? "active" : undefined}
-          aria-current={currentPath === link.href ? "page" : undefined}
-        >
-          {link.label}
-        </a>
-      ))
-    }
-  </div>
-
-  <div class="nav-cta-group">
-    <a href="/contact" class="btn btn-primary nav-cta">Start a Conversation</a>
-    <a
-      href={SELF_BOOK_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="nav-cta-secondary">Prefer to self-book? →</a
-    >
-  </div>
-
-  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<div class="nav-mobile" role="dialog" aria-label="Mobile navigation">
-  {
-    links.map((link) => (
+    {links.map((link) => (
       <a
         href={link.href}
+        class={currentPath === link.href ? "active" : undefined}
         aria-current={currentPath === link.href ? "page" : undefined}
       >
         {link.label}
       </a>
-    ))
-  }
-  <a href="/contact" class="nav-mobile-cta">Start a Conversation →</a>
+    ))}
+  </div>
+
+  <div class="nav-cta-group">
+    <a href="/contact" class="btn btn-primary nav-cta">
+      Start a Conversation
+    </a>
+    <a
+      href={SELF_BOOK_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="nav-cta-secondary"
+    >
+      Prefer to self-book? →
+    </a>
+  </div>
+
+  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile" role="dialog" aria-label="Mobile navigation">
+  {links.map((link) => (
+    <a
+      href={link.href}
+      aria-current={currentPath === link.href ? "page" : undefined}
+    >
+      {link.label}
+    </a>
+  ))}
+  <a href="/contact" class="nav-mobile-cta">
+    Start a Conversation →
+  </a>
   <a
     href={SELF_BOOK_URL}
     target="_blank"
     rel="noopener noreferrer"
-    class="nav-mobile-secondary">Prefer to self-book? →</a
+    class="nav-mobile-secondary"
   >
+    Prefer to self-book? →
+  </a>
 </div>

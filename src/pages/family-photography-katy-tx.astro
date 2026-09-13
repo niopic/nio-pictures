@@ -5,7 +5,12 @@ import Nav from "../components/Nav.astro";
 import PricingSection from "../components/PricingSection.astro";
 
 import { familyImages } from "../content/images.config";
-import { formatUSD, PACKAGES, packageFrom, formatTurnaroundFull } from "../data/pricing";
+import {
+  formatUSD,
+  PACKAGES,
+  packageFrom,
+  formatTurnaroundFull,
+} from "../data/pricing";
 
 const siteUrl = "https://niopictures.com";
 const familyHeroImagePath = familyImages.pageHero.img.src;
@@ -116,8 +121,11 @@ const familyFaqLd = JSON.stringify({
       fetchpriority="high"
     />
 
-    <script type="application/ld+json" is:inline set:html={familyHeroImageLd} />
-
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={familyHeroImageLd}
+    ></script>
     <script type="application/ld+json" is:inline>
       {
         "@context": "https://schema.org",
@@ -138,7 +146,6 @@ const familyFaqLd = JSON.stringify({
         ]
       }
     </script>
-
     <script type="application/ld+json" is:inline>
       {
         "@context": "https://schema.org",
@@ -177,8 +184,11 @@ const familyFaqLd = JSON.stringify({
         }
       }
     </script>
-
-    <script type="application/ld+json" is:inline set:html={familyFaqLd} />
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={familyFaqLd}
+    ></script>
   </fragment>
 
   <a
@@ -186,8 +196,10 @@ const familyFaqLd = JSON.stringify({
     class="skip-link"
     style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);"
     onfocus="this.style.top='1rem'"
-    onblur="this.style.top='-40px'">Skip to main content</a
+    onblur="this.style.top='-40px'"
   >
+    Skip to main content
+  </a>
 
   <Nav currentPath="/family-photography-katy-tx" />
 
@@ -213,9 +225,9 @@ const familyFaqLd = JSON.stringify({
           Portraits - Lifestyle - Legacy
         </p>
         <h1 class="display-xl" style="max-width: 680px;">
-          Family Photographer<br /><em style="font-style:italic; color:var(--gold);"
-            >in Katy TX</em
-          >
+          Family Photographer
+          <br />
+          <em style="font-style:italic; color:var(--gold);">in Katy TX</em>
         </h1>
         <p class="body-lg" style="max-width: 480px; margin-top: 1rem;">
           Family photography Katy TX with images built to outlive us: warm,
@@ -224,8 +236,13 @@ const familyFaqLd = JSON.stringify({
       </div>
     </div>
 
-    <p class="body-sm" style="text-align:center; padding: 1.25rem var(--gutter); color: var(--muted); max-width: 780px; margin: 0 auto;">
-      NiO Pictures is a Katy, TX-based studio offering family portrait photography alongside its specialty in South Asian milestone celebrations, serving Fulshear, Richmond, Cypress, Sugar Land, and Greater Houston.
+    <p
+      class="body-sm"
+      style="text-align:center; padding: 1.25rem var(--gutter); color: var(--muted); max-width: 780px; margin: 0 auto;"
+    >
+      NiO Pictures is a Katy, TX-based studio offering family portrait
+      photography alongside its specialty in South Asian milestone celebrations,
+      serving Fulshear, Richmond, Cypress, Sugar Land, and Greater Houston.
     </p>
 
     <section class="section">
@@ -237,15 +254,18 @@ const familyFaqLd = JSON.stringify({
           <p class="eyebrow">The Philosophy</p>
           <div class="gold-line center gold-line-animate"></div>
           <h2 class="display-md" style="margin-bottom: 1.5rem;">
-            Photographs Are the Only<br /><em
-              style="font-style:italic; color:var(--gold);"
-              >Heirlooms That Don't Age</em
-            >
+            Photographs Are the Only
+            <br />
+            <em style="font-style:italic; color:var(--gold);">
+              Heirlooms That Don't Age
+            </em>
           </h2>
           <p class="body-lg" style="margin-bottom: 1rem;">
-            As your trusted <strong style="color:var(--cream); font-weight:400;"
-              >family photographer in Katy, TX</strong
-            >, I believe great portraits are not posed - they are felt. Every
+            As your trusted{" "}
+            <strong style="color:var(--cream); font-weight:400;">
+              family photographer in Katy, TX
+            </strong>
+            , I believe great portraits are not posed - they are felt. Every
             session is a collaboration that lets your family's real personality
             shine through.
           </p>
@@ -263,76 +283,84 @@ const familyFaqLd = JSON.stringify({
         <div class="features-grid">
           <article class="feature-card reveal">
             <div class="feature-icon">◈</div>
-            <p class="eyebrow" style="margin-bottom: 0.75rem;">Portraits</p>
+            <p class="eyebrow" style="margin-bottom: 0.75rem;">
+              Portraits
+            </p>
             <h3 class="feature-title">Heirloom Family Portraits</h3>
             <p class="body-sm">
               Timeless, beautifully composed portraits designed to become the
               images your family treasures for generations. Classic,
               intentional, and deeply personal.
             </p>
-            <ul
-              style="margin-top: 1rem; display:flex; flex-direction:column; gap:0.4rem;"
-            >
+            <ul style="margin-top: 1rem; display:flex; flex-direction:column; gap:0.4rem;">
               <li class="body-sm" style="display:flex;gap:0.5rem;">
-                <span style="color:var(--gold);">-</span> Indoor and outdoor sessions
+                <span style="color:var(--gold);">-</span> Indoor and outdoor
+                sessions
               </li>
               <li class="body-sm" style="display:flex;gap:0.5rem;">
-                <span style="color:var(--gold);">-</span> Full family and individual
-                portraits
+                <span style="color:var(--gold);">-</span> Full family and
+                individual portraits
               </li>
               <li class="body-sm" style="display:flex;gap:0.5rem;">
-                <span style="color:var(--gold);">-</span> Golden hour preferred timing
+                <span style="color:var(--gold);">-</span> Golden hour preferred
+                timing
               </li>
               <li class="body-sm" style="display:flex;gap:0.5rem;">
-                <span style="color:var(--gold);">-</span> Print-ready final images
+                <span style="color:var(--gold);">-</span> Print-ready final
+                images
               </li>
             </ul>
           </article>
 
           <article class="feature-card reveal reveal-delay-2">
             <div class="feature-icon">◇</div>
-            <p class="eyebrow" style="margin-bottom: 0.75rem;">Lifestyle</p>
+            <p class="eyebrow" style="margin-bottom: 0.75rem;">
+              Lifestyle
+            </p>
             <h3 class="feature-title">Lifestyle Sessions</h3>
             <p class="body-sm">
               Natural, documentary-style photography that captures your family
               in motion - cooking together, playing in the yard, reading before
               bed. Real life, beautifully preserved.
             </p>
-            <ul
-              style="margin-top: 1rem; display:flex; flex-direction:column; gap:0.4rem;"
-            >
+            <ul style="margin-top: 1rem; display:flex; flex-direction:column; gap:0.4rem;">
               <li class="body-sm" style="display:flex;gap:0.5rem;">
-                <span style="color:var(--gold);">-</span> In-home or outdoor location
+                <span style="color:var(--gold);">-</span> In-home or outdoor
+                location
               </li>
               <li class="body-sm" style="display:flex;gap:0.5rem;">
-                <span style="color:var(--gold);">-</span> Candid, unscripted approach
+                <span style="color:var(--gold);">-</span> Candid, unscripted
+                approach
               </li>
               <li class="body-sm" style="display:flex;gap:0.5rem;">
                 <span style="color:var(--gold);">-</span> Kids and pets welcome
               </li>
               <li class="body-sm" style="display:flex;gap:0.5rem;">
-                <span style="color:var(--gold);">-</span> Up to 1.5 hour sessions
+                <span style="color:var(--gold);">-</span> Up to 1.5 hour
+                sessions
               </li>
             </ul>
           </article>
 
           <article class="feature-card reveal reveal-delay-3">
             <div class="feature-icon">◉</div>
-            <p class="eyebrow" style="margin-bottom: 0.75rem;">Milestones</p>
+            <p class="eyebrow" style="margin-bottom: 0.75rem;">
+              Milestones
+            </p>
             <h3 class="feature-title">Milestone Sessions</h3>
             <p class="body-sm">
               Anniversaries, housewarmings, birthday celebrations, and new
               beginnings. Every milestone deserves imagery as meaningful as the
               moment itself.
             </p>
-            <ul
-              style="margin-top: 1rem; display:flex; flex-direction:column; gap:0.4rem;"
-            >
+            <ul style="margin-top: 1rem; display:flex; flex-direction:column; gap:0.4rem;">
               <li class="body-sm" style="display:flex;gap:0.5rem;">
-                <span style="color:var(--gold);">-</span> Anniversaries and renewals
+                <span style="color:var(--gold);">-</span> Anniversaries and
+                renewals
               </li>
               <li class="body-sm" style="display:flex;gap:0.5rem;">
-                <span style="color:var(--gold);">-</span> Housewarming celebrations
+                <span style="color:var(--gold);">-</span> Housewarming
+                celebrations
               </li>
               <li class="body-sm" style="display:flex;gap:0.5rem;">
                 <span style="color:var(--gold);">-</span> Milestone birthdays
@@ -356,19 +384,26 @@ const familyFaqLd = JSON.stringify({
           style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 8vw, 7rem); align-items: center;"
         >
           <div class="reveal">
-            <p class="eyebrow" style="margin-bottom: 1rem;">Why It Matters</p>
+            <p class="eyebrow" style="margin-bottom: 1rem;">
+              Why It Matters
+            </p>
             <div class="gold-line gold-line-animate"></div>
             <h2 class="display-md" style="margin-bottom: 1.5rem;">
-              For Katy Families<br />Who Know These<br /><em
-                style="font-style:italic; color:var(--gold);"
-                >Days Go Fast</em
-              >
+              For Katy Families
+              <br />
+              Who Know These
+              <br />
+              <em style="font-style:italic; color:var(--gold);">
+                Days Go Fast
+              </em>
             </h2>
             <p class="body-lg" style="margin-bottom: 1.25rem;">
-              We serve families throughout <strong
-                style="color:var(--cream); font-weight:400;"
-                >Katy, Sugar Land, Houston, and Richmond, TX</strong
-              > - and every session is treated as if it is my own family in the frame.
+              We serve families throughout{" "}
+              <strong style="color:var(--cream); font-weight:400;">
+                Katy, Sugar Land, Houston, and Richmond, TX
+              </strong>{" "}
+              - and every session is treated as if it is my own family in the
+              frame.
             </p>
             <p class="body-lg" style="margin-bottom: 2rem;">
               The warmth of Texas golden hour. The laughter that cannot be
@@ -380,17 +415,17 @@ const familyFaqLd = JSON.stringify({
               href="https://niopictures.pixieset.com/booking/"
               target="_blank"
               rel="noopener noreferrer"
-              class="btn btn-gold-outline btn-arrow">Book Family Session</a
+              class="btn btn-gold-outline btn-arrow"
             >
+              Book Family Session
+            </a>
           </div>
 
           <div
             class="family-image-grid reveal reveal-delay-2"
             style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;"
           >
-            <div
-              style="aspect-ratio: 3/4; overflow: hidden; border-radius: 2px;"
-            >
+            <div style="aspect-ratio: 3/4; overflow: hidden; border-radius: 2px;">
               <Image
                 src={familyImages.gridSlot2.img}
                 alt={familyImages.gridSlot2.alt}
@@ -554,8 +589,10 @@ const familyFaqLd = JSON.stringify({
             href="https://niopictures.pixieset.com/"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn btn-gold-outline btn-arrow">View Full Family Gallery</a
+            class="btn btn-gold-outline btn-arrow"
           >
+            View Full Family Gallery
+          </a>
         </div>
       </div>
     </section>
@@ -581,24 +618,25 @@ const familyFaqLd = JSON.stringify({
             <div class="step-number">02</div>
             <h3 class="display-sm">The Session</h3>
             <p class="body-sm">
-              I arrive on time and guide you through natural, relaxed
-              posing - so being photographed feels easy, not stiff.
+              I arrive on time and guide you through natural, relaxed posing -
+              so being photographed feels easy, not stiff.
             </p>
           </div>
           <div class="process-step">
             <div class="step-number">03</div>
             <h3 class="display-sm">Culling and Edit</h3>
             <p class="body-sm">
-              Every image is carefully selected and edited with my
-              signature warm, heirloom-quality style.
+              Every image is carefully selected and edited with my signature
+              warm, heirloom-quality style.
             </p>
           </div>
           <div class="process-step">
             <div class="step-number">04</div>
             <h3 class="display-sm">Gallery Delivery</h3>
             <p class="body-sm">
-              Your private online gallery is delivered within {formatTurnaroundFull(legacyPkg.photoTurnaround)},
-              ready to download and share.
+              Your private online gallery is delivered within{" "}
+              {formatTurnaroundFull(legacyPkg.photoTurnaround)}, ready to
+              download and share.
             </p>
           </div>
         </div>
@@ -622,13 +660,12 @@ const familyFaqLd = JSON.stringify({
             style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
             open
           >
-            <summary
-              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
-              >What is heirloom family photography?<span
-                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
-                >+</span
-              ></summary
-            >
+            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+              What is heirloom family photography?
+              <span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">
+                +
+              </span>
+            </summary>
             <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
               Heirloom family photography focuses on creating timeless,
               emotionally authentic portraits designed to be treasured - and
@@ -640,35 +677,31 @@ const familyFaqLd = JSON.stringify({
             </p>
           </details>
 
-          <details
-            style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
-          >
-            <summary
-              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
-              >How much does a family photography session cost?<span
-                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
-                >+</span
-              ></summary
-            >
+          <details style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;">
+            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+              How much does a family photography session cost?
+              <span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">
+                +
+              </span>
+            </summary>
             <div style="margin-top:1rem; padding-right:2rem;">
               <p class="body-sm" style="margin-bottom:0.75rem;">
-                The Legacy Collection starts at <strong style="color:var(--cream);">{legacyPrice}</strong> for a {legacyPkg.coverage}.
-                Every session includes {legacyPkg.deliverables.join(", ")}. No hidden fees.
-                See the pricing section below for full details and add-ons.
+                The Legacy Collection starts at{" "}
+                <strong style="color:var(--cream);">{legacyPrice}</strong> for a{" "}
+                {legacyPkg.coverage}. Every session includes{" "}
+                {legacyPkg.deliverables.join(", ")}. No hidden fees. See the
+                pricing section below for full details and add-ons.
               </p>
             </div>
           </details>
 
-          <details
-            style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
-          >
-            <summary
-              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
-              >Can we order prints, wall art, and albums?<span
-                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
-                >+</span
-              ></summary
-            >
+          <details style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;">
+            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+              Can we order prints, wall art, and albums?
+              <span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">
+                +
+              </span>
+            </summary>
             <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
               Absolutely - and this is the heart of what heirloom photography is
               about. Every session comes with access to my Pixieset print store
@@ -680,16 +713,13 @@ const familyFaqLd = JSON.stringify({
             </p>
           </details>
 
-          <details
-            style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
-          >
-            <summary
-              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
-              >Where do you photograph family sessions?<span
-                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
-                >+</span
-              ></summary
-            >
+          <details style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;">
+            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+              Where do you photograph family sessions?
+              <span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">
+                +
+              </span>
+            </summary>
             <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
               Sessions are available at outdoor locations across Katy, Sugar
               Land, Houston, Cypress, and Richmond TX - local parks, nature
@@ -700,34 +730,30 @@ const familyFaqLd = JSON.stringify({
             </p>
           </details>
 
-          <details
-            style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
-          >
-            <summary
-              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
-              >When will I receive my photos?<span
-                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
-                >+</span
-              ></summary
-            >
+          <details style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;">
+            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+              When will I receive my photos?
+              <span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">
+                +
+              </span>
+            </summary>
             <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
-              Photos from the Legacy Collection are delivered within {formatTurnaroundFull(legacyPkg.photoTurnaround)}.
-              You will receive a link to your private Pixieset gallery where you can view, download, share, and
-              order prints - all in one place. Rush delivery may be available
-              for select sessions; contact me to discuss.
+              Photos from the Legacy Collection are delivered within{" "}
+              {formatTurnaroundFull(legacyPkg.photoTurnaround)}. You will
+              receive a link to your private Pixieset gallery where you can
+              view, download, share, and order prints - all in one place. Rush
+              delivery may be available for select sessions; contact me to
+              discuss.
             </p>
           </details>
 
-          <details
-            style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
-          >
-            <summary
-              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
-              >What should we wear?<span
-                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
-                >+</span
-              ></summary
-            >
+          <details style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;">
+            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+              What should we wear?
+              <span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">
+                +
+              </span>
+            </summary>
             <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
               Coordinated but not matching tends to photograph best. Choose two
               or three colors across the family - navy, cream, olive, soft
@@ -740,16 +766,13 @@ const familyFaqLd = JSON.stringify({
             </p>
           </details>
 
-          <details
-            style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
-          >
-            <summary
-              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
-              >Can we bring our pets?<span
-                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
-                >+</span
-              ></summary
-            >
+          <details style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;">
+            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+              Can we bring our pets?
+              <span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">
+                +
+              </span>
+            </summary>
             <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
               Yes - pets are absolutely welcome and often bring the most joyful,
               unscripted moments to a session. Bring a leash, a few treats, and
@@ -759,16 +782,13 @@ const familyFaqLd = JSON.stringify({
             </p>
           </details>
 
-          <details
-            style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
-          >
-            <summary
-              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
-              >Do you photograph South Asian or Indian family sessions?<span
-                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
-                >+</span
-              ></summary
-            >
+          <details style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;">
+            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+              Do you photograph South Asian or Indian family sessions?
+              <span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">
+                +
+              </span>
+            </summary>
             <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
               Yes — this is a specialty. Palanivel has deep familiarity with
               South Asian and Indian family dynamics, traditions, and attire. He
@@ -781,13 +801,12 @@ const familyFaqLd = JSON.stringify({
           </details>
 
           <details style="padding: 1.5rem 0;">
-            <summary
-              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
-              >Do you work with families of all cultural backgrounds?<span
-                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
-                >+</span
-              ></summary
-            >
+            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+              Do you work with families of all cultural backgrounds?
+              <span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">
+                +
+              </span>
+            </summary>
             <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
               Absolutely. Palanivel's approach is culturally adaptable and he
               has worked with families from many different backgrounds across
@@ -809,24 +828,27 @@ const familyFaqLd = JSON.stringify({
           class="display-md"
           style="margin-bottom:1rem; max-width:520px; margin-left:auto; margin-right:auto;"
         >
-          The Moments That Matter<br /><em
-            style="font-style:italic; color:var(--gold);"
-            >Deserve to Last Forever</em
-          >
+          The Moments That Matter
+          <br />
+          <em style="font-style:italic; color:var(--gold);">
+            Deserve to Last Forever
+          </em>
         </h2>
         <p class="body-lg" style="max-width:400px; margin: 0 auto 2.5rem;">
           Sessions available throughout Katy, Houston, Sugar Land, and Richmond,
           TX.
         </p>
-        <a href="/contact" class="btn btn-primary btn-arrow"
-          >Start a Conversation</a
-        >
+        <a href="/contact" class="btn btn-primary btn-arrow">
+          Start a Conversation
+        </a>
         <a
           href="https://niopictures.pixieset.com/booking/"
           target="_blank"
           rel="noopener noreferrer"
-          class="btn btn-outline">Prefer to self-book? →</a
+          class="btn btn-outline"
         >
+          Prefer to self-book? →
+        </a>
       </div>
     </section>
   </main>

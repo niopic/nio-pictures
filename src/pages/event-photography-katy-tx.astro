@@ -6,7 +6,11 @@ import PricingSection from "../components/PricingSection.astro";
 import VideoFacade from "../components/VideoFacade.astro";
 
 import { eventsImages } from "../content/images.config";
-import { PACKAGES, formatTurnaroundFull, formatCoverageHours } from "../data/pricing";
+import {
+  PACKAGES,
+  formatTurnaroundFull,
+  formatCoverageHours,
+} from "../data/pricing";
 const intimateGathering = PACKAGES.find((p) => p.id === "intimate-gathering")!;
 const heritageSession = PACKAGES.find((p) => p.id === "heritage-session")!;
 const signatureGala = PACKAGES.find((p) => p.id === "signature-gala")!;
@@ -73,9 +77,16 @@ const highlightFilmLd = JSON.stringify({
       fetchpriority="high"
     />
 
-    <script type="application/ld+json" is:inline set:html={eventHeroImageLd} />
-    <script type="application/ld+json" is:inline set:html={highlightFilmLd} />
-
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={eventHeroImageLd}
+    ></script>
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={highlightFilmLd}
+    ></script>
     <link rel="preconnect" href="https://img.youtube.com" />
     <link rel="preconnect" href="https://www.youtube-nocookie.com" />
 
@@ -99,7 +110,6 @@ const highlightFilmLd = JSON.stringify({
         ]
       }
     </script>
-
     <script type="application/ld+json" is:inline>
       {
         "@context": "https://schema.org",
@@ -138,7 +148,6 @@ const highlightFilmLd = JSON.stringify({
         }
       }
     </script>
-
     <script type="application/ld+json" is:inline>
       {
         "@context": "https://schema.org",
@@ -218,8 +227,10 @@ const highlightFilmLd = JSON.stringify({
     class="skip-link"
     style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);"
     onfocus="this.style.top='1rem'"
-    onblur="this.style.top='-40px'">Skip to main content</a
+    onblur="this.style.top='-40px'"
   >
+    Skip to main content
+  </a>
 
   <Nav currentPath="/event-photography-katy-tx" />
 
@@ -245,9 +256,9 @@ const highlightFilmLd = JSON.stringify({
           Katy TX · Houston · Sugar Land · Richmond
         </p>
         <h1 class="display-xl" style="max-width: 680px;">
-          Event Photographer<br /><em style="font-style:italic; color:var(--gold);"
-            >in Katy TX</em
-          >
+          Event Photographer
+          <br />
+          <em style="font-style:italic; color:var(--gold);">in Katy TX</em>
         </h1>
         <p class="body-lg" style="max-width: 500px; margin-top: 1rem;">
           Event photography Katy TX for corporate events, private celebrations,
@@ -256,8 +267,14 @@ const highlightFilmLd = JSON.stringify({
       </div>
     </div>
 
-    <p class="body-sm" style="text-align:center; padding: 1.25rem var(--gutter); color: var(--muted); max-width: 780px; margin: 0 auto;">
-      Based in Katy, TX, NiO Pictures specializes in South Asian milestone photography and cinematic film — covering housewarmings, half-saree ceremonies, and cultural celebrations across Fulshear, Richmond, Cypress, Sugar Land, and Greater Houston.
+    <p
+      class="body-sm"
+      style="text-align:center; padding: 1.25rem var(--gutter); color: var(--muted); max-width: 780px; margin: 0 auto;"
+    >
+      Based in Katy, TX, NiO Pictures specializes in South Asian milestone
+      photography and cinematic film — covering housewarmings, half-saree
+      ceremonies, and cultural celebrations across Fulshear, Richmond, Cypress,
+      Sugar Land, and Greater Houston.
     </p>
 
     <section class="section">
@@ -269,21 +286,25 @@ const highlightFilmLd = JSON.stringify({
           <p class="eyebrow">The Approach</p>
           <div class="gold-line center gold-line-animate"></div>
           <h2 class="display-md" style="margin-bottom: 1.5rem;">
-            Every Event Has a Story.<br /><em
-              style="font-style:italic; color:var(--gold);"
-              >I Tell It Beautifully.</em
-            >
+            Every Event Has a Story.
+            <br />
+            <em style="font-style:italic; color:var(--gold);">
+              I Tell It Beautifully.
+            </em>
           </h2>
           <p class="body-lg">
-            As a dedicated <strong style="color:var(--cream); font-weight:400;"
-              >event photographer in Katy, TX</strong
-            >, NiO Pictures approaches every event like a documentary filmmaker
-            - invisible, observant, and always in the right place at the right
+            As a dedicated{" "}
+            <strong style="color:var(--cream); font-weight:400;">
+              event photographer in Katy, TX
+            </strong>
+            , NiO Pictures approaches every event like a documentary filmmaker -
+            invisible, observant, and always in the right place at the right
             moment. No stiff poses. No missed moments. Just authentic, cinematic
             imagery that captures the energy of your event exactly as it was.
           </p>
           <p class="body-lg" style="margin-top:1rem;">
-            Serving Katy, Sugar Land, Houston, and the greater Fort Bend County area.
+            Serving Katy, Sugar Land, Houston, and the greater Fort Bend County
+            area.
           </p>
         </div>
       </div>
@@ -294,114 +315,161 @@ const highlightFilmLd = JSON.stringify({
         <div class="features-grid features-grid-4">
           <article class="feature-card reveal">
             <div class="feature-icon">◇</div>
-            <p class="eyebrow" style="margin-bottom: 0.75rem;">South Asian Celebrations</p>
+            <p class="eyebrow" style="margin-bottom: 0.75rem;">
+              South Asian Celebrations
+            </p>
             <h3 class="feature-title">Housewarmings & Cultural Milestones</h3>
-            <p class="body-sm" style="color:var(--gold); font-style:italic; margin-bottom:0.5rem; font-size:0.8rem;">Housewarmings, half-saree ceremonies, Diwali, and the milestones that matter most.</p>
+            <p
+              class="body-sm"
+              style="color:var(--gold); font-style:italic; margin-bottom:0.5rem; font-size:0.8rem;"
+            >
+              Housewarmings, half-saree ceremonies, Diwali, and the milestones
+              that matter most.
+            </p>
             <p class="body-sm">
-              From Grihapravesam housewarmings to half-saree ceremonies, milestone birthdays, and
-              Diwali celebrations — I photograph South Asian traditions with the care and cultural
-              understanding they deserve. We also welcome and proudly photograph celebrations from
+              From Grihapravesam housewarmings to half-saree ceremonies,
+              milestone birthdays, and Diwali celebrations — I photograph South
+              Asian traditions with the care and cultural understanding they
+              deserve. We also welcome and proudly photograph celebrations from
               every culture and tradition.
             </p>
-            <ul
-              style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.4rem;"
-            >
+            <ul style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.4rem;">
               <li class="body-sm" style="display:flex; gap:0.5rem;">
-                <span style="color:var(--gold);">-</span> <a href="/housewarming-photography-katy-tx" style="color:inherit; text-decoration:none; border-bottom:1px solid var(--gold);">Housewarming (Grihapravesam) ceremonies</a>
+                <span style="color:var(--gold);">-</span>{" "}
+                <a
+                  href="/housewarming-photography-katy-tx"
+                  style="color:inherit; text-decoration:none; border-bottom:1px solid var(--gold);"
+                >
+                  Housewarming (Grihapravesam) ceremonies
+                </a>
               </li>
               <li class="body-sm" style="display:flex; gap:0.5rem;">
-                <span style="color:var(--gold);">-</span> <a href="/half-saree-photography-katy-tx" style="color:inherit; text-decoration:none; border-bottom:1px solid var(--gold);">Half-saree &amp; coming-of-age milestones</a>
+                <span style="color:var(--gold);">-</span>{" "}
+                <a
+                  href="/half-saree-photography-katy-tx"
+                  style="color:inherit; text-decoration:none; border-bottom:1px solid var(--gold);"
+                >
+                  Half-saree &amp; coming-of-age milestones
+                </a>
               </li>
               <li class="body-sm" style="display:flex; gap:0.5rem;">
-                <span style="color:var(--gold);">-</span> <a href="/videography-katy-tx" style="color:inherit; text-decoration:none; border-bottom:1px solid var(--gold);">Photography &amp; film (hybrid coverage)</a>
+                <span style="color:var(--gold);">-</span>{" "}
+                <a
+                  href="/videography-katy-tx"
+                  style="color:inherit; text-decoration:none; border-bottom:1px solid var(--gold);"
+                >
+                  Photography &amp; film (hybrid coverage)
+                </a>
               </li>
               <li class="body-sm" style="display:flex; gap:0.5rem;">
-                <span style="color:var(--gold);">-</span> Diwali &amp; festival celebrations
+                <span style="color:var(--gold);">-</span> Diwali &amp; festival
+                celebrations
               </li>
               <li class="body-sm" style="display:flex; gap:0.5rem;">
-                <span style="color:var(--gold);">-</span> Milestone birthdays with cultural elements
+                <span style="color:var(--gold);">-</span> Milestone birthdays
+                with cultural elements
               </li>
             </ul>
           </article>
 
           <article class="feature-card reveal reveal-delay-2">
             <div class="feature-icon">◆</div>
-            <p class="eyebrow" style="margin-bottom: 0.75rem;">Private</p>
-            <h3 class="feature-title">Private Events</h3>
-            <p class="body-sm" style="color:var(--gold); font-style:italic; margin-bottom:0.5rem; font-size:0.8rem;">Birthdays, anniversaries, and the parties worth remembering.</p>
-            <p class="body-sm">
-              Birthdays, anniversaries, quinceañeras, and private celebrations — I capture the
-              warmth, energy, and authentic detail of every gathering.
+            <p class="eyebrow" style="margin-bottom: 0.75rem;">
+              Private
             </p>
-            <ul
-              style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.4rem;"
+            <h3 class="feature-title">Private Events</h3>
+            <p
+              class="body-sm"
+              style="color:var(--gold); font-style:italic; margin-bottom:0.5rem; font-size:0.8rem;"
             >
+              Birthdays, anniversaries, and the parties worth remembering.
+            </p>
+            <p class="body-sm">
+              Birthdays, anniversaries, quinceañeras, and private celebrations —
+              I capture the warmth, energy, and authentic detail of every
+              gathering.
+            </p>
+            <ul style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.4rem;">
               <li class="body-sm" style="display:flex; gap:0.5rem;">
-                <span style="color:var(--gold);">-</span> Birthday and milestone parties
+                <span style="color:var(--gold);">-</span> Birthday and milestone
+                parties
               </li>
               <li class="body-sm" style="display:flex; gap:0.5rem;">
-                <span style="color:var(--gold);">-</span> Anniversary celebrations
+                <span style="color:var(--gold);">-</span> Anniversary
+                celebrations
               </li>
               <li class="body-sm" style="display:flex; gap:0.5rem;">
-                <span style="color:var(--gold);">-</span> Quinceañeras &amp; milestone parties
+                <span style="color:var(--gold);">-</span> Quinceañeras &amp;
+                milestone parties
               </li>
               <li class="body-sm" style="display:flex; gap:0.5rem;">
-                <span style="color:var(--gold);">-</span> Candid and portrait mix
+                <span style="color:var(--gold);">-</span> Candid and portrait
+                mix
               </li>
             </ul>
           </article>
 
           <article class="feature-card reveal reveal-delay-3">
             <div class="feature-icon">◈</div>
-            <p class="eyebrow" style="margin-bottom: 0.75rem;">Corporate</p>
+            <p class="eyebrow" style="margin-bottom: 0.75rem;">
+              Corporate
+            </p>
             <h3 class="feature-title">Corporate Events</h3>
-            <p class="body-sm" style="color:var(--gold); font-style:italic; margin-bottom:0.5rem; font-size:0.8rem;">Imagery that reflects your brand. Delivered fast.</p>
+            <p
+              class="body-sm"
+              style="color:var(--gold); font-style:italic; margin-bottom:0.5rem; font-size:0.8rem;"
+            >
+              Imagery that reflects your brand. Delivered fast.
+            </p>
             <p class="body-sm">
               Conferences, galas, product launches, award ceremonies, and team
               events. Professional imagery that reflects your brand with polish
               and precision.
             </p>
-            <ul
-              style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.4rem;"
-            >
+            <ul style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.4rem;">
               <li class="body-sm" style="display:flex; gap:0.5rem;">
-                <span style="color:var(--gold);">-</span> Corporate headshots on-site
+                <span style="color:var(--gold);">-</span> Corporate headshots
+                on-site
               </li>
               <li class="body-sm" style="display:flex; gap:0.5rem;">
-                <span style="color:var(--gold);">-</span> Conference and keynote coverage
+                <span style="color:var(--gold);">-</span> Conference and keynote
+                coverage
               </li>
             </ul>
             <a
               href="/corporate-photography-katy-tx"
               style="display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-accent);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-top:1.25rem;"
-              >Corporate Photography →</a
             >
+              Corporate Photography →
+            </a>
           </article>
 
           <article class="feature-card reveal reveal-delay-4">
             <div class="feature-icon">◉</div>
-            <p class="eyebrow" style="margin-bottom: 0.75rem;">Storytelling</p>
+            <p class="eyebrow" style="margin-bottom: 0.75rem;">
+              Storytelling
+            </p>
             <h3 class="feature-title">Candid Coverage</h3>
             <p class="body-sm">
               Real moments. Real emotions. My candid photography style ensures
               nothing authentic is missed - from the first handshake to the last
               dance.
             </p>
-            <ul
-              style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.4rem;"
-            >
+            <ul style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.4rem;">
               <li class="body-sm" style="display:flex; gap:0.5rem;">
-                <span style="color:var(--gold);">-</span> Unobtrusive documentary
-                style
+                <span style="color:var(--gold);">-</span> Unobtrusive
+                documentary style
               </li>
               <li class="body-sm" style="display:flex; gap:0.5rem;">
-                <span style="color:var(--gold);">-</span> Full-event timeline coverage
+                <span style="color:var(--gold);">-</span> Full-event timeline
+                coverage
               </li>
               <li class="body-sm" style="display:flex; gap:0.5rem;">
                 <span style="color:var(--gold);">-</span> Emotion-first editing
               </li>
               <li class="body-sm" style="display:flex; gap:0.5rem;">
-                <span style="color:var(--gold);">-</span> Online gallery delivery
+                <span style="color:var(--gold);">-</span> Online gallery
+                delivery
               </li>
             </ul>
           </article>
@@ -500,8 +568,10 @@ const highlightFilmLd = JSON.stringify({
             href="https://niopictures.pixieset.com/"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn btn-gold-outline btn-arrow">View Full Event Gallery</a
+            class="btn btn-gold-outline btn-arrow"
           >
+            View Full Event Gallery
+          </a>
         </div>
       </div>
     </section>
@@ -543,8 +613,9 @@ const highlightFilmLd = JSON.stringify({
             <div class="step-number">04</div>
             <h3 class="display-sm">Gallery Delivery</h3>
             <p class="body-sm">
-              Your private online gallery is delivered within {formatTurnaroundFull(heritageSession.photoTurnaround)}, ready
-              to download and share.
+              Your private online gallery is delivered within{" "}
+              {formatTurnaroundFull(heritageSession.photoTurnaround)}, ready to
+              download and share.
             </p>
           </div>
         </div>
@@ -562,14 +633,16 @@ const highlightFilmLd = JSON.stringify({
           <p class="eyebrow">The Highlight Film</p>
           <div class="gold-line center gold-line-animate"></div>
           <h2 class="display-md" style="margin-bottom: 1.5rem;">
-            Some Moments Move.<br /><em style="font-style:italic; color:var(--gold);"
-              >Watch One Unfold.</em
-            >
+            Some Moments Move.
+            <br />
+            <em style="font-style:italic; color:var(--gold);">
+              Watch One Unfold.
+            </em>
           </h2>
           <p class="body-lg">
             A cinematic highlight film from a recent Griha Pravesham
-            (housewarming) — the motion, sound, and emotion a photo alone
-            can't hold.
+            (housewarming) — the motion, sound, and emotion a photo alone can't
+            hold.
           </p>
         </div>
 
@@ -600,13 +673,12 @@ const highlightFilmLd = JSON.stringify({
             style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
             open
           >
-            <summary
-              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
-              >Do you photograph Indian and South Asian events in Katy TX?<span
-                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
-                >+</span
-              ></summary
-            >
+            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+              Do you photograph Indian and South Asian events in Katy TX?
+              <span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">
+                +
+              </span>
+            </summary>
             <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
               Yes. NiO Pictures specializes in Indian and South Asian cultural
               events - garba nights, sangeet, receptions, birthday milestones,
@@ -615,16 +687,13 @@ const highlightFilmLd = JSON.stringify({
             </p>
           </details>
 
-          <details
-            style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
-          >
-            <summary
-              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
-              >How far in advance should I book event photography?<span
-                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
-                >+</span
-              ></summary
-            >
+          <details style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;">
+            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+              How far in advance should I book event photography?
+              <span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">
+                +
+              </span>
+            </summary>
             <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
               I recommend booking at least 4-6 weeks ahead for private events,
               and 2-3 months for larger corporate events or cultural
@@ -632,16 +701,13 @@ const highlightFilmLd = JSON.stringify({
             </p>
           </details>
 
-          <details
-            style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
-          >
-            <summary
-              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
-              >Do you cover events in Houston and Sugar Land, not just Katy?<span
-                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
-                >+</span
-              ></summary
-            >
+          <details style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;">
+            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+              Do you cover events in Houston and Sugar Land, not just Katy?
+              <span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">
+                +
+              </span>
+            </summary>
             <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
               Absolutely. NiO Pictures is based in Katy TX but actively serves
               Houston, Sugar Land, and Richmond for all event types - corporate,
@@ -649,35 +715,34 @@ const highlightFilmLd = JSON.stringify({
             </p>
           </details>
 
-          <details
-            style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;"
-          >
-            <summary
-              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
-              >What is included in event photography coverage?<span
-                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
-                >+</span
-              ></summary
-            >
+          <details style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;">
+            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+              What is included in event photography coverage?
+              <span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">
+                +
+              </span>
+            </summary>
             <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
-              Coverage starts at {formatCoverageHours(intimateGathering.coverageHours)} with
-              the Intimate Gathering, {formatCoverageHours(heritageSession.coverageHours)} with
-              the Heritage Session, and up to {formatCoverageHours(signatureGala.coverageHours)} with
-              the Signature Gala — every package includes professionally
-              edited images in my cinematic style and delivery via a private
-              online gallery. Additional coverage hours are available —
-              contact me for custom quotes.
+              Coverage starts at{" "}
+              {formatCoverageHours(intimateGathering.coverageHours)} with the
+              Intimate Gathering,{" "}
+              {formatCoverageHours(heritageSession.coverageHours)} with the
+              Heritage Session, and up to{" "}
+              {formatCoverageHours(signatureGala.coverageHours)} with the
+              Signature Gala — every package includes professionally edited
+              images in my cinematic style and delivery via a private online
+              gallery. Additional coverage hours are available — contact me for
+              custom quotes.
             </p>
           </details>
 
           <details style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;">
-            <summary
-              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
-              >Are you available on weekends and weeknights?<span
-                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
-                >+</span
-              ></summary
-            >
+            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+              Are you available on weekends and weeknights?
+              <span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">
+                +
+              </span>
+            </summary>
             <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
               Yes. NiO Pictures offers photography sessions on weekends and
               weeknight evenings throughout Katy, Houston, Sugar Land, and
@@ -686,13 +751,12 @@ const highlightFilmLd = JSON.stringify({
           </details>
 
           <details style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;">
-            <summary
-              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
-              >Do you photograph Seemantham, Namkaran, or Mundan ceremonies?<span
-                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
-                >+</span
-              ></summary
-            >
+            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+              Do you photograph Seemantham, Namkaran, or Mundan ceremonies?
+              <span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">
+                +
+              </span>
+            </summary>
             <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
               Yes. Alongside rice-feeding ceremonies (Annaprashan), we
               photograph Seemantham (Godh Bharai, Valaikappu), Namkaran naming
@@ -702,13 +766,12 @@ const highlightFilmLd = JSON.stringify({
           </details>
 
           <details style="border-bottom:1px solid var(--border-light); padding: 1.5rem 0;">
-            <summary
-              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
-              >Do you photograph Sashthipoorthi or anniversary celebrations?<span
-                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
-                >+</span
-              ></summary
-            >
+            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+              Do you photograph Sashthipoorthi or anniversary celebrations?
+              <span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">
+                +
+              </span>
+            </summary>
             <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
               Yes. We photograph Sashthipoorthi (60th), Bhimaratha Shanti
               (70th), Sadabhishekam (80th), and 25th/50th wedding anniversary
@@ -717,13 +780,12 @@ const highlightFilmLd = JSON.stringify({
           </details>
 
           <details style="padding: 1.5rem 0;">
-            <summary
-              style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;"
-              >Do you photograph Upanayanam or thread ceremonies?<span
-                style="color:var(--gold); font-size:1.2rem; flex-shrink:0;"
-                >+</span
-              ></summary
-            >
+            <summary style="cursor:pointer; font-family:var(--font-display); font-size:1.15rem; font-weight:400; color:var(--cream); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+              Do you photograph Upanayanam or thread ceremonies?
+              <span style="color:var(--gold); font-size:1.2rem; flex-shrink:0;">
+                +
+              </span>
+            </summary>
             <p class="body-sm" style="margin-top:1rem; padding-right:2rem;">
               Yes. We photograph Upanayanam (Janeu, Poonal) sacred thread
               ceremonies. These often run longer than other milestones - the
@@ -748,14 +810,17 @@ const highlightFilmLd = JSON.stringify({
             <p class="testimonial-text">
               "We had a great experience with Palani at our housewarming party.
               We truly appreciate his work, he was very gentle, professional,
-              and made everyone feel comfortable. The photos turned out beautiful
-              and captured all the special moments perfectly. Highly recommend!"
+              and made everyone feel comfortable. The photos turned out
+              beautiful and captured all the special moments perfectly. Highly
+              recommend!"
             </p>
             <div class="testimonial-author">
               <div class="testimonial-avatar">VK</div>
               <div>
                 <div class="testimonial-name">Venkatesh K.</div>
-                <div class="testimonial-role">Housewarming Party · Fulshear, TX</div>
+                <div class="testimonial-role">
+                  Housewarming Party · Fulshear, TX
+                </div>
               </div>
             </div>
           </article>
@@ -773,13 +838,18 @@ const highlightFilmLd = JSON.stringify({
               <div class="testimonial-avatar">MS</div>
               <div>
                 <div class="testimonial-name">Malav S.</div>
-                <div class="testimonial-role">Graduation Dance Party · Katy, TX</div>
+                <div class="testimonial-role">
+                  Graduation Dance Party · Katy, TX
+                </div>
               </div>
             </div>
           </article>
         </div>
 
-        <div class="testimonials-cta reveal" style="text-align: center; margin-top: 2rem;">
+        <div
+          class="testimonials-cta reveal"
+          style="text-align: center; margin-top: 2rem;"
+        >
           <a
             href="https://share.google/8ODqUDxsuIFcxecMo"
             target="_blank"
@@ -797,28 +867,34 @@ const highlightFilmLd = JSON.stringify({
       aria-label="Book your event photography session"
     >
       <div class="container">
-        <p class="eyebrow" style="margin-bottom: 1.25rem;">Book Your Event</p>
+        <p class="eyebrow" style="margin-bottom: 1.25rem;">
+          Book Your Event
+        </p>
         <h2
           class="display-md"
           style="margin-bottom: 1rem; max-width: 480px; margin-left:auto; margin-right:auto;"
         >
-          Your Event Deserves<br /><em
-            style="font-style:italic; color:var(--gold);">Great Photography</em
-          >
+          Your Event Deserves
+          <br />
+          <em style="font-style:italic; color:var(--gold);">
+            Great Photography
+          </em>
         </h2>
         <p class="body-lg" style="max-width: 400px; margin: 0 auto 2.5rem;">
           Available for events throughout Katy, Houston, Sugar Land, and
           Richmond, TX.
         </p>
-        <a href="/contact" class="btn btn-primary btn-arrow"
-          >Start a Conversation</a
-        >
+        <a href="/contact" class="btn btn-primary btn-arrow">
+          Start a Conversation
+        </a>
         <a
           href="https://niopictures.pixieset.com/booking/"
           target="_blank"
           rel="noopener noreferrer"
-          class="btn btn-outline">Prefer to self-book? →</a
+          class="btn btn-outline"
         >
+          Prefer to self-book? →
+        </a>
       </div>
     </section>
 
@@ -827,23 +903,27 @@ const highlightFilmLd = JSON.stringify({
       style="border-top:1px solid var(--border-light);"
     >
       <div class="container">
-        <div
-          style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;"
-        >
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
           <p class="body-sm">
-            Also looking for <a
-              href="/family-photography-katy-tx"
-              style="color:var(--gold);">family photography in Katy TX</a
-            >? I cover heirloom portraits and lifestyle sessions too.
+            Also looking for{" "}
+            <a href="/family-photography-katy-tx" style="color:var(--gold);">
+              family photography in Katy TX
+            </a>
+            ? I cover heirloom portraits and lifestyle sessions too.
           </p>
           <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-            <a href="/family-photography-katy-tx" class="btn btn-outline btn-sm"
-              >Family Photography</a
+            <a
+              href="/family-photography-katy-tx"
+              class="btn btn-outline btn-sm"
             >
-            <a href="/portfolio" class="btn btn-outline btn-sm"
-              >View Portfolio</a
-            >
-            <a href="/about" class="btn btn-outline btn-sm">About Palanivel</a>
+              Family Photography
+            </a>
+            <a href="/portfolio" class="btn btn-outline btn-sm">
+              View Portfolio
+            </a>
+            <a href="/about" class="btn btn-outline btn-sm">
+              About Palanivel
+            </a>
           </div>
         </div>
       </div>

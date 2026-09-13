@@ -23,7 +23,8 @@ const {
   posterSrc,
 } = Astro.props;
 
-const posterHigh = posterSrc ?? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+const posterHigh =
+  posterSrc ?? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 const posterFallback = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 ---
 
@@ -51,9 +52,9 @@ const posterFallback = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
     style="position: absolute; inset: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: transparent; border: 0; padding: 0; cursor: pointer;"
   >
     <span class="video-facade__play-icon" aria-hidden="true">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"
-        ><path d="M8 5v14l11-7z"></path></svg
-      >
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M8 5v14l11-7z"></path>
+      </svg>
     </span>
   </button>
 </div>
@@ -96,35 +97,39 @@ const posterFallback = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 
 <script>
   function initVideoFacades() {
-    document.querySelectorAll<HTMLElement>(".video-facade").forEach((facade) => {
-      if (facade.dataset.vfReady) return;
-      facade.dataset.vfReady = "1";
+    document
+      .querySelectorAll<HTMLElement>(".video-facade")
+      .forEach((facade) => {
+        if (facade.dataset.vfReady) return;
+        facade.dataset.vfReady = "1";
 
-      const button = facade.querySelector<HTMLButtonElement>(".video-facade__play");
-      const videoId = facade.dataset.videoId;
-      const title = facade.dataset.videoTitle || "Video";
-      if (!button || !videoId) return;
+        const button = facade.querySelector<HTMLButtonElement>(
+          ".video-facade__play",
+        );
+        const videoId = facade.dataset.videoId;
+        const title = facade.dataset.videoTitle || "Video";
+        if (!button || !videoId) return;
 
-      button.addEventListener(
-        "click",
-        () => {
-          const iframe = document.createElement("iframe");
-          iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&playsinline=1&rel=0`;
-          iframe.title = title;
-          iframe.allow =
-            "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-          iframe.allowFullscreen = true;
-          // Set fill styles inline since this element is created client-side.
-          iframe.style.position = "absolute";
-          iframe.style.inset = "0";
-          iframe.style.width = "100%";
-          iframe.style.height = "100%";
-          iframe.style.border = "0";
-          facade.replaceChildren(iframe);
-        },
-        { once: true },
-      );
-    });
+        button.addEventListener(
+          "click",
+          () => {
+            const iframe = document.createElement("iframe");
+            iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&playsinline=1&rel=0`;
+            iframe.title = title;
+            iframe.allow =
+              "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+            iframe.allowFullscreen = true;
+            // Set fill styles inline since this element is created client-side.
+            iframe.style.position = "absolute";
+            iframe.style.inset = "0";
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+            iframe.style.border = "0";
+            facade.replaceChildren(iframe);
+          },
+          { once: true },
+        );
+      });
   }
 
   if (document.readyState === "loading") {

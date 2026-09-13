@@ -73,16 +73,26 @@ const breadcrumbLd = JSON.stringify({
 >
   <Fragment slot="head">
     <link rel="preload" as="image" href={heroImagePath} fetchpriority="high" />
-    <script type="application/ld+json" is:inline set:html={blogPostingLd} />
-    <script type="application/ld+json" is:inline set:html={breadcrumbLd} />
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={blogPostingLd}
+    ></script>
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={breadcrumbLd}
+    ></script>
   </Fragment>
   <a
     href="#main-content"
     class="skip-link"
     style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);"
     onfocus="this.style.top='1rem'"
-    onblur="this.style.top='-40px'">Skip to main content</a
+    onblur="this.style.top='-40px'"
   >
+    Skip to main content
+  </a>
 
   <Nav currentPath="/blog" />
 
@@ -95,7 +105,9 @@ const breadcrumbLd = JSON.stringify({
     </nav>
     <span class="post-tag">Tips &amp; Guides · Family Photography</span>
     <h1 class="post-title">
-      How to Prepare for Your<br />Katy Family Portrait Session
+      How to Prepare for Your
+      <br />
+      Katy Family Portrait Session
     </h1>
     <div class="post-meta">
       <span>Palanivel</span>
@@ -261,9 +273,10 @@ const breadcrumbLd = JSON.stringify({
     <p>
       If you have any questions while planning — what location to choose, what
       time of day works best, whether to include extended family — I'm always
-      happy to guide you. <a href="/contact" style="color:var(--gold);"
-        >Just reach out.</a
-      >
+      happy to guide you.{" "}
+      <a href="/contact" style="color:var(--gold);">
+        Just reach out.
+      </a>
     </p>
 
     <div class="post-divider"></div>
@@ -279,13 +292,17 @@ const breadcrumbLd = JSON.stringify({
         href="https://niopictures.pixieset.com/booking/"
         target="_blank"
         rel="noopener noreferrer"
-        class="btn btn-primary btn-arrow">Book a Family Session</a
+        class="btn btn-primary btn-arrow"
       >
+        Book a Family Session
+      </a>
       <a
         href="/family-photography-katy-tx"
         class="btn btn-outline"
-        style="margin-left:0.5rem;">Learn About Family Sessions</a
+        style="margin-left:0.5rem;"
       >
+        Learn About Family Sessions
+      </a>
     </div>
   </article>
 

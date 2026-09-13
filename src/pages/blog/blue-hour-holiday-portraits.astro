@@ -72,16 +72,26 @@ const breadcrumbLd = JSON.stringify({
 >
   <Fragment slot="head">
     <link rel="preload" as="image" href={heroImagePath} fetchpriority="high" />
-    <script type="application/ld+json" is:inline set:html={blogPostingLd} />
-    <script type="application/ld+json" is:inline set:html={breadcrumbLd} />
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={blogPostingLd}
+    ></script>
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={breadcrumbLd}
+    ></script>
   </Fragment>
   <a
     href="#main-content"
     class="skip-link"
     style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);"
     onfocus="this.style.top='1rem'"
-    onblur="this.style.top='-40px'">Skip to main content</a
+    onblur="this.style.top='-40px'"
   >
+    Skip to main content
+  </a>
 
   <Nav currentPath="/blog" />
 
@@ -93,10 +103,12 @@ const breadcrumbLd = JSON.stringify({
       <span>Blue Hour Holiday Portraits</span>
     </nav>
     <span class="post-tag">Family · Holiday · Mini Sessions</span>
-    <h1 class="post-title">Blue Hour Front-Yard<br />Holiday Portraits</h1>
-    <p
-      style="font-family:var(--font-display);font-size:1.2rem;font-weight:300;font-style:italic;color:var(--muted);margin-top:0.5rem;margin-bottom:1.5rem;"
-    >
+    <h1 class="post-title">
+      Blue Hour Front-Yard
+      <br />
+      Holiday Portraits
+    </h1>
+    <p style="font-family:var(--font-display);font-size:1.2rem;font-weight:300;font-style:italic;color:var(--muted);margin-top:0.5rem;margin-bottom:1.5rem;">
       A Simple, Beautiful Way to Save the Season
     </p>
     <div class="post-meta">
@@ -231,13 +243,17 @@ const breadcrumbLd = JSON.stringify({
         href="https://niopictures.pixieset.com/booking/"
         target="_blank"
         rel="noopener noreferrer"
-        class="btn btn-primary btn-arrow">Book a Mini-Session</a
+        class="btn btn-primary btn-arrow"
       >
+        Book a Mini-Session
+      </a>
       <a
         href="/family-photography-katy-tx"
         class="btn btn-outline"
-        style="margin-left:0.5rem;">Full Family Sessions</a
+        style="margin-left:0.5rem;"
       >
+        Full Family Sessions
+      </a>
     </div>
   </article>
 

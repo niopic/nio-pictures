@@ -2,18 +2,21 @@
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.astro";
-import { PACKAGES, formatTurnaroundFull, formatCoverageHours } from "../data/pricing";
+import {
+  PACKAGES,
+  formatTurnaroundFull,
+  formatCoverageHours,
+} from "../data/pricing";
 import { halfSareeImages } from "../content/images.config";
 
-const title =
-  "Half-Saree Ceremony Photography Katy TX | NiO Pictures";
+const title = "Half-Saree Ceremony Photography Katy TX | NiO Pictures";
 const description =
   "Half-saree ceremony photography in Katy TX and the greater Houston area - capturing this coming-of-age milestone with cultural care and a cinematic eye.";
 const canonical = "https://niopictures.com/half-saree-photography-katy-tx";
 const ogImage = "https://niopictures.com/assets/images/og-home.webp";
 
-const heritageSession = PACKAGES.find(p => p.id === "heritage-session")!;
-const heritageFilmTier = heritageSession.tiers.find(t => t.turnaround)!;
+const heritageSession = PACKAGES.find((p) => p.id === "heritage-session")!;
+const heritageFilmTier = heritageSession.tiers.find((t) => t.turnaround)!;
 
 const extraHead = `<script type="application/ld+json">
   {
@@ -87,8 +90,10 @@ const extraHead = `<script type="application/ld+json">
     class="skip-link"
     style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);"
     onfocus="this.style.top='1rem'"
-    onblur="this.style.top='-40px'">Skip to main content</a
+    onblur="this.style.top='-40px'"
   >
+    Skip to main content
+  </a>
 
   <Nav />
 
@@ -112,13 +117,13 @@ const extraHead = `<script type="application/ld+json">
         Half-Saree Ceremony Photography
       </p>
       <h1 class="display-xl" style="max-width:700px; margin-bottom:1.25rem;">
-        Half-Saree<br /><em style="font-style:italic; color:var(--gold);"
-          >Ceremony</em
-        >
+        Half-Saree
+        <br />
+        <em style="font-style:italic; color:var(--gold);">Ceremony</em>
       </h1>
       <p class="body-lg" style="max-width:580px; margin-bottom:2.5rem;">
-        Half-saree ceremony photography Katy TX for the Langa Voni
-        milestone, the blessing, and every moment in between.
+        Half-saree ceremony photography Katy TX for the Langa Voni milestone,
+        the blessing, and every moment in between.
       </p>
     </div>
   </div>
@@ -135,8 +140,8 @@ const extraHead = `<script type="application/ld+json">
           <div class="feature-icon">◇</div>
           <h3 class="feature-title">The Preparation</h3>
           <p class="body-sm">
-            Getting ready, the saree draping, the mehndi application - the quiet,
-            detail-rich moments before the ceremony begins.
+            Getting ready, the saree draping, the mehndi application - the
+            quiet, detail-rich moments before the ceremony begins.
           </p>
         </div>
         <div class="feature-card">
@@ -176,9 +181,9 @@ const extraHead = `<script type="application/ld+json">
         style="text-align:center; max-width:620px; margin:0 auto 2rem;"
       >
         A half-saree ceremony is deeply personal - it's a milestone in a young
-        woman's life, surrounded by family tradition. NiO Pictures brings genuine
-        care and cultural respect to every half-saree session, capturing both the
-        formal moments and the candid ones in between.
+        woman's life, surrounded by family tradition. NiO Pictures brings
+        genuine care and cultural respect to every half-saree session, capturing
+        both the formal moments and the candid ones in between.
       </p>
       <div
         style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;"
@@ -187,12 +192,15 @@ const extraHead = `<script type="application/ld+json">
         <a
           href="/event-photography-katy-tx"
           class="btn btn-gold-outline btn-arrow"
-          >All South Asian Celebrations</a
         >
-        <a href="/portfolio" class="btn btn-gold-outline btn-arrow"
-          >See Portfolio</a
-        >
-        <a href="/about" class="btn btn-outline">About Palanivel</a>
+          All South Asian Celebrations
+        </a>
+        <a href="/portfolio" class="btn btn-gold-outline btn-arrow">
+          See Portfolio
+        </a>
+        <a href="/about" class="btn btn-outline">
+          About Palanivel
+        </a>
       </div>
     </div>
   </section>
@@ -298,25 +306,34 @@ const extraHead = `<script type="application/ld+json">
           />
         </div>
         <div class="spotlight-quote">
-          <p class="eyebrow" style="margin-bottom:1rem;">A Recent Half-Saree Ceremony</p>
-          <div class="gold-line gold-line-animate" style="margin-bottom:1.5rem;"></div>
-          <div class="testimonial-stars" style="margin-bottom:1rem;">★★★★★</div>
+          <p class="eyebrow" style="margin-bottom:1rem;">
+            A Recent Half-Saree Ceremony
+          </p>
+          <div
+            class="gold-line gold-line-animate"
+            style="margin-bottom:1.5rem;"
+          ></div>
+          <div class="testimonial-stars" style="margin-bottom:1rem;">
+            ★★★★★
+          </div>
           <p class="body-lg" style="margin-bottom:1.5rem;">
             "We had an absolutely wonderful experience with Palani at NiO
-            Pictures for our daughter's half saree ceremony... He covered
-            both days of our celebration&mdash;first at our home and
-            backyard, and then at our party hall&mdash;capturing every
-            special moment beautifully with professionalism, creativity,
-            and an incredible eye for detail... If you're looking for a
-            photographer who is talented, dependable, accommodating,
-            reasonably priced, and delivers exceptional quality, we
-            wholeheartedly recommend Palani and NiO Pictures."
+            Pictures for our daughter's half saree ceremony... He covered both
+            days of our celebration&mdash;first at our home and backyard, and
+            then at our party hall&mdash;capturing every special moment
+            beautifully with professionalism, creativity, and an incredible eye
+            for detail... If you're looking for a photographer who is talented,
+            dependable, accommodating, reasonably priced, and delivers
+            exceptional quality, we wholeheartedly recommend Palani and NiO
+            Pictures."
           </p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">ST</div>
             <div>
               <div class="testimonial-name">Sunny T.</div>
-              <div class="testimonial-role">Half-Saree Ceremony &middot; Houston, TX</div>
+              <div class="testimonial-role">
+                Half-Saree Ceremony &middot; Houston, TX
+              </div>
             </div>
           </div>
         </div>
@@ -368,9 +385,9 @@ const extraHead = `<script type="application/ld+json">
       >
         The half-saree ceremony marks a significant moment in a young woman's
         life - a transition into womanhood, celebrated with family, tradition,
-        and cultural pride. Whether your family calls it Langa Voni, Ritu
-        Kala Samskara, or something else entirely, the heart of the
-        celebration is the same.
+        and cultural pride. Whether your family calls it Langa Voni, Ritu Kala
+        Samskara, or something else entirely, the heart of the celebration is
+        the same.
       </p>
       <p
         class="body-lg reveal reveal-delay-1"
@@ -396,11 +413,12 @@ const extraHead = `<script type="application/ld+json">
         <a
           href="/event-photography-katy-tx"
           class="btn btn-gold-outline btn-arrow"
-          >Half-Saree & Event Photography</a
         >
-        <a href="/family-photography-katy-tx" class="btn btn-outline"
-          >Family Photography Services</a
-        >
+          Half-Saree & Event Photography
+        </a>
+        <a href="/family-photography-katy-tx" class="btn btn-outline">
+          Family Photography Services
+        </a>
       </div>
     </div>
   </section>
@@ -414,21 +432,21 @@ const extraHead = `<script type="application/ld+json">
         class="display-md"
         style="margin-bottom:1rem; max-width:520px; margin-left:auto; margin-right:auto;"
       >
-        Capture This<br /><em style="font-style:italic; color:var(--gold);"
-          >Milestone</em
-        >
+        Capture This
+        <br />
+        <em style="font-style:italic; color:var(--gold);">Milestone</em>
       </h2>
       <p class="body-lg" style="max-width:420px; margin:0 auto 2.5rem;">
         Half-saree ceremonies and coming-of-age celebrations throughout Katy and
         the greater Houston area.
       </p>
-      <div
-        style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;"
-      >
-        <a href="/contact" class="btn btn-primary btn-arrow"
-          >Start a Conversation</a
-        >
-        <a href="/contact" class="btn btn-outline">Get in Touch</a>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="/contact" class="btn btn-primary btn-arrow">
+          Start a Conversation
+        </a>
+        <a href="/contact" class="btn btn-outline">
+          Get in Touch
+        </a>
       </div>
     </div>
   </section>

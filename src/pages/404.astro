@@ -31,19 +31,17 @@ const extraHead = `<script type="application/ld+json">
     class="skip-link"
     style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);"
     onfocus="this.style.top='1rem'"
-    onblur="this.style.top='-40px'">Skip to main content</a
+    onblur="this.style.top='-40px'"
   >
+    Skip to main content
+  </a>
 
   <Nav />
 
   <main id="main-content">
-    <section
-      style="min-height:80svh; display:flex; align-items:center; justify-content:center; text-align:center; padding: var(--section-pad) var(--gutter);"
-    >
+    <section style="min-height:80svh; display:flex; align-items:center; justify-content:center; text-align:center; padding: var(--section-pad) var(--gutter);">
       <div>
-        <p
-          style="font-family:var(--font-display);font-size:clamp(5rem,20vw,12rem);font-weight:300;color:var(--surface-2);line-height:1;margin-bottom:0;user-select:none;"
-        >
+        <p style="font-family:var(--font-display);font-size:clamp(5rem,20vw,12rem);font-weight:300;color:var(--surface-2);line-height:1;margin-bottom:0;user-select:none;">
           404
         </p>
         <p class="eyebrow" style="margin-bottom:1.25rem; margin-top:-1rem;">
@@ -57,46 +55,56 @@ const extraHead = `<script type="application/ld+json">
           The page you're looking for doesn't exist - but there are plenty of
           great images waiting for you.
         </p>
-        <div
-          style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;"
-        >
-          <a href="/" class="btn btn-primary btn-arrow">Back to Home</a>
-          <a href="/portfolio" class="btn btn-outline">View Portfolio</a>
+        <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+          <a href="/" class="btn btn-primary btn-arrow">
+            Back to Home
+          </a>
+          <a href="/portfolio" class="btn btn-outline">
+            View Portfolio
+          </a>
           <a
             href="https://niopictures.pixieset.com/booking/"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn btn-gold-outline">Book a Session</a
+            class="btn btn-gold-outline"
           >
+            Book a Session
+          </a>
         </div>
 
-        <div
-          style="margin-top:4rem; display:flex; gap:2rem; justify-content:center; flex-wrap:wrap;"
-        >
+        <div style="margin-top:4rem; display:flex; gap:2rem; justify-content:center; flex-wrap:wrap;">
           <a
             href="/event-photography-katy-tx"
             style="font-family:var(--font-accent);font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);transition:color var(--dur-fast);"
             onmouseover="this.style.color='var(--gold)'"
-            onmouseout="this.style.color='var(--muted)'">Event Photography</a
+            onmouseout="this.style.color='var(--muted)'"
           >
+            Event Photography
+          </a>
           <a
             href="/family-photography-katy-tx"
             style="font-family:var(--font-accent);font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);transition:color var(--dur-fast);"
             onmouseover="this.style.color='var(--gold)'"
-            onmouseout="this.style.color='var(--muted)'">Family Photography</a
+            onmouseout="this.style.color='var(--muted)'"
           >
+            Family Photography
+          </a>
           <a
             href="/blog"
             style="font-family:var(--font-accent);font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);transition:color var(--dur-fast);"
             onmouseover="this.style.color='var(--gold)'"
-            onmouseout="this.style.color='var(--muted)'">Blog</a
+            onmouseout="this.style.color='var(--muted)'"
           >
+            Blog
+          </a>
           <a
             href="/contact"
             style="font-family:var(--font-accent);font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);transition:color var(--dur-fast);"
             onmouseover="this.style.color='var(--gold)'"
-            onmouseout="this.style.color='var(--muted)'">Contact</a
+            onmouseout="this.style.color='var(--muted)'"
           >
+            Contact
+          </a>
         </div>
       </div>
     </section>

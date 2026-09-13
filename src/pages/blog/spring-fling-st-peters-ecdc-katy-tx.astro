@@ -80,16 +80,26 @@ const breadcrumbLd = JSON.stringify({
 >
   <Fragment slot="head">
     <link rel="preload" as="image" href={heroImagePath} fetchpriority="high" />
-    <script type="application/ld+json" is:inline set:html={blogPostingLd} />
-    <script type="application/ld+json" is:inline set:html={breadcrumbLd} />
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={blogPostingLd}
+    ></script>
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={breadcrumbLd}
+    ></script>
   </Fragment>
   <a
     href="#main-content"
     class="skip-link"
     style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);"
     onfocus="this.style.top='1rem'"
-    onblur="this.style.top='-40px'">Skip to main content</a
+    onblur="this.style.top='-40px'"
   >
+    Skip to main content
+  </a>
 
   <Nav currentPath="/blog" />
 
@@ -102,11 +112,11 @@ const breadcrumbLd = JSON.stringify({
     </nav>
     <span class="post-tag">Event Photography · Community · Katy TX</span>
     <h1 class="post-title">
-      Capturing Community:<br />Spring Fling at St. Peter's ECDC
+      Capturing Community:
+      <br />
+      Spring Fling at St. Peter's ECDC
     </h1>
-    <p
-      style="font-family:var(--font-display);font-size:1.2rem;font-weight:300;font-style:italic;color:var(--muted);margin-top:0.5rem;margin-bottom:1.5rem;"
-    >
+    <p style="font-family:var(--font-display);font-size:1.2rem;font-weight:300;font-style:italic;color:var(--muted);margin-top:0.5rem;margin-bottom:1.5rem;">
       Families, face painting, and joyful moments in Kingsland Blvd, Katy TX
     </p>
     <div class="post-meta">
@@ -252,12 +262,12 @@ const breadcrumbLd = JSON.stringify({
         Let's create photographs that capture the real moments, real
         connections, and real joy of your community gathering.
       </p>
-      <a href="/event-photography-katy-tx" class="btn btn-primary btn-arrow"
-        >Learn More</a
-      >
-      <a href="/contact" class="btn btn-outline" style="margin-left:0.5rem;"
-        >Get in Touch</a
-      >
+      <a href="/event-photography-katy-tx" class="btn btn-primary btn-arrow">
+        Learn More
+      </a>
+      <a href="/contact" class="btn btn-outline" style="margin-left:0.5rem;">
+        Get in Touch
+      </a>
     </div>
   </article>
 
