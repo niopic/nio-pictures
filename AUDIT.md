@@ -159,134 +159,55 @@ this list before "fixing" any of these:
 - [x] Confirmed `PricingSection.astro` renders Legacy Collection's 3-tier structure correctly (generic `pkg.tiers` mapping, no component change needed)
 - [x] Consolidated single canonical `#business` JSON-LD node in `BaseLayout.astro`, removed 4 duplicate/conflicting definitions
 - [x] Swept all location pages for stale CTA/ordering patterns — all now lead with South Asian celebrations, Pixieset demoted
-- [x] **P4 revenue: packaged and priced the hybrid photo+film offer prominently** (it's the moat) — Heritage Session's photo+film tier now renders before its photos-only tier, and the "Recommended" badge sits on that tier. Part of the broader pricing-ladder restructure — see "Session: September 13, 2026" below.
-
----
-
-## Open — P1 Conversion & trust
+- [x] **P4 revenue: packaged and priced the hybrid photo+film offer prominently** (it's the moat) — Heritage Session's photo+film tier now renders before its photos-only tier, and the "Recommended" badge sits on that tier.
 - [x] **CTA hierarchy regression on the two highest-traffic pages.** Fixed — events + family closing banners now have "Start a Conversation" as `btn-primary` with Pixieset as `btn-outline` secondary. About page fixed in both mid-page and closing banner locations.
 - [x] **Broken image in `Person` schema.** Fixed — created `public/assets/images/about-portrait.webp` as a stable public copy of `about-main.webp`, matching the `og-home.webp` pattern.
 - [x] **Two blog posts using wrong hero images.** Fixed — `how-to-prepare` now uses `blog-prepare.webp`, `blue-hour` now uses `blog-bluehour.webp`.
 - [x] `about.astro`'s "Where I Work" grid missing Fulshear + Cypress. Fixed — grid expanded to 6 columns.
-- [x] `family-photography-katy-tx.astro`'s "How It Works" process section and its `ogImage`/`twitter:image` (now `family-hero-new.webp`, passed through `BaseLayout`) — both previously tracked here as open, both confirmed already fixed in the file during the September 13 documentation review. Removed rather than left open against contradicting code.
-
-## Open — P4 Revenue
-- [x] ~~Package & price the hybrid film offer prominently (it's the moat).~~ **Done — moved to "Already shipped."**
-- [ ] Build a **corporate package** for Energy Corridor / local firms.
-
-## Open — Pricing & schema consistency
-- [ ] **Signature Gala's pricing card leads with its photos-only tier
-      instead of photo+film**, inconsistent with how Heritage Session now
-      orders its tiers (photo+film first, "Recommended" badge on it).
-      One-line tier-order fix in `pricing.ts`.
-- [ ] **Legacy Collection's session-only tier now sits below the 2-hour
-      entry tier's price, on the same page.** Reads as mispriced to a
-      quick scanner even though the coverage and positioning differ.
-      Tangled with the WHCC wholesale-cost blocker below — don't fix the
-      ordering optics in isolation from that.
-- [ ] **Events page FAQ JSON-LD hardcodes the coverage-hours ladder** while
-      the visible FAQ text pulls dynamically from `pricing.ts` — will
-      silently drift out of sync the next time the ladder changes.
-- [ ] **Upanayanam FAQ hardcodes a specific package recommendation by
-      name** — same drift risk as the item above if the ladder changes
-      again.
-
-## Open — Backlog
+- [x] `family-photography-katy-tx.astro`'s "How It Works" process section and its `ogImage`/`twitter:image` (now `family-hero-new.webp`, passed through `BaseLayout`) — confirmed already fixed in the file during the September 13 documentation review.
+- [x] **Signature Gala's pricing card leads with its photos-only tier
+      instead of photo+film.** Fixed in `314f973` — swapped tier order in
+      `pricing.ts` so `gala-film` renders before `gala-photos`, matching
+      Heritage Session's pattern. Verified against built `dist/` output:
+      the rendered card and the `Offer` JSON-LD both list the $1,950
+      photo+film tier first.
+- [x] **Events page FAQ JSON-LD hardcoded the coverage-hours ladder and the
+      Upanayanam FAQ hardcoded a specific package name.** Fixed in
+      `314f973` — the FAQPage JSON-LD block in
+      `event-photography-katy-tx.astro` is now built from a `faqLd`
+      constant in frontmatter (`JSON.stringify`, rendered via
+      `set:html`), matching the `eventHeroImageLd`/`highlightFilmLd`
+      pattern already used on that page. The coverage-hours answer and
+      the Upanayanam answer are both now built from `pricing.ts` via
+      `formatCoverageHours()` and `signatureGala.name`, matching the
+      visible FAQ text exactly. Verified against built `dist/` output:
+      valid JSON, 8 questions, both answers correct.
 - [x] **Homepage "View Full Gallery" button** now points to `/portfolio`. Fixed.
-- [x] ~~40th birthday highlight film — swap placeholder video, populate
-      `duration`/`uploadDate` once delivered.~~ **Done — see "Already
-      shipped."** (Was stale here; corrected during the September 13
-      session after independently confirming the swap in `index.astro`.)
-- [ ] **Housewarming griha pravesham highlight film added to the events
-      page** (`event-photography-katy-tx.astro` / `VideoFacade.astro`).
+- [x] **`blog/blue-hour-holiday-portraits.astro` referenced an "extra
+      images" add-on** that no longer exists in `pricing.ts`. Fixed in
+      `314f973` — line now reads "Prints available through your private
+      gallery." Verified against built `dist/` output.
+- [x] **8 zero-image pages** — all fixed. `katy-tx-photographer`, `houston`, `fulshear`, `sugar-land`, `richmond`, `cypress`, `corporate-photography`, `videography` all now have full-bleed page-hero images. `object-position: top center` applied to all 10 hero pages (8 new + events + family) to prevent face-cropping on desktop.
+- [x] **NiO Chat content synced** (separate repo) — occasion matching now gates on coverage duration before naming a specific package.
+
+---
+
+## Open
+- [ ] **Revenue —** Build a corporate package for Energy Corridor / local firms.
+- [ ] **Pricing & schema —** Legacy Collection's session-only tier now sits
+      below the 2-hour entry tier's price, on the same page. Reads as
+      mispriced to a quick scanner even though the coverage and positioning
+      differ. Tangled with the WHCC wholesale-cost item below — don't fix
+      the ordering optics in isolation from that.
+- [ ] **Content —** Housewarming griha pravesham highlight film added to the
+      events page (`event-photography-katy-tx.astro` / `VideoFacade.astro`).
       Open question: does this change anything about the homepage's film
       choice, or do the two coexist as-is (events page ↔ homepage)? Not a
-      Pongal-placeholder decision — that swap already happened, see above.
-- [ ] **Confirm real WHCC wholesale costs** to finalize Legacy/Heritage/Gala
-      pricing (currently placeholders, see Decisions above).
-- [ ] **`blog/blue-hour-holiday-portraits.astro` still references an "extra
-      images" add-on** that no longer exists in `pricing.ts` — leftover
-      copy missed when the per-image add-on was removed. Found via grep
-      while writing up the September 13 session, not fixed here (docs-only
-      task) — needs a copy edit in that file.
-- [x] **8 zero-image pages** — all fixed. `katy-tx-photographer`, `houston`, `fulshear`, `sugar-land`, `richmond`, `cypress`, `corporate-photography`, `videography` all now have full-bleed page-hero images. `object-position: top center` applied to all 10 hero pages (8 new + events + family) to prevent face-cropping on desktop.
-
----
-
-## Session: June 28, 2026 — Image audit & cross-page fixes
-
-Image-by-image audit (not just filenames) of every page meant to show
-proof-of-work, continuing from the prior session's portfolio rebuild.
-
-- [x] **family-photography-katy-tx.astro** — 3 of 6 grid slots broken: a
-      floral-decor photo mislabeled as a "portrait detail," and two slots
-      (`gridSlot3`/`gridSlot6`) both showing the **NiO Pictures logo
-      graphic** instead of a client photo, with fabricated alt text. Fixed
-      with real portraits; de-duplicated the shared import.
-- [x] **housewarming + half-saree pages had zero images at all** (confirmed
-      via grep, not assumption) — the two pages built around the brand's
-      core positioning had no visual proof of work. Added a hero +
-      3-image gallery to both, reusing the events page's proven CSS
-      pattern.
-- [x] **Hero text-overflow bug** on both new heroes — long-form intro
-      paragraphs (written pre-image) plus CTA buttons pushed content taller
-      than the fixed hero box on mobile, overflowing behind the Nav.
-      Fixed by shortening hero copy to match the events page's format and
-      removing the hero buttons entirely (both pages already have CTAs
-      lower down).
-- [x] **Half-saree hero image cropped out the subject's face** — wrong
-      aspect ratio (tall portrait forced into a wide hero box). Fixed by
-      reshuffling existing half-saree images into aspect-appropriate slots,
-      no new images needed.
-- [x] **event-photography-katy-tx.astro** — original audit found 6 of 7
-      slots broken/off-brand/duplicated; all replaced with real on-brand
-      portfolio images. Fixing this surfaced the two process bugs now
-      captured permanently in "Process lessons" above (parallel-session
-      duplicate images; a fabricated verification report).
-
-**Open finding from this session:** `katy-tx-photographer`, `houston`,
-`fulshear`, `sugar-land`, `richmond`, `cypress`, `corporate-photography`,
-and `videography` pages have zero images — see consolidated Backlog item
-above (now includes the specific unused images identified to fill them).
-
----
-
-## Session: September 13, 2026 — Pricing ladder restructure
-
-Restructured the pricing ladder to add a true entry point and to stop
-special-casing package order and turnaround in individual pages.
-
-- [x] **Added a new entry-tier package, The Intimate Gathering** — a
-      2-hour package added as the first rung of the ladder, ahead of
-      Heritage Session (see Decisions above re: why it's priced above
-      Heritage's per-hour rate on purpose).
-- [x] **Rebalanced turnaround** — photo turnaround lengthened and film
-      turnaround shortened; the previous photo turnaround commitment
-      wasn't sustainable in practice.
-- [x] **Removed the id-based ordering special-case in
-      `PricingSection.astro`**, replaced with an explicit `order` field on
-      `Package`, read generically instead of switching on package id.
-- [x] **Heritage Session now renders its photo+film tier before its
-      photos-only tier**; the "Recommended" badge moved here from
-      Signature Gala (Gala not yet updated to match — see "Open — Pricing
-      & schema consistency" above).
-- [x] **Rush delivery add-on re-anchored** to the new baseline turnaround.
-- [x] **Removed the per-image add-on** from `pricing.ts` (deliberate — see
-      Decisions above) and cleaned up the orphaned reference to it in
-      `terms.astro`. **Not fully clean:** re-checking while writing this up,
-      `blog/blue-hour-holiday-portraits.astro` still has a leftover line
-      ("Option to add extra images or order prints through your gallery")
-      that reads as the same add-on — flagged as a new Backlog item below
-      rather than silently left undocumented.
-- [x] **`videography-katy-tx.astro` wired to `pricing.ts` for turnaround**
-      — was the last page hardcoding it, in three places, including the
-      FAQ JSON-LD's delivery-time sentence.
-- [x] **Event page FAQ rewritten** to reflect the full coverage ladder
-      (previously written around the old 2-package structure). Note: the
-      FAQ's JSON-LD twin was not part of this rewrite — see "Open —
-      Pricing & schema consistency" above.
-- [x] **NiO Chat content synced** (separate repo) — occasion matching now
-      gates on coverage duration before naming a specific package.
+      Pongal-placeholder decision — that swap already happened, see
+      "Already shipped."
+- [ ] **Pricing —** Confirm real WHCC wholesale costs to finalize
+      Legacy/Heritage/Gala pricing (currently placeholders, see Decisions
+      above).
 
 ---
 
