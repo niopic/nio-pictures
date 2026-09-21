@@ -18,6 +18,76 @@ const signatureGala = PACKAGES.find((p) => p.id === "signature-gala")!;
 const siteUrl = "https://niopictures.com";
 const eventHeroImagePath = eventsImages.pageHero.img.src;
 const eventHeroImageUrl = `${siteUrl}${eventHeroImagePath}`;
+const faqLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Do you photograph Indian and South Asian events in Katy TX?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. NiO Pictures specializes in Indian and South Asian cultural events including garba nights, sangeet, receptions, birthday milestones, and community celebrations throughout Katy, Houston, and Sugar Land, TX.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How far in advance should I book event photography in Katy TX?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We recommend booking at least 4-6 weeks in advance for private events, and 2-3 months ahead for larger corporate events or cultural celebrations to secure your preferred date.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you cover events in Houston and Sugar Land, not just Katy?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Absolutely. NiO Pictures is based in Katy TX but actively serves Houston, Sugar Land, and Richmond for all types of events - corporate, private, and cultural.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is included in event photography coverage?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: `Coverage starts at ${formatCoverageHours(intimateGathering.coverageHours)} with the Intimate Gathering, ${formatCoverageHours(heritageSession.coverageHours)} with the Heritage Session, and up to ${formatCoverageHours(signatureGala.coverageHours)} with the Signature Gala — every package includes professionally edited images in my cinematic style and delivery via a private online gallery. Additional coverage hours are available — contact me for custom quotes.`,
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Are you available on weekends and weeknights for events?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. NiO Pictures offers photography sessions on weekends and weeknight evenings throughout the Katy, Houston, Sugar Land, and Richmond areas.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you photograph baby and childhood milestone ceremonies like Seemantham, Namkaran, or Mundan?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. In addition to rice-feeding ceremonies (Annaprashan), NiO Pictures photographs Seemantham (also called Godh Bharai or Valaikappu), Namkaran naming ceremonies (Namakarana, Barasala), and Mundan (Chudakarana) first-haircut ceremonies for families throughout Katy, Houston, Sugar Land, and Richmond.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you photograph milestone birthdays like Sashthipoorthi or wedding anniversary celebrations?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. NiO Pictures photographs Sashthipoorthi (60th birthday), Bhimaratha Shanti (70th), Sadabhishekam (80th), and 25th and 50th wedding anniversary celebrations throughout the Katy and greater Houston area.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you photograph Upanayanam or thread ceremonies?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: `Yes. NiO Pictures photographs Upanayanam (also called Janeu or Poonal) sacred thread ceremonies for families in Katy and greater Houston. These ceremonies often run longer than other milestones - the ${signatureGala.name.replace(/^The /, "")} package is typically recommended, with additional coverage hours available.`,
+      },
+    },
+  ],
+});
 const eventHeroImageLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "ImageObject",
@@ -148,78 +218,11 @@ const highlightFilmLd = JSON.stringify({
         }
       }
     </script>
-    <script type="application/ld+json" is:inline>
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Do you photograph Indian and South Asian events in Katy TX?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. NiO Pictures specializes in Indian and South Asian cultural events including garba nights, sangeet, receptions, birthday milestones, and community celebrations throughout Katy, Houston, and Sugar Land, TX."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How far in advance should I book event photography in Katy TX?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We recommend booking at least 4-6 weeks in advance for private events, and 2-3 months ahead for larger corporate events or cultural celebrations to secure your preferred date."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do you cover events in Houston and Sugar Land, not just Katy?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Absolutely. NiO Pictures is based in Katy TX but actively serves Houston, Sugar Land, and Richmond for all types of events - corporate, private, and cultural."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is included in event photography coverage?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Coverage starts at 2 hours with the Intimate Gathering, 3 hours with the Heritage Session, and up to 4 hours with the Signature Gala — every package includes professionally edited images in my cinematic style and delivery via a private online gallery. Additional coverage hours are available — contact me for custom quotes."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Are you available on weekends and weeknights for events?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. NiO Pictures offers photography sessions on weekends and weeknight evenings throughout the Katy, Houston, Sugar Land, and Richmond areas."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do you photograph baby and childhood milestone ceremonies like Seemantham, Namkaran, or Mundan?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. In addition to rice-feeding ceremonies (Annaprashan), NiO Pictures photographs Seemantham (also called Godh Bharai or Valaikappu), Namkaran naming ceremonies (Namakarana, Barasala), and Mundan (Chudakarana) first-haircut ceremonies for families throughout Katy, Houston, Sugar Land, and Richmond."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do you photograph milestone birthdays like Sashthipoorthi or wedding anniversary celebrations?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. NiO Pictures photographs Sashthipoorthi (60th birthday), Bhimaratha Shanti (70th), Sadabhishekam (80th), and 25th and 50th wedding anniversary celebrations throughout the Katy and greater Houston area."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do you photograph Upanayanam or thread ceremonies?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. NiO Pictures photographs Upanayanam (also called Janeu or Poonal) sacred thread ceremonies for families in Katy and greater Houston. These ceremonies often run longer than other milestones - the Signature Gala package is typically recommended, with additional coverage hours available."
-            }
-          }
-        ]
-      }
-    </script>
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={faqLd}
+    ></script>
   </fragment>
 
   <a

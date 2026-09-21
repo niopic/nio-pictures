@@ -158,7 +158,6 @@ export const PACKAGES: Package[] = [
       "High-resolution downloads, full usage rights",
     ],
     tiers: [
-      { id: "gala-photos", label: "Photos only", price: 1400 },
       {
         id: "gala-film",
         label: "Photos + 4-minute cinematic highlight film",
@@ -167,6 +166,7 @@ export const PACKAGES: Package[] = [
         note: `Film tier includes layered sound design, ${formatTurnaroundAdj(GALA_FILM_TURNAROUND)} delivery`,
         turnaround: GALA_FILM_TURNAROUND,
       },
+      { id: "gala-photos", label: "Photos only", price: 1400 },
     ],
     order: 3,
   },
