@@ -118,7 +118,7 @@
   font-size: 0.58rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--muted-dark);
+  color: var(--muted);
 }
 
 .blog-meta-dot {
@@ -239,7 +239,7 @@
   font-size: 0.6rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--muted-dark);
+  color: var(--muted);
   flex-wrap: wrap;
 }
 
@@ -400,7 +400,7 @@
   font-family: var(--font-accent);
   font-size: 0.62rem;
   letter-spacing: 0.1em;
-  color: var(--muted-dark);
+  color: var(--muted);
   text-align: center;
   margin-top: 0.75rem;
 }
@@ -584,7 +584,7 @@
   font-size: 0.58rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--muted-dark);
+  color: var(--muted);
   margin-bottom: 2rem;
   flex-wrap: wrap;
 }
@@ -597,7 +597,7 @@
   color: var(--gold);
 }
 .post-breadcrumb-sep {
-  color: var(--muted-dark);
+  color: var(--muted);
 }
 
 /* ── Responsive ────────────────────────────────────────────── */
