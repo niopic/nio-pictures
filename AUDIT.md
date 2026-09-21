@@ -189,6 +189,21 @@ this list before "fixing" any of these:
       gallery." Verified against built `dist/` output.
 - [x] **8 zero-image pages** — all fixed. `katy-tx-photographer`, `houston`, `fulshear`, `sugar-land`, `richmond`, `cypress`, `corporate-photography`, `videography` all now have full-bleed page-hero images. `object-position: top center` applied to all 10 hero pages (8 new + events + family) to prevent face-cropping on desktop.
 - [x] **NiO Chat content synced** (separate repo) — occasion matching now gates on coverage duration before naming a specific package.
+- [x] **All 6 blog posts were missing the `<main>` landmark, so their
+      skip-links were dead** — each post has a
+      `<a href="#main-content" class="skip-link">` but no element carried
+      that id (one post had `id="main-content"` on a plain `<div>` that
+      didn't even wrap the full page). Fixed in `ee9aba8` — every post now
+      has a real `<main id="main-content">` wrapping all content.
+- [x] **All 6 blog posts (plus the blog index) failed WCAG AA color
+      contrast** — `.post-breadcrumb`, `.post-meta`, `.post-img-caption`,
+      and `.blog-meta` all used `--muted-dark` (`#6b5f52` on `#161412`
+      background, 2.96:1) instead of `--muted` (`#a89880`, ~6.5:1) — the
+      same tone already used for all other de-emphasized body text
+      site-wide. Fixed in `ee9aba8`. Found via `unlighthouse` audit against
+      production (see "Needs live tooling" below); same class of bug as
+      the PricingSection contrast fix already listed above, just never
+      caught on the blog template.
 
 ---
 
@@ -212,11 +227,39 @@ this list before "fixing" any of these:
 ---
 
 ## Needs live tooling (can't be verified from code)
-- [ ] **Core Web Vitals** — run `npx unlighthouse --site niopictures.com`; fix hero LCP if needed.
+- [x] **Core Web Vitals** — ran `unlighthouse` against production (25 pages
+      crawled, Sept 20, 2026). Performance 74-99, no page in the "poor"
+      bucket for any metric. Homepage LCP is 3.6s ("needs improvement," not
+      "poor") — server responds in 46ms and main-thread work is 0.3s, so
+      it's simulated mobile-network latency, not a real bottleneck; only
+      concrete opportunity is ~10.7KB more hero-image compression, not
+      worth prioritizing alone. This run is what surfaced the two blog
+      accessibility bugs now listed in "Already shipped" above.
 - [x] **Google Business Profile** alignment confirmed — NAP/reviews match, ZIP mismatch found and fixed (77449 → 77494).
 - [ ] **Indexation** — check Search Console coverage once new pages ship.
-- [ ] After deploy, validate JSON-LD in Google's **Rich Results Test**.
-- [ ] **Resubmit sitemap in Google Search Console** after the next deploy.
+      Needs your login; no code-side substitute exists.
+- [x] **Validated JSON-LD in Google's Rich Results Test** (Sept 20, 2026).
+      No errors, three non-critical warnings, all fixed:
+      - `event-photography-katy-tx`'s and `family-photography-katy-tx`'s
+        hero `ImageObject` blocks were missing the optional
+        `copyrightNotice` field, present on the
+        homepage/portfolio/`BaseLayout`'s equivalent blocks. Added
+        `copyrightNotice: "© 2026 NiO Pictures. All Rights Reserved."`
+        to both, matching the existing convention.
+      - Both `VideoObject` blocks (`event-photography-katy-tx` and the
+        homepage) had a bare-date `uploadDate` (e.g. `"2026-07-18"`),
+        flagged as invalid/missing timezone. Changed to full ISO 8601
+        datetimes (`"2026-07-18T00:00:00Z"`, `"2026-08-02T00:00:00Z"`).
+      All verified in built `dist/` output.
+- [x] **Resubmitted sitemap in Google Search Console** (Sept 20, 2026) —
+      already showed "Success," 26 discovered URLs, matching the local
+      build exactly. Requested re-indexing on
+      `event-photography-katy-tx` and the affected `PricingSection`
+      pages (`/`, `/family-photography-katy-tx`, `/book`) to pick up the
+      FAQ and Signature Gala tier-order changes sooner.
+- [ ] **Indexation** — check Search Console coverage (Indexing → Pages)
+      once you're back in there. Needs your login; no code-side
+      substitute exists.
 
 ---
 
