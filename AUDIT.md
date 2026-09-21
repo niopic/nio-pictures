@@ -115,6 +115,19 @@ this list before "fixing" any of these:
   (Security → Bots) and disabling Bot Fight Mode. Lesson: verify behavior
   against production with the actual client, not just the code — a code
   review cannot see the network edge.
+- **A build script can silently shadow a config file that looks correct
+  in the repo.** `public/_redirects` had the real legacy-redirect rules
+  (added across two commits) and looked like the live config — but
+  `scripts/minify-public-assets.mjs` copies `_redirects`/`_headers` from
+  the **repo root**, not `public/`, and runs *after* `astro build`, so it
+  silently overwrote Astro's correct copy with a stale, nearly-empty
+  root-level `_redirects` on every single build. The rules were never
+  live despite being committed and reviewed. Found September 20, 2026 via
+  a live curl showing `/services/` 404ing instead of redirecting — same
+  root cause as the Cloudflare AI-bot lesson above: verify against actual
+  built/deployed output, not just "the file exists in the repo." Fixed by
+  moving the real rules into the root `_redirects` (the one the build
+  actually reads) and deleting the dead `public/_redirects` copy.
 
 ---
 
@@ -204,6 +217,21 @@ this list before "fixing" any of these:
       production (see "Needs live tooling" below); same class of bug as
       the PricingSection contrast fix already listed above, just never
       caught on the blog template.
+- [x] **Legacy `/services/` redirect was dead — 404 in production despite
+      looking correctly configured in the repo.** The real redirect rules
+      lived in `public/_redirects`, but `scripts/minify-public-assets.mjs`
+      overwrites `dist/_redirects` from the **repo root** `_redirects`
+      after `astro build` runs — a stale, nearly-empty file — silently
+      discarding Astro's correct copy on every build. `/services/`,
+      `/gallery/`, `/gallery-1/`, `/gallery-2/`, `/pricing/`,
+      `/portfolio/`, `/home/`, and `/blog/blue-hour/` were all affected.
+      Found because `/services/` still ranks for "katy event
+      photographer" in search results (confirmed via live query) but sent
+      real clicks to a 404. Fixed — moved the real rules into the root
+      `_redirects` (also removed the redundant `.html` hop from each
+      target so they land on the final clean URL in one redirect, not
+      two), deleted the dead `public/_redirects`. Verified in built
+      `dist/_redirects` output. See "Process lessons" above.
 
 ---
 
@@ -257,9 +285,30 @@ this list before "fixing" any of these:
       `event-photography-katy-tx` and the affected `PricingSection`
       pages (`/`, `/family-photography-katy-tx`, `/book`) to pick up the
       FAQ and Signature Gala tier-order changes sooner.
-- [ ] **Indexation** — check Search Console coverage (Indexing → Pages)
-      once you're back in there. Needs your login; no code-side
-      substitute exists.
+- [x] **Indexation checked (Sept 21, 2026) — significant finding.** Only
+      9 of 40 known pages are indexed. Breakdown of the 31 not indexed:
+      Page with redirect (5), Not found/404 (4) — both likely stale
+      pre-restructure URLs, not concerning. **Discovered - currently not
+      indexed (17)** and **Crawled - currently not indexed (5)** are the
+      real signal: Google knows about these URLs (via the sitemap) but
+      hasn't prioritized crawling/indexing them. The "Discovered" list is
+      almost entirely real content — 5 of 6 blog posts,
+      `corporate-photography-katy-tx`, `cypress-tx-photographer`,
+      `event-photography-katy-tx`, `family-photography-katy-tx`,
+      `fulshear-tx-photographer` confirmed, likely more on the unreviewed
+      second page. This is **not a code/schema problem** — sitemap,
+      JSON-LD, and robots.txt are all confirmed correct earlier in this
+      session. "Discovered, not indexed" is a crawl-budget/site-authority
+      signal: Google deprioritizes crawling on sites with limited
+      backlink/authority signal. This directly reinforces "Non-repo — the
+      actual constraint" below, but sharpens it: it's not just that SEO
+      work has diminishing returns at the current ceiling — most pages
+      aren't indexed yet, so they can't rank *at all* regardless of
+      on-page quality. The fix is backlinks (decorator/temple/referral
+      outreach, already listed below), not more on-page optimization.
+      Tactical mitigation: manually requested indexing on
+      `event-photography-katy-tx` earlier this session; worth doing the
+      same for the other confirmed URLs above via URL Inspection.
 
 ---
 

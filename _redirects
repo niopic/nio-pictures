@@ -1,2 +1,12 @@
 # NiO Pictures — Cloudflare Pages Redirects
 # Note: 404.html is served automatically by Cloudflare Pages — no rule needed
+
+# Legacy URL redirects (permanent)
+/services/ /event-photography-katy-tx 301
+/gallery/ https://niopictures.pixieset.com/ 301
+/gallery-1/ https://niopictures.pixieset.com/ 301
+/gallery-2/ https://niopictures.pixieset.com/ 301
+/pricing/ /family-photography-katy-tx 301
+/portfolio/ /portfolio 301
+/home/ / 301
+/blog/blue-hour/ /blog/blue-hour-holiday-portraits 301
