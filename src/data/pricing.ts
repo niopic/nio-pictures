@@ -245,6 +245,25 @@ export const ADD_ONS: AddOn[] = [
   },
 ];
 
+/**
+ * Diwali Mini Sessions — standalone, time-boxed festival offer.
+ * NOT part of PACKAGES: it must never render as a 5th card in
+ * PricingSection.astro. Import this directly wherever it's needed.
+ */
+export const DIWALI_MINI = {
+  name: "Diwali Mini Sessions",
+  tagline: "A festive 30-minute portrait session, priced for the season.",
+  price: 295,
+  coverageMinutes: 30,
+  deliverables: [
+    "15 professionally edited images",
+    "7-day delivery",
+    "Private online gallery (Pixieset)",
+  ],
+  locationNote: "Location confirmed when you book your slot — Katy/Houston area",
+  bookingNote: "For a limited time only.",
+};
+
 /* ----------------------------- Helpers ----------------------------- */
 
 /** Format coverage hours as human-readable string, e.g. "3 hours", "90 minutes" */

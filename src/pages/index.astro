@@ -13,6 +13,7 @@ import {
   formatTurnaroundFull,
   priceFrom,
   priceTo,
+  DIWALI_MINI,
 } from "../data/pricing";
 
 const [optimizedEventsPanel, optimizedFamilyPanel] = await Promise.all([
@@ -894,6 +895,31 @@ const filmShowcaseLd = JSON.stringify({
     </section>
 
     <PricingSection />
+
+    <section
+      class="section"
+      aria-label="Diwali Mini Sessions"
+      style="background: var(--surface); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);"
+    >
+      <div class="container">
+        <div class="section-header center reveal">
+          <p class="eyebrow">Limited Time</p>
+          <div class="gold-line center gold-line-animate"></div>
+          <h2 class="display-md">{DIWALI_MINI.name}</h2>
+          <p
+            class="body-lg"
+            style="color: var(--muted); max-width: 480px; margin: 0 auto 2rem;"
+          >
+            {formatUSD(DIWALI_MINI.price)} · {DIWALI_MINI.bookingNote}
+          </p>
+        </div>
+        <div style="text-align:center;" class="reveal reveal-delay-1">
+          <a href="/diwali-mini-sessions" class="btn btn-gold-outline btn-arrow">
+            See Diwali Mini Sessions
+          </a>
+        </div>
+      </div>
+    </section>
 
     <section
       class="section"

@@ -702,6 +702,25 @@ export const housewarmingImages = {
   ),
 };
 
+export const diwaliMiniImages = {
+  pageHero: withDimensions(
+    portfolioDiwaliRedsaree,
+    "Diwali Mini Session studio portrait of a woman in red silk saree, Katy TX festival photography",
+  ),
+  gridSlot1: withDimensions(
+    portfolioDiwaliSherwani,
+    "Diwali Mini Session studio portrait, man in white sherwani, Katy TX",
+  ),
+  gridSlot2: withDimensions(
+    portfolioDiwaliDancepose,
+    "Diwali Mini Session studio portrait, celebratory pose, Katy TX",
+  ),
+  gridSlot3: withDimensions(
+    portfolioDiwaliCouple,
+    "Diwali Mini Session studio portrait, coordinated couple, Katy TX",
+  ),
+};
+
 export const halfSareeImages = {
   pageHero: withDimensions(
     halfSareeHaldiPortrait,
