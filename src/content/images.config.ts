@@ -704,8 +704,8 @@ export const housewarmingImages = {
 
 export const diwaliMiniImages = {
   pageHero: withDimensions(
-    portfolioDiwaliRedsaree,
-    "Diwali Mini Session studio portrait of a woman in red silk saree, Katy TX festival photography",
+    portfolioDiwaliCouple,
+    "Diwali Mini Session studio portrait, coordinated couple, Katy TX festival photography",
   ),
   gridSlot1: withDimensions(
     portfolioDiwaliSherwani,
@@ -716,8 +716,8 @@ export const diwaliMiniImages = {
     "Diwali Mini Session studio portrait, celebratory pose, Katy TX",
   ),
   gridSlot3: withDimensions(
-    portfolioDiwaliCouple,
-    "Diwali Mini Session studio portrait, coordinated couple, Katy TX",
+    portfolioDiwaliRedscarf,
+    "Diwali Mini Session studio portrait, man in blue kurta with red dupatta, Katy TX",
   ),
 };
 

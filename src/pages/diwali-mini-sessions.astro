@@ -157,10 +157,10 @@ const extraHead = `<script type="application/ld+json">
             src={diwaliMiniImages.gridSlot1.img}
             alt={diwaliMiniImages.gridSlot1.alt}
             loading="lazy"
-            widths={[400, 800, 1200]}
+            widths={[300, 400, 800]}
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            width={800}
-            height={600}
+            width={400}
+            height={533}
             style="background:var(--surface-2)"
           />
         </div>
@@ -224,3 +224,19 @@ const extraHead = `<script type="application/ld+json">
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .featured-grid .grid-item:nth-child(1) {
+    aspect-ratio: 3 / 4;
+  }
+  @media (max-width: 768px) {
+    .featured-grid .grid-item:nth-child(1) {
+      aspect-ratio: 3 / 4;
+    }
+  }
+  @media (max-width: 480px) {
+    .featured-grid .grid-item:nth-child(1) {
+      aspect-ratio: 3 / 4;
+    }
+  }
+</style>
