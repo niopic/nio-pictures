@@ -624,7 +624,7 @@ export const homeImages = {
   ),
   servicePanelFamily: withDimensions(
     homeFamilyPanel,
-    "Katy TX family photography panel image with warm connection and movement",
+    "Outdoor family portrait in natural golden-hour light in a Katy TX park, showing candid connection between a mother, teenage son, and father",
   ),
   gridSlot1: withDimensions(
     homeGridEvents,
