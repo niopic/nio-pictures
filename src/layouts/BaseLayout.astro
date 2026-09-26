@@ -274,6 +274,38 @@ const organizationSchema = {
             script.async = true;
             document.head.appendChild(script);
             gtag("js", new Date());
+
+            const AI_REFERRER_HOSTS = [
+              "chat.openai.com",
+              "chatgpt.com",
+              "perplexity.ai",
+              "www.perplexity.ai",
+              "gemini.google.com",
+              "copilot.microsoft.com",
+              "claude.ai",
+              "www.claude.ai",
+              "you.com",
+              "www.you.com",
+            ];
+
+            let referrerHost = "";
+            try {
+              referrerHost = document.referrer
+                ? new URL(document.referrer).hostname
+                : "";
+            } catch (e) {
+              referrerHost = "";
+            }
+
+            const isAiReferrer = AI_REFERRER_HOSTS.some(
+              (host) => referrerHost === host || referrerHost.endsWith("." + host),
+            );
+
+            gtag("set", {
+              traffic_source_type: isAiReferrer ? "ai_search" : "other",
+              referrer_domain: referrerHost || "(direct)",
+            });
+
             gtag("config", "G-1VZ3GPSWGH");
           };
 
