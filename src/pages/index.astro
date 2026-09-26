@@ -585,13 +585,13 @@ const filmShowcaseLd = JSON.stringify({
           and the small details you’ll want to revisit for years.
         </p>
         <div class="hero-actions">
-          <a href="/contact" class="btn btn-primary btn-arrow">
+          <a href="/contact" class="btn btn-primary btn-arrow" data-cta="hero_start_conversation">
             Start a Conversation
           </a>
-          <a href="#hybrid" class="btn btn-gold-outline btn-arrow">
+          <a href="#hybrid" class="btn btn-gold-outline btn-arrow" data-cta="hero_view_hybrid">
             View Hybrid Coverage
           </a>
-          <a href="/portfolio" class="btn btn-outline">
+          <a href="/portfolio" class="btn btn-outline" data-cta="hero_view_portfolio">
             View Portfolio
           </a>
         </div>
@@ -662,7 +662,7 @@ const filmShowcaseLd = JSON.stringify({
     </div>
 
     <div class="service-split" role="region" aria-label="Photography services">
-      <a href="/event-photography-katy-tx" class="service-panel">
+      <a href="/event-photography-katy-tx" class="service-panel" data-cta="panel_events">
         <div
           class="service-panel-bg"
           style={`background-image: url('${optimizedEventsPanel.src}'); background-color: #1a1816;`}
@@ -689,7 +689,7 @@ const filmShowcaseLd = JSON.stringify({
         </div>
       </a>
 
-      <a href="/family-photography-katy-tx" class="service-panel">
+      <a href="/family-photography-katy-tx" class="service-panel" data-cta="panel_family">
         <div
           class="service-panel-bg"
           style={`background-image: url('${optimizedFamilyPanel.src}'); background-color: #1c1915;`}
@@ -721,7 +721,7 @@ const filmShowcaseLd = JSON.stringify({
       style="text-align:center; padding: 1.25rem var(--gutter) 0; color: var(--muted);"
     >
       Also available:{" "}
-      <a href="/event-photography-katy-tx" style="color: var(--gold);">
+      <a href="/event-photography-katy-tx" style="color: var(--gold);" data-cta="text_corporate_link">
         Corporate &amp; Brand Photography →
       </a>
     </p>
@@ -837,7 +837,7 @@ const filmShowcaseLd = JSON.stringify({
             A glimpse of our cinematic highlight films.
           </p>
           <p class="body-sm" style="text-align: center; margin-top: 0.75rem;">
-            <a href="/videography-katy-tx" class="reviews-link">
+            <a href="/videography-katy-tx" class="reviews-link" data-cta="film_learn_more">
               Learn more about our film offerings →
             </a>
           </p>
@@ -914,7 +914,7 @@ const filmShowcaseLd = JSON.stringify({
           </p>
         </div>
         <div style="text-align:center;" class="reveal reveal-delay-1">
-          <a href="/diwali-mini-sessions" class="btn btn-gold-outline btn-arrow">
+          <a href="/diwali-mini-sessions" class="btn btn-gold-outline btn-arrow" data-cta="diwali_promo">
             See Diwali Mini Sessions
           </a>
         </div>
@@ -1052,7 +1052,7 @@ const filmShowcaseLd = JSON.stringify({
               </div>
             </div>
 
-            <a href="/about" class="btn btn-gold-outline btn-arrow">
+            <a href="/about" class="btn btn-gold-outline btn-arrow" data-cta="about_our_story">
               Our Story
             </a>
           </div>
@@ -1154,7 +1154,7 @@ const filmShowcaseLd = JSON.stringify({
         </div>
 
         <div style="text-align:center; margin-top: 3rem;" class="reveal">
-          <a href="/portfolio" class="btn btn-gold-outline btn-arrow">
+          <a href="/portfolio" class="btn btn-gold-outline btn-arrow" data-cta="gallery_view_full">
             View Full Gallery
           </a>
         </div>
@@ -1283,6 +1283,7 @@ const filmShowcaseLd = JSON.stringify({
             target="_blank"
             rel="noopener"
             class="reviews-link"
+            data-cta="reviews_google_link"
           >
             Read more reviews on Google →
           </a>
@@ -1314,10 +1315,10 @@ const filmShowcaseLd = JSON.stringify({
           {eventFrom}
         </p>
         <div style="display:flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="/contact" class="btn btn-primary btn-arrow">
+          <a href="/contact" class="btn btn-primary btn-arrow" data-cta="closing_start_conversation">
             Start a Conversation
           </a>
-          <a href="#hybrid" class="btn btn-outline">
+          <a href="#hybrid" class="btn btn-outline" data-cta="closing_ask_hybrid">
             Ask About Hybrid Film
           </a>
         </div>

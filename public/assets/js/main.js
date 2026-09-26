@@ -5,6 +5,17 @@
 (function () {
   "use strict";
 
+  /* ── CTA click tracking ──────────────────────────────────── */
+  document.addEventListener("click", (e) => {
+    const el = e.target.closest("[data-cta]");
+    if (!el) return;
+    gtag("event", "cta_click", {
+      cta_id: el.dataset.cta,
+      cta_location: el.dataset.ctaLocation || "homepage",
+      cta_href: el.getAttribute("href") || null,
+    });
+  });
+
   const normalizePath = (path) => {
     const stripped = (path || "").replace(/\/$/, "") || "/";
     return stripped === "/index.html" ? "/" : stripped;
@@ -301,6 +312,7 @@
     /* ── Film showcase: click-to-play ───────────────────────── */
     document.querySelectorAll(".film-poster").forEach((poster) => {
       const activate = () => {
+        gtag("event", "film_play", { video_id: poster.dataset.videoId });
         const videoId = poster.dataset.videoId;
         const iframe = document.createElement("iframe");
         iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&playsinline=1&rel=0`;

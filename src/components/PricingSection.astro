@@ -69,7 +69,7 @@ const ordered = [...PACKAGES].sort((a, b) => a.order - b.order);
             ))}
           </div>
 
-          <a class="card__cta" href={ctaHref}>
+          <a class="card__cta" href={ctaHref} data-cta={`pricing_${pkg.id}`} data-cta-location="homepage_pricing">
             {ctaLabel}
           </a>
         </article>

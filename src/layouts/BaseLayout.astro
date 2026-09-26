@@ -267,16 +267,7 @@ const organizationSchema = {
       window.addEventListener(
         "load",
         () => {
-          let analyticsLoaded = false;
-          const interactionEvents = ["pointerdown", "keydown", "submit"];
-
           const loadAnalytics = () => {
-            if (analyticsLoaded) return;
-            analyticsLoaded = true;
-            interactionEvents.forEach((eventName) => {
-              window.removeEventListener(eventName, loadAnalytics, true);
-            });
-
             const script = document.createElement("script");
             script.src =
               "https://www.googletagmanager.com/gtag/js?id=G-1VZ3GPSWGH";
@@ -286,13 +277,11 @@ const organizationSchema = {
             gtag("config", "G-1VZ3GPSWGH");
           };
 
-          interactionEvents.forEach((eventName) => {
-            window.addEventListener(eventName, loadAnalytics, {
-              once: true,
-              capture: true,
-              passive: true,
-            });
-          });
+          if ("requestIdleCallback" in window) {
+            requestIdleCallback(loadAnalytics, { timeout: 2000 });
+          } else {
+            setTimeout(loadAnalytics, 500);
+          }
         },
         { once: true },
       );
