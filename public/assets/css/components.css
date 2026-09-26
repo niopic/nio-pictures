@@ -497,6 +497,13 @@ header .reveal {
   transform: translateY(0);
 }
 
+@media (hover: none) {
+  .service-panel-desc {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ── Featured Grid ─────────────────────────────────────────── */
 .featured-grid {
   display: grid;
