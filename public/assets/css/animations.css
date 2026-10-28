@@ -99,6 +99,9 @@
 .reveal-delay-5 {
   transition-delay: var(--delay-5);
 }
+.reveal-delay-6 {
+  transition-delay: var(--delay-6);
+}
 
 /* ── Hero entrance ─────────────────────────────────────────── */
 .hero-content .eyebrow {

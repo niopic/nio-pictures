@@ -1,0 +1,282 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Nav from "../../components/Nav.astro";
+import { Image } from "astro:assets";
+import veliorGroup from "../../assets/images/blog-velior-group.webp";
+import veliorCape from "../../assets/images/blog-velior-runway-cape.webp";
+import veliorCar from "../../assets/images/blog-velior-car-display.webp";
+import veliorPair from "../../assets/images/blog-velior-rose-pink-pair.webp";
+
+const siteUrl = "https://niopictures.com";
+const heroImageUrl = `${siteUrl}${veliorGroup.src}`;
+const headline =
+  "Velior 3.0 Fashion Show Recap: Low-Light Event Photography in Houston";
+const title = `${headline} | NiO Pictures`;
+const description =
+  "NiO Pictures covered the Velior 3.0 Fashion Show at the Hilton Houston Post Oak as credentialed media: red carpet, runway, backstage and a car display in dim, mixed light.";
+const canonical =
+  "https://niopictures.com/blog/velior-3-fashion-show-houston-recap";
+const ogImage = heroImageUrl;
+
+const blogPostingLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline,
+  description,
+  image: heroImageUrl,
+  datePublished: "2026-10-28",
+  dateModified: "2026-10-28",
+  author: {
+    "@type": "Person",
+    name: "Palanivel",
+    url: "https://niopictures.com/about",
+  },
+  publisher: { "@id": "https://niopictures.com/#business" },
+  url: canonical,
+  keywords: [
+    "Houston event photographer",
+    "event photography Houston",
+    "Velior 3.0 Fashion Show",
+    "Hilton Houston Post Oak",
+    "low light event photography",
+    "Breast Cancer Awareness event Houston",
+    "Afro Vibes TV",
+    "Katy TX event photographer",
+  ],
+  mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+});
+
+const breadcrumbLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://niopictures.com/" },
+    { "@type": "ListItem", position: 2, name: "Blog", item: "https://niopictures.com/blog" },
+    { "@type": "ListItem", position: 3, name: headline, item: canonical },
+  ],
+});
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  extraStyles={["/assets/css/blog.css"]}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={blogPostingLd}></script>
+    <script type="application/ld+json" is:inline set:html={breadcrumbLd}></script>
+  </Fragment>
+  <a
+    href="#main-content"
+    class="skip-link"
+    style="position:absolute;top:-40px;left:1rem;background:var(--gold);color:var(--black);padding:0.5rem 1rem;border-radius:2px;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:9999;transition:top var(--dur-fast);"
+    onfocus="this.style.top='1rem'"
+    onblur="this.style.top='-40px'"
+  >
+    Skip to main content
+  </a>
+
+  <Nav currentPath="/blog" />
+
+  <main id="main-content">
+    <div class="post-hero">
+      <nav class="post-breadcrumb" aria-label="Breadcrumb">
+        <a href="/blog">Blog</a>
+        <span class="post-breadcrumb-sep">›</span>
+        <span>Velior 3.0 Fashion Show Recap</span>
+      </nav>
+      <span class="post-tag">Event Photography · Houston · Community</span>
+      <h1 class="post-title">
+        Velior 3.0 Fashion Show Recap:
+        <br />
+        Low-Light Event Photography in Houston
+      </h1>
+      <p style="font-family:var(--font-display);font-size:1.2rem;font-weight:300;font-style:italic;color:var(--muted);margin-top:0.5rem;margin-bottom:1.5rem;">
+        Red carpet, runway, backstage and a car display at the Hilton Houston Post Oak
+      </p>
+      <div class="post-meta">
+        <span>Palanivel</span>
+        <span class="blog-meta-dot" style="width:3px;height:3px;border-radius:50%;background:var(--muted-dark);"></span>
+        <span>October 28, 2026</span>
+        <span class="blog-meta-dot" style="width:3px;height:3px;border-radius:50%;background:var(--muted-dark);"></span>
+        <span>3 min read</span>
+      </div>
+    </div>
+
+    <div style="max-width:900px; margin:0 auto; padding:0 var(--gutter);">
+      <div class="post-img">
+        <Image
+          src={veliorGroup}
+          alt="Group portrait of six people in formal and festive outfits in the Hilton Houston Post Oak lobby during the Velior 3.0 Fashion Show, Houston TX"
+          width={900}
+          height={600}
+          loading="eager"
+          fetchpriority="high"
+          style="width:100%;height:auto;display:block;background:var(--surface-2);"
+        />
+        <p class="post-img-caption">
+          A group portrait in the Hilton Houston Post Oak lobby during Velior 3.0
+        </p>
+      </div>
+    </div>
+
+    <article class="post-body">
+      <p>
+        On Sunday, October 18, 2026, Afro Vibes TV &amp; Radio Station presented
+        the Velior 3.0 Fashion Show at the Hilton Houston Post Oak by the
+        Galleria, 2001 Post Oak Blvd in Houston, in support of Breast Cancer
+        Awareness (The Rose). I was there as a credentialed media photographer.
+        The red carpet was at 6 PM and the show started at 7 PM.
+      </p>
+
+      <p>
+        It was a different kind of evening from the ceremonies and family
+        sessions most of my work is built around, but the conditions will be
+        familiar to anyone who has hosted an evening event: a dim room, mixed
+        colored light, and people who keep moving.
+      </p>
+
+      <h2>Four Spaces, One Evening</h2>
+      <p>
+        The night moved across four spaces: the red carpet, the runway,
+        backstage, and a car display billed as &ldquo;Runway x Cars x
+        Culture.&rdquo; Each had its own light. In the lobby, window light mixed
+        with warm lamps. The ballroom runway combined colored ceiling washes
+        with chandelier light. The car display sat under purple light with a
+        crowd moving behind it.
+      </p>
+
+      <div class="post-img">
+        <Image
+          src={veliorCar}
+          alt="Guest in a sequined black sherwani beside a red sports car at the Velior 3.0 car display, Hilton Houston Post Oak, Houston TX"
+          width={900}
+          height={600}
+          loading="lazy"
+          style="width:100%;height:auto;display:block;background:var(--surface-2);"
+        />
+        <p class="post-img-caption">
+          The car display, part of &ldquo;Runway x Cars x Culture&rdquo;
+        </p>
+      </div>
+
+      <h2>What Fast, Low-Light Coverage Asks For</h2>
+      <p>
+        A runway gives you very little time per look, and the ceiling changes
+        color while the model walks. This is how I handled it:
+      </p>
+      <ul>
+        <li>One simple lens: a 50mm f/1.8, so I could keep a fast shutter without pushing the ISO.</li>
+        <li>Settings I could trust on the runway: ISO 400 at 1/250 sec, which kept the files clean and froze most of the walk.</li>
+        <li>Color set up front: a custom white balance from a gray card, so skin tones stayed true while the ceiling light shifted around them.</li>
+        <li>No flash at the red carpet, the runway or the car display, so the room&rsquo;s own light stays in the picture.</li>
+      </ul>
+
+      <div class="post-img">
+        <Image
+          src={veliorCape}
+          alt="Runway model in a sequined gown with a flowing satin cape at the Velior 3.0 Fashion Show in Houston TX, photographed in low ballroom light"
+          width={900}
+          height={600}
+          loading="lazy"
+          style="width:100%;height:auto;display:block;background:var(--surface-2);"
+        />
+        <p class="post-img-caption">Cape caught mid-turn on a moving runway</p>
+      </div>
+
+      <div class="post-pullquote">
+        <p>
+          The same skills apply to any evening event: a dim hall, moving people,
+          and light you don&rsquo;t control.
+        </p>
+      </div>
+
+      <h2>The Cause</h2>
+      <p>
+        Pink ran through the evening in support of Breast Cancer Awareness (The
+        Rose). Guest designer Bhawna Bangari of BMatchy (Austin) was part of the
+        show, and I&rsquo;m sharing the work here with her permission.
+      </p>
+
+      <div class="post-img">
+        <Image
+          src={veliorPair}
+          alt="Two women walking the runway in pink at the Velior 3.0 Fashion Show for Breast Cancer Awareness in Houston TX, one in a The Rose Velior 3.0 shirt"
+          width={900}
+          height={600}
+          loading="lazy"
+          style="width:100%;height:auto;display:block;background:var(--surface-2);"
+        />
+        <p class="post-img-caption">
+          Pink on the runway for Breast Cancer Awareness
+        </p>
+      </div>
+
+      <p>
+        Presented by
+        <a href="https://www.instagram.com/afrovibestvradio" target="_blank" rel="noopener noreferrer">@afrovibestvradio</a>.
+        Event:
+        <a href="https://www.instagram.com/veliorfashionshow" target="_blank" rel="noopener noreferrer">@veliorfashionshow</a>.
+        Guest designer:
+        <a href="https://www.instagram.com/bmatchy" target="_blank" rel="noopener noreferrer">@bmatchy</a>.
+      </p>
+
+      <h2>If You&rsquo;re Hosting an Evening Event</h2>
+      <p>
+        If you&rsquo;re planning a gala, fundraiser, stage program or ceremony in
+        a dim hall in Houston, Katy, Fulshear, Sugar Land or the greater Fort
+        Bend area, I&rsquo;d love to talk about how to cover it. I offer:
+      </p>
+      <ul>
+        <li>Coverage that stays natural in dim halls and mixed light</li>
+        <li>Candid and posed moments from the same evening</li>
+        <li>On-location coverage with no studio required</li>
+        <li>Experience photographing families, events, and large gatherings</li>
+      </ul>
+
+      <div class="post-divider"></div>
+
+      <div class="post-cta">
+        <h3>Hosting an Evening Event?</h3>
+        <p>
+          Tell me about the room, the schedule, and what you want to remember.
+          I&rsquo;ll tell you how I&rsquo;d cover it.
+        </p>
+        <a href="/contact" class="btn btn-primary btn-arrow">
+          Start a Conversation
+        </a>
+        <a href="/event-photography-katy-tx" class="btn btn-outline" style="margin-left:0.5rem;">
+          Event Photography
+        </a>
+      </div>
+    </article>
+
+    <div class="related-posts">
+      <p class="eyebrow">Read Next</p>
+      <div class="related-grid">
+        <a href="/blog/spring-fling-st-peters-ecdc-katy-tx" class="related-card">
+          <p class="related-tag">Event</p>
+          <p class="related-title">
+            Capturing Community: Spring Fling at St. Peter&rsquo;s ECDC, Katy TX
+          </p>
+        </a>
+        <a href="/blog/suited-up-golden-hour-river-green-park" class="related-card">
+          <p class="related-tag">Family · Community</p>
+          <p class="related-title">
+            Suited Up at Golden Hour: Grad Boys Portraits at River Green Park
+          </p>
+        </a>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style is:global>
+  body {
+    background: var(--surface);
+    color: var(--text);
+    font-family: var(--font-body);
+  }
+</style>

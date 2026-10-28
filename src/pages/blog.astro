@@ -8,6 +8,7 @@ import blogBluehour from "../assets/images/blog-bluehour.webp";
 import blogEditorialHero from "../assets/images/blog-editorial-hero.webp";
 import blogSuitUp from "../assets/images/blog-spring-fling-2026-2.webp";
 import blogSpringFling from "../assets/images/blog-spring-fling-2026-1.webp";
+import blogVelior from "../assets/images/blog-velior-group.webp";
 const title =
   "Blog | Photography Tips, Stories \u0026 Guides | NiO Pictures Katy TX";
 const description =
@@ -141,8 +142,44 @@ const extraHead = `<script type="application/ld+json">
       <!-- Post grid -->
       <div class="blog-grid">
         <a
-          href="/blog/how-to-prepare-family-portrait-session"
+          href="/blog/velior-3-fashion-show-houston-recap"
           class="blog-card reveal reveal-delay-1"
+          data-cat="event community"
+        >
+          <div class="blog-card-img">
+            <Image
+              src={blogVelior}
+              alt="Group portrait of six people in formal and festive outfits in the Hilton Houston Post Oak lobby during the Velior 3.0 Fashion Show, Houston TX"
+              widths={[300, 600, 900]}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, calc(50% - 1rem)"
+              width={600}
+              height={338}
+              loading="lazy"
+              style="width:100%;height:100%;object-fit:cover;background:var(--surface-2);"
+            />
+          </div>
+          <div class="blog-card-body">
+            <p class="blog-tag">Event · Houston</p>
+            <h2 class="blog-card-title">
+              Velior 3.0 Fashion Show Recap: Low-Light Event Photography in Houston
+            </h2>
+            <p class="blog-card-excerpt">
+              Red carpet, runway, backstage and a car display at the Hilton Houston
+              Post Oak, covered as credentialed media in dim, mixed light, in support
+              of Breast Cancer Awareness.
+            </p>
+            <div class="blog-meta" style="margin-bottom:0.75rem;">
+              <span>October 28, 2026</span>
+              <span class="blog-meta-dot"></span>
+              <span>3 min read</span>
+            </div>
+            <div class="read-more">Read more →</div>
+          </div>
+        </a>
+
+        <a
+          href="/blog/how-to-prepare-family-portrait-session"
+          class="blog-card reveal reveal-delay-2"
           data-cat="tips family"
         >
           <div class="blog-card-img">
@@ -178,7 +215,7 @@ const extraHead = `<script type="application/ld+json">
 
         <a
           href="/blog/blue-hour-holiday-portraits"
-          class="blog-card reveal reveal-delay-2"
+          class="blog-card reveal reveal-delay-3"
           data-cat="family tips"
         >
           <div class="blog-card-img">
@@ -214,7 +251,7 @@ const extraHead = `<script type="application/ld+json">
 
         <a
           href="/blog/editorial-portrait-photography"
-          class="blog-card reveal reveal-delay-3"
+          class="blog-card reveal reveal-delay-4"
           data-cat="editorial"
         >
           <div class="blog-card-img">
@@ -250,7 +287,7 @@ const extraHead = `<script type="application/ld+json">
 
         <a
           href="/blog/suited-up-golden-hour-river-green-park"
-          class="blog-card reveal reveal-delay-4"
+          class="blog-card reveal reveal-delay-5"
           data-cat="family community event"
         >
           <div class="blog-card-img">
@@ -286,7 +323,7 @@ const extraHead = `<script type="application/ld+json">
 
         <a
           href="/blog/spring-fling-st-peters-ecdc-katy-tx"
-          class="blog-card reveal reveal-delay-5"
+          class="blog-card reveal reveal-delay-6"
           data-cat="event community"
         >
           <div class="blog-card-img">
