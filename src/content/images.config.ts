@@ -43,6 +43,13 @@ import portfolioDiwaliDancepose from "../assets/images/portfolio/portfolio-diwal
 import portfolioDiwaliMaroonblouse from "../assets/images/portfolio/portfolio-diwali-maroonblouse.webp";
 import portfolioDiwaliSeafoam from "../assets/images/portfolio/portfolio-diwali-seafoam.webp";
 import portfolioDiwaliCouple from "../assets/images/portfolio/portfolio-diwali-couple.webp";
+import portfolioVeliorRunwayCape from "../assets/images/portfolio/portfolio-velior-runway-cape.webp";
+import portfolioVeliorLobbyPortrait from "../assets/images/portfolio/portfolio-velior-lobby-portrait.webp";
+import portfolioVeliorCarDisplay from "../assets/images/portfolio/portfolio-velior-car-display.webp";
+import portfolioVeliorRunwayRose from "../assets/images/portfolio/portfolio-velior-runway-rose.webp";
+import portfolioVeliorBluePortrait from "../assets/images/portfolio/portfolio-velior-blue-portrait.webp";
+import portfolioVeliorRosePinkPair from "../assets/images/portfolio/portfolio-velior-rose-pink-pair.webp";
+import portfolioVeliorRunwayMagenta from "../assets/images/portfolio/portfolio-velior-runway-magenta.webp";
 
 import homeAboutPortrait from "../assets/images/home-about-portrait.webp";
 import homeAboutMain from "../assets/images/home-about-main.webp";
@@ -610,6 +617,76 @@ export const portfolioImages: PortfolioImage[] = [
       "A coordinated couple portrait from a Houston-area Diwali studio session, warm light and easy connection.",
     link: "/about",
     linkText: "Meet the Photographer",
+  },
+  {
+    key: "portfolio-velior-runway-cape",
+    img: portfolioVeliorRunwayCape,
+    alt: "Runway model in a sequined gown with a flowing satin cape at the Velior 3.0 Fashion Show in Houston TX, photographed in low ballroom light",
+    category: "fashion-events",
+    label: "Runway Coverage",
+    caption: "Cape caught at its peak mid-turn, held sharp on a moving runway in dim ballroom light.",
+    link: "/event-photography-katy-tx",
+    linkText: "Event Photography",
+  },
+  {
+    key: "portfolio-velior-lobby-portrait",
+    img: portfolioVeliorLobbyPortrait,
+    alt: "Portrait of a guest in an embroidered black jacket at the Velior 3.0 Fashion Show, Hilton Houston Post Oak, Houston TX",
+    category: "fashion-events",
+    label: "Event Portraits",
+    caption: "A portrait made between moments at an evening event, with mixed window and room light under control.",
+    link: "/event-photography-katy-tx",
+    linkText: "Event Photography",
+  },
+  {
+    key: "portfolio-velior-car-display",
+    img: portfolioVeliorCarDisplay,
+    alt: "Guest in a sequined black sherwani beside a red sports car on display at the Velior 3.0 Fashion Show, Hilton Houston Post Oak, Houston TX",
+    category: "fashion-events",
+    label: "Event Coverage",
+    caption: "A car display under purple ceiling light, with the guest, the paint, and the room behind him all in one frame.",
+    link: "/event-photography-katy-tx",
+    linkText: "Event Photography",
+  },
+  {
+    key: "portfolio-velior-runway-rose",
+    img: portfolioVeliorRunwayRose,
+    alt: "Runway model in a red rose-brocade suit at the Velior 3.0 Fashion Show in Houston TX with a chandelier and Afro Vibes TV screen behind",
+    category: "fashion-events",
+    label: "Runway Coverage",
+    caption: "Walking toward the lens under mixed light, with chandelier and screen glow balanced in the same frame.",
+    link: "/event-photography-katy-tx",
+    linkText: "Event Photography",
+  },
+  {
+    key: "portfolio-velior-blue-portrait",
+    img: portfolioVeliorBluePortrait,
+    alt: "Close portrait of a guest in a blue beaded gown with gold hair jewelry at the Velior 3.0 Fashion Show in Houston TX",
+    category: "fashion-events",
+    label: "Event Portraits",
+    caption: "Natural skin tone and fine detail in a dark room, the same discipline an evening celebration needs.",
+    link: "/event-photography-katy-tx",
+    linkText: "Event Photography",
+  },
+  {
+    key: "portfolio-velior-rose-pink-pair",
+    img: portfolioVeliorRosePinkPair,
+    alt: "Two women walking the runway in pink at the Velior 3.0 Fashion Show for Breast Cancer Awareness in Houston TX, one in a The Rose Velior 3.0 shirt",
+    category: "fashion-events",
+    label: "Event Coverage",
+    caption: "Pink on the runway for Breast Cancer Awareness, caught mid-stride in mixed ballroom light.",
+    link: "/event-photography-katy-tx",
+    linkText: "Event Photography",
+  },
+  {
+    key: "portfolio-velior-runway-magenta",
+    img: portfolioVeliorRunwayMagenta,
+    alt: "Runway model in a magenta pleated strapless gown with red crystal earrings at the Velior 3.0 Fashion Show in Houston TX",
+    category: "fashion-events",
+    label: "Runway Coverage",
+    caption: "Shot from the floor as the show moved, with fabric texture and chandelier highlights held in a dark ballroom.",
+    link: "/event-photography-katy-tx",
+    linkText: "Event Photography",
   },
 ];
 

@@ -93,6 +93,22 @@ const sectionDefs = [
       "portfolio-editorial-1",
     ],
   },
+  {
+    id: "fashion-events",
+    heading: "Fashion & Events",
+    intro:
+      "Runway and portrait coverage from the Velior 3.0 Fashion Show in Houston: fast-moving subjects under dim, mixed light, the same conditions as an evening celebration or stage program.",
+    category: "fashion-events",
+    order: [
+      "portfolio-velior-runway-cape",
+      "portfolio-velior-lobby-portrait",
+      "portfolio-velior-car-display",
+      "portfolio-velior-runway-rose",
+      "portfolio-velior-blue-portrait",
+      "portfolio-velior-rose-pink-pair",
+      "portfolio-velior-runway-magenta",
+    ],
+  },
 ];
 
 type PortfolioItem = (typeof portfolioImages)[0];
@@ -114,7 +130,7 @@ const sections = sectionDefs.map((def) => ({
   ),
 }));
 
-// Global ordered array (all 39 in section order) for lightbox navigation
+// Global ordered array (in section order) for lightbox navigation
 const orderedImages = sections.flatMap((s) => s.items);
 
 const lightboxImages = await Promise.all(
@@ -267,7 +283,7 @@ const extraHead = `<script type="application/ld+json">${JSON.stringify(breadcrum
       </section>
     ))}
 
-    <!-- Image data for lightbox (in section order: halfsaree → housewarming → events → family → editorial) -->
+    <!-- Image data for lightbox (in section order: halfsaree → housewarming → events → family → editorial → fashion-events) -->
     <script
       id="port-data"
       type="application/json"
